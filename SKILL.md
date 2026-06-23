@@ -132,7 +132,7 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 
 ## 知识库同步
 
-当用户说"更新知识库"、"同步知识"、"刷新 skill"、"拉取最新文档"时，执行以下同步流程：
+当用户说"更新知识库"、"同步知识"、"sync knowledge"时，执行以下 6 步同步流程：
 
 ### 前置条件
 
@@ -141,17 +141,13 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 
 ### 同步步骤
 
-**第一步：从飞书拉取文档**
+**第一步：从飞书拉取并更新知识文件**
 
 ```bash
 lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-format markdown --as user
 ```
 
-从返回的 JSON 中提取 `data.document.content` 字段（即完整 markdown 内容）。
-
-**第二步：拆分写入本地 references/**
-
-按 H1 和 H2 标题自动拆分，写入 `references/` 目录：
+从返回的 JSON 中提取 `data.document.content` 字段（即完整 markdown 内容），按 H1/H2 标题拆分写入 `references/` 目录：
 
 | 参考文件 | 包含的 H1/H2 章节标题（精确匹配） |
 |---|---|
@@ -160,45 +156,44 @@ lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-fo
 | payments.md | 签约授权、付款 |
 | global-rules.md | 平台管理、区域划分、业务属性、角色、账户、全局规则、公司和门店编码生成规则、商户入驻状态、资金账单下载、商户提现、清算订单状态、清算批次号生成规则、清算文件状态、清算批次状态、退款扣保、合约变更系统流水号、协议代扣、授权代付、银行卡号和手机号脱敏规则、对外付款 |
 
-拆分规则：
-- 按 `# ` (H1) 和 `## ` (H2) 级别切割，每个标题（含其下级内容）作为一个 section
-- 将每个 section 按标题名称归入对应的参考文件（未匹配的 section 丢弃）
-- 每个参考文件开头加一行 HTML 注释标明来源和同步时间
+拆分规则：按 `# ` (H1) 和 `## ` (H2) 级别切割，每个标题（含其下级内容）作为一个 section，按标题名称归入对应参考文件（未匹配的 section 丢弃）。
 
-**第三步：版本号自增**
+**第二步：更新 SKILL.md 并复制产出物**
 
-- 读取本地 SKILL.md 的 `version` 字段（如 `1.2.0`）
-- Patch 版本号 +1（如 `1.2.0` → `1.3.0`）
+- 读取本地 SKILL.md 的 `version` 字段，Patch 版本号 +1（如 `1.3.0` → `1.4.0`）
 - 更新 SKILL.md 的 `version` 字段为新版本号
+- 在 `/Users/joes/Documents/文件/Agent产出物/basalt-os-guide/v{版本号}_{日期}/` 下创建子文件夹，复制 SKILL.md + 4 个 reference 文件
 
-**第四步：复制到产出物文件夹**
+**第三步：更新 CHANGELOG**
 
-在 `/Users/joes/Documents/文件/Agent产出物/basalt-os-guide/` 下创建以版本号和日期命名的子文件夹：
+在本地 `CHANGELOG.md` 顶部追加新版本记录，格式：
 
+```markdown
+## [{版本号}] — {日期}
+
+### 更新内容
+- 从飞书同步最新知识内容
 ```
-/Users/joes/Documents/文件/Agent产出物/basalt-os-guide/v{版本号}_{日期}/
-├── merchants.md
-├── clearing.md
-├── payments.md
-└── global-rules.md
-```
 
-文件夹命名示例：`v1.3.0_20260623`
+**第四步：更新落地页和 README**
+
+- `index.html`（落地页）：更新版本号（badge 和 footer 两处）和日期
+- `README.md`：检查内容是否需要同步更新（通常不需要，除非模块结构发生变化）
 
 **第五步：推送到 GitHub**
 
-将以下文件推送到 `Joelmes/basalt-os-guide-skill` 仓库：
+将以下文件推送到 `Joelmes/basalt-os-guide-skill` 仓库（main 分支）：
 
 | 文件 | 说明 |
 |---|---|
 | `references/*.md` | 4 个知识参考文件 |
 | `SKILL.md` | 含更新后的版本号 |
+| `CHANGELOG.md` | 含新版本记录 |
 | `version.json` | 更新 version、updated、changes 字段 |
-| `index.html` | 更新落地页中的版本号（badge 和 footer 两处）和日期 |
+| `index.html` | 更新落地页版本号和日期 |
+| `README.md` | 如有变更则推送 |
 
-落地页版本更新方法：将 `basalt-os-guide-landing.html` 中的 `v{旧版本号}` 替换为 `v{新版本号}`，日期替换为今天。
-
-`version.json` 更新规则：
+`version.json` 格式：
 ```json
 {
   "version": "{新版本号}",
@@ -208,43 +203,25 @@ lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-fo
 }
 ```
 
-GitHub PAT 存储在 macOS Keychain 中，通过 `security find-generic-password` 获取。如获取失败，提示用户手动提供 token。
+GitHub PAT 通过 `security find-generic-password -s "github.com" -w` 获取。如获取失败，提示用户手动提供 token。
 
-**第六步：汇报结果**
+**第六步：版本检查**
 
-同步完成后，汇报：
-- 飞书文档字符数
-- 4 个参考文件的字符数和章节数
-- 新版本号
-- GitHub 推送状态
-- 产出物文件夹路径
+模拟其他已安装用户的检查更新流程：
+1. 读取本地 SKILL.md 的 `version` 字段（代表刚更新后的版本）
+2. 从 GitHub 获取 `version.json`：`curl -s https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/version.json`
+3. 比对版本号，确认一致
+4. 汇报：本地版本、GitHub 版本、是否一致
 
 ### 错误处理
 
-- 如果飞书 fetch 失败，**保留本地缓存不覆盖**，告知用户失败原因，中止后续步骤
-- 如果 GitHub 推送失败，本地文件和产出物文件夹不受影响，只提示用户推送失败
-- 如果 lark-cli 未安装或未认证，跳过同步，提示用户本地缓存仍可使用
+- 飞书 fetch 失败 → **保留本地缓存不覆盖**，告知失败原因，中止后续步骤
+- GitHub 推送失败 → 本地文件和产出物不受影响，只提示推送失败
+- lark-cli 未安装 → 跳过同步，提示本地缓存仍可使用
 
-### 手动拆分同步
+### 部分更新
 
-如果用户只想更新某个模块（如"更新付款的知识"），仍然 fetch 完整文档，但只覆盖对应的参考文件。其余步骤（版本、GitHub、产出物文件夹）照常执行。
-
-## 版本检查
-
-本 Skill 支持版本检查，帮助用户确认是否为最新版本。
-
-### 手动检查
-
-当用户说"检查更新"、"skill版本"、"有没有新版本"时：
-
-1. 读取本地 SKILL.md 的 `version` 字段
-2. 从 GitHub 获取最新版本：`curl -s https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/version.json`
-3. 比对版本号：远程 > 本地 → 显示更新内容；版本相同 → 告知已是最新
-4. 如有新版本，提示用户执行"更新知识库"同步
-
-### 自动检查（同步时）
-
-执行"更新知识库"时，第五步推送完成后自动比对版本，如有变化在汇报中显示更新内容。
+如果用户只想更新某个模块（如"更新付款的知识"），仍然 fetch 完整文档，但只覆盖对应的参考文件。其余步骤照常执行。
 
 ## 详细知识
 
