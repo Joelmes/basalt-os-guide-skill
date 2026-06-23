@@ -2,47 +2,24 @@
 
 Basalt OS 清算分账系统的 AI Agent Skill（只读知识库）。
 
-安装后，你的 AI Agent 可以回答关于 Basalt OS 清算分账系统的所有业务问题，包括账户体系、商户入驻、清算流程、协议代扣/授权代付、退款退保、提现、对账、费率、角色权限、外部系统同步等。
+安装后，你的 AI Agent 可以回答关于 Basalt OS 清算分账系统的所有业务问题，包括账户体系、商户管理、清算流程、协议代扣/授权代付、退款退保、提现、费率、角色权限等。
 
 ## 快速安装
 
-适用于所有支持 Shell 命令的 AI Agent（QoderWork、Claude Code、Codex、Cursor、Cline 等）。
-
-将以下命令发给你的 Agent，它会自动执行安装：
-
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh)
+npx skills add Joelmes/basalt-os-guide-skill -g
 ```
 
-安装脚本会自动检测 Agent 环境并选择正确的安装路径。如需指定 Agent，可加参数：
-
-```bash
-bash <(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh) --agent=qoderwork
-```
-
-支持的 Agent 参数：`qoderwork`、`claude`、`cursor`、`codex`、`cline`。也可以用 `--path=/your/path` 指定自定义路径。
-
-### 手动安装
-
-```bash
-git clone https://github.com/Joelmes/basalt-os-guide-skill.git ~/.qoderworkcn/skills/basalt-os-guide
-```
+适用于 Claude Code、Gemini CLI、Cursor、Cline、Windsurf、Codex 等 20+ Agent 环境，`npx skills` 会自动检测并安装到对应路径。`-g` 表示全局安装。
 
 ## 知识模块
 
 | 模块 | 文件 | 覆盖内容 |
 |---|---|---|
-| 账户体系 | `references/accounts.md` | 5 类账户、前缀规则、余额查询 |
-| 商户入驻 | `references/onboarding.md` | 预入驻+激活、POS 绑定、状态流转 |
-| 清算流程 | `references/clearing.md` | 12 步全流程、批次提交、资金归集 |
-| 付款与协议 | `references/payments.md` | 协议代扣/授权代付、签约/解约 |
-| 退款与退保 | `references/refunds.md` | 扣保退保 4 步、deposit.notify 类型 |
-| 提现 | `references/withdrawal.md` | 提现流程、费率回收、银行卡绑定 |
-| 对账 | `references/reconciliation.md` | 提现费率对账、回单下载 |
-| 外部同步 | `references/external-sync.md` | 10 个同步点、双保险机制 |
-| 费率 | `references/fees.md` | 各业务费率、计费示例 |
-| 角色权限 | `references/roles-permissions.md` | 角色定义、两步审批、商户限权 |
-| 问题排查 | `references/troubleshooting.md` | 常见错误、排查步骤、错误码 |
+| 商户管理 | `references/merchants.md` | 5 类账户、品牌/总部/区域/门店商户、资金账户、提现 |
+| 清算流程 | `references/clearing.md` | 清算订单、清算文件、清算批次、退款扣保 |
+| 付款与签约 | `references/payments.md` | 签约授权、协议代扣/授权代付、付款记录、退款 |
+| 平台与规则 | `references/global-rules.md` | 平台管理、编码规则、状态机、费率、角色权限 |
 
 ## 使用方式
 
@@ -50,26 +27,25 @@ git clone https://github.com/Joelmes/basalt-os-guide-skill.git ~/.qoderworkcn/sk
 
 - "协议代扣和授权代付有什么区别？"
 - "清算批次状态是 PART_SUCCESS 怎么处理？"
-- "deposit.notify 类型 1 和类型 5 有什么区别？"
 - "提现手续费怎么收？商户看到全额吗？"
+- "商户子户出金有额度限制吗？"
 
 Agent 会自动根据关键词路由到对应知识模块，返回带接口编号和状态值的精准答案。
+
+## 弹性更新
+
+知识库来源为飞书产品需求文档，支持从飞书实时同步最新内容。安装后对 Agent 说"更新知识库"即可拉取最新文档并自动拆分到本地参考文件。
 
 ## 工作原理
 
 ```
-SKILL.md（路由入口，~100 行）
+SKILL.md（路由入口）
 ├── 知识路由表（关键词 → reference 文件映射）
-├── 快速 FAQ（10 个高频问题，无需读取 reference）
+├── 快速 FAQ（高频问题，无需读取 reference）
 ├── 术语对照表
-└── references/（11 个详细知识模块，按需加载）
+├── 飞书知识源注册表（弹性更新配置）
+└── references/（4 个模块化知识文件，按需加载）
 ```
-
-Agent 收到问题后，先从 SKILL.md 的路由表匹配关键词，再读取对应 reference 文件获取完整信息。未命中关键词时回退到 troubleshooting.md。
-
-## 更新
-
-产品功能迭代时，更新 `references/` 下对应模块文件即可。已安装用户重新执行安装命令会覆盖更新。
 
 ## License
 
