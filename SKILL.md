@@ -1,7 +1,7 @@
 ---
 name: basalt-os-guide
 description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接等全部业务领域。当用户询问 Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。仅做知识查询，不包含数据读写操作。
-version: 1.2.0
+version: 1.3.0
 ---
 
 # Basalt OS 清算分账系统 — 使用指南
@@ -125,12 +125,17 @@ version: 1.2.0
 
 ### 同步步骤
 
-1. 从飞书拉取完整文档：
-   ```bash
-   lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-format markdown --as user
-   ```
-2. 从返回的 JSON 中提取 `data.document.content` 字段（即完整 markdown 内容）
-3. 按 H1 和 H2 标题自动拆分为模块化参考文件，写入 `references/` 目录：
+**第一步：从飞书拉取文档**
+
+```bash
+lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-format markdown --as user
+```
+
+从返回的 JSON 中提取 `data.document.content` 字段（即完整 markdown 内容）。
+
+**第二步：拆分写入本地 references/**
+
+按 H1 和 H2 标题自动拆分，写入 `references/` 目录：
 
 | 参考文件 | 包含的 H1/H2 章节标题（精确匹配） |
 |---|---|
@@ -139,21 +144,71 @@ version: 1.2.0
 | payments.md | 签约授权、付款 |
 | global-rules.md | 平台管理、区域划分、业务属性、角色、账户、全局规则、公司和门店编码生成规则、商户入驻状态、资金账单下载、商户提现、清算订单状态、清算批次号生成规则、清算文件状态、清算批次状态、退款扣保、合约变更系统流水号、协议代扣、授权代付、银行卡号和手机号脱敏规则、对外付款 |
 
-4. 拆分规则：
-   - 按 `# ` (H1) 和 `## ` (H2) 级别切割正文段落，每个标题（含其下级内容）作为一个 section
-   - 将每个 section 按标题名称归入上方对应的参考文件（未匹配的 section 丢弃）
-   - 每个参考文件开头加一行 HTML 注释标明来源和同步时间
-5. 汇报同步结果：成功写入的文件数、各文件字符数
+拆分规则：
+- 按 `# ` (H1) 和 `## ` (H2) 级别切割，每个标题（含其下级内容）作为一个 section
+- 将每个 section 按标题名称归入对应的参考文件（未匹配的 section 丢弃）
+- 每个参考文件开头加一行 HTML 注释标明来源和同步时间
+
+**第三步：版本号自增**
+
+- 读取本地 SKILL.md 的 `version` 字段（如 `1.2.0`）
+- Patch 版本号 +1（如 `1.2.0` → `1.3.0`）
+- 更新 SKILL.md 的 `version` 字段为新版本号
+
+**第四步：复制到产出物文件夹**
+
+在 `/Users/joes/Documents/文件/Agent产出物/basalt-os-guide/` 下创建以版本号和日期命名的子文件夹：
+
+```
+/Users/joes/Documents/文件/Agent产出物/basalt-os-guide/v{版本号}_{日期}/
+├── merchants.md
+├── clearing.md
+├── payments.md
+└── global-rules.md
+```
+
+文件夹命名示例：`v1.3.0_20260623`
+
+**第五步：推送到 GitHub**
+
+将以下文件推送到 `Joelmes/basalt-os-guide-skill` 仓库：
+
+| 文件 | 说明 |
+|---|---|
+| `references/*.md` | 4 个知识参考文件 |
+| `SKILL.md` | 含更新后的版本号 |
+| `version.json` | 更新 version、updated、changes 字段 |
+
+`version.json` 更新规则：
+```json
+{
+  "version": "{新版本号}",
+  "name": "basalt-os-guide",
+  "updated": "{今天日期}",
+  "changes": ["从飞书同步最新知识内容"]
+}
+```
+
+GitHub PAT 存储在 macOS Keychain 中，通过 `security find-generic-password` 获取。如获取失败，提示用户手动提供 token。
+
+**第六步：汇报结果**
+
+同步完成后，汇报：
+- 飞书文档字符数
+- 4 个参考文件的字符数和章节数
+- 新版本号
+- GitHub 推送状态
+- 产出物文件夹路径
 
 ### 错误处理
 
-- 如果 fetch 失败，**保留本地缓存不覆盖**，告知用户失败原因
+- 如果飞书 fetch 失败，**保留本地缓存不覆盖**，告知用户失败原因，中止后续步骤
+- 如果 GitHub 推送失败，本地文件和产出物文件夹不受影响，只提示用户推送失败
 - 如果 lark-cli 未安装或未认证，跳过同步，提示用户本地缓存仍可使用
-- 同步完成后告知用户"知识库已更新到最新版本"
 
 ### 手动拆分同步
 
-如果用户只想更新某个模块（如"更新付款的知识"），仍然 fetch 完整文档，但只覆盖对应的参考文件。
+如果用户只想更新某个模块（如"更新付款的知识"），仍然 fetch 完整文档，但只覆盖对应的参考文件。其余步骤（版本、GitHub、产出物文件夹）照常执行。
 
 ## 版本检查
 
@@ -161,37 +216,16 @@ version: 1.2.0
 
 ### 手动检查
 
-当用户说"检查更新"、"skill版本"、"有没有新版本"时，执行以下步骤：
+当用户说"检查更新"、"skill版本"、"有没有新版本"时：
 
-1. 读取本地 SKILL.md 中的 `version` 字段（当前版本）
-2. 从 GitHub 获取最新版本信息：
-   ```bash
-   curl -s https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/version.json
-   ```
-3. 比对版本号：
-   - 如果远程版本 > 本地版本，告知用户有新版本可用，显示更新内容（`changes` 字段）
-   - 如果版本相同，告知用户已是最新版本
-4. 如有新版本，提示用户可以通过"更新知识库"命令同步最新内容
+1. 读取本地 SKILL.md 的 `version` 字段
+2. 从 GitHub 获取最新版本：`curl -s https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/version.json`
+3. 比对版本号：远程 > 本地 → 显示更新内容；版本相同 → 告知已是最新
+4. 如有新版本，提示用户执行"更新知识库"同步
 
 ### 自动检查（同步时）
 
-在执行"更新知识库"同步流程时，自动执行版本检查：
-
-1. 先 fetch `version.json` 比对版本
-2. 如果远程版本更高，在同步结果中显示更新内容
-3. 同步完成后，如果版本有变化，更新本地 SKILL.md 的 `version` 字段
-
-### 版本文件格式
-
-`version.json` 结构：
-```json
-{
-  "version": "1.2.0",
-  "name": "basalt-os-guide",
-  "updated": "2026-06-23",
-  "changes": ["更新内容1", "更新内容2"]
-}
-```
+执行"更新知识库"时，第五步推送完成后自动比对版本，如有变化在汇报中显示更新内容。
 
 ## 详细知识
 
