@@ -519,7 +519,7 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
     <span class="accent">Basalt OS</span><br>清算分账知识库
   </h1>
   <p>
-    一个只读 Agent Skill，让 AI 助手秒懂 Basalt OS 清算分账系统的全部业务逻辑。覆盖账户、清算、付款、退款、对账等 11 个核心模块。
+    一个只读 Agent Skill，让 AI 助手秒懂 Basalt OS 清算分账系统的全部业务逻辑。覆盖商户管理、清算流程、付款与签约、平台与规则等 4 个核心模块。
   </p>
   <div class="hero-actions">
     <a href="#install" class="btn-primary">
@@ -536,7 +536,7 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 
   <div class="stats reveal">
     <div class="stat">
-      <div class="stat-num">11</div>
+      <div class="stat-num">4</div>
       <div class="stat-label">知识模块</div>
     </div>
     <div class="stat">
@@ -560,79 +560,37 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
   <div class="features-grid">
     <div class="feature-card reveal">
       <div class="feature-icon">&#127974;</div>
-      <span class="feature-tag">accounts.md</span>
-      <h3>账户体系</h3>
-      <p>5 类账户定义（9903 / 8888 / 2268），前缀规则、开户方式、余额查询接口、资金流向关系全解。</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">&#128100;</div>
-      <span class="feature-tag">onboarding.md</span>
-      <h3>商户入驻</h3>
-      <p>预入驻 + 激活两步流程、小程序注册、POS 绑定、审核状态流转、商户限权管理。</p>
+      <span class="feature-tag">merchants.md</span>
+      <h3>商户管理</h3>
+      <p>5 类账户定义，品牌/总部/区域/门店商户层级结构，资金账户管理、提现规则与开户方式全解。</p>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">&#128203;</div>
       <span class="feature-tag">clearing.md</span>
       <h3>清算流程</h3>
-      <p>12 步完整清算链路，从订单上送、清算文件生成、批次提交到资金归集，含 SFTP 交互细节。</p>
+      <p>清算订单、清算文件生成、清算批次管理、退款扣保全流程，含 SFTP 交互细节与资金归集。</p>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">&#128179;</div>
       <span class="feature-tag">payments.md</span>
-      <h3>付款与协议</h3>
-      <p>协议代扣（免费）vs 授权代付（0.05%），签约 / 解约全流程、状态机、付款单 5 态。</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">&#128257;</div>
-      <span class="feature-tag">refunds.md</span>
-      <h3>退款与退保</h3>
-      <p>扣保退保 4 步流程、deposit.notify 5 种通知类型、退款规则与状态机、平台垫资机制。</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">&#128176;</div>
-      <span class="feature-tag">withdrawal.md</span>
-      <h3>提现</h3>
-      <p>提现两步流程、万五费率 D+1 扣除 D+2 回收、银行卡绑定与短信验证。</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">&#128202;</div>
-      <span class="feature-tag">reconciliation.md</span>
-      <h3>对账</h3>
-      <p>收钱吧 FTP 数据 + 网商回单，提现费率对账 5 步，差错处理与回单下载。</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">&#128260;</div>
-      <span class="feature-tag">external-sync.md</span>
-      <h3>外部系统同步</h3>
-      <p>10 个同步点完整列表，通知 + 查询双保险机制，幂等处理要求。</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">&#128181;</div>
-      <span class="feature-tag">fees.md</span>
-      <h3>费率</h3>
-      <p>各业务费率对照、承担方、计费示例，含 PRD 已知费率歧义说明。</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">&#128101;</div>
-      <span class="feature-tag">roles-permissions.md</span>
-      <h3>角色权限</h3>
-      <p>5 类系统角色定义、操作范围、数据可见性、两步审批设计、商户限权。</p>
+      <h3>付款与签约</h3>
+      <p>签约授权全流程，协议代扣（免费）vs 授权代付（0.05%），付款记录管理、退款处理与状态机。</p>
     </div>
     <div class="feature-card wide reveal">
       <div class="wide-inner">
         <div>
-          <div class="feature-icon">&#128295;</div>
-          <span class="feature-tag">troubleshooting.md</span>
-          <h3>问题排查</h3>
-          <p>覆盖入驻失败、清算异常、签约失败、DEALING 状态、退款失败、通知幂等、退保问题等全部常见故障场景，附错误码速查。</p>
+          <div class="feature-icon">&#128736;</div>
+          <span class="feature-tag">global-rules.md</span>
+          <h3>平台与规则</h3>
+          <p>平台管理配置、编码规则、状态机定义、费率体系、角色权限管理，覆盖系统级通用规则与故障排查指引。</p>
         </div>
         <div class="code-block">
           <span class="cmt"># 提问示例</span><br>
           <span class="kw">&gt;</span> <span class="str">"清算批次状态是 PART_SUCCESS 怎么处理？"</span><br><br>
-          <span class="kw">&gt;</span> <span class="str">"提现一直是 DEALING 状态怎么办？"</span><br><br>
-          <span class="kw">&gt;</span> <span class="str">"退保通知没收到怎么排查？"</span><br><br>
+          <span class="kw">&gt;</span> <span class="str">"协议代扣和授权代付有什么区别？"</span><br><br>
+          <span class="kw">&gt;</span> <span class="str">"商户提现一直是 DEALING 状态怎么办？"</span><br><br>
           <span class="cmt"># Agent 自动路由到</span><br>
-          <span class="cmt"># references/troubleshooting.md</span><br>
+          <span class="cmt"># references/clearing.md / payments.md / merchants.md</span><br>
           <span class="cmt"># 返回精准排查步骤</span>
         </div>
       </div>
@@ -683,11 +641,11 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
     </div>
     <div class="usage-card">
       <div class="q">deposit.notify 类型 1 和类型 5 有什么区别？</div>
-      <div class="a">类型 1 是余额不足扣保通知（外部请求单号为空），类型 5 是退保结果通知（有外部请求单号）。路由至 refunds.md。</div>
+      <div class="a">类型 1 是余额不足扣保通知（外部请求单号为空），类型 5 是退保结果通知（有外部请求单号）。路由至 clearing.md。</div>
     </div>
     <div class="usage-card">
       <div class="q">提现手续费怎么收？商户看到的是全额吗？</div>
-      <div class="a">网商收万五，D+1 从 8888 户扣，D+2 通过协议代扣从商户追缴。商户看到全额到账。路由至 withdrawal.md + fees.md。</div>
+      <div class="a">网商收万五，D+1 从 8888 户扣，D+2 通过协议代扣从商户追缴。商户看到全额到账。路由至 merchants.md + global-rules.md。</div>
     </div>
   </div>
 </section>
@@ -696,7 +654,7 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 <section id="scope" class="scope-section">
   <div class="section-label reveal">COVERAGE</div>
   <h2 class="reveal">完整覆盖范围</h2>
-  <p class="reveal">11 个知识模块，覆盖 Basalt OS 清算分账系统的全部业务领域。</p>
+  <p class="reveal">4 个知识模块，覆盖 Basalt OS 清算分账系统的全部业务领域。</p>
 
   <table class="scope-table reveal">
     <thead>
@@ -708,59 +666,24 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
     </thead>
     <tbody>
       <tr>
-        <td class="mod-name">账户体系</td>
-        <td class="mod-file">accounts.md</td>
-        <td class="mod-kw">账户、开户、子户、保证金户、2268、9903、8888</td>
-      </tr>
-      <tr>
-        <td class="mod-name">商户入驻</td>
-        <td class="mod-file">onboarding.md</td>
-        <td class="mod-kw">入驻、预入驻、激活、小程序、POS、审核</td>
+        <td class="mod-name">商户管理</td>
+        <td class="mod-file">merchants.md</td>
+        <td class="mod-kw">商户、账户、子户、保证金户、品牌、总部、区域、门店、提现</td>
       </tr>
       <tr>
         <td class="mod-name">清算流程</td>
         <td class="mod-file">clearing.md</td>
-        <td class="mod-kw">清算、批次、订单上传、SFTP、分账、资金归集</td>
+        <td class="mod-kw">清算、批次、订单上传、SFTP、分账、资金归集、退款、扣保</td>
       </tr>
       <tr>
-        <td class="mod-name">付款与协议</td>
+        <td class="mod-name">付款与签约</td>
         <td class="mod-file">payments.md</td>
-        <td class="mod-kw">代扣、代付、联动支付、余额划转、签约、解约</td>
+        <td class="mod-kw">代扣、代付、联动支付、余额划转、签约、解约、付款记录</td>
       </tr>
       <tr>
-        <td class="mod-name">退款与退保</td>
-        <td class="mod-file">refunds.md</td>
-        <td class="mod-kw">退款、退保、扣保、保证金扣除、部分退款</td>
-      </tr>
-      <tr>
-        <td class="mod-name">提现</td>
-        <td class="mod-file">withdrawal.md</td>
-        <td class="mod-kw">提现、银行卡绑定、短信验证、到账</td>
-      </tr>
-      <tr>
-        <td class="mod-name">对账</td>
-        <td class="mod-file">reconciliation.md</td>
-        <td class="mod-kw">对账、收钱吧、三联、FTP、差错、回单</td>
-      </tr>
-      <tr>
-        <td class="mod-name">外部同步</td>
-        <td class="mod-file">external-sync.md</td>
-        <td class="mod-kw">三联ERP、收钱吧、外部系统、同步、通知</td>
-      </tr>
-      <tr>
-        <td class="mod-name">费率</td>
-        <td class="mod-file">fees.md</td>
-        <td class="mod-kw">费率、手续费、万五、计费、收费</td>
-      </tr>
-      <tr>
-        <td class="mod-name">角色权限</td>
-        <td class="mod-file">roles-permissions.md</td>
-        <td class="mod-kw">角色、权限、管理员、财务、操作员</td>
-      </tr>
-      <tr>
-        <td class="mod-name">问题排查</td>
-        <td class="mod-file">troubleshooting.md</td>
-        <td class="mod-kw">报错、失败、异常、卡住、状态不对</td>
+        <td class="mod-name">平台与规则</td>
+        <td class="mod-file">global-rules.md</td>
+        <td class="mod-kw">费率、角色、权限、编码规则、状态机、平台管理、管理员</td>
       </tr>
     </tbody>
   </table>
