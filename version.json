@@ -1,9 +1,10 @@
 {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "name": "basalt-os-guide",
   "updated": "2026-06-23",
   "changes": [
-    "同步工作流升级为6步全流程（飞书→本地→版本自增→产出物→GitHub→汇报）",
+    "同步工作流升级为7步全流程",
+    "description增加更新知识库触发词",
     "知识库内容从飞书PRD最新拉取"
   ]
 }
