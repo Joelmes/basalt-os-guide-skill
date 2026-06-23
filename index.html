@@ -770,25 +770,17 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 <section id="install" class="install-section">
   <div class="section-label reveal">GET STARTED</div>
   <h2 class="reveal">一行命令，所有 Agent 通用</h2>
-  <p class="reveal">复制这条命令发给你的 Agent — QoderWork、Claude Code、Codex、Cursor、Cline 等均支持。安装脚本会自动检测环境并选择正确路径。</p>
+  <p class="reveal">复制这条命令发给你的 Agent — Claude Code、Gemini CLI、Cursor、Cline、Codex、Windsurf 等均支持。<code>npx skills</code> 自动检测 Agent 环境并安装到对应路径。</p>
 
   <div class="install-methods reveal" style="grid-template-columns: 1fr; max-width: 640px;">
     <div class="install-method" style="border-color: var(--fg); border-width: 2px;">
       <h3><span class="icon">&#9889;</span> 通用安装命令</h3>
-      <p>所有支持 Shell 的 Agent 均可执行。脚本自动检测 Agent 环境（QoderWork / Claude / Cursor / Codex / Cline），安装到对应路径。</p>
-      <div class="install-cmd" onclick="copyCmd(this)" data-cmd='bash <(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh)' style="font-size: 13px;">
-        <span>bash &lt;(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh)</span>
+      <p>基于 <a href="https://github.com/anthropics/skills" target="_blank" style="color: var(--fg); text-decoration: underline; text-underline-offset: 2px;">npx skills</a> 统一 Skill 管理工具，支持 20+ Agent 环境自动安装。</p>
+      <div class="install-cmd" onclick="copyCmd(this)" data-cmd='npx skills add Joelmes/basalt-os-guide-skill -g' style="font-size: 15px;">
+        <span>npx skills add Joelmes/basalt-os-guide-skill -g</span>
         <span class="copy-hint">点击复制</span>
       </div>
-      <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px;">
-        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=qoderwork</span>
-        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=claude</span>
-        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=cursor</span>
-        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=codex</span>
-        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=cline</span>
-        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--path=/custom/dir</span>
-      </div>
-      <p style="margin-top: 12px; font-size: 12px; color: var(--fg-muted); margin-bottom: 0;">不指定参数时自动检测环境。也可追加 <code style="font-family: var(--font-mono); font-size: 12px; background: var(--surface-muted); padding: 1px 6px; border-radius: 4px;">--agent=名称</code> 强制指定。</p>
+      <p style="margin-top: 12px; font-size: 12px; color: var(--fg-muted); margin-bottom: 0;">需要 Node.js 环境。<code style="font-family: var(--font-mono); font-size: 12px; background: var(--surface-muted); padding: 1px 6px; border-radius: 4px;">-g</code> 表示全局安装，对所有项目生效。</p>
     </div>
   </div>
 
