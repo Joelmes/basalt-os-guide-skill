@@ -178,6 +178,9 @@ lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-fo
 | `references/*.md` | 4 个知识参考文件 |
 | `SKILL.md` | 含更新后的版本号 |
 | `version.json` | 更新 version、updated、changes 字段 |
+| `index.html` | 更新落地页中的版本号（badge 和 footer 两处）和日期 |
+
+落地页版本更新方法：将 `basalt-os-guide-landing.html` 中的 `v{旧版本号}` 替换为 `v{新版本号}`，日期替换为今天。
 
 `version.json` 更新规则：
 ```json
