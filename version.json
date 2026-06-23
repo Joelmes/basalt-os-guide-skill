@@ -1,0 +1,10 @@
+{
+  "version": "1.2.0",
+  "name": "basalt-os-guide",
+  "updated": "2026-06-23",
+  "changes": [
+    "知识源改为单份飞书PRD文档，自动拆分为4个模块",
+    "安装命令改为 npx skills add",
+    "新增版本检查功能（自动+手动）"
+  ]
+}
