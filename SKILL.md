@@ -1,7 +1,7 @@
 ---
 name: basalt-os-guide
 description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接等全部业务领域。当用户询问 Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。仅做知识查询，不包含数据读写操作。
-version: 1.1.0
+version: 1.2.0
 ---
 
 # Basalt OS 清算分账系统 — 使用指南
@@ -21,17 +21,10 @@ version: 1.1.0
 
 | 关键词 | 读取文件 | 覆盖内容 |
 |---|---|---|
-| 账户、开户、子户、保证金户、清算专户、结算户、2268、9903、8888、余额查询 | [accounts.md](references/accounts.md) | 5类账户定义、前缀规则、开户方式、余额查询 |
-| 入驻、商户注册、预入驻、激活、小程序、POS绑定、审核 | [onboarding.md](references/onboarding.md) | 平台/商户入驻流程、POS绑定、状态流转 |
-| 清算、批次、订单上传、补单、清算文件、SFTP、分账、资金归集 | [clearing.md](references/clearing.md) | 12步全流程、订单上送、清算文件、批次提交 |
-| 代扣、代付、联动支付、余额划转、协议、签约、解约、合约 | [payments.md](references/payments.md) | 协议代扣/授权代付对比、签约/解约流程、付款操作 |
-| 退款、退保、扣保、保证金扣除、部分退款、全额退款 | [refunds.md](references/refunds.md) | 扣保退保4步流程、退款规则、状态机 |
-| 提现、银行卡绑定、短信验证、到账 | [withdrawal.md](references/withdrawal.md) | 提现两步流程、费率回收机制 |
-| 对账、收钱吧、三联、FTP、差错、回单 | [reconciliation.md](references/reconciliation.md) | 对账流程、数据源、提现费率对账5步 |
-| 三联ERP、收钱吧、外部系统、同步、通知 | [external-sync.md](references/external-sync.md) | 10个同步点、通知+查询双保险机制 |
-| 费率、手续费、万五、计费、收费 | [fees.md](references/fees.md) | 各业务费率、承担方建议、计费示例 |
-| 角色、权限、管理员、财务、操作员 | [roles-permissions.md](references/roles-permissions.md) | 角色定义、操作范围、数据可见性 |
-| 报错、失败、异常、卡住、状态不对、怎么办 | [troubleshooting.md](references/troubleshooting.md) | 常见错误、排查步骤、应急处理 |
+| 账户、开户、子户、保证金户、清算专户、结算户、2268、9903、8888、余额查询、品牌专户、总部公司、区域公司、门店、供应商、商户详情、资金账户、提现、银行卡 | [merchants.md](references/merchants.md) | 5类账户定义、品牌/总部/区域/门店商户管理、资金账户、提现 |
+| 清算、批次、订单上传、补单、清算文件、SFTP、分账、资金归集、收钱吧、三联、POS | [clearing.md](references/clearing.md) | 清算订单、清算文件、清算批次、退款扣保 |
+| 代扣、代付、联动支付、余额划转、协议、签约、解约、合约、付款、退款、退保、扣保、批量付款、单笔付款 | [payments.md](references/payments.md) | 签约授权、协议代扣/授权代付、付款记录、退款 |
+| 入驻、商户注册、编码规则、角色、权限、管理员、费率、手续费、状态、规则 | [global-rules.md](references/global-rules.md) | 平台管理、全局规则、编码规则、状态机、费率、角色权限 |
 
 **路由规则**：
 - 问题可能涉及多个模块，读取所有相关文件综合回答
@@ -99,23 +92,27 @@ version: 1.1.0
 
 ## 飞书知识源（弹性更新）
 
-本 Skill 支持从飞书 Wiki 动态同步最新知识。当产品功能迭代时，只需在飞书中编辑对应文档，然后说"更新知识库"即可同步到本地。
+本 Skill 从一份飞书产品需求文档中获取全部知识，同步后自动拆分为模块化参考文件。
 
-**Wiki 空间**：`Basalt OS 知识库`（space_id: `7654411101060320214`）
+**知识源文档**：`01_Basalt OS需求文档`
+- URL：`https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc`
+- doc_token：`P4eedyyrhoWE5HxC1AtcCPvtnWc`
+- 文档结构（H1/H2 章节）：
 
-| 模块 | 飞书 doc_token | 本地文件 |
-|---|---|---|
-| 账户体系 | `NnBSdMqGwoWVp5xm3lNcTqb7n3Q` | accounts.md |
-| 商户入驻 | `JCsgdjAeooEEKYxpgbCcOFPbnPd` | onboarding.md |
-| 清算流程 | `MSX6dXceuo77IOxfArFc1j2Knbg` | clearing.md |
-| 付款与协议 | `UT9sdYwEzoaPkRxLNt3cmagnnJg` | payments.md |
-| 退款与退保 | `Vtwwdtqi0onEKkx1KlpcweuYnMg` | refunds.md |
-| 提现 | `V14udiHAboMpU2xeVdKcrTOcnZg` | withdrawal.md |
-| 对账 | `V4fzdwh7eoKcCUx4sutcPzN5nBe` | reconciliation.md |
-| 外部同步 | `GQ1od9AmroFfNTxgQrEcUy2snMc` | external-sync.md |
-| 费率 | `AoRBd2JQIooyEKxQKqMcEvMtnzG` | fees.md |
-| 角色权限 | `EMUUd895toJw3wxZLMEcmc83nlc` | roles-permissions.md |
-| 问题排查 | `S797dQPrFoTadCxsxfCcDLeunDh` | troubleshooting.md |
+| 章节 | 内容范围 |
+|---|---|
+| 清算分账 › 品牌专户 | 平台清算专户、来账明细、品牌方操作 |
+| 清算分账 › 总部公司 | 总部公司管理、商户详情、资金账户、提现 |
+| 清算分账 › 区域公司 | 区域公司管理、商户详情、资金账户 |
+| 清算分账 › 门店 | 门店管理、商户详情、资金账户 |
+| 清算分账 › 供应商 | 供应商管理 |
+| 清算分账 › 清算订单（三联/收钱吧） | 订单来源、POS 设置 |
+| 清算分账 › 清算文件 | 清算文件管理 |
+| 清算分账 › 清算 | 清算批次、退款扣保 |
+| 清算分账 › 签约授权 | 协议代扣/授权代付合约、授权记录 |
+| 清算分账 › 付款 | 付款记录、批量/单笔付款、退款 |
+| 平台管理 | 区域划分、业务属性、角色、账户 |
+| 全局规则 | 编码规则、入驻状态、提现规则、清算状态、合约状态、付款状态等 |
 
 ## 知识库同步
 
@@ -128,24 +125,35 @@ version: 1.1.0
 
 ### 同步步骤
 
-1. 读取上方「飞书知识源」注册表，获取 11 个模块的 doc_token 和本地文件名
-2. 对每个模块，执行：
+1. 从飞书拉取完整文档：
    ```bash
-   lark-cli docs +fetch --api-version v2 --doc <doc_token> --doc-format markdown --as user
+   lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-format markdown --as user
    ```
-3. 从返回的 JSON 中提取 `data.document.content` 字段（即 markdown 内容）
-4. 将内容写入 `references/<文件名>`，覆盖本地缓存
-5. 汇报同步结果：成功数 / 失败数 / 跳过的模块
+2. 从返回的 JSON 中提取 `data.document.content` 字段（即完整 markdown 内容）
+3. 按 H1 和 H2 标题自动拆分为模块化参考文件，写入 `references/` 目录：
+
+| 参考文件 | 包含的 H1/H2 章节标题（精确匹配） |
+|---|---|
+| merchants.md | 品牌专户、总部公司、区域公司、门店、供应商 |
+| clearing.md | 清算订单（三联）、清算订单（收钱吧）、清算文件、清算 |
+| payments.md | 签约授权、付款 |
+| global-rules.md | 平台管理、区域划分、业务属性、角色、账户、全局规则、公司和门店编码生成规则、商户入驻状态、资金账单下载、商户提现、清算订单状态、清算批次号生成规则、清算文件状态、清算批次状态、退款扣保、合约变更系统流水号、协议代扣、授权代付、银行卡号和手机号脱敏规则、对外付款 |
+
+4. 拆分规则：
+   - 按 `# ` (H1) 和 `## ` (H2) 级别切割正文段落，每个标题（含其下级内容）作为一个 section
+   - 将每个 section 按标题名称归入上方对应的参考文件（未匹配的 section 丢弃）
+   - 每个参考文件开头加一行 HTML 注释标明来源和同步时间
+5. 汇报同步结果：成功写入的文件数、各文件字符数
 
 ### 错误处理
 
-- 如果某个模块 fetch 失败，**保留本地缓存不覆盖**，在结果中标注失败模块和错误原因
+- 如果 fetch 失败，**保留本地缓存不覆盖**，告知用户失败原因
 - 如果 lark-cli 未安装或未认证，跳过同步，提示用户本地缓存仍可使用
-- 同步完成后，如全部成功，告知用户"知识库已更新到最新版本"
+- 同步完成后告知用户"知识库已更新到最新版本"
 
-### 单模块同步
+### 手动拆分同步
 
-如果用户只想更新某个模块（如"更新清算流程的知识"），只需 fetch 该模块的 doc_token 并覆盖对应文件即可。
+如果用户只想更新某个模块（如"更新付款的知识"），仍然 fetch 完整文档，但只覆盖对应的参考文件。
 
 ## 详细知识
 
