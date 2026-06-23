@@ -1,7 +1,7 @@
 ---
 name: basalt-os-guide
 description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接等全部业务领域。当用户询问 Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。仅做知识查询，不包含数据读写操作。
-version: 1.0.0
+version: 1.1.0
 ---
 
 # Basalt OS 清算分账系统 — 使用指南
@@ -96,6 +96,56 @@ version: 1.0.0
 | 合约状态 | VALID / INVALID / CANCELLED |
 | 商户限权 | 1=限权, 2=解除, 3=弱限, 4=延迟(T+N) |
 | 通用结果码 | S=成功, F=失败, U=处理中 |
+
+## 飞书知识源（弹性更新）
+
+本 Skill 支持从飞书 Wiki 动态同步最新知识。当产品功能迭代时，只需在飞书中编辑对应文档，然后说"更新知识库"即可同步到本地。
+
+**Wiki 空间**：`Basalt OS 知识库`（space_id: `7654411101060320214`）
+
+| 模块 | 飞书 doc_token | 本地文件 |
+|---|---|---|
+| 账户体系 | `NnBSdMqGwoWVp5xm3lNcTqb7n3Q` | accounts.md |
+| 商户入驻 | `JCsgdjAeooEEKYxpgbCcOFPbnPd` | onboarding.md |
+| 清算流程 | `MSX6dXceuo77IOxfArFc1j2Knbg` | clearing.md |
+| 付款与协议 | `UT9sdYwEzoaPkRxLNt3cmagnnJg` | payments.md |
+| 退款与退保 | `Vtwwdtqi0onEKkx1KlpcweuYnMg` | refunds.md |
+| 提现 | `V14udiHAboMpU2xeVdKcrTOcnZg` | withdrawal.md |
+| 对账 | `V4fzdwh7eoKcCUx4sutcPzN5nBe` | reconciliation.md |
+| 外部同步 | `GQ1od9AmroFfNTxgQrEcUy2snMc` | external-sync.md |
+| 费率 | `AoRBd2JQIooyEKxQKqMcEvMtnzG` | fees.md |
+| 角色权限 | `EMUUd895toJw3wxZLMEcmc83nlc` | roles-permissions.md |
+| 问题排查 | `S797dQPrFoTadCxsxfCcDLeunDh` | troubleshooting.md |
+
+## 知识库同步
+
+当用户说"更新知识库"、"同步知识"、"刷新 skill"、"拉取最新文档"时，执行以下同步流程：
+
+### 前置条件
+
+- 需要 lark-cli 已安装并认证（`lark-cli auth login`）
+- 如果 lark-cli 不可用，告知用户本地缓存仍可正常使用，只是无法获取最新内容
+
+### 同步步骤
+
+1. 读取上方「飞书知识源」注册表，获取 11 个模块的 doc_token 和本地文件名
+2. 对每个模块，执行：
+   ```bash
+   lark-cli docs +fetch --api-version v2 --doc <doc_token> --doc-format markdown --as user
+   ```
+3. 从返回的 JSON 中提取 `data.document.content` 字段（即 markdown 内容）
+4. 将内容写入 `references/<文件名>`，覆盖本地缓存
+5. 汇报同步结果：成功数 / 失败数 / 跳过的模块
+
+### 错误处理
+
+- 如果某个模块 fetch 失败，**保留本地缓存不覆盖**，在结果中标注失败模块和错误原因
+- 如果 lark-cli 未安装或未认证，跳过同步，提示用户本地缓存仍可使用
+- 同步完成后，如全部成功，告知用户"知识库已更新到最新版本"
+
+### 单模块同步
+
+如果用户只想更新某个模块（如"更新清算流程的知识"），只需 fetch 该模块的 doc_token 并覆盖对应文件即可。
 
 ## 详细知识
 
