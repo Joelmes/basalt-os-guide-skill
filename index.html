@@ -770,17 +770,26 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 <section id="install" class="install-section">
   <div class="section-label reveal">GET STARTED</div>
   <h2 class="reveal">一行命令，所有 Agent 通用</h2>
-  <p class="reveal">复制这条命令发给你的 Agent — Claude Code、Gemini CLI、Cursor、Cline、Codex、Windsurf 等均支持。<code>npx skills</code> 自动检测 Agent 环境并安装到对应路径。</p>
+  <p class="reveal">复制以下命令发给你的 Agent。支持 shell 的环境用方式一，不支持的用方式二。</p>
 
-  <div class="install-methods reveal" style="grid-template-columns: 1fr; max-width: 640px;">
+  <div class="install-methods reveal" style="grid-template-columns: 1fr; max-width: 640px; gap: 24px;">
     <div class="install-method" style="border-color: var(--fg); border-width: 2px;">
-      <h3><span class="icon">&#9889;</span> 通用安装命令</h3>
-      <p>基于 <a href="https://github.com/anthropics/skills" target="_blank" style="color: var(--fg); text-decoration: underline; text-underline-offset: 2px;">npx skills</a> 统一 Skill 管理工具，支持 20+ Agent 环境自动安装。</p>
+      <h3><span class="icon">&#9889;</span> 方式一：Shell 安装（推荐）</h3>
+      <p>适用于有终端能力的 Agent（Claude Code、Gemini CLI、Cursor、Codex、Cline 等）。</p>
       <div class="install-cmd" onclick="copyCmd(this)" data-cmd='npx skills add Joelmes/basalt-os-guide-skill -g' style="font-size: 15px;">
         <span>npx skills add Joelmes/basalt-os-guide-skill -g</span>
         <span class="copy-hint">点击复制</span>
       </div>
-      <p style="margin-top: 12px; font-size: 12px; color: var(--fg-muted); margin-bottom: 0;">需要 Node.js 环境。<code style="font-family: var(--font-mono); font-size: 12px; background: var(--surface-muted); padding: 1px 6px; border-radius: 4px;">-g</code> 表示全局安装，对所有项目生效。</p>
+      <p style="margin-top: 12px; font-size: 12px; color: var(--fg-muted); margin-bottom: 0;">需要 Node.js 环境，<code style="font-family: var(--font-mono); font-size: 12px; background: var(--surface-muted); padding: 1px 6px; border-radius: 4px;">-g</code> 表示全局安装。</p>
+    </div>
+    <div class="install-method">
+      <h3><span class="icon">&#128279;</span> 方式二：URL 安装（通用）</h3>
+      <p>适用于没有 shell 的 Agent（QoderWork 等）。复制下面的文字发给你的 Agent，它会自动读取仓库并安装。</p>
+      <div class="install-cmd" onclick="copyCmd(this)" data-cmd='安装这个 skill https://github.com/Joelmes/basalt-os-guide-skill' style="font-size: 14px;">
+        <span>安装这个 skill https://github.com/Joelmes/basalt-os-guide-skill</span>
+        <span class="copy-hint">点击复制</span>
+      </div>
+      <p style="margin-top: 12px; font-size: 12px; color: var(--fg-muted); margin-bottom: 0;">Agent 会通过 URL 读取 SKILL.md 和 references/ 内容，自动创建到本地 skill 目录。</p>
     </div>
   </div>
 
