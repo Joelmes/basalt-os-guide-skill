@@ -6,11 +6,25 @@ Basalt OS 清算分账系统的 AI Agent Skill（只读知识库）。
 
 ## 快速安装
 
+### 方式一：Shell 安装（推荐）
+
+适用于有终端能力的 Agent（Claude Code、Gemini CLI、Cursor、Codex、Cline 等）：
+
 ```bash
 npx skills add Joelmes/basalt-os-guide-skill -g
 ```
 
-适用于 Claude Code、Gemini CLI、Cursor、Cline、Windsurf、Codex 等 20+ Agent 环境，`npx skills` 会自动检测并安装到对应路径。`-g` 表示全局安装。
+`-g` 表示全局安装。`npx skills` 会自动检测 Agent 环境并安装到对应路径。
+
+### 方式二：URL 安装（通用）
+
+适用于没有 shell 的 Agent。复制以下文字发给你的 Agent：
+
+```
+安装这个 skill https://github.com/Joelmes/basalt-os-guide-skill
+```
+
+Agent 会通过 URL 读取仓库中的 SKILL.md 和 references/ 内容，自动创建到本地 skill 目录。
 
 ## 知识模块
 
