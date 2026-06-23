@@ -21,7 +21,7 @@ npx skills add Joelmes/basalt-os-guide-skill -g
 适用于没有 shell 的 Agent。复制以下文字发给你的 Agent：
 
 ```
-安装这个 skill https://github.com/Joelmes/basalt-os-guide-skill
+安装这个 skill https://github.com/Joelmes/basalt-os-guide-skill，包括所有子文件
 ```
 
 Agent 会通过 URL 读取仓库中的 SKILL.md 和 references/ 内容，自动创建到本地 skill 目录。
