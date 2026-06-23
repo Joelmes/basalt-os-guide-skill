@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basalt OS Guide — AI Agent Skill</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-raised: #fafafa;
+  --surface-muted: #f5f5f5;
+  --fg: #0a0a0a;
+  --fg-secondary: #52525b;
+  --fg-muted: #a1a1aa;
+  --border: #e5e5e5;
+  --border-hover: #d4d4d8;
+  --primary: #171717;
+  --primary-fg: #fafafa;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.08);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  --ease-out: cubic-bezier(.16,1,.3,1);
+  --ease-spring: cubic-bezier(.34,1.56,.64,1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 64px;
+  padding: 0 48px;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s;
+}
+.nav.scrolled { border-bottom-color: var(--border); }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+.nav-logo {
+  width: 20px; height: 20px; background: var(--fg); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 12px; font-weight: 700;
+}
+.nav-brand span { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--fg-secondary);
+  text-decoration: none; transition: color .2s;
+}
+.nav-links a:hover { color: var(--fg); }
+.nav-cta {
+  padding: 7px 16px; font-size: 13px; font-weight: 500;
+  background: var(--primary); color: var(--primary-fg);
+  border: none; border-radius: 8px; cursor: pointer;
+  text-decoration: none; transition: background .2s;
+}
+.nav-cta:hover { background: #262626; }
+
+/* GitHub icon */
+.gh-icon {
+  width: 16px; height: 16px; fill: currentColor; vertical-align: middle;
+}
+.nav-gh {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 16px; font-size: 13px; font-weight: 500;
+  background: transparent; color: var(--fg);
+  border: 1px solid var(--border); border-radius: 8px;
+  text-decoration: none; transition: all .2s;
+}
+.nav-gh:hover { border-color: var(--border-hover); background: var(--surface-muted); }
+.btn-gh {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; background: transparent; color: var(--fg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none;
+  transition: all .2s var(--ease-out);
+}
+.btn-gh:hover { border-color: var(--border-hover); background: var(--surface-muted); }
+.btn-gh:hover .arrow { transform: translateX(3px); }
+.btn-gh .arrow { transition: transform .2s; }
+.footer-gh {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--fg-secondary);
+  text-decoration: none; margin-top: 12px;
+  transition: color .2s;
+}
+.footer-gh:hover { color: var(--fg); }
+
+/* Background lines */
+.bg-lines {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; z-index: -1;
+}
+.bg-lines span {
+  position: absolute; top: 0; width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  opacity: 0.4;
+}
+
+/* Sections */
+section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+/* Hero */
+.hero {
+  padding-top: 160px; padding-bottom: 80px;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px 5px 6px;
+  border: 1px solid var(--border); border-radius: 9999px;
+  font-size: 12px; font-weight: 500; color: var(--fg-secondary);
+  margin-bottom: 32px;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #86efac;
+  animation: blink 2s infinite;
+}
+.hero-badge .tag {
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted);
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.hero h1 {
+  font-size: clamp(40px, 6vw, 72px); font-weight: 700;
+  letter-spacing: -0.04em; line-height: 1.05;
+  margin-bottom: 24px;
+}
+.hero h1 .accent {
+  background: linear-gradient(135deg, var(--fg) 0%, var(--fg-secondary) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 17px; color: var(--fg-secondary); line-height: 1.7;
+  max-width: 600px; margin: 0 auto 40px;
+}
+.hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; background: var(--primary); color: var(--primary-fg);
+  border: none; border-radius: 8px; font-size: 14px; font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  transition: all .2s var(--ease-out);
+}
+.btn-primary:hover { background: #262626; transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.btn-primary:hover .arrow { transform: translateX(3px); }
+.btn-primary .arrow { transition: transform .2s; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; background: transparent; color: var(--fg);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none;
+  transition: all .2s var(--ease-out);
+}
+.btn-secondary:hover { border-color: var(--border-hover); background: var(--surface-muted); }
+
+/* Stats */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin-top: 80px;
+}
+.stat {
+  background: var(--surface); padding: 32px;
+  text-align: center;
+}
+.stat-num {
+  font-size: 36px; font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.1; margin-bottom: 4px;
+}
+.stat-label { font-size: 13px; color: var(--fg-muted); }
+
+/* Features */
+.features-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.feature-card {
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 32px; background: var(--surface);
+  position: relative; overflow: hidden;
+  transition: all .3s var(--ease-out);
+  cursor: default;
+}
+.feature-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.feature-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--fg);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s var(--ease-out);
+}
+.feature-card:hover::before { transform: scaleX(1); }
+.feature-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  background: var(--surface-muted);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 20px;
+  transition: all .3s;
+}
+.feature-card:hover .feature-icon {
+  background: var(--fg); color: var(--primary-fg);
+}
+.feature-tag {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--fg-muted); padding: 3px 10px;
+  border-radius: 9999px; border: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.feature-card h3 {
+  font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: 14px; color: var(--fg-secondary); line-height: 1.6;
+}
+.feature-card.wide { grid-column: 1 / -1; }
+.feature-card.wide .wide-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
+}
+.feature-card.wide .code-block {
+  background: var(--fg); border-radius: 8px; padding: 24px;
+  font-family: var(--font-mono); font-size: 13px; line-height: 2;
+  color: #d4d4d8; overflow-x: auto;
+}
+.feature-card.wide .code-block .kw { color: #a78bfa; }
+.feature-card.wide .code-block .str { color: #86efac; }
+.feature-card.wide .code-block .cmt { color: #71717a; }
+
+/* Workflow */
+.workflow-steps {
+  display: flex; align-items: flex-start; justify-content: center;
+  gap: 0; margin-top: 48px;
+}
+.step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; flex: 1; max-width: 200px;
+}
+.step-circle {
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 14px; font-weight: 600;
+  margin-bottom: 16px; transition: all .3s;
+}
+.step:hover .step-circle {
+  background: var(--fg); color: var(--primary-fg); border-color: var(--fg);
+}
+.step h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.step p { font-size: 13px; color: var(--fg-secondary); line-height: 1.5; }
+.step-connector {
+  flex: 0 0 auto; width: 48px; height: 1px;
+  background: var(--border); margin-top: 24px;
+}
+
+/* Terminal */
+.terminal {
+  border-radius: 16px; overflow: hidden;
+  box-shadow: var(--shadow-lg); margin-top: 48px;
+  max-width: 700px; margin-left: auto; margin-right: auto;
+}
+.terminal-bar {
+  height: 40px; background: var(--surface-muted);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 16px; gap: 8px;
+}
+.terminal-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.terminal-dot.red { background: #fca5a5; }
+.terminal-dot.yellow { background: #fcd34d; }
+.terminal-dot.green { background: #86efac; }
+.terminal-title {
+  font-size: 12px; color: var(--fg-muted); margin-left: 8px;
+  font-family: var(--font-mono);
+}
+.terminal-body {
+  background: var(--fg); padding: 24px;
+  font-family: var(--font-mono); font-size: 13px; line-height: 2;
+  color: #d4d4d8;
+}
+.terminal-body .prompt { color: var(--fg-muted); }
+.terminal-body .kw { color: #a78bfa; }
+.terminal-body .str { color: #86efac; }
+.terminal-body .cmt { color: #71717a; }
+.terminal-body .cursor {
+  display: inline-block; width: 8px; height: 16px;
+  background: #fff; vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+/* Install Section */
+.install-section { text-align: center; }
+.install-section h2 {
+  font-size: clamp(32px, 5vw, 52px); font-weight: 700;
+  letter-spacing: -0.04em; line-height: 1.1;
+  margin-bottom: 16px;
+}
+.install-section > p {
+  font-size: 17px; color: var(--fg-secondary);
+  max-width: 540px; margin: 0 auto 48px; line-height: 1.7;
+}
+.install-methods {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 16px; max-width: 800px; margin: 0 auto;
+}
+.install-method {
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 32px; text-align: left;
+  transition: all .3s var(--ease-out);
+}
+.install-method:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px); box-shadow: var(--shadow-md);
+}
+.install-method h3 {
+  font-size: 16px; font-weight: 600; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.install-method h3 .icon {
+  width: 24px; height: 24px; border-radius: 6px;
+  background: var(--surface-muted);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.install-method p {
+  font-size: 13px; color: var(--fg-secondary); margin-bottom: 16px; line-height: 1.6;
+}
+.install-cmd {
+  padding: 10px 16px; background: var(--surface-muted);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--fg); cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all .2s;
+  word-break: break-all;
+}
+.install-cmd:hover { border-color: var(--border-hover); background: var(--surface-raised); }
+.install-cmd .copy-hint {
+  font-size: 11px; color: var(--fg-muted); white-space: nowrap; margin-left: 8px;
+  transition: color .2s;
+}
+.install-cmd.copied .copy-hint { color: #86efac; }
+
+/* Scope Table */
+.scope-section h2 {
+  font-size: clamp(28px, 4vw, 40px); font-weight: 700;
+  letter-spacing: -0.03em; margin-bottom: 16px;
+}
+.scope-section > p {
+  font-size: 15px; color: var(--fg-secondary); margin-bottom: 48px;
+  max-width: 600px; line-height: 1.7;
+}
+.scope-table {
+  width: 100%; border-collapse: collapse;
+  border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden;
+}
+.scope-table thead { background: var(--surface-muted); }
+.scope-table th {
+  padding: 14px 20px; text-align: left;
+  font-size: 12px; font-weight: 600; color: var(--fg-secondary);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border);
+}
+.scope-table td {
+  padding: 14px 20px; font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.scope-table tr:last-child td { border-bottom: none; }
+.scope-table tr:hover td { background: var(--surface-raised); }
+.scope-table .mod-name { font-weight: 600; }
+.scope-table .mod-file {
+  font-family: var(--font-mono); font-size: 12px; color: var(--fg-muted);
+}
+.scope-table .mod-kw {
+  font-family: var(--font-mono); font-size: 12px; color: var(--fg-secondary);
+}
+
+/* Usage */
+.usage-section h2 {
+  font-size: clamp(28px, 4vw, 40px); font-weight: 700;
+  letter-spacing: -0.03em; margin-bottom: 16px;
+}
+.usage-section > p {
+  font-size: 15px; color: var(--fg-secondary); margin-bottom: 48px;
+  max-width: 600px; line-height: 1.7;
+}
+.usage-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.usage-card {
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 28px; transition: all .3s var(--ease-out);
+}
+.usage-card:hover {
+  border-color: var(--border-hover); transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.usage-card .q {
+  font-size: 14px; font-weight: 600; margin-bottom: 10px;
+  padding-left: 16px; position: relative;
+}
+.usage-card .q::before {
+  content: 'Q'; position: absolute; left: 0;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--fg-muted);
+}
+.usage-card .a {
+  font-size: 13px; color: var(--fg-secondary); line-height: 1.6;
+  padding-left: 16px; position: relative;
+}
+.usage-card .a::before {
+  content: 'A'; position: absolute; left: 0;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: #86efac;
+}
+
+/* Footer */
+.footer {
+  padding: 48px; text-align: center;
+  border-top: 1px solid var(--border);
+  max-width: 100%;
+}
+.footer p { font-size: 13px; color: var(--fg-muted); }
+.footer .version {
+  font-family: var(--font-mono); font-size: 11px;
+  padding: 3px 10px; border: 1px solid var(--border);
+  border-radius: 9999px; display: inline-block; margin-top: 8px;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  section { padding: 60px 20px; }
+  .hero { padding-top: 120px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .features-grid, .install-methods, .usage-grid { grid-template-columns: 1fr; }
+  .feature-card.wide .wide-inner { grid-template-columns: 1fr; }
+  .workflow-steps { flex-direction: column; align-items: center; }
+  .step-connector { width: 1px; height: 24px; margin: 0; }
+  .scope-table { font-size: 12px; }
+  .scope-table th, .scope-table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">B</div>
+    <span>Basalt OS Guide</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">功能模块</a>
+    <a href="#usage">使用方式</a>
+    <a href="#scope">覆盖范围</a>
+    <a href="#install">安装</a>
+    <a href="https://github.com/Joelmes/basalt-os-guide-skill" target="_blank" rel="noopener" class="nav-gh">
+      <svg class="gh-icon" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+    <a href="#install" class="nav-cta">立即安装</a>
+  </div>
+</nav>
+
+<div class="bg-lines">
+  <span style="left:10%"></span>
+  <span style="left:30%"></span>
+  <span style="left:50%"></span>
+  <span style="left:70%"></span>
+  <span style="left:90%"></span>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">
+    <div class="dot"></div>
+    v1.0.0 已发布
+    <span class="tag">SKILL</span>
+  </div>
+  <h1>
+    <span class="accent">Basalt OS</span><br>清算分账知识库
+  </h1>
+  <p>
+    一个只读 Agent Skill，让 AI 助手秒懂 Basalt OS 清算分账系统的全部业务逻辑。覆盖账户、清算、付款、退款、对账等 11 个核心模块。
+  </p>
+  <div class="hero-actions">
+    <a href="#install" class="btn-primary">
+      安装 Skill <span class="arrow">&rarr;</span>
+    </a>
+    <a href="#features" class="btn-secondary">
+      查看功能模块
+    </a>
+    <a href="https://github.com/Joelmes/basalt-os-guide-skill" target="_blank" rel="noopener" class="btn-gh">
+      <svg class="gh-icon" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <div class="stats reveal">
+    <div class="stat">
+      <div class="stat-num">11</div>
+      <div class="stat-label">知识模块</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">130K+</div>
+      <div class="stat-label">知识字符数</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">60+</div>
+      <div class="stat-label">覆盖接口</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">数据读写</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features">
+  <div class="section-label reveal">CORE MODULES</div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#127974;</div>
+      <span class="feature-tag">accounts.md</span>
+      <h3>账户体系</h3>
+      <p>5 类账户定义（9903 / 8888 / 2268），前缀规则、开户方式、余额查询接口、资金流向关系全解。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128100;</div>
+      <span class="feature-tag">onboarding.md</span>
+      <h3>商户入驻</h3>
+      <p>预入驻 + 激活两步流程、小程序注册、POS 绑定、审核状态流转、商户限权管理。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128203;</div>
+      <span class="feature-tag">clearing.md</span>
+      <h3>清算流程</h3>
+      <p>12 步完整清算链路，从订单上送、清算文件生成、批次提交到资金归集，含 SFTP 交互细节。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128179;</div>
+      <span class="feature-tag">payments.md</span>
+      <h3>付款与协议</h3>
+      <p>协议代扣（免费）vs 授权代付（0.05%），签约 / 解约全流程、状态机、付款单 5 态。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128257;</div>
+      <span class="feature-tag">refunds.md</span>
+      <h3>退款与退保</h3>
+      <p>扣保退保 4 步流程、deposit.notify 5 种通知类型、退款规则与状态机、平台垫资机制。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128176;</div>
+      <span class="feature-tag">withdrawal.md</span>
+      <h3>提现</h3>
+      <p>提现两步流程、万五费率 D+1 扣除 D+2 回收、银行卡绑定与短信验证。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128202;</div>
+      <span class="feature-tag">reconciliation.md</span>
+      <h3>对账</h3>
+      <p>收钱吧 FTP 数据 + 网商回单，提现费率对账 5 步，差错处理与回单下载。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128260;</div>
+      <span class="feature-tag">external-sync.md</span>
+      <h3>外部系统同步</h3>
+      <p>10 个同步点完整列表，通知 + 查询双保险机制，幂等处理要求。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128181;</div>
+      <span class="feature-tag">fees.md</span>
+      <h3>费率</h3>
+      <p>各业务费率对照、承担方、计费示例，含 PRD 已知费率歧义说明。</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">&#128101;</div>
+      <span class="feature-tag">roles-permissions.md</span>
+      <h3>角色权限</h3>
+      <p>5 类系统角色定义、操作范围、数据可见性、两步审批设计、商户限权。</p>
+    </div>
+    <div class="feature-card wide reveal">
+      <div class="wide-inner">
+        <div>
+          <div class="feature-icon">&#128295;</div>
+          <span class="feature-tag">troubleshooting.md</span>
+          <h3>问题排查</h3>
+          <p>覆盖入驻失败、清算异常、签约失败、DEALING 状态、退款失败、通知幂等、退保问题等全部常见故障场景，附错误码速查。</p>
+        </div>
+        <div class="code-block">
+          <span class="cmt"># 提问示例</span><br>
+          <span class="kw">&gt;</span> <span class="str">"清算批次状态是 PART_SUCCESS 怎么处理？"</span><br><br>
+          <span class="kw">&gt;</span> <span class="str">"提现一直是 DEALING 状态怎么办？"</span><br><br>
+          <span class="kw">&gt;</span> <span class="str">"退保通知没收到怎么排查？"</span><br><br>
+          <span class="cmt"># Agent 自动路由到</span><br>
+          <span class="cmt"># references/troubleshooting.md</span><br>
+          <span class="cmt"># 返回精准排查步骤</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Usage -->
+<section id="usage" class="usage-section">
+  <div class="section-label reveal">HOW IT WORKS</div>
+  <h2 class="reveal">安装后直接问，Skill 自动路由</h2>
+  <p class="reveal">Skill 内置关键词路由引擎，根据你的问题自动加载对应知识模块，返回精准答案。</p>
+
+  <div class="workflow-steps reveal">
+    <div class="step">
+      <div class="step-circle">1</div>
+      <h4>安装 Skill</h4>
+      <p>复制安装命令发给你的 Agent</p>
+    </div>
+    <div class="step-connector"></div>
+    <div class="step">
+      <div class="step-circle">2</div>
+      <h4>提问</h4>
+      <p>用自然语言描述你的问题</p>
+    </div>
+    <div class="step-connector"></div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <h4>自动路由</h4>
+      <p>Skill 匹配关键词加载知识模块</p>
+    </div>
+    <div class="step-connector"></div>
+    <div class="step">
+      <div class="step-circle">4</div>
+      <h4>精准回答</h4>
+      <p>附带接口编号、状态值的结构化答案</p>
+    </div>
+  </div>
+
+  <div class="usage-grid reveal" style="margin-top: 64px;">
+    <div class="usage-card">
+      <div class="q">协议代扣和授权代付有什么区别？</div>
+      <div class="a">协议代扣是体系内子户间划转（免费），授权代付是向体系外付款（0.05%）。自动路由至 payments.md 返回完整对比。</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">清算文件命名规则是什么？</div>
+      <div class="a">CARE{日期}_{序号}，如 CARE20260509_01。每日上传限制 50 次。路由至 clearing.md 获取完整规则。</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">deposit.notify 类型 1 和类型 5 有什么区别？</div>
+      <div class="a">类型 1 是余额不足扣保通知（外部请求单号为空），类型 5 是退保结果通知（有外部请求单号）。路由至 refunds.md。</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">提现手续费怎么收？商户看到的是全额吗？</div>
+      <div class="a">网商收万五，D+1 从 8888 户扣，D+2 通过协议代扣从商户追缴。商户看到全额到账。路由至 withdrawal.md + fees.md。</div>
+    </div>
+  </div>
+</section>
+
+<!-- Scope -->
+<section id="scope" class="scope-section">
+  <div class="section-label reveal">COVERAGE</div>
+  <h2 class="reveal">完整覆盖范围</h2>
+  <p class="reveal">11 个知识模块，覆盖 Basalt OS 清算分账系统的全部业务领域。</p>
+
+  <table class="scope-table reveal">
+    <thead>
+      <tr>
+        <th>模块</th>
+        <th>文件</th>
+        <th>触发关键词</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mod-name">账户体系</td>
+        <td class="mod-file">accounts.md</td>
+        <td class="mod-kw">账户、开户、子户、保证金户、2268、9903、8888</td>
+      </tr>
+      <tr>
+        <td class="mod-name">商户入驻</td>
+        <td class="mod-file">onboarding.md</td>
+        <td class="mod-kw">入驻、预入驻、激活、小程序、POS、审核</td>
+      </tr>
+      <tr>
+        <td class="mod-name">清算流程</td>
+        <td class="mod-file">clearing.md</td>
+        <td class="mod-kw">清算、批次、订单上传、SFTP、分账、资金归集</td>
+      </tr>
+      <tr>
+        <td class="mod-name">付款与协议</td>
+        <td class="mod-file">payments.md</td>
+        <td class="mod-kw">代扣、代付、联动支付、余额划转、签约、解约</td>
+      </tr>
+      <tr>
+        <td class="mod-name">退款与退保</td>
+        <td class="mod-file">refunds.md</td>
+        <td class="mod-kw">退款、退保、扣保、保证金扣除、部分退款</td>
+      </tr>
+      <tr>
+        <td class="mod-name">提现</td>
+        <td class="mod-file">withdrawal.md</td>
+        <td class="mod-kw">提现、银行卡绑定、短信验证、到账</td>
+      </tr>
+      <tr>
+        <td class="mod-name">对账</td>
+        <td class="mod-file">reconciliation.md</td>
+        <td class="mod-kw">对账、收钱吧、三联、FTP、差错、回单</td>
+      </tr>
+      <tr>
+        <td class="mod-name">外部同步</td>
+        <td class="mod-file">external-sync.md</td>
+        <td class="mod-kw">三联ERP、收钱吧、外部系统、同步、通知</td>
+      </tr>
+      <tr>
+        <td class="mod-name">费率</td>
+        <td class="mod-file">fees.md</td>
+        <td class="mod-kw">费率、手续费、万五、计费、收费</td>
+      </tr>
+      <tr>
+        <td class="mod-name">角色权限</td>
+        <td class="mod-file">roles-permissions.md</td>
+        <td class="mod-kw">角色、权限、管理员、财务、操作员</td>
+      </tr>
+      <tr>
+        <td class="mod-name">问题排查</td>
+        <td class="mod-file">troubleshooting.md</td>
+        <td class="mod-kw">报错、失败、异常、卡住、状态不对</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Install -->
+<section id="install" class="install-section">
+  <div class="section-label reveal">GET STARTED</div>
+  <h2 class="reveal">一行命令，所有 Agent 通用</h2>
+  <p class="reveal">复制这条命令发给你的 Agent — QoderWork、Claude Code、Codex、Cursor、Cline 等均支持。安装脚本会自动检测环境并选择正确路径。</p>
+
+  <div class="install-methods reveal" style="grid-template-columns: 1fr; max-width: 640px;">
+    <div class="install-method" style="border-color: var(--fg); border-width: 2px;">
+      <h3><span class="icon">&#9889;</span> 通用安装命令</h3>
+      <p>所有支持 Shell 的 Agent 均可执行。脚本自动检测 Agent 环境（QoderWork / Claude / Cursor / Codex / Cline），安装到对应路径。</p>
+      <div class="install-cmd" onclick="copyCmd(this)" data-cmd='bash <(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh)' style="font-size: 13px;">
+        <span>bash &lt;(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh)</span>
+        <span class="copy-hint">点击复制</span>
+      </div>
+      <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px;">
+        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=qoderwork</span>
+        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=claude</span>
+        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=cursor</span>
+        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=codex</span>
+        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--agent=cline</span>
+        <span style="font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); border-radius: 9999px; color: var(--fg-secondary);">--path=/custom/dir</span>
+      </div>
+      <p style="margin-top: 12px; font-size: 12px; color: var(--fg-muted); margin-bottom: 0;">不指定参数时自动检测环境。也可追加 <code style="font-family: var(--font-mono); font-size: 12px; background: var(--surface-muted); padding: 1px 6px; border-radius: 4px;">--agent=名称</code> 强制指定。</p>
+    </div>
+  </div>
+
+  <div class="terminal reveal" style="margin-top: 64px;">
+    <div class="terminal-bar">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <span class="terminal-title">Agent Session</span>
+    </div>
+    <div class="terminal-body">
+      <div><span class="prompt">$ </span><span class="kw">user</span>: 协议代扣和授权代付有什么区别？</div>
+      <div><span class="prompt">  </span><span class="cmt"># 自动路由: payments.md</span></div>
+      <div><span class="prompt">  </span><span class="str">agent</span>: 两种付款方式的核心区别：</div>
+      <div><span class="prompt">  </span></div>
+      <div><span class="prompt">  </span>1. <span class="kw">协议代扣</span>（系统术语：余额划转）</div>
+      <div><span class="prompt">  </span>   - 体系内子户间划转，<span class="str">免费</span></div>
+      <div><span class="prompt">  </span>   - 用于服务费、采购分配等场景</div>
+      <div><span class="prompt">  </span>   - 商户需主动签约</div>
+      <div><span class="prompt">  </span></div>
+      <div><span class="prompt">  </span>2. <span class="kw">授权代付</span>（系统术语：授权代付）</div>
+      <div><span class="prompt">  </span>   - 向体系外付款，手续费 <span class="str">0.05%</span></div>
+      <div><span class="prompt">  </span>   - 用于房租、工资、报销等外部支付</div>
+      <div><span class="prompt">  </span>   - 平台发起签约<span class="cursor"></span></div>
+    </div>
+  </div>
+
+  <p class="reveal" style="margin-top: 40px; font-size: 14px; color: var(--fg-secondary);">
+    开源在 GitHub —
+    <a href="https://github.com/Joelmes/basalt-os-guide-skill" target="_blank" rel="noopener"
+       style="color: var(--fg); text-decoration: underline; text-underline-offset: 3px;">
+      查看源码 &rarr;
+    </a>
+  </p>
+</section>
+<!-- Footer -->
+<footer class="footer">
+  <p>Basalt OS Guide &mdash; 只读知识库 Skill</p>
+  <span class="version">v1.0.0 &middot; 2026-06-22</span>
+  <br>
+  <a href="https://github.com/Joelmes/basalt-os-guide-skill" target="_blank" rel="noopener" class="footer-gh">
+    <svg class="gh-icon" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    github.com/Joelmes/basalt-os-guide-skill
+  </a>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Copy command
+function copyCmd(el) {
+  const cmd = el.dataset.cmd;
+  navigator.clipboard.writeText(cmd).then(() => {
+    el.classList.add('copied');
+    const hint = el.querySelector('.copy-hint');
+    const orig = hint.textContent;
+    hint.textContent = '已复制!';
+    setTimeout(() => {
+      el.classList.remove('copied');
+      hint.textContent = orig;
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
