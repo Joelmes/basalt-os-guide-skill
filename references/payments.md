@@ -1,5 +1,3 @@
-<!-- 来源: 01_Basalt OS需求文档 (bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc) | 同步时间: 2026-06-23 11:16 -->
-
 ## 签约授权
 
 <callout emoji="❗">
@@ -633,7 +631,6 @@
           2. 支付宝：N\A不存在，展示为「-」。
 
 
-
 ## 付款
 
 ### 付款记录
@@ -1163,7 +1160,7 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
             2. 最大可退金额=付款金额-已退款金额-退款在途金额。
    9. 退款原因：必填，文本域输入框，最多可输入128个字。
    10. 备注：非必填，文本域输入框，最多可输入128个字。
-   11. 提交：用户点击确认后系统调用网商协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>发起协议代扣退款申请。点击取消则关闭协议代扣退款申请弹窗。
+   11. 提交：用户点击确认后系统调用网商`协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>`发起协议代扣退款申请。点击取消则关闭协议代扣退款申请弹窗。
    
        1. 前置校验：
        
@@ -1324,3 +1321,5 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
    
       1. 表格字段含义及取值在[退款记录](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-JxlLd427lo70JVxcFO0cILUSngc)中有详细说明。
       2. 「详情」按钮交互逻辑与退款记录列表一致，点击后跳转至[退款记录详情](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-B30kdqv0KoDSvPxuagVc4PEbnEc)页。
+
+
