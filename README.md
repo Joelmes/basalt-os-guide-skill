@@ -6,25 +6,27 @@ Basalt OS 清算分账系统的 AI Agent Skill（只读知识库）。
 
 ## 快速安装
 
-### QoderWork
+适用于所有支持 Shell 命令的 AI Agent（QoderWork、Claude Code、Codex、Cursor、Cline 等）。
 
-复制以下命令，直接发给你的 QoderWork Agent：
-
-```
-请安装 basalt-os-guide skill：从 https://github.com/Joelmes/basalt-os-guide-skill 克隆到 ~/.qoderworkcn/skills/basalt-os-guide/ 目录
-```
-
-Agent 会自动执行 `git clone` 并将文件放入正确位置。
-
-### Claude / Cursor / 其他 Agent
-
-将 Skill 文件复制到你的项目目录中：
+将以下命令发给你的 Agent，它会自动执行安装：
 
 ```bash
-git clone https://github.com/Joelmes/basalt-os-guide-skill.git .claude/skills/basalt-os-guide
+bash <(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh)
 ```
 
-或手动下载文件，将 `SKILL.md` 和 `references/` 目录放入你的 Agent 能读取的位置。
+安装脚本会自动检测 Agent 环境并选择正确的安装路径。如需指定 Agent，可加参数：
+
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/install.sh) --agent=qoderwork
+```
+
+支持的 Agent 参数：`qoderwork`、`claude`、`cursor`、`codex`、`cline`。也可以用 `--path=/your/path` 指定自定义路径。
+
+### 手动安装
+
+```bash
+git clone https://github.com/Joelmes/basalt-os-guide-skill.git ~/.qoderworkcn/skills/basalt-os-guide
+```
 
 ## 知识模块
 
