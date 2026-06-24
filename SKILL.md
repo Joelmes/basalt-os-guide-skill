@@ -1,7 +1,7 @@
 ---
 name: basalt-os-guide
-description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接等全部业务领域。当用户询问 Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。当用户说"更新知识库"、"同步知识"、"sync knowledge"时执行从飞书拉取最新内容并同步到本地和 GitHub 的完整流程。仅做知识查询，不包含数据读写操作。
-version: 1.5.0
+description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接等全部业务领域。当用户询问 Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。当用户说"检查更新"、"check for updates"时从 GitHub 拉取最新版本更新本地 skill。仅做知识查询，不包含数据读写操作。
+version: 1.6.0
 ---
 
 # Basalt OS 清算分账系统 — 使用指南
@@ -106,135 +106,51 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 | 商户限权 | 1=限权, 2=解除, 3=弱限, 4=延迟(T+N) |
 | 通用结果码 | S=成功, F=失败, U=处理中 |
 
-## 飞书知识源（弹性更新）
+## 检查更新
 
-本 Skill 从一份飞书产品需求文档中获取全部知识，同步后自动拆分为模块化参考文件。
+当用户说"检查更新"、"check for updates"时，从 GitHub 拉取最新版本更新本地 skill。
 
-**知识源文档**：`01_Basalt OS需求文档`
-- URL：`https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc`
-- doc_token：`P4eedyyrhoWE5HxC1AtcCPvtnWc`
-- 文档结构（H1/H2 章节）：
+### 步骤
 
-| 章节 | 内容范围 |
-|---|---|
-| 清算分账 › 品牌专户 | 平台清算专户、来账明细、品牌方操作 |
-| 清算分账 › 总部公司 | 总部公司管理、商户详情、资金账户、提现 |
-| 清算分账 › 区域公司 | 区域公司管理、商户详情、资金账户 |
-| 清算分账 › 门店 | 门店管理、商户详情、资金账户 |
-| 清算分账 › 供应商 | 供应商管理 |
-| 清算分账 › 清算订单（三联）（未上线）/ 清算订单（收钱吧） | 订单来源、POS 设置 |
-| 清算分账 › 清算文件 | 清算文件管理 |
-| 清算分账 › 清算批次 | 清算批次、退款扣保 |
-| 清算分账 › 签约授权 | 协议代扣/授权代付合约、授权记录 |
-| 清算分账 › 付款 | 付款记录、批量/单笔付款、退款 |
-| 平台管理 | 区域划分、业务属性、角色、账户 |
-| 全局规则 | 编码规则、入驻状态、提现规则、清算状态、合约状态、付款状态等 |
+**第一步：版本比对**
 
-## 知识库同步
+1. 读取本地 SKILL.md 的 `version` 字段（当前版本）
+2. 从 GitHub 获取 `version.json`：
+   ```bash
+   curl -s https://api.github.com/repos/Joelmes/basalt-os-guide-skill/contents/version.json
+   ```
+   从返回的 JSON 中解码 `content` 字段（base64），提取 `version` 值（GitHub 版本）
+3. 比对两个版本号
 
-当用户说"更新知识库"、"同步知识"、"sync knowledge"时，执行以下 6 步同步流程：
+**第二步：判断是否需要更新**
 
-### 前置条件
+- 如果本地版本 = GitHub 版本 → 告知用户已是最新，无需更新
+- 如果本地版本 < GitHub 版本 → 继续执行第三步
 
-- 需要 lark-cli 已安装并认证（`lark-cli auth login`）
-- 如果 lark-cli 不可用，告知用户本地缓存仍可正常使用，只是无法获取最新内容
+**第三步：从 GitHub 下载最新文件**
 
-### 同步步骤
-
-**第一步：从飞书拉取并更新知识文件**
-
-```bash
-lark-cli docs +fetch --api-version v2 --doc P4eedyyrhoWE5HxC1AtcCPvtnWc --doc-format markdown --as user
-```
-
-从返回的 JSON 中提取 `data.document.content` 字段（即完整 markdown 内容），按 H1/H2 标题拆分写入 `references/` 目录：
-
-| 参考文件 | 包含的 H1/H2 章节标题（精确匹配） |
-|---|---|
-| merchants.md | 品牌专户、总部公司、区域公司、门店、供应商 |
-| clearing.md | 清算订单（三联）（未上线）、清算订单（收钱吧）、清算文件、清算批次 |
-| payments.md | 签约授权、付款 |
-| global-rules.md | 平台管理、区域划分、业务属性、角色、账户、全局规则、公司和门店编码生成规则、商户入驻状态、资金账单下载、商户提现、清算订单状态、清算批次号生成规则、清算文件状态、清算批次状态、退款扣保、合约变更系统流水号、协议代扣、授权代付、银行卡号和手机号脱敏规则、对外付款 |
-
-拆分规则：按 `# ` (H1) 和 `## ` (H2) 级别切割，每个标题（含其下级内容）作为一个 section，按标题名称归入对应参考文件（未匹配的 section 丢弃）。
-
-**第二步：更新 SKILL.md 并复制产出物**
-
-- 读取本地 SKILL.md 的 `version` 字段，Patch 版本号 +1（如 `1.3.0` → `1.4.0`）
-- 更新 SKILL.md 的 `version` 字段为新版本号
-- 在 `/Users/joes/Documents/文件/Agent产出物/basalt-os-guide/v{版本号}_{日期}/` 下创建子文件夹，复制 SKILL.md + 4 个 reference 文件
-
-**第三步：更新 CHANGELOG**
-
-在本地 `CHANGELOG.md` 顶部追加新版本记录，格式：
-
-```markdown
-## [{版本号}] — {日期}
-
-### 更新内容
-- 从飞书同步最新知识内容
-```
-
-**第四步：更新落地页和 README**
-
-- `index.html`（落地页）：更新版本号（badge 和 footer 两处）和日期
-- `README.md`：检查内容是否需要同步更新（通常不需要，除非模块结构发生变化）
-
-**第五步：推送到 GitHub**
-
-将以下文件推送到 `Joelmes/basalt-os-guide-skill` 仓库（main 分支）：
+从 `Joelmes/basalt-os-guide-skill` 仓库（main 分支）下载以下文件，覆盖本地 skill 目录：
 
 | 文件 | 说明 |
 |---|---|
-| `references/*.md` | 4 个知识参考文件 |
-| `SKILL.md` | 含更新后的版本号 |
-| `CHANGELOG.md` | 含新版本记录 |
-| `version.json` | 更新 version、updated、changes 字段 |
-| `index.html` | 更新落地页版本号和日期 |
-| `README.md` | 如有变更则推送 |
+| `SKILL.md` | 主入口文件 |
+| `references/merchants.md` | 商户管理知识 |
+| `references/clearing.md` | 清算知识 |
+| `references/payments.md` | 付款知识 |
+| `references/global-rules.md` | 全局规则知识 |
 
-`version.json` 格式：
-```json
-{
-  "version": "{新版本号}",
-  "name": "basalt-os-guide",
-  "updated": "{今天日期}",
-  "changes": ["从飞书同步最新知识内容"]
-}
-```
+下载方式：通过 GitHub API 获取文件内容（base64 解码后写入本地），或使用 `npx skills add https://github.com/Joelmes/basalt-os-guide-skill` 重新安装。
 
-GitHub PAT 通过 `security find-generic-password -s "github.com" -w` 获取。如获取失败，提示用户手动提供 token。
+**第四步：汇报结果**
 
-**第六步：版本检查**
-
-模拟其他已安装用户的检查更新流程：
-1. 读取本地 SKILL.md 的 `version` 字段（代表刚更新后的版本）
-2. 从 GitHub 获取 `version.json`：`curl -s https://raw.githubusercontent.com/Joelmes/basalt-os-guide-skill/main/version.json`
-3. 比对版本号，确认一致
-4. 汇报：本地版本、GitHub 版本、是否一致
-
-**第七步：汇报结果**
-
-汇总本次同步的完整结果：
-- 飞书文档字符数
-- 4 个参考文件大小
-- SKILL.md 版本号变更
-- CHANGELOG.md 更新状态
-- index.html（落地页）版本号变更
-- README.md 更新状态（是否需要变更）
-- GitHub 推送状态（成功/失败明细）
-- 产出物文件夹路径
-- 本地版本 vs GitHub 版本比对结果
+- 更新前版本号 → 更新后版本号
+- 各文件更新状态（成功/失败）
+- 如有失败项，提示用户可手动执行 `npx skills add https://github.com/Joelmes/basalt-os-guide-skill` 完整重装
 
 ### 错误处理
 
-- 飞书 fetch 失败 → **保留本地缓存不覆盖**，告知失败原因，中止后续步骤
-- GitHub 推送失败 → 本地文件和产出物不受影响，只提示推送失败
-- lark-cli 未安装 → 跳过同步，提示本地缓存仍可使用
-
-### 部分更新
-
-如果用户只想更新某个模块（如"更新付款的知识"），仍然 fetch 完整文档，但只覆盖对应的参考文件。其余步骤照常执行。
+- GitHub 访问失败 → 告知用户网络问题，本地知识库仍可正常使用
+- 文件下载失败 → 保留本地文件不覆盖，提示失败原因
 
 ## 详细知识
 
