@@ -1,10 +1,1 @@
-{
-  "version": "1.4.0",
-  "name": "basalt-os-guide",
-  "updated": "2026-06-23",
-  "changes": [
-    "同步工作流升级为7步全流程",
-    "description增加更新知识库触发词",
-    "知识库内容从飞书PRD最新拉取"
-  ]
-}
+{"version": "1.5.0", "name": "basalt-os-guide", "updated": "2026-06-24", "changes": ["从飞书同步最新知识内容", "修复 section 名称映射"]}
