@@ -1,1 +1,1 @@
-{"version": "1.5.0", "name": "basalt-os-guide", "updated": "2026-06-24", "changes": ["从飞书同步最新知识内容", "修复 section 名称映射"]}
+{"version": "1.6.0", "name": "basalt-os-guide", "updated": "2026-06-24", "changes": ["架构拆分：飞书同步流程移至 update-basalt-os-guide", "新增检查更新流程（从 GitHub 拉取最新版本）"]}
