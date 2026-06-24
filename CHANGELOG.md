@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.0] — 2026-06-24
+
+### 更新内容
+
+- 架构拆分：将飞书同步发布流程拆出为独立 skill（update-basalt-os-guide）
+- 移除飞书知识源和知识库同步章节，新增「检查更新」流程（从 GitHub 拉取最新版本）
+- 触发词调整：「检查更新」/「check for updates」= 从 GitHub 更新；飞书发布流程移至 update-basalt-os-guide
+- README.md 同步更新：移除飞书同步描述，改为 GitHub 检查更新
+- SKILL.md 体积精简（移除 ~130 行飞书同步工作流）
+
 ## [1.5.0] — 2026-06-24
 
 ### 更新内容
