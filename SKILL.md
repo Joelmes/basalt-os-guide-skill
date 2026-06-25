@@ -41,6 +41,7 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 | 清算、批次、订单上传、补单、清算文件、SFTP、分账、资金归集、收钱吧、三联、POS | [clearing.md](references/clearing.md) | 清算订单、清算文件、清算批次、退款扣保 |
 | 代扣、代付、联动支付、余额划转、协议、签约、解约、合约、付款、退款、退保、扣保、批量付款、单笔付款 | [payments.md](references/payments.md) | 签约授权、协议代扣/授权代付、付款记录、退款 |
 | 入驻、商户注册、编码规则、角色、权限、管理员、费率、手续费、状态、规则 | [global-rules.md](references/global-rules.md) | 平台管理、全局规则、编码规则、状态机、费率、角色权限 |
+| 操作、手册、SOP、登录、入驻操作、注册码、扫码入驻、POS绑定、资金转入、银行转账、退保操作、清算操作步骤、常见问题、FAQ | [operations.md](references/operations.md) | 账号登录、商户入驻操作手册（总部/区域/门店）、清算操作手册（含线下步骤和 FAQ） |
 
 **路由规则**：
 - 问题可能涉及多个模块，读取所有相关文件综合回答
@@ -129,15 +130,19 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 
 **第三步：从 GitHub 下载最新文件**
 
-从 `Joelmes/basalt-os-guide-skill` 仓库（main 分支）下载以下文件，覆盖本地 skill 目录：
+从 `Joelmes/basalt-os-guide-skill` 仓库（main 分支）下载以下**全部**文件，覆盖本地 skill 目录：
 
 | 文件 | 说明 |
 |---|---|
 | `SKILL.md` | 主入口文件 |
+| `CHANGELOG.md` | 更新日志 |
 | `references/merchants.md` | 商户管理知识 |
 | `references/clearing.md` | 清算知识 |
 | `references/payments.md` | 付款知识 |
 | `references/global-rules.md` | 全局规则知识 |
+| `references/operations.md` | 操作手册（登录、入驻、清算操作 SOP） |
+
+> 注意：必须下载以上全部文件，不可遗漏。
 
 下载方式：通过 GitHub API 获取文件内容（base64 解码后写入本地），或使用 `npx skills add https://github.com/Joelmes/basalt-os-guide-skill` 重新安装。
 
