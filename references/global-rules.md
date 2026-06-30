@@ -1,6 +1,3 @@
-# 平台管理
-
-
 ## 区域划分
 
 1. 筛选区域
@@ -72,9 +69,6 @@
 ---
 
 
-# 全局规则
-
-
 ## 公司和门店编码生成规则
 
 ### 总部公司编码
@@ -111,6 +105,8 @@
    3. `{YYYYMMDD}`：店铺创建日期。
    4. `{3位自增编号}`：该地区对应日期的第几家店，不跨日期计算，也不会跨省份计算，顺序按门店在本系统中的创建顺序决定。
 4. 删改规则：门店编码一经生成不可删除，不可修改。
+
+   <sheet sheet-id="uQ8Vv7" token="B7wdsRcsChjCl8tcsLtcNW3snFd"></sheet>
 
 ### 外部商户号（商户编码）
 
@@ -174,6 +170,8 @@
    | 激活成功 | - | 商户激活查询接口一致 | 1：成功 | 1：成功 | 1：成功 |
    | 激活失败 | - | 商户激活查询接口一致 | 2：失败 | 2：失败 | - |
 4. 状态流转
+
+   <whiteboard token="SdTywFBLmhs0HEblmjbcPlaqnSb"></whiteboard>
 
 
 ## 资金账单下载
@@ -271,14 +269,31 @@
 ### 品牌提现手续费
 
 <callout emoji="🎈">
-品牌提现手续费在商户发起提现时通过提现申请中的
+商户将其子户余额提现至银行卡时，会产生手续费，从系统角度来讲，手续费
 </callout>
+
+1. 品牌提现手续费在商户余额提现时在提现申请接口`商户单笔提现申请接口<ant.mybank.bkcloudfunds.withdraw.apply>`中直接向商户收取。
+2. 品牌提现手续费默认比例0.1%，即品牌提现手续费=提现申请中填写的`提现金额`×`0.1%`。
+3. 商户提现实际到账金额=提现申请中填写的`提现金额`-`品牌提现手续费`。
 
 ### 网商提现手续费
 
+<callout emoji="🎈">
+1. 商户提现产生的网商提现手续费数据通过品牌方费用对账文件获取。
+2. 商户提现产生的网商提现手续费费用从品牌方保证金户扣除，具体流程如下：
 
-
-1. 网商手续费
+   1. 发起商户提现：调用网商发起提现接口发起提现，提现实际到账金额=申请提现金额-品牌提现手续费，提现至商户结算卡。
+   2. 网商收取手续费：网商次日（D+1）从品牌方8888结算户（保证金户）收取前一日品牌所有商户提现产生的手续费。
+   
+      1. 网商提现手续费=申请提现金额\*0.05%。
+   3. 网商提现手续费账单：品牌方第三日（D+2）凌晨3点从网商拉取品牌方费用对账文件，即前一日品牌方向网商已支付的的手续费账单。
+   
+      1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/kyiyc2hqw4722tsw
+      2. 接口地址：`品牌商费用对账文件申请（适用于品牌自付费）<ant.mybank.bkmbp.stmt.fe e.file.apply> 1.0.0`
+   4. 筛选提现手续费账单：从账单表格中筛选提现手续费账单（提现（小程序模式）和提现（API模式）），用筛选出的所有手续费账单跟前面提现通知接口返回的提现订单比对：
+   
+      1. 如果有新增的订单，则通过`4 单笔提现查询接口（异步接口）<ant.mybank.bkcloudfunds.withdraw.query> `接口查询提现订单详情，获取提现商户，将该提现记录展示在对应的商户提现记录列表。
+</callout>
 
 
 ## 清算订单状态
@@ -300,6 +315,8 @@
    6. 清算失败：「清算中」状态的订单，网商侧完成该订单所属批次的清算，批次清算结果中该笔订单为「清算失败」时的状态。批次清算结果为「部分成功」时需通过校验文件确认该批次中每个订单的清算结果。
 2. 状态变更
 
+   <whiteboard token="WgytwInDFhP2pVbWNFDcGLjLnPc"></whiteboard>
+
 ### POS机绑定状态
 
 1. 状态定义：
@@ -307,6 +324,8 @@
    1. 未绑定商户：POS未跟任何商户有绑定关系。
    2. 已绑定商户：POS跟商户已建立绑定关系。
 2. 状态变更
+
+   <whiteboard token="B5HawgqOdhB2Ptb6ze2ciGFUnrd"></whiteboard>
 
 
 ## 清算批次号生成规则
@@ -342,6 +361,8 @@
    11. 清算失败：「清算中」状态的批次待网商侧整批清算流程执行完成后，系统通过`补单批次完结通知接口`和`批次查询接口`获得清算结果为「清算失败」时对应的清算文件的状态。
 2. 状态流转
 
+   <whiteboard token="CWeYwVia1hxlAWbWTYScvIQJnRc"></whiteboard>
+
 
 ## 清算批次状态
 
@@ -366,6 +387,8 @@
    | 部分成功 | PART_SUCCESS | - |
    | 清算失败 | FAIL | FAIL |
 3. 状态流转
+
+   <whiteboard token="NM1Kw1ZT3h4lkabjg6ucJ7Kjnag"></whiteboard>
 
 <whiteboard token="RCUCwvrtNhomFxbsCB7cWqiundc"></whiteboard>
 
@@ -701,3 +724,23 @@
 
    <table><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>状态名称</th><th>状态值</th><th>状态类型</th><th>说明</th></tr></thead><tbody><tr><td>处理中</td><td>DEALING</td><td>中间态</td><td><ol><li seq="1">系统正在解析</li><li>系统解析成功，调用网商接口成功，网商正在处理付款请求，仍有未返回付款结果的付款单。</li></ol></td></tr><tr><td>成功</td><td>SUCCESS</td><td>终态</td><td><ol><li seq="1">该批次所有的付款单网商侧返回的结果全部为 SUCCESS</li></ol></td></tr><tr><td>失败</td><td>FAIL</td><td>终态</td><td><ol><li seq="1">全部解析失败</li><li>该批次所有的付款单网商侧返回的结果全部为 FAIL</li></ol></td></tr><tr><td>部分成功</td><td>PARTIAL_SUCCESS</td><td>终态</td><td><ol><li seq="1">部分解析失败，部分解析成功</li><li>解析成功的付款单，网商侧返回的付款结果部分为 SUCCESS，部分为 FAIL</li></ol></td></tr></tbody></table>
 
+### 平台从商户后收取手续费
+
+<callout emoji="🎈">
+✅适用场景：
+
+1. 授权代付网商手续费
+🚫不适用场景：
+
+1. 商户提现网商手续费（发起商户提现时平台通过品牌提现手续费`PlatformFee`直接收取了提现手续费）。
+</callout>
+
+1. 平台收取手续费：平台根据网商提供的品牌方费用对账文件，通过「协议代扣」接口向商户收取手续费（即提现手续费由商户承担）
+
+   1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/hz4cxl
+   2. 接口地址：`2.1 协议授权代扣接口<ant.mybank.bkcloudfunds.order.withhold.apply>`
+   3. 核心入参：
+   4.    PayerId 付款方商户号：提现商户的网商商户号
+   5.    PayerType 付款方类型：MERCHANT
+   6.    PayeeId 收款方ID：平台888开头的保证金户（结算户）
+   7.    PayeeType 收款方类型：PLATFORM
