@@ -1321,5 +1321,3 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
    
       1. 表格字段含义及取值在[退款记录](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-JxlLd427lo70JVxcFO0cILUSngc)中有详细说明。
       2. 「详情」按钮交互逻辑与退款记录列表一致，点击后跳转至[退款记录详情](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-B30kdqv0KoDSvPxuagVc4PEbnEc)页。
-
-
