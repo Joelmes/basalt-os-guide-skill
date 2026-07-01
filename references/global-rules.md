@@ -1,3 +1,9 @@
+# 平台管理
+
+
+# 全局规则
+
+
 ## 区域划分
 
 1. 筛选区域
@@ -177,7 +183,8 @@
 ## 资金账单下载
 
 <callout emoji="🎈">
-1. 接口地址：<ant.mybank.bkmbp.stmt.fund.stmt.apply> 1.0.0
+1. 接口文档：[https://loan-platform.yuque.com/vo42xq/kv7qv1/rgws07ofvxr0koge](https://loan-platform.yuque.com/vo42xq/kv7qv1/rgws07ofvxr0koge)
+2. 接口地址：<ant.mybank.bkmbp.stmt.fund.stmt.apply> 1.0.0
 </callout>
 
 1. 入参
@@ -257,7 +264,7 @@
 
 1. 提现申请单状态来源
 
-   <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>查询方式</th><th>接口</th><th>状态字段</th><th>状态值</th><th>使用场景</th></tr></thead><tbody><tr><td>被动通知</td><td>3 提现结果通知接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.notify&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>FAIL=失败</td><td><ol><li seq="1">商户发起提现申请后，网商处理提现请求，通知品牌方提现结果。</li></ol></td></tr><tr><td>主动触发</td><td>4 单笔提现查询接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.query&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>DEALING=处理中<br/>FAIL=失败</td><td><ol><li seq="1">平台收到体下你通知后提现通知后主动查询确认提现申请单终态。</li><li>通过品牌商费用对账文件拿到新的体现单，通过此接口查询体现单详情和状态。</li></ol></td></tr></tbody></table>
+   <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>查询方式</th><th>接口</th><th>状态字段</th><th>状态值</th><th>使用场景</th></tr></thead><tbody><tr><td>被动通知</td><td>3 提现结果通知接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.notify&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>FAIL=失败</td><td><ol><li seq="1">商户发起提现申请后，网商处理提现请求，通知品牌方提现结果。</li></ol></td></tr><tr><td>主动触发</td><td>4 单笔提现查询接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.query&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>DEALING=处理中<br/>FAIL=失败</td><td><ol><li seq="1">平台收到体下你通知后提现通知后主动查询确认提现申请单终态。</li><li>通过品牌商费用对账文件拿到新的提现单，通过此接口查询提现单详情和状态。</li></ol></td></tr></tbody></table>
 2. 提现申请单状态与接口字段映射
 
    | 状态名称 | 3 提现结果通知接口（异步接口）  <br/>状态值（`Status`） | 4 单笔提现查询接口（异步接口）  <br/>状态值（`Status`） | 状态类型 | 说明 |
@@ -269,12 +276,14 @@
 ### 品牌提现手续费
 
 <callout emoji="🎈">
-商户将其子户余额提现至银行卡时，会产生手续费，从系统角度来讲，手续费
+商户将其子户余额提现至银行卡时，会产生手续费，从系统角度来讲，手续费分为品牌手续费和网商手续费。
+1. 品牌手续费：商户提现申请发起时，品牌方会从商户申请提现金额中扣除一笔钱作为品牌手续费。商户提现实际到账金额
+2. 网商手续费：商户提现成功后，D+1网商从平台保证金户中扣除平台维度的手续费（已知包括提现手续费和授权代付手续费），D+2平台向网商申请对账文件，获取平台维度的手续费扣除明细。
 </callout>
 
 1. 品牌提现手续费在商户余额提现时在提现申请接口`商户单笔提现申请接口<ant.mybank.bkcloudfunds.withdraw.apply>`中直接向商户收取。
 2. 品牌提现手续费默认比例0.1%，即品牌提现手续费=提现申请中填写的`提现金额`×`0.1%`。
-3. 商户提现实际到账金额=提现申请中填写的`提现金额`-`品牌提现手续费`。
+3. 商户提现实际到账金额=提现申请中填写的`申请提现金额`-`品牌提现手续费`。
 
 ### 网商提现手续费
 
@@ -289,11 +298,34 @@
    3. 网商提现手续费账单：品牌方第三日（D+2）凌晨3点从网商拉取品牌方费用对账文件，即前一日品牌方向网商已支付的的手续费账单。
    
       1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/kyiyc2hqw4722tsw
-      2. 接口地址：`品牌商费用对账文件申请（适用于品牌自付费）<ant.mybank.bkmbp.stmt.fe e.file.apply> 1.0.0`
+      2. 接口地址：`品牌商费用对账文件申请（适用于品牌自付费）<ant.mybank.bkmbp.stmt.fee.file.apply> 1.0.0`
+      3. 核心入参:
+      
+         1. StartTime/EndTime：账单起止日期，格式为yyyyMMddHHmmss
+         
+            1. 如明细账单类型则截取前14位，闭区间（明细账单按此规则）
+            2. 如日汇总类型则截取前8位，闭区间
+            3. 如月汇总类型则截取前6位，闭区间
+         2. OutRequestNo：外部交易号
+         
+            1. 
+         3. StmtType：账单类型
+         
+            1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
+            2. 品牌商收费日账单文件（PLAT_FEE_DAY_SUMMARY_STMT_BILL）
+            3. 品牌商收费月账单文件（PLAT_FEE_MON_SUMMARY_STMT_BILL）
    4. 筛选提现手续费账单：从账单表格中筛选提现手续费账单（提现（小程序模式）和提现（API模式）），用筛选出的所有手续费账单跟前面提现通知接口返回的提现订单比对：
    
       1. 如果有新增的订单，则通过`4 单笔提现查询接口（异步接口）<ant.mybank.bkcloudfunds.withdraw.query> `接口查询提现订单详情，获取提现商户，将该提现记录展示在对应的商户提现记录列表。
 </callout>
+
+
+## 平台清算专户
+
+1. 户名：浙江可柔品牌管理有限公司
+2. 平台清算专户（即《网商银行云资金平台服务协议》中约定的“平台交易资金汇总专管户”）：99030360620900482009
+3. 开户行：浙江网商银行
+4. 联行号：323331000001
 
 
 ## 清算订单状态
