@@ -22,7 +22,7 @@
 <callout emoji="🎈">
 1. 协议代扣的授权只能由商户在支付宝云资金小程序主动发起。
 2. 授权代付的授权可由平台发起，该功能仅为**授权代付合约**发起授权。
-3. 发起授权代付申请的前置步骤：商户已开通过桥西进户。
+3. 发起授权代付申请的前置步骤：商户已开通过桥西进户。过桥西进户的开通流程详见
 
    1. 过桥西进户由商户在网商云资金小程序中自行开通，网商不会通知也无法查询是否已开通。
 4. 合约产生接口：
@@ -107,7 +107,7 @@
             3. 判断报销代发`CLAIM`场景的收款方数量：
             
                1. 若收款方数量≤50，则调用`1.1. 协议签约申请&协议变更申请接口(同步)<ant.mybank.bkcloudfunds.protocol.sign.apply>`接口发起授权申请。
-               2. 若收款方数量≥50，则调用`1.2. 协议签约申请&协议变更申请(异步接口)<ant.mybank.bkcloudfunds.protocol.sign.async.apply>`接口发起授权申请。
+               2. 若收款方数量＞50，则调用`1.2. 协议签约申请&协议变更申请(异步接口)<ant.mybank.bkcloudfunds.protocol.sign.async.apply>`接口发起授权申请。
             4. 接口调用失败：则本地保存表单数据，页面上用toast提示失败原因。
             5. 如接口调用成功：授权记录中新增一条授权代付的授权记录数据。
 2. 发起授权申请接口调用：
@@ -793,15 +793,15 @@
     1. MERCHANT：商户
     2. PLATFORM：平台
 13. 备注：发起付款申请时填写的备注信息，对应网商`Memo`字段值。
-14. 指定付方使用信息：付款时出款账户的使用顺序，对应网商`PayerSpecifiedInfo`字段值。按字段值中的`priority`优先级数字从小到大依次排列。如
+14. 指定付方使用信息：付款时出款账户的使用顺序，对应网商`PayerSpecifiedInfo`字段值。按字段值中的`priority`优先级数字从小到大依次排列。只展示出款账户，不展示具体金额。
 
-    1. 可用子户冻结余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应`BALANCE_FREEZE`字段值。
-    2. 可用子户解冻余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应`BALANCE_AVAILABLE`字段值。
-    3. 保证金户余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应`TRADE_DEPOSIT_AVAILABLE`字段值。
-15. 订单类型：对应网商`OrderType`字段值。
+    1. 可用子户冻结余额
+    2. 可用子户解冻余额
+    3. 交易保证金户余额
+15. ~~订单类型：对应网商`OrderType`字段值。~~
 
-    1. 多笔合并支付 ：`IMME_MERGE_SINGLE_PAY`
-    2. 单笔支付：`MERGE_SINGLE_PAY`
+    1. ~~多笔合并支付 ：`IMME_MERGE_SINGLE_PAY`~~
+    2. ~~单笔支付：`MERGE_SINGLE_PAY`~~
 16. 网商订单号：网商侧返回的订单号，对应网商`OrderNo`字段值。
 17. 状态：付款单状态，详见[协议代扣付款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-JVLSdFbDhoXLS6xPtNVcpy9cnLd)。
 18. 交易完结时间：格式：yyyy-MM-dd HH:mm:ss，对应网商`交易完结时间FinishDate`字段值。
@@ -855,11 +855,11 @@
 10. 支付金额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应网商`TotalAmount`字段值。
 11. 币种：人民币，对应网商`Currency`字段值。
 12. ~~付方资产信息，需要指定付方出资份额时必填（可用子户可用部分出资金额，可用子户冻结部分出金，保证金子户出资金额）~~
-13. 指定付方使用信息付款时出款账户的使用顺序，对应网商`PayerSpecifiedInfo`字段值。按字段值中的`priority`优先级数字从小到大依次排列。如
+13. 指定付方使用信息付款时出款账户的使用顺序，对应网商`PayerSpecifiedInfo`字段值。按字段值中的`priority`优先级数字从小到大依次排列。只展示出款账户，不展示具体金额。
 
-    1. 可用子户冻结余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应`BALANCE_FREEZE`字段值。
-    2. 可用子户解冻余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应`BALANCE_AVAILABLE`字段值。
-    3. 保证金户余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应`TRADE_DEPOSIT_AVAILABLE`字段值。
+    1. 可用子户冻结余额
+    2. 可用子户解冻余额
+    3. 交易保证金户余额
 14. 交易请求时间：格式：yyyy-MM-dd HH:mm:ss，对应网商`RequestTime`字段值。
 15. 交易完结时间：格式：yyyy-MM-dd HH:mm:ss，对应网商`FinishDate`字段值。
 16. 备注：发起付款申请时填写的备注信息，对应网商`Memo`字段值。
@@ -1086,7 +1086,7 @@
 
 #### 协议代扣
 
-<table><colgroup><col/><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th><b>序号</b></th><th><b>参数名</b></th><th><b>参数描述</b></th><th><b>数据类型</b></th><th><b>长度</b></th><th><b>出现要求</b></th><th><b>示例</b></th><th>传参</th></tr></thead><tbody><tr><td colspan="7"><b>基本参数</b></td><td></td></tr><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>OutTradeNo</td><td>代扣业务订单号</td><td>String</td><td>64</td><td>ME</td><td></td><td>{业务流水号}</td></tr><tr><td>3</td><td>Scene</td><td>业务场景：<br/>品牌协议代扣场景：PROTOCOL_WITHHOLD<br/>品牌协议代扣支持冻结场景：PROTOCOL_WITHHOLD_SUPPORT_FREEZE<br/>品牌协议代扣支持冻结和账号场景：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT</td></tr><tr><td>4</td><td>TotalAmount</td><td>交易金额（分）</td><td>Number</td><td></td><td>M</td><td></td><td>{付款金额}</td></tr><tr><td><del>5</del></td><td>FreezeAmount</td><td>冻结部分出金（分）</td><td>Number</td><td></td><td>C</td><td>非必传<br/>PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td><del>6</del></td><td>AvailableAmount</td><td>可用部分金额（分）</td><td>Number</td><td></td><td>C</td><td>非必传PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td>7</td><td>Currency</td><td>币种</td><td>String</td><td>3</td><td>M</td><td>CNY</td><td>固定值：CNY</td></tr><tr><td>8</td><td>PayerId</td><td>付款方商户号</td><td>String</td><td>64</td><td>M</td><td></td><td>{付款方商户号}</td></tr><tr><td>9</td><td>PayerType</td><td>付款方类型：</td><td>String</td><td>16</td><td>M</td><td>MERCHANT</td><td>MERCHANT</td></tr><tr><td>10</td><td>PayeeId</td><td>收款方ID</td><td>String</td><td>64</td><td>M</td><td></td><td>{收款方商户号}</td></tr><tr><td>11</td><td>PayeeType</td><td>收款方类型</td><td>String</td><td>16</td><td>M</td><td>MERCHANT<br/>PLATFORM</td><td>MERCHANT</td></tr><tr><td>12</td><td>Memo</td><td>备注（可填写订单描述信息）</td><td>String</td><td>128</td><td>O</td><td></td><td>{备注}</td></tr><tr><td>13</td><td>PayerSpecifiedInfo</td><td>指定付方使用信息场景为本次新增场景时，外部需要指定时该字段必填！！不填的话由网商内部根据isv来进行配置</td><td>String</td><td>512</td><td><b>O</b></td><td>PayerSpecifiedInfo对象json结构进行base64encode </td><td>固定值：见下面的代码块</td></tr><tr><td>14</td><td>ExtInfo</td><td>扩展信息</td><td>String</td><td>512</td><td>O</td><td>map</td><td></td></tr></tbody></table>
+<table><colgroup><col/><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th><b>序号</b></th><th><b>参数名</b></th><th><b>参数描述</b></th><th><b>数据类型</b></th><th><b>长度</b></th><th><b>出现要求</b></th><th><b>示例</b></th><th>传参</th></tr></thead><tbody><tr><td colspan="7"><b>基本参数</b></td><td></td></tr><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>OutTradeNo</td><td>代扣业务订单号</td><td>String</td><td>64</td><td>ME</td><td></td><td>{业务流水号}</td></tr><tr><td>3</td><td>Scene</td><td>业务场景：<br/>品牌协议代扣场景：PROTOCOL_WITHHOLD<br/>品牌协议代扣支持冻结场景：PROTOCOL_WITHHOLD_SUPPORT_FREEZE<br/>品牌协议代扣支持冻结和账号场景：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT<br/>（品牌协议代扣支持冻结和账号场景）</td></tr><tr><td>4</td><td>TotalAmount</td><td>交易金额（分）</td><td>Number</td><td></td><td>M</td><td></td><td>{付款金额}</td></tr><tr><td><del>5</del></td><td>FreezeAmount</td><td>冻结部分出金（分）</td><td>Number</td><td></td><td>C</td><td>非必传<br/>PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td><del>6</del></td><td>AvailableAmount</td><td>可用部分金额（分）</td><td>Number</td><td></td><td>C</td><td>非必传PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td>7</td><td>Currency</td><td>币种</td><td>String</td><td>3</td><td>M</td><td>CNY</td><td>固定值：CNY</td></tr><tr><td>8</td><td>PayerId</td><td>付款方商户号</td><td>String</td><td>64</td><td>M</td><td></td><td>{付款方商户号}</td></tr><tr><td>9</td><td>PayerType</td><td>付款方类型：</td><td>String</td><td>16</td><td>M</td><td>MERCHANT</td><td>MERCHANT</td></tr><tr><td>10</td><td>PayeeId</td><td>收款方ID</td><td>String</td><td>64</td><td>M</td><td></td><td>{收款方商户号}</td></tr><tr><td>11</td><td>PayeeType</td><td>收款方类型</td><td>String</td><td>16</td><td>M</td><td>MERCHANT<br/>PLATFORM</td><td>MERCHANT</td></tr><tr><td>12</td><td>Memo</td><td>备注（可填写订单描述信息）</td><td>String</td><td>128</td><td>O</td><td></td><td>{备注}</td></tr><tr><td>13</td><td>PayerSpecifiedInfo</td><td>指定付方使用信息场景为本次新增场景时，外部需要指定时该字段必填！！不填的话由网商内部根据isv来进行配置</td><td>String</td><td>512</td><td><b>O</b></td><td>PayerSpecifiedInfo对象json结构进行base64encode </td><td>固定值：见下面的代码块</td></tr><tr><td>14</td><td>ExtInfo</td><td>扩展信息</td><td>String</td><td>512</td><td>O</td><td>map</td><td></td></tr></tbody></table>
 
 PayerSpecifiedInfo → specifiedMerchantAmtComposition
 
@@ -1095,15 +1095,15 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
     "specifiedMerchantAmtComposition": {
         "componentPriorityList": [
             {
-                "merchantBalanceComponent": "TRADE_DEPOSIT_AVAILABLE",// 保证金户
+                "merchantBalanceComponent": "TRADE_DEPOSIT_AVAILABLE",// 交易保证金户余额
                 "priority": 3
             },
             {
-                "merchantBalanceComponent": "BALANCE_AVAILABLE",     // 可用子户解冻金额
+                "merchantBalanceComponent": "BALANCE_AVAILABLE",     // 可用子户解冻余额
                 "priority": 2
             },
             {
-                "merchantBalanceComponent": "BALANCE_FREEZE",        // 可用子户冻结金额
+                "merchantBalanceComponent": "BALANCE_FREEZE",        // 可用子户冻结余额
                 "priority": 1
             }
         ]
