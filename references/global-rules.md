@@ -1,9 +1,3 @@
-# 平台管理
-
-
-# 全局规则
-
-
 ## 区域划分
 
 1. 筛选区域
@@ -297,35 +291,57 @@
       1. 网商提现手续费=申请提现金额\*0.05%。
    3. 网商提现手续费账单：品牌方第三日（D+2）凌晨3点从网商拉取品牌方费用对账文件，即前一日品牌方向网商已支付的的手续费账单。
    
-      1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/kyiyc2hqw4722tsw
-      2. 接口地址：`品牌商费用对账文件申请（适用于品牌自付费）<ant.mybank.bkmbp.stmt.fee.file.apply> 1.0.0`
-      3. 核心入参:
+      1. 申请获取`品牌商费用对账文件`
       
-         1. StartTime/EndTime：账单起止日期，格式为yyyyMMddHHmmss
+         1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/kyiyc2hqw4722tsw
+         2. 接口地址：`品牌商费用对账文件申请（适用于品牌自付费）<ant.mybank.bkmbp.stmt.fee.file.apply> 1.0.0`
+         3. 核心入参:
          
-            1. 如明细账单类型则截取前14位，闭区间（明细账单按此规则）
-            2. 如日汇总类型则截取前8位，闭区间
-            3. 如月汇总类型则截取前6位，闭区间
-         2. OutRequestNo：外部交易号
+            1. StartTime/EndTime：账单起止日期，格式为yyyyMMddHHmmss
+            
+               1. 如明细账单类型则截取前14位，闭区间（明细账单按此规则）
+               2. 如日汇总类型则截取前8位，闭区间
+               3. 如月汇总类型则截取前6位，闭区间
+            2. OutRequestNo：业务流水号
+            
+               1. `{YYYYMMDD}{3位自增数字编号}`
+            3. StmtType：账单类型
+            
+               1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
+               2. 品牌商收费日账单文件（PLAT_FEE_DAY_SUMMARY_STMT_BILL）
+               3. 品牌商收费月账单文件（PLAT_FEE_MON_SUMMARY_STMT_BILL）
+         4. 核心出参：
          
-            1. 
-         3. StmtType：账单类型
+            1. BackOrderNo：网商流水号
+      2. 查询对账文件申请结果
+      
+         1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/yklamuh1wvxr3xkg
+         2. 接口地址：<ant.mybank.bkmbp.stmt.apply.result.common.query> 1.0.0
+         3. 核心入参：
          
-            1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
-            2. 品牌商收费日账单文件（PLAT_FEE_DAY_SUMMARY_STMT_BILL）
-            3. 品牌商收费月账单文件（PLAT_FEE_MON_SUMMARY_STMT_BILL）
+            1. StmtType：账单类型
+            
+               1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
+            2. OutRequestNo：业务流水号
+            
+               1. `{YYYYMMDD}{3位自增数字编号}`
+            3. BackOrderNo：网商流水号
+         4. 核心出参：
+         
+            1. 申请状态：Status
+            2. 电子回单CDN下载链接：PdfDownloadUrl（有效期5分钟）
+      3. 申请结果通知
+      
+         1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/yklamuh1wvxr3xkg
+         2. 接口地址：<ant.mybank.bkmbp.stmt.apply.result.common.notify> 1.0.0
+         3. 核心入参：
+         
+            1. 申请状态：Status
+            2. 电子回单CDN下载链接：PdfDownloadUrl（有效期5分钟）
    4. 筛选提现手续费账单：从账单表格中筛选提现手续费账单（提现（小程序模式）和提现（API模式）），用筛选出的所有手续费账单跟前面提现通知接口返回的提现订单比对：
    
       1. 如果有新增的订单，则通过`4 单笔提现查询接口（异步接口）<ant.mybank.bkcloudfunds.withdraw.query> `接口查询提现订单详情，获取提现商户，将该提现记录展示在对应的商户提现记录列表。
 </callout>
-
-
-## 平台清算专户
-
-1. 户名：浙江可柔品牌管理有限公司
-2. 平台清算专户（即《网商银行云资金平台服务协议》中约定的“平台交易资金汇总专管户”）：99030360620900482009
-3. 开户行：浙江网商银行
-4. 联行号：323331000001
 
 
 ## 清算订单状态
