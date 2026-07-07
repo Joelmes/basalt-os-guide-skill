@@ -1,81 +1,6 @@
 # 全局规则
 
-# 平台管理
-
-
-## 区域划分
-
-1. 筛选区域
-
-   1. 区域名称：文字匹配，支持关键词筛选（非完全匹配）。
-   2. 状态：全部，已启用，已禁用。
-2. 添加区域：支持批量添加
-
-   1. 名称：必填，区域名称文字。
-   2. 新增区域：支持批量添加多个区域，点击后添加第二个区域的名称。
-   3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
-   
-      1. 启用：启用状态下，选择区域时将正常展示该区域。
-      2. 禁用：禁用状态下，选择区域列表不展示该项区域。
-3. 区域展示列表
-
-   1. 区域名称：区域名称文字。
-   2. 状态：区域启用/禁用状态
-   3. 操作
-   
-      1. 禁用：已启用的区域展示该按钮，点击后弹窗提示「禁用状态下，选择区域列表不展示该项区域。」。
-      2. 启用：已禁用区域展示该按钮，点击后弹窗提示「启用状态下，选择区域时将正常展示该区域。」
-      3. 编辑：仅可修改单个区域信息
-      
-         1. 区域名称：区域名称文字
-         2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
-
-
-## 业务属性
-
-1. 筛选业务属性
-
-   1. 业务属性名称：文字匹配，支持关键词筛选（非完全匹配）。
-   2. 状态：全部，已启用，已禁用。单选。
-2. 添加业务属性：支持批量添加
-
-   1. 名称：必填，业务属性名称文字。
-   2. 新增业务属性：支持批量添加多个业务属性，点击后添加第二个业务属性名称。
-   3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
-   
-      1. 启用：启用状态下，选择业务属性时将正常展示该业务属性。
-      2. 禁用：禁用状态下，选择业务属性列表不展示该项业务属性。
-3. 业务属性展示列表
-
-   1. 业务属性名称：业务属性名称文字。
-   2. 状态：业务属性启用/禁用状态
-   3. 操作
-   
-      1. 禁用：已启用的业务属性展示该按钮，点击后弹窗提示「禁用状态下，选择业务属性列表不展示该项业务属性。」。
-      2. 启用：已禁用业务属性展示该按钮，点击后弹窗提示「启用状态下，选择业务属性时将正常展示该业务属性。」
-      3. 编辑：仅可修改单个业务属性信息
-      
-         1. 业务属性名称：业务属性名称文字
-         2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
-
-
-## 角色
-
-1. 超级管理员角色：拥有所有业务模块的所有管理权限。
-
-
-## 账户
-
-1. 预置一个管理员账户
-
-   1. 账户：admin
-   2. 密码：care2026
-
----
-
-
-# 全局规则
-
+> 数据来源：Basalt OS PRD
 
 ## 资金归集
 
@@ -89,9 +14,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NTUwYjlhMWM1ODJkNjg1YWM0NWE5MjI3NTUwNjhiMmZfMTUwMDgzYzNhYTY2MjNiOGE3YjY1MGExMzRlNTlkZDFfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzgzNDA3MDE5OjE3ODM0MTA2MTlfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDQ1ODA4ZDE3YTI0YWI3YWFmN2VkYmY1MDY3ZjVkYTRfNjJmMjliN2E3M2Q5ODRkYTJlN2JlMDk3OTNkYjE2NTRfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzgzNDEyNTQzOjE3ODM0MTYxNDNfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MTA1YWYwZWQ1ZDZhOGFhYzI5OWQ1NDA0YmY4MTQyNjFfN2RhYzRlM2VkZjIwMmQ4M2M3ZWRiYzMxNDY2MjllMjZfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzgzNDA3MDE5OjE3ODM0MTA2MTlfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NzE3YjE5MGQxYTEzYWQ1ZTkxNGU4MTM5OTUzZjU0NGJfOTFkNzc3ZTczMzQ1ZjRhZDQzYzM1OGUxMWE3ZDBhZDNfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzgzNDEyNTQzOjE3ODM0MTYxNDNfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 1. 收钱吧关键字段说明：
 
@@ -404,53 +329,6 @@
    
       1. 如果有新增的订单，则通过`4 单笔提现查询接口（异步接口）<ant.mybank.bkcloudfunds.withdraw.query> `接口查询提现订单详情，获取提现商户，将该提现记录展示在对应的商户提现记录列表。
 </callout>
-
-
-## 清算订单
-
-### 清算订单状态
-
-<callout emoji="🧨">
-三联系统未维护订单创建、支付等前置状态，本系统订单状态从订单上送环节开始定义。
-</callout>
-
-1. 状态定义：
-
-   1. 未上送：支付订单从三联系统/收钱吧拉取至本系统后的初始状态，表示订单在本系统中刚创建，尚未向网商银行发起订单上送。
-   2. 上送失败：「未上送」订单调用网商`补单创单接口`失败（网络异常、参数校验驳回、网关报错等），未获取网商订单号。
-   3. 已上送：
-   
-      1. 支付单：「未上送」的支付订单调用网商银行`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>` 完成订单上送并拿到网商订单号 `{OrderNo}`后的状态。
-      2. 退款单：「未上送」的退款单变更订单状态为「已上送」，不调用网商接口（网商是不需要退款单上送）。
-   4. 清算中：「已上送」状态的订单，关联的清算文件上传成功，关联的批次调用`创建批次接口<ant.mybank.bkcloudbatch.batch.create>`创建批次成功进入「清算中」状态，网商执行清算操作中的状态。
-   5. 清算成功：「清算中」状态的订单，网商侧完成该订单所属批次的清算，批次清算结果中该笔订单为「清算成功」时的状态。
-   6. 清算失败：「清算中」状态的订单，网商侧完成该订单所属批次的清算，批次清算结果中该笔订单为「清算失败」时的状态。批次清算结果为「部分成功」时需通过校验文件确认该批次中每个订单的清算结果。
-2. 状态变更
-
-   <whiteboard token="WgytwInDFhP2pVbWNFDcGLjLnPc"></whiteboard>
-
-### 订单导入状态
-
-<synced_reference src-block-id="MgLldiERYssox1bx4q5c6aoanhx" src-token="P4eedyyrhoWE5HxC1AtcCPvtnWc"></synced_reference>
-
-1. 状态说明
-
-   <table><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>状态名称</th><th>状态值</th><th>状态类型</th><th>说明</th></tr></thead><tbody><tr><td>处理中</td><td>DEALING</td><td>中间态</td><td><ol><li seq="1">文件上传成功，系统正在解析文件，暂未全部处理完成。</li></ol></td></tr><tr><td>成功</td><td>SUCCESS</td><td>终态</td><td><ol><li seq="1">表格解析完成，且所有数据全部导入成功，该文件内所有的订单数据导入成功（无异常数据，如重复，数据缺失等）。</li></ol></td></tr><tr><td>失败</td><td>FAIL</td><td>终态</td><td><ol><li seq="1">文件异常：文件损坏/ 格式不对/ 缺少必填表头/列错乱，整份文件无法读取。</li><li>数据异常：数据全部导入失败。</li></ol></td></tr><tr><td>部分成功</td><td>PARTIAL_SUCCESS</td><td>终态</td><td><ol><li seq="1">文件上传成功，部分数据解析且导入成功，部分数据解析或导入失败（数据确实，订单重复等）。订单唯一性通过「交易流水号」字段识别。</li></ol></td></tr></tbody></table>
-
-   1. 处理中
-   2. 成功
-   3. 失败
-   4. 部分成功
-
-### POS机绑定状态
-
-1. 状态定义：
-
-   1. 未绑定商户：POS未跟任何商户有绑定关系。
-   2. 已绑定商户：POS跟商户已建立绑定关系。
-2. 状态变更
-
-   <whiteboard token="B5HawgqOdhB2Ptb6ze2ciGFUnrd"></whiteboard>
 
 
 ## 清算批次号生成规则
@@ -869,3 +747,73 @@
    5.    PayerType 付款方类型：MERCHANT
    6.    PayeeId 收款方ID：平台888开头的保证金户（结算户）
    7.    PayeeType 收款方类型：PLATFORM
+## 区域划分
+
+1. 筛选区域
+
+   1. 区域名称：文字匹配，支持关键词筛选（非完全匹配）。
+   2. 状态：全部，已启用，已禁用。
+2. 添加区域：支持批量添加
+
+   1. 名称：必填，区域名称文字。
+   2. 新增区域：支持批量添加多个区域，点击后添加第二个区域的名称。
+   3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
+   
+      1. 启用：启用状态下，选择区域时将正常展示该区域。
+      2. 禁用：禁用状态下，选择区域列表不展示该项区域。
+3. 区域展示列表
+
+   1. 区域名称：区域名称文字。
+   2. 状态：区域启用/禁用状态
+   3. 操作
+   
+      1. 禁用：已启用的区域展示该按钮，点击后弹窗提示「禁用状态下，选择区域列表不展示该项区域。」。
+      2. 启用：已禁用区域展示该按钮，点击后弹窗提示「启用状态下，选择区域时将正常展示该区域。」
+      3. 编辑：仅可修改单个区域信息
+      
+         1. 区域名称：区域名称文字
+         2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
+
+
+## 业务属性
+
+1. 筛选业务属性
+
+   1. 业务属性名称：文字匹配，支持关键词筛选（非完全匹配）。
+   2. 状态：全部，已启用，已禁用。单选。
+2. 添加业务属性：支持批量添加
+
+   1. 名称：必填，业务属性名称文字。
+   2. 新增业务属性：支持批量添加多个业务属性，点击后添加第二个业务属性名称。
+   3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
+   
+      1. 启用：启用状态下，选择业务属性时将正常展示该业务属性。
+      2. 禁用：禁用状态下，选择业务属性列表不展示该项业务属性。
+3. 业务属性展示列表
+
+   1. 业务属性名称：业务属性名称文字。
+   2. 状态：业务属性启用/禁用状态
+   3. 操作
+   
+      1. 禁用：已启用的业务属性展示该按钮，点击后弹窗提示「禁用状态下，选择业务属性列表不展示该项业务属性。」。
+      2. 启用：已禁用业务属性展示该按钮，点击后弹窗提示「启用状态下，选择业务属性时将正常展示该业务属性。」
+      3. 编辑：仅可修改单个业务属性信息
+      
+         1. 业务属性名称：业务属性名称文字
+         2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
+
+
+## 角色
+
+1. 超级管理员角色：拥有所有业务模块的所有管理权限。
+
+
+## 账户
+
+1. 预置一个管理员账户
+
+   1. 账户：admin
+   2. 密码：care2026
+
+---
+
