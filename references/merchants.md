@@ -1,3 +1,5 @@
+# 商户管理
+
 ## 品牌专户
 
 <callout emoji="🎈">
@@ -121,12 +123,12 @@ AppId：`2026042000004278`
 3. 总部公司列表
 
    1. 公司名称：公司名称。
-   2. 公司编码：系统生成的公司唯一编码，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="00_Basalt_Finance 总部公司/区域公司/门店 编码生成规则" type="doc"></cite>」。
+   2. 公司编码：系统生成的公司唯一编码，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="未命名文档" type="doc"></cite>」。
    3. 业务属性：公司业务属性。
    4. 商户：该公司关联的商户（关联指的是商户通过该公司信息创建）
    
       1. 商户简称：商户入驻时提交的商户简称，由网商接口返回。
-      2. 外部商户号：系统生成的外部商户号，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="00_Basalt_Finance 总部公司/区域公司/门店 编码生成规则" type="doc"></cite>」。
+      2. 外部商户号：系统生成的外部商户号，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="未命名文档" type="doc"></cite>」。
       3. 显示规则：
       
          1. 该公司关联商户数＜1：
@@ -704,13 +706,13 @@ AppId：`2026042000004278`
 3. 区域公司列表
 
    1. 公司名称：公司名称。
-   2. 公司编码：系统生成的公司唯一编码，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="00_Basalt_Finance 总部公司/区域公司/门店 编码生成规则" type="doc"></cite>」。
+   2. 公司编码：系统生成的公司唯一编码，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="未命名文档" type="doc"></cite>」。
    3. 所属区域：公司所属区域。
    4. 业务属性：公司业务属性。
    5. 商户：该公司关联的商户（关联指的是商户通过该公司信息创建）
    
       1. 商户简称：商户入驻时提交的商户简称，由网商接口返回。
-      2. 外部商户号：系统生成的外部商户号，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="00_Basalt_Finance 总部公司/区域公司/门店 编码生成规则" type="doc"></cite>」。
+      2. 外部商户号：系统生成的外部商户号，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="未命名文档" type="doc"></cite>」。
       3. 显示规则：
       
          1. 该公司关联商户数＜1：
@@ -1203,7 +1205,7 @@ AppId：`2026042000004278`
 
 ## 门店
 
-<callout emoji="🧨"><ol><li seq="1">门店数据初始化<ol><li seq="1">门店基础数据从三联系统获取。</li><li>三联系统中门店信息必填字段：门店名称。</li><li>门店编码生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="00_Basalt_Finance 总部公司/区域公司/门店 编码生成规则" type="doc"></cite>」。</li></ol></li><li>门店数据获取与更新：<ol><li seq="1">如需修改门店基础信息，用户须前往三联系统修改，然后在本系统中更新门店信息。</li><li>定时更新：每日凌晨3:00，增量更新全部门店（含新建门店）信息。</li><li>手动更新：<ol><li seq="1">拉取新建门店：如用户在三联系统中新建了门店后需在本系统立即同步的，可点击操作区域的「拉取新门店」按钮立即增量拉取新建门店信息。</li><li>更新门店信息：如用户在三联系统中修改了门店信息后需在本系统立即同步的，可在门店列表勾选需更新的门店后点击批量操作区域的「更新门店信息」按钮立即更新门店信息。</li></ol></li></ol></li></ol></callout>
+<callout emoji="🧨"><ol><li seq="1">门店数据初始化<ol><li seq="1">门店基础数据从三联系统获取。</li><li>三联系统中门店信息必填字段：门店名称。</li><li>门店编码生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="未命名文档" type="doc"></cite>」。</li></ol></li><li>门店数据获取与更新：<ol><li seq="1">如需修改门店基础信息，用户须前往三联系统修改，然后在本系统中更新门店信息。</li><li>定时更新：每日凌晨3:00，增量更新全部门店（含新建门店）信息。</li><li>手动更新：<ol><li seq="1">拉取新建门店：如用户在三联系统中新建了门店后需在本系统立即同步的，可点击操作区域的「拉取新门店」按钮立即增量拉取新建门店信息。</li><li>更新门店信息：如用户在三联系统中修改了门店信息后需在本系统立即同步的，可在门店列表勾选需更新的门店后点击批量操作区域的「更新门店信息」按钮立即更新门店信息。</li></ol></li></ol></li></ol></callout>
 
 ### 门店列表
 
@@ -1245,7 +1247,7 @@ AppId：`2026042000004278`
    6. 门店商户：该门店关联的商户（关联指的是商户通过该门店信息创建）
    
       1. 商户简称：商户入驻时提交的商户简称，由网商接口返回。
-      2. 外部商户号：系统生成的外部商户号，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="00_Basalt_Finance 总部公司/区域公司/门店 编码生成规则" type="doc"></cite>」。
+      2. 外部商户号：系统生成的外部商户号，生成规则见「<cite doc-id="D94yd819ooLBAuxVmP9cMpcLnHd" file-type="docx" title="未命名文档" type="doc"></cite>」。
       3. 显示规则：
       
          1. 该门店关联商户数＜1：
