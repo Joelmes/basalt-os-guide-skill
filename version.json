@@ -1,7 +1,7 @@
 {
-  "version": "1.7.4",
+  "version": "1.7.5",
   "name": "basalt-os-guide",
-  "updated": "2026-07-02",
+  "updated": "2026-07-07",
   "changes": [
     "从飞书同步最新知识内容（PRD + 操作手册）"
   ]
