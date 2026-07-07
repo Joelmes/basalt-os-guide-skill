@@ -26,6 +26,10 @@ npx skills add Joelmes/basalt-os-guide-skill -g
 
 Agent 会通过 URL 读取仓库中的 SKILL.md 和 references/ 内容，自动创建到本地 skill 目录。
 
+### 方式三：Release 下载（离线安装）
+
+从 [GitHub Release](https://github.com/Joelmes/basalt-os-guide-skill/releases/latest) 下载最新版 `.skill` 文件，直接拖入 Agent 对话窗口即可安装。适合网络受限或不方便使用命令行的场景。
+
 ## 知识模块
 
 | 模块 | 文件 | 覆盖内容 |
