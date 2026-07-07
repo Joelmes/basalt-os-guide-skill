@@ -1,8 +1,9 @@
 {
-  "version": "1.7.5",
+  "version": "1.7.6",
   "name": "basalt-os-guide",
   "updated": "2026-07-07",
   "changes": [
-    "从飞书同步最新知识内容（PRD + 操作手册）"
+    "从飞书同步最新知识内容（PRD + 操作手册）",
+    "新增第三种安装方式：从 GitHub Release 下载 .skill 文件离线安装"
   ]
 }
