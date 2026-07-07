@@ -1,3 +1,5 @@
+# 签约授权与付款
+
 ## 签约授权
 
 <callout emoji="❗">
@@ -1086,6 +1088,11 @@
 
 #### 协议代扣
 
+<callout emoji="🎈">
+1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/hz4cxl#P0qNF
+2. 接口：2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>
+</callout>
+
 <table><colgroup><col/><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th><b>序号</b></th><th><b>参数名</b></th><th><b>参数描述</b></th><th><b>数据类型</b></th><th><b>长度</b></th><th><b>出现要求</b></th><th><b>示例</b></th><th>传参</th></tr></thead><tbody><tr><td colspan="7"><b>基本参数</b></td><td></td></tr><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>OutTradeNo</td><td>代扣业务订单号</td><td>String</td><td>64</td><td>ME</td><td></td><td>{业务流水号}</td></tr><tr><td>3</td><td>Scene</td><td>业务场景：<br/>品牌协议代扣场景：PROTOCOL_WITHHOLD<br/>品牌协议代扣支持冻结场景：PROTOCOL_WITHHOLD_SUPPORT_FREEZE<br/>品牌协议代扣支持冻结和账号场景：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT<br/>（品牌协议代扣支持冻结和账号场景）</td></tr><tr><td>4</td><td>TotalAmount</td><td>交易金额（分）</td><td>Number</td><td></td><td>M</td><td></td><td>{付款金额}</td></tr><tr><td><del>5</del></td><td>FreezeAmount</td><td>冻结部分出金（分）</td><td>Number</td><td></td><td>C</td><td>非必传<br/>PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td><del>6</del></td><td>AvailableAmount</td><td>可用部分金额（分）</td><td>Number</td><td></td><td>C</td><td>非必传PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td>7</td><td>Currency</td><td>币种</td><td>String</td><td>3</td><td>M</td><td>CNY</td><td>固定值：CNY</td></tr><tr><td>8</td><td>PayerId</td><td>付款方商户号</td><td>String</td><td>64</td><td>M</td><td></td><td>{付款方商户号}</td></tr><tr><td>9</td><td>PayerType</td><td>付款方类型：</td><td>String</td><td>16</td><td>M</td><td>MERCHANT</td><td>MERCHANT</td></tr><tr><td>10</td><td>PayeeId</td><td>收款方ID</td><td>String</td><td>64</td><td>M</td><td></td><td>{收款方商户号}</td></tr><tr><td>11</td><td>PayeeType</td><td>收款方类型</td><td>String</td><td>16</td><td>M</td><td>MERCHANT<br/>PLATFORM</td><td>MERCHANT</td></tr><tr><td>12</td><td>Memo</td><td>备注（可填写订单描述信息）</td><td>String</td><td>128</td><td>O</td><td></td><td>{备注}</td></tr><tr><td>13</td><td>PayerSpecifiedInfo</td><td>指定付方使用信息场景为本次新增场景时，外部需要指定时该字段必填！！不填的话由网商内部根据isv来进行配置</td><td>String</td><td>512</td><td><b>O</b></td><td>PayerSpecifiedInfo对象json结构进行base64encode </td><td>固定值：见下面的代码块</td></tr><tr><td>14</td><td>ExtInfo</td><td>扩展信息</td><td>String</td><td>512</td><td>O</td><td>map</td><td></td></tr></tbody></table>
 
 PayerSpecifiedInfo → specifiedMerchantAmtComposition
@@ -1112,6 +1119,11 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
 ```
 
 #### 授权代付
+
+<callout emoji="🎈">
+1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/kfcdymo1frk3es5p#RDhQY
+2. 接口：2.1授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>
+</callout>
 
 <table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><tbody><tr><td><b>参数名称</b></td><td><b>类型</b></td><td><b>长度</b></td><td><b>必填</b></td><td><b>参数描述</b></td><td><b>示例</b></td><td>传参</td></tr><tr><td colspan="6"><b>基本参数</b></td><td></td></tr><tr><td>IsvOrgId</td><td>String</td><td>32</td><td>M</td><td>合作方机构号（网商银行分配）</td><td> </td><td>固定值：202211000000000004381</td></tr><tr><td>OutTradeNo</td><td>String</td><td>64</td><td>M</td><td>外部订单请求流水号，外部请求的唯一标识。<br/><b>格式标准：</b>需要在尾部添加时间戳，格式为yyyyMMdd。<ul><li>外部需要保证重复请求不更换时间戳，否则会导致幂等击穿</li></ul></td><td>xxxxxx20230802</td><td>{业务流水号}</td></tr><tr><td>SceneCode</td><td>String</td><td>32</td><td>M</td><td>产品场景码。用于区分产品场景，映射平台操作配置。<ul><li>合伙模式联动场景：PARTNER_CASCADE_PAY</li></ul></td><td>PARTNER_CASCADE_PAY</td><td>固定值：<code>PARTNER_CASCADE_PAY</code></td></tr><tr><td>SubSceneCode</td><td>String</td><td>32</td><td>M</td><td>子场景码。用于区分细分各子场景，</td><td>SALARY</td><td><ul><li>合伙人：PARTNER</li><li>物业：RENT</li><li>水电煤：FEE</li><li>员工工资：SALARY</li><li>报销代发：CLAIM</li></ul></td></tr><tr><td>AgreementNo</td><td>String</td><td>64</td><td>M</td><td>协议支付合约号。签约接口返回的合约号。</td><td></td><td></td></tr><tr><td>PayerParticipant</td><td>String</td><td>2048</td><td>M</td><td>付款方（授权方）主体信息。具体参数见下文</td><td>Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>PayeeParticipant</td><td>String</td><td>2048</td><td>M</td><td>收款方主体信息。具体参数见下文</td><td>Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>TotalAmount</td><td>Number</td><td></td><td>M </td><td>支付金额（单位：分）</td><td>300</td><td></td></tr><tr><td>Currency</td><td>String</td><td>3</td><td>M</td><td>币种编码（如CNY）</td><td> </td><td></td></tr><tr><td>PayerFundInfo</td><td>String </td><td></td><td>O</td><td>付方资产信息，需要指定付方出资份额时必填</td><td>Jsontostring格式<br/>base64编码<ul><li>为空：<b>优先冻结部分出资，不足的由可用部分出资</b></li><li>不为空：<b>根据指定的出资金额出资</b></li></ul></td><td></td></tr><tr><td>PayerSpecifiedInfo</td><td>String</td><td>1024</td><td>O</td><td>指定付方使用信息<br/><b>场景为本次新增场景时，外部需要指定时该字段必填！！</b><br/><b>不填的话由网商内部根据isv来进行配置</b><br/><b>PayerFundInfo和PayerSpecifiedInfo不可同时存在</b></td><td>PayerSpecifiedInfo对象json结构进行base64encode </td><td></td></tr><tr><td>RequestTime</td><td>String</td><td>64</td><td>M</td><td>交易请求时间  yyyyMMddHHmmss</td><td></td><td></td></tr><tr><td>Memo</td><td>String</td><td>512</td><td>C</td><td>备注（可填写订单描述信息）</td><td></td><td></td></tr><tr><td>NotifyUrl</td><td>String</td><td>256</td><td>O</td><td>动态通知地址</td><td></td><td></td></tr><tr><td>MultiSaasScene</td><td>String</td><td>2</td><td>C</td><td>是否单品牌多SaaS场景：Y/N<br/>单品牌多SaaS场景必填</td><td>N </td><td></td></tr><tr><td>PassbackParams</td><td>String</td><td>1024</td><td>O</td><td>外部回传参数<br/>如果请求时传递了该参数，查询/回调时会回传该参数</td><td>map的Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>ExtInfo</td><td>String</td><td>1024</td><td>O</td><td>业务定制化扩展参数</td><td>map的Jsontostring格式<br/>base64编码</td><td></td></tr></tbody></table>
 
