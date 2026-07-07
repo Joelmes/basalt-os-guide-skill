@@ -1,9 +1,8 @@
 {
-  "version": "1.7.6",
+  "version": "1.7.7",
   "name": "basalt-os-guide",
   "updated": "2026-07-07",
   "changes": [
-    "从飞书同步最新知识内容（PRD + 操作手册）",
-    "新增第三种安装方式：从 GitHub Release 下载 .skill 文件离线安装"
+    "修复 clearing.md 缺失内容：PRD 重复 H2 标题导致三联+收钱吧+拉卡拉业务逻辑丢失"
   ]
 }
