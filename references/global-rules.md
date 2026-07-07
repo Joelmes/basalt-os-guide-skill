@@ -1,3 +1,8 @@
+# 全局规则
+
+# 平台管理
+
+
 ## 区域划分
 
 1. 筛选区域
@@ -69,7 +74,64 @@
 ---
 
 
-## 公司和门店编码生成规则
+# 全局规则
+
+
+## 资金归集
+
+### 资金归集
+
+1. 门店POS收银资金先进入收钱吧（安徽）和拉卡拉（河南）监管户，D+1结算至品牌方银行卡。
+2. 现在联营和托管门店的POS机用的是6个营业执照办理的，POS机收银的钱会结算至营业执照（个体工商户）法人的银行卡，银行卡是华夏银行。
+3. 资金进入品牌方银行卡后，需要品牌方财务人员手动将资金转入网商为品牌方开具的[平台清算专户](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-AY8BdpSProdaQ8xkG3CcEOOTnQb)。
+
+   <synced_reference src-block-id="FHFsd2aKFsleYqboJjSc1KlGnOg" src-token="P4eedyyrhoWE5HxC1AtcCPvtnWc"></synced_reference>
+
+### 收钱吧和拉卡拉账单
+
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NTUwYjlhMWM1ODJkNjg1YWM0NWE5MjI3NTUwNjhiMmZfMTUwMDgzYzNhYTY2MjNiOGE3YjY1MGExMzRlNTlkZDFfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzgzNDA3MDE5OjE3ODM0MTA2MTlfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MTA1YWYwZWQ1ZDZhOGFhYzI5OWQ1NDA0YmY4MTQyNjFfN2RhYzRlM2VkZjIwMmQ4M2M3ZWRiYzMxNDY2MjllMjZfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzgzNDA3MDE5OjE3ODM0MTA2MTlfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+
+1. 收钱吧关键字段说明：
+
+   1. `{交易流水号}`：全局唯一订单编号，支付单和退款单的交易流水号不同。
+   2. `{商户订单号}`：支付单的商户订单号和交易流水号相同，退款单（可以有多个）的商户订单号和其关联正向单的商户订单号相同。
+   3. `{交易类型/交易模式}`：付款单和退款单标识。映射网商的`交易类型trade_type`。
+   
+      1. 付款：→ 付款单。
+      2. 退款：→ 退款单。
+   4. `{收款金额}`：收钱吧收款金额，即消费者付款金额。映射网商的`收款总金额TotalAmount`。
+   5. `{支付手续费}`+`{技术服务费}`：收钱吧收取的手续费总金额。映射网商的`渠道手续费channel_fee_amount`。
+   6. `{结算金额}`：结算至品牌方（华夏银行）银行卡的金额。收钱吧结算金额=收款金额-支付手续费-技术服务费。映射网商的`实际金额actual_amount`。
+   7. `{收款通道/支付方式}`：收银渠道，支付宝/微信/云闪付/银行卡等。
+   8. `{付款账户}`：用户付款账户的id。映射网商的`用户标识user_id`。
+   
+      1. 微信：OpenID 或UnionID ，如：opwm3uDAoNhIpL1_viDkrV7M83GU。
+      2. 支付宝：脱敏的登录账号（手机号或邮箱），如：198\*\*\*\*\*\*59。
+      3. 云闪付用户：无。
+   9. `{门店名称}`：POS机名称。
+   10. `{交易日期}+{时间}`：订单生成时间，映射网商的`创单时间create_time`、`交易时间trade_time`、`对账日recon_dt`。
+2. 拉卡拉关键字段说明：
+
+   1. `{交易流水号}`：全局唯一订单编号，支付单和退款单的交易流水号不同。
+   2. `{原交易流水号}`：仅退款单有，和其关联支付单的交易流水号相同。
+   3. `{交易类型}`：付款单和退款单标识。映射网商的`交易类型trade_type`。
+   
+      1. 扫码消费：→ 付款单。
+      2. 扫码退款：→ 退款单。
+   4. `{交易金额}`：拉卡拉收款金额，即消费者付款金额。映射网商的`收款总金额TotalAmount`。
+   5. `{结算手续费}`：拉卡拉收取的手续费总金额。映射网商的`渠道手续费channel_fee_amount`。
+   6. `{结算金额}`：结算至品牌方（华夏银行）银行卡的金额。拉卡拉结算金额=及哦啊已金额-结算手续费。映射网商的`实际金额actual_amount`。
+   7. `{支付渠道}`：收银渠道，支付宝/微信/云闪付/银行卡等。
+   8. `{用户ID}`：用户付款账户的id。映射网商的`用户标识user_id`。
+   9. `{交易创建时间}`：订单生成时间，映射网商的`创单时间create_time`。
+   10. `{交易完成时间}`：支付时间。映射网商的`交易时间trade_time`。
+   11. `{计费日期}`：订单实际收银的日期，映射网商的`对账日recon_dt`。
+   12. `{网点名称}`：POS机名称。
+
+
+## 公司编码和门店编码生成规则
 
 ### 总部公司编码
 
@@ -344,7 +406,9 @@
 </callout>
 
 
-## 清算订单状态
+## 清算订单
+
+### 清算订单状态
 
 <callout emoji="🧨">
 三联系统未维护订单创建、支付等前置状态，本系统订单状态从订单上送环节开始定义。
@@ -364,6 +428,19 @@
 2. 状态变更
 
    <whiteboard token="WgytwInDFhP2pVbWNFDcGLjLnPc"></whiteboard>
+
+### 订单导入状态
+
+<synced_reference src-block-id="MgLldiERYssox1bx4q5c6aoanhx" src-token="P4eedyyrhoWE5HxC1AtcCPvtnWc"></synced_reference>
+
+1. 状态说明
+
+   <table><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>状态名称</th><th>状态值</th><th>状态类型</th><th>说明</th></tr></thead><tbody><tr><td>处理中</td><td>DEALING</td><td>中间态</td><td><ol><li seq="1">文件上传成功，系统正在解析文件，暂未全部处理完成。</li></ol></td></tr><tr><td>成功</td><td>SUCCESS</td><td>终态</td><td><ol><li seq="1">表格解析完成，且所有数据全部导入成功，该文件内所有的订单数据导入成功（无异常数据，如重复，数据缺失等）。</li></ol></td></tr><tr><td>失败</td><td>FAIL</td><td>终态</td><td><ol><li seq="1">文件异常：文件损坏/ 格式不对/ 缺少必填表头/列错乱，整份文件无法读取。</li><li>数据异常：数据全部导入失败。</li></ol></td></tr><tr><td>部分成功</td><td>PARTIAL_SUCCESS</td><td>终态</td><td><ol><li seq="1">文件上传成功，部分数据解析且导入成功，部分数据解析或导入失败（数据确实，订单重复等）。订单唯一性通过「交易流水号」字段识别。</li></ol></td></tr></tbody></table>
+
+   1. 处理中
+   2. 成功
+   3. 失败
+   4. 部分成功
 
 ### POS机绑定状态
 
