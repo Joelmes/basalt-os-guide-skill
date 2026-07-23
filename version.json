@@ -1,8 +1,8 @@
 {
-  "version": "1.7.9",
-  "name": "basalt-os-guide",
+  "version": "1.8.0",
+  "name": "BasaltOS操作手册",
   "updated": "2026-07-23",
   "changes": [
-    "从飞书同步最新知识内容（PRD + 操作手册）"
+    "Skill 更名为 BasaltOS操作手册"
   ]
 }
