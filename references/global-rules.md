@@ -1,22 +1,20 @@
-# 全局规则
-
-> 数据来源：Basalt OS PRD
-
 ## 区域划分
 
-1. 筛选区域
+1. 查询区
 
    1. 区域名称：文字匹配，支持关键词筛选（非完全匹配）。
    2. 状态：全部，已启用，已禁用。
-2. 添加区域：支持批量添加
+2. 工具去
 
-   1. 名称：必填，区域名称文字。
-   2. 新增区域：支持批量添加多个区域，点击后添加第二个区域的名称。
-   3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
+   1. 添加区域：支持批量添加
    
-      1. 启用：启用状态下，选择区域时将正常展示该区域。
-      2. 禁用：禁用状态下，选择区域列表不展示该项区域。
-3. 区域展示列表
+      1. 名称：必填，区域名称文字。
+      2. 新增区域：支持批量添加多个区域，点击后添加第二个区域的名称。
+      3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
+      
+         1. 启用：启用状态下，选择区域时将正常展示该区域。
+         2. 禁用：禁用状态下，选择区域列表不展示该项区域。
+3. 列表区
 
    1. 区域名称：区域名称文字。
    2. 状态：区域启用/禁用状态
@@ -30,21 +28,24 @@
          2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
 
 
+
 ## 业务属性
 
-1. 筛选业务属性
+1. 查询区
 
    1. 业务属性名称：文字匹配，支持关键词筛选（非完全匹配）。
    2. 状态：全部，已启用，已禁用。单选。
-2. 添加业务属性：支持批量添加
+2. 工具区
 
-   1. 名称：必填，业务属性名称文字。
-   2. 新增业务属性：支持批量添加多个业务属性，点击后添加第二个业务属性名称。
-   3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
+   1. 添加业务属性：支持批量添加
    
-      1. 启用：启用状态下，选择业务属性时将正常展示该业务属性。
-      2. 禁用：禁用状态下，选择业务属性列表不展示该项业务属性。
-3. 业务属性展示列表
+      1. 名称：必填，业务属性名称文字。
+      2. 新增业务属性：支持批量添加多个业务属性，点击后添加第二个业务属性名称。
+      3. 状态：启用，禁用。单选，默认为启用，选择时有对应的状态说明文字。
+      
+         1. 启用：启用状态下，选择业务属性时将正常展示该业务属性。
+         2. 禁用：禁用状态下，选择业务属性列表不展示该项业务属性。
+3. 列表区
 
    1. 业务属性名称：业务属性名称文字。
    2. 状态：业务属性启用/禁用状态
@@ -58,9 +59,11 @@
          2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
 
 
+
 ## 角色
 
 1. 超级管理员角色：拥有所有业务模块的所有管理权限。
+
 
 
 ## 账户
@@ -71,6 +74,7 @@
    2. 密码：care2026
 
 ---
+
 
 
 ## 资金归集
@@ -85,9 +89,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDQ1ODA4ZDE3YTI0YWI3YWFmN2VkYmY1MDY3ZjVkYTRfNjJmMjliN2E3M2Q5ODRkYTJlN2JlMDk3OTNkYjE2NTRfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzgzNDEyNTQzOjE3ODM0MTYxNDNfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MGI2Yjk1NmU5N2E3YmNjNWM5ZGQ4ODQwYWQ2ZDBmY2ZfNjczNWM1YTUyOTJjZjczMjgwY2M0MGQ4ODYwYjgxMWJfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg0Nzk5Mjg0OjE3ODQ4MDI4ODRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NzE3YjE5MGQxYTEzYWQ1ZTkxNGU4MTM5OTUzZjU0NGJfOTFkNzc3ZTczMzQ1ZjRhZDQzYzM1OGUxMWE3ZDBhZDNfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzgzNDEyNTQzOjE3ODM0MTYxNDNfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YWY3NWRkYTIyYmNhMWQ3OWQxOTJhNDAzM2YwZGI3ODhfMDhjNmYxNzk4OTJmMzdkMTYzNjdjNTJhYzk0NjRmODFfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg0Nzk5Mjg0OjE3ODQ4MDI4ODRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 1. 收钱吧关键字段说明：
 
@@ -127,7 +131,8 @@
    12. `{网点名称}`：POS机名称。
 
 
-## 公司编码和门店编码生成规则
+
+## 公司编码、门店编码和供应商编码生成规则
 
 ### 总部公司编码
 
@@ -166,19 +171,37 @@
 
    <sheet sheet-id="uQ8Vv7" token="B7wdsRcsChjCl8tcsLtcNW3snFd"></sheet>
 
-### 外部商户号（商户编码）
+### 供应商编码
+
+1. 格式：`{品牌名}SP{5位自增数字编号}`
+2. 示例：CARESP00001
+3. 解释：
+
+   1. `{品牌名}`：品牌名缩写，可柔品牌的所有门店统一为「CARE」开头。
+   2. `SP`：固定值，Supplier的缩写。
+   3. `{5位自增编号}`：供应商的添加顺序，初始化时按三联系统中的`{创建时间}`从前到后排序。
+4. 删改规则：门店编码一经生成不可删除，不可修改。
+
+
+
+## 外部商户号生成规则
 
 1. 格式：`{商户关联主体的编码}_{2位自增数字}`
 2. 示例：`CAREBJ20260415001_01`，表示编码为CAREBJ20260415001的门店关联的第一个商户
 3. 解释
 
-   1. `{商户关联主体的编码}`：如果是总部公司则为总部公司编码，区域公司为区域公司编码，门店为门店编码。
+   1. `{商户关联主体的编码}`：如果是总部公司则为总部公司编码，区域公司为区域公司编码，门店为门店编码，供应商为供应商编码。
    2. `-`：固定值，连接符号。
    3. `{2位自增编号}`：表示商户对应主体添加的第几个商户，自增，顺序按关联主体在本系统中新增注册码的时间顺序决定。
 4. 删改规则：外部商户号一经生成不可删除，不可修改。
 
 
+
 ## 商户入驻状态
+
+<callout emoji="🎈">
+商户入驻包括总部公司，区域公司，门店，供应商，等的商户入驻。
+</callout>
 
 1. 入驻状态包含网商以下接口返回值：
 
@@ -232,16 +255,21 @@
    <whiteboard token="SdTywFBLmhs0HEblmjbcPlaqnSb"></whiteboard>
 
 
-## 资金账单下载
+
+## 资金账单下载（余额明细，保证金明细）
 
 <callout emoji="🎈">
-1. 接口文档：[https://loan-platform.yuque.com/vo42xq/kv7qv1/rgws07ofvxr0koge](https://loan-platform.yuque.com/vo42xq/kv7qv1/rgws07ofvxr0koge)
-2. 接口地址：<ant.mybank.bkmbp.stmt.fund.stmt.apply> 1.0.0
+1. 资金账单用于查询商户子户余额收支明细和交易保证金收支明细。具体流程如下：
+
+   1. 每日凌晨3点通过下方接口拉取前一日的明细数据文件。
+   2. 拿到文件后按规则解析，匹配对应商户和对应费用类目，数据入库。
+2. 接口文档：[https://loan-platform.yuque.com/vo42xq/kv7qv1/rgws07ofvxr0koge](https://loan-platform.yuque.com/vo42xq/kv7qv1/rgws07ofvxr0koge)
+3. 接口地址：<ant.mybank.bkmbp.stmt.fund.stmt.apply> 1.0.0
 </callout>
 
 1. 入参
 
-   <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th><b>序号</b></th><th><b>参数名</b></th><th><b>参数描述</b></th><th><b>示例</b></th><th>入参说明</th></tr></thead><tbody><tr><td colspan="4"><b>基本参数</b></td><td></td></tr><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）</td><td></td><td><code>202211000000000004381</code></td></tr><tr><td>2</td><td>Date</td><td>账单日期，格式为yyyyMMdd<br/>日期规则如下:<ol><li seq="1">Date &lt; Today (当日生成昨日对账单，所以申请时间需早于当日)</li><li>六个月前的当月一日 &lt;= Date</li><li>isv入驻时间 &lt;= Date</li></ol></td><td>20260612</td><td>最大查询范围：<br/>6个月前的当月1日&lt;= Date（入参）&lt; Today<br/>即可查询6个月前当月1日到昨天的账单</td></tr><tr><td>3</td><td>OutRequestNo</td><td>外部交易号。由合作方系统生成，只能包含字母、数字、下划线；需保证合作方系统不重复。</td><td></td><td>每次请求时自动生成<br/>{年月日}_{4位自增id}</td></tr><tr><td>4</td><td>Type</td><td>下载账单类型</td><td>OFF_MERCH_FUND_DETAIL_STMT：商户子户-明细OFF_MERCH_FUND_DETAIL_DAILY_STMT：商户子户-日汇总OFF_COMMON_FUND_DETAIL_STMT：平台清算专户-明细OFF_COMMON_FUND_DAILY_STMT：平台清算专户-日汇总</td><td>查询商户余额收支明细：OFF_MERCH_FUND_DETAIL_STMT<br/>包括商户可用子户和交易保证金子户的明细</td></tr><tr><td>5</td><td>FundAccountType</td><td>资金账号类型</td><td>资金账号类型：<br/>查询平台清算专户时必传：CLEARED<br/>下载如下两种账单类型时必传：<br/>OFF_COMMON_FUND_DETAIL_STMT：平台清算专户-明细OFF_COMMON_FUND_DAILY_STMT：平台清算专户-日汇总</td><td>查询商户余额收支明细：传空</td></tr></tbody></table>
+   <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th><b>序号</b></th><th><b>参数名</b></th><th><b>参数描述</b></th><th><b>示例</b></th><th>入参说明</th></tr></thead><tbody><tr><td colspan="4"><b>基本参数</b></td><td></td></tr><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）</td><td></td><td><code>202211000000000004381</code></td></tr><tr><td>2</td><td>Date</td><td>账单日期，格式为yyyyMMdd<br/>日期规则如下:<ol><li seq="1">Date &lt; Today (当日生成昨日对账单，所以申请时间需早于当日)</li><li>六个月前的当月一日 &lt;= Date</li><li>isv入驻时间 &lt;= Date</li></ol></td><td>20260612</td><td><ol><li seq="1">默认查询D-1。</li><li>最大查询范围：</li></ol><br/>6个月前的当月1日&lt;= Date（入参）&lt; Today<br/>即可查询6个月前当月1日到昨天的账单</td></tr><tr><td>3</td><td>OutRequestNo</td><td>外部交易号。由合作方系统生成，只能包含字母、数字、下划线；需保证合作方系统不重复。</td><td></td><td>每次请求时自动生成<br/>FUND{年月日}_{3位自增id}</td></tr><tr><td>4</td><td>Type</td><td>下载账单类型</td><td>OFF_MERCH_FUND_DETAIL_STMT：商户子户-明细OFF_MERCH_FUND_DETAIL_DAILY_STMT：商户子户-日汇总OFF_COMMON_FUND_DETAIL_STMT：平台清算专户-明细OFF_COMMON_FUND_DAILY_STMT：平台清算专户-日汇总</td><td>查询商户余额收支明细：OFF_MERCH_FUND_DETAIL_STMT<br/>该类型的下载文件中包括商户可用子户和交易保证金子户的明细</td></tr><tr><td>5</td><td>FundAccountType</td><td>资金账号类型</td><td>资金账号类型：<br/>查询平台清算专户时必传：CLEARED<br/>下载如下两种账单类型时必传：<br/>OFF_COMMON_FUND_DETAIL_STMT：平台清算专户-明细OFF_COMMON_FUND_DAILY_STMT：平台清算专户-日汇总</td><td>查询商户子户时：传空<br/>查询平台清算专户时传：CLEARED</td></tr></tbody></table>
 2. 出参
 
    | **序号** | **参数名** | **参数描述** | **示例** | 参数说明 |
@@ -250,39 +278,40 @@
    | 2.       | IsvOrgId | 网商分配的isv机构号 |  | `202211000000000004381` |
    | 3 | Date | 账单日期，格式为yyyyMMdd |  |  |
    | 4 | OutRequestNo | 外部交易号。由合作方系统生成，只能包含字母、数字、下划线；需保证合作方系统不重复 |  |  |
-   | 5 | Type | 下载账单类型  <br/>OFF_MERCH_FUND_DETAIL_STMT：资金明细账单  <br/>OFF_MERCH_FUND_DETAIL_DAILY_STMT：资金明细日汇总账单  <br/>OFF_COMMON_FUND_DETAIL_STMT：通用资金变动明细账单  <br/>OFF_COMMON_FUND_DAILY_STMT：通用资金变动日汇总账单 |  |  |
+   | 5 | Type | 下载账单类型  <br/>OFF_MERCH_FUND_DETAIL_STMT：资金明细账单  <br/>OFF_MERCH_FUND_DETAIL_DAILY_STMT：资金明细日汇总账单  <br/>OFF_COMMON_FUND_DETAIL_STMT：通用资金变动明细账单  <br/>OFF_COMMON_FUND_DAILY_STMT：通用资金变动日汇总账单 |  | 明细账单类型为：  <br/>OFF_MERCH_FUND_DETAIL_STMT：资金明细账单 |
    | 6 | DownloadUrl | 对账文件下载链接**(五分钟有效期)** | base64加密 | 对账文件下载链接(五分钟有效期) |
 
    1. 账单文件名称规则：
    
       1.   商户：
       
-         1. 商户账户资金账单-【申请日期】
-         2. 商户账户资金日汇总账单-【申请日期】
+         1. 商户账户资金账单-{申请日期}
+         2. 商户账户资金日汇总账单-{申请日期}
       2.  监管子户：
       
-         1. 【平台名称】-平台监管子户资金变动日汇总账单-【申请日期】
-         2. 【平台名称】-平台监管子户资金变动明细账单-【申请日期】
-   2. 账单文件明细
+         1. 【平台名称】-平台监管子户资金变动日汇总账单-{申请日期}
+         2. 【平台名称】-平台监管子户资金变动明细账单-{申请日期}
+   2. 资金账单文件明细
    
-      | 英文字段名 | 参数描述（中文名） | 字段值示例 | 字段值选项/示例 | 参数说明 |
-      |-|-|-|-|-|
-      | isv_org_id | 合作方机构号  <br/>（网商银行分配） | 202210066666666666666 |  | 202211000000000004381 |
-      | id | 资金明细id | 202509171133423140000000000196029113 |  |  |
-      | card_nbr | 业务账户编号 | 9900116208799402999 | 平台：9903开头的清算专户账号  <br/>商户：网商商户号 | 用这个字段区分商户 |
-      | card_type | 业务账户类型 | PLATFORM_CUSTODY | BALANCE：商户交易资金（可用子户）  <br/>TRADE_DEPOSIT：商户充值资金（交易保证金户）  <br/>PLATFORM_CUSTODY：平台清算专户子户 | 商户子户：  <br/>可用子户：BALANCE：商户交易资金  <br/>保证金户：TRADE_DEPOSIT：商户充值资金  <br/>平台  <br/>平台清算专户：PLATFORM_CUSTODY：平台清算专户子户 |
-      | gmt_acnt | 记账时间 | 2025/09/17 11:33:42 | yyyy-mm-dd HHmiss |  |
-      | amt | 交易金额 | 1 | 单位：分 |  |
-      | ccy | 币种（默认156，人民币） | 156 | 156 |  |
-      | balance | 交易后余额 | 361 | 单位：分 |  |
-      | in_out_flag | 收支标记 | 1 | 0：收入  <br/>1：支出 |  |
-      | opst_card_name | 对手方名称 | 沈超 |  |  |
-      | opst_card_no | 对手方卡号 | 22680100002669999999 |  |  |
-      | opst_org_name | 对手方机构名称 | 浙江网商银行 |  |  |
-      | remark | 备注 | （其它）创建D0订单并支付 |  |  |
-      | order_no | 网商订单号 | 202509911703595364 |  |  |
-      | trade_no | 网商操作流水号 | 2025091710152061006100910004601473 |  |  |
-      | out_trade_no | 平台订单号 | 5a11753c74ce4f9ca5eeb83cdae7534d |  |  |
+      1. 文件示例
+   
+      <figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZTMyZmQ4Y2ZlMTdiOTU3NDY2ZDIwOTA3ZTkxYzMyODZfODZjMDEyMTI5MjI5MTk0MTQ1YmM5YWNiYzgyZWY4OTFfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg0Nzk5Mjg0OjE3ODQ4MDI4ODRfVjM" mime="text/plain" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+   
+      1. 数据解析逻辑（按以下顺序依次解析数据）
+      
+         1. 用{card_nbr}字段区分商户/平台。
+         
+            1. 平台：9903开头的平台清算专户账号
+            2. 商户：2268开头的网商商户号
+         2. 用{card_type}字段区分账单（数据类型）
+         
+            1. 商户余额收支明细：BALANCE
+            2. 商户交易保证金户收支明细：TRADE_DEPOSIT
+            3. 平台清算专户子户明细：PLATFORM_CUSTODY
+      2. 文件字段说明
+   
+      <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>英文字段名</th><th>参数描述（中文名）</th><th>字段值示例</th><th>参数说明</th><th>映射系统字段</th></tr></thead><tbody><tr><td>isv_org_id</td><td>合作方机构号</td><td>202211000000000004381</td><td>202211000000000004381</td><td></td></tr><tr><td>id</td><td>资金明细id</td><td>202607031453516530000000000191385483</td><td></td><td></td></tr><tr><td>card_nbr</td><td>业务账户编号</td><td>9900116208799402999</td><td>用这个字段区分商户/平台<br/>平台：9903开头的平台清算专户账号<br/>商户：2268开头的网商商户号</td><td></td></tr><tr><td>card_type</td><td>业务账户类型</td><td><ol><li seq="1">PLATFORM_CUSTODY</li><li>BALANCE</li><li>TRADE_DEPOSIT</li></ol></td><td><ol><li seq="1">BALANCE：商户交易资金（余额收支明细）</li><li>TRADE_DEPOSIT：商户充值资金（交易保证金收支明细）</li><li>PLATFORM_CUSTODY：平台清算专户子户</li></ol></td><td></td></tr><tr><td>gmt_acnt</td><td>记账时间</td><td>2026-07-03 14:53:51.653000</td><td>yyyy-mm-dd HHmiss</td><td></td></tr><tr><td>amt</td><td>交易金额</td><td>12240</td><td>单位：分</td><td></td></tr><tr><td>ccy</td><td>币种（默认156，人民币）</td><td>156</td><td>人民币</td><td></td></tr><tr><td>balance</td><td>交易后余额</td><td>158730</td><td>交易成功后账户剩余金额</td><td></td></tr><tr><td>in_out_flag</td><td>收支标记</td><td>1</td><td>0：收入<br/>1：支出</td><td></td></tr><tr><td>opst_card_name</td><td>对手方名称</td><td>宋雪梅</td><td>户名</td><td>付款：{收款方}户名</td></tr><tr><td>opst_card_no</td><td>对手方卡号</td><td>22680100002669999999</td><td>账号</td><td>付款：{收款方}账户</td></tr><tr><td>opst_org_name</td><td>对手方机构名称</td><td>中国工商银行总行清算中心</td><td>机构名称，不是开户行</td><td></td></tr><tr><td>remark</td><td>备注</td><td>（其它）创建D0订单并支付<br/>云资金余额提现代付|报销代发</td><td></td><td>付款：{备注}</td></tr><tr><td>order_no</td><td>网商订单号</td><td>202509911703595364</td><td></td><td></td></tr><tr><td>trade_no</td><td>网商操作流水号</td><td>2026070310152061886188610011426773</td><td></td><td>付款：{网商交易号}</td></tr><tr><td>out_trade_no</td><td>平台订单号</td><td>5a11753c74ce4f9ca5eeb83cdae7534d</td><td>外部系统业务流水号</td><td>付款：{业务流水号}</td></tr></tbody></table>
+
 
 
 ## 商户提现
@@ -330,7 +359,7 @@
 <callout emoji="🎈">
 商户将其子户余额提现至银行卡时，会产生手续费，从系统角度来讲，手续费分为品牌手续费和网商手续费。
 1. 品牌手续费：商户提现申请发起时，品牌方会从商户申请提现金额中扣除一笔钱作为品牌手续费。商户提现实际到账金额
-2. 网商手续费：商户提现成功后，D+1网商从平台保证金户中扣除平台维度的手续费（已知包括提现手续费和授权代付手续费），D+2平台向网商申请对账文件，获取平台维度的手续费扣除明细。
+2. 网商手续费：商户提现成功后，D+1网商从品牌方保证金户中扣除平台维度的手续费（已知包括提现手续费和授权代付手续费），D+2平台向网商申请对账文件，获取平台维度的手续费扣除明细。
 </callout>
 
 1. 品牌提现手续费在商户余额提现时在提现申请接口`商户单笔提现申请接口<ant.mybank.bkcloudfunds.withdraw.apply>`中直接向商户收取。
@@ -340,66 +369,109 @@
 ### 网商提现手续费
 
 <callout emoji="🎈">
-1. 商户提现产生的网商提现手续费数据通过品牌方费用对账文件获取。
-2. 商户提现产生的网商提现手续费费用从品牌方保证金户扣除，具体流程如下：
+1. 商户提现产生的网商提现手续费费用从品牌方保证金户扣除，手续费数据通过品牌服务费对账文件获取具体流程如下：
 
    1. 发起商户提现：调用网商发起提现接口发起提现，提现实际到账金额=申请提现金额-品牌提现手续费，提现至商户结算卡。
    2. 网商收取手续费：网商次日（D+1）从品牌方8888结算户（保证金户）收取前一日品牌所有商户提现产生的手续费。
    
       1. 网商提现手续费=申请提现金额\*0.05%。
-   3. 网商提现手续费账单：品牌方第三日（D+2）凌晨3点从网商拉取品牌方费用对账文件，即前一日品牌方向网商已支付的的手续费账单。
+   3. 品牌方获取网商提现手续费账单：品牌方第三日（D+2）凌晨3点从网商拉取品牌服务费对账文件，即前一日品牌方向网商已支付的的手续费账单。
    
-      1. 申请获取`品牌商费用对账文件`
+      1. 筛选提现手续费账单：从账单表格中筛选提现手续费账单（提现（小程序模式）和提现（API模式）），用筛选出的所有手续费账单跟前面提现通知接口返回的提现订单比对：
       
-         1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/kyiyc2hqw4722tsw
-         2. 接口地址：`品牌商费用对账文件申请（适用于品牌自付费）<ant.mybank.bkmbp.stmt.fee.file.apply> 1.0.0`
-         3. 核心入参:
-         
-            1. StartTime/EndTime：账单起止日期，格式为yyyyMMddHHmmss
-            
-               1. 如明细账单类型则截取前14位，闭区间（明细账单按此规则）
-               2. 如日汇总类型则截取前8位，闭区间
-               3. 如月汇总类型则截取前6位，闭区间
-            2. OutRequestNo：业务流水号
-            
-               1. `{YYYYMMDD}{3位自增数字编号}`
-            3. StmtType：账单类型
-            
-               1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
-               2. 品牌商收费日账单文件（PLAT_FEE_DAY_SUMMARY_STMT_BILL）
-               3. 品牌商收费月账单文件（PLAT_FEE_MON_SUMMARY_STMT_BILL）
-         4. 核心出参：
-         
-            1. BackOrderNo：网商流水号
-      2. 查询对账文件申请结果
-      
-         1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/yklamuh1wvxr3xkg
-         2. 接口地址：<ant.mybank.bkmbp.stmt.apply.result.common.query> 1.0.0
-         3. 核心入参：
-         
-            1. StmtType：账单类型
-            
-               1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
-            2. OutRequestNo：业务流水号
-            
-               1. `{YYYYMMDD}{3位自增数字编号}`
-            3. BackOrderNo：网商流水号
-         4. 核心出参：
-         
-            1. 申请状态：Status
-            2. 电子回单CDN下载链接：PdfDownloadUrl（有效期5分钟）
-      3. 申请结果通知
-      
-         1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/yklamuh1wvxr3xkg
-         2. 接口地址：<ant.mybank.bkmbp.stmt.apply.result.common.notify> 1.0.0
-         3. 核心入参：
-         
-            1. 申请状态：Status
-            2. 电子回单CDN下载链接：PdfDownloadUrl（有效期5分钟）
-   4. 筛选提现手续费账单：从账单表格中筛选提现手续费账单（提现（小程序模式）和提现（API模式）），用筛选出的所有手续费账单跟前面提现通知接口返回的提现订单比对：
-   
-      1. 如果有新增的订单，则通过`4 单笔提现查询接口（异步接口）<ant.mybank.bkcloudfunds.withdraw.query> `接口查询提现订单详情，获取提现商户，将该提现记录展示在对应的商户提现记录列表。
+         1. 如果有新增的订单，则通过`4 单笔提现查询接口（异步接口）<ant.mybank.bkcloudfunds.withdraw.query> `接口查询提现订单详情，获取提现商户，将该提现记录展示在对应的商户提现记录列表。
 </callout>
+
+
+
+## 品牌服务费对账文件
+
+<callout emoji="🎈">
+1. 品牌商费用对账文件用于获取品牌方对网商支付的服务费，包括提现服务费，授权代付手续费。
+</callout>
+
+1. 接口调用顺序
+
+   1. 申请获取`品牌商费用对账文件`
+   
+      1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/kyiyc2hqw4722tsw
+      2. 接口地址：`品牌商费用对账文件申请（适用于品牌自付费）<ant.mybank.bkmbp.stmt.fee.file.apply> 1.0.0`
+      3. 核心入参:
+      
+         1. StartTime/EndTime：账单起止日期，格式为yyyyMMddHHmmss
+         
+            1. 如明细账单类型则截取前14位，闭区间（明细账单按此规则）
+            2. 如日汇总类型则截取前8位，闭区间
+            3. 如月汇总类型则截取前6位，闭区间
+         2. OutRequestNo：业务流水号
+         
+            1. `FEE{YYYYMMDD}{3位自增数字编号}`
+         3. StmtType：账单类型
+         
+            1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
+            2. 品牌商收费日账单文件（PLAT_FEE_DAY_SUMMARY_STMT_BILL）
+            3. 品牌商收费月账单文件（PLAT_FEE_MON_SUMMARY_STMT_BILL）
+      4. 核心出参：
+      
+         1. BackOrderNo：网商流水号
+   2. 查询对账文件申请结果
+   
+      1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/yklamuh1wvxr3xkg
+      2. 接口地址：<ant.mybank.bkmbp.stmt.apply.result.common.query> 1.0.0
+      3. 核心入参：
+      
+         1. StmtType：账单类型
+         
+            1. 品牌商收费账单明细文件（PLAT_FEE_STMT_BILL）（明细账单传）
+         2. OutRequestNo：业务流水号
+         
+            1. `FEE{YYYYMMDD}{3位自增数字编号}`，示例：20260710001
+         3. BackOrderNo：网商流水号
+      4. 核心出参：
+      
+         1. 申请状态：Status
+         2. 电子回单CDN下载链接：`{PdfDownloadUrl}`（有效期5分钟）
+   3. 申请结果通知
+   
+      1. 接口文档：https://loan-platform.yuque.com/vo42xq/kv7qv1/yklamuh1wvxr3xkg
+      2. 接口地址：<ant.mybank.bkmbp.stmt.apply.result.common.notify> 1.0.0
+      3. 核心入参：
+      
+         1. 申请状态：Status
+         2. 电子回单CDN下载链接：`{PdfDownloadUrl}`（有效期5分钟）
+2. 账单文件名称规则：
+
+   1. {平台名称}\_平台服务费付费明细\_{账单日期}
+   2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
+3. 品牌商费用对账文件明细
+
+   <figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NjQzNjAzOTM1NmI1YWIwODQ0MTJiYzcyZDQyYTg2NmFfZGUzYzc0YTM2OWU0M2YzMzEzMjUzNmZjNDIyNGE3NjVfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg0Nzk5Mjg0OjE3ODQ4MDI4ODRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+
+   | 字段 | 值 | 说明/映射 |
+   |-|-|-|
+   | 机构编号 | 202211000000000004381 | Isvorgid |
+   | 机构名称 | 浙江可柔品牌管理有限公司 |  |
+   | 合约号 | 2026042301100002054868969368 | 不是该商户的授权代付合约后 |
+   | 交易单号 | 2026070310152061886188610011426773 | {网商交易号`OperateNo`} |
+   | 交易金额 | 122.40 | 付款金额 |
+   | 交易方向 | 支付 |  |
+   | 账单金额 | 0.06 | 手续费金额 |
+   | 计费规则 | 交易金额\*授权代付_授权联动代付费率 |  |
+   | 费率 | 0.0005 | 费率 |
+   | 交易时间 | 2026-07-03 14:53:54 | 付款单{完结时间} |
+   | 账单产生时间 | 2026-07-03 14:54:00 |  |
+   | 未收金额 | 0.06 | 未扣手续费金额 |
+   | 已收金额 | 0.00 | 已扣手续费金额 |
+   | 已收金额-抵扣预收款 | 0.00 |  |
+   | 已收金额-结算户扣款 | 0.00 |  |
+   | 计费项 | 授权代付-授权联动代付 | 用该字段区分费用项目 |
+   | 计费码 | to_bankcard_api_pay |  |
+   | 订单号 | 202607610319116033 |  |
+   | 关联交易单号 | - |  |
+   | 外部订单号 | 001_50120260703 | 对应[单笔付款业务流水号](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-O874dh5U5oeNfDx4XC7cZZDInCe) |
+   | 是否收费/退费 | 是 |  |
+   | 不收费/退费原因 | - |  |
+
 
 
 ## 清算订单
@@ -449,6 +521,7 @@
    <whiteboard token="B5HawgqOdhB2Ptb6ze2ciGFUnrd"></whiteboard>
 
 
+
 ## 清算批次号生成规则
 
 1. 格式：`{CARE}{YYYYMMDD}_{2位自增数字编号}`
@@ -463,6 +536,7 @@
 
    1. 清算批次号在清算文件和创建批次接口中一一对应使用。
    2. 清算文件在未使用（未清算）时可撤回或删除。重新生成清算文件和新建批次时清算批次号也按本规则生成新的批次号。
+
 
 
 ## 清算文件状态
@@ -485,6 +559,7 @@
    <whiteboard token="CWeYwVia1hxlAWbWTYScvIQJnRc"></whiteboard>
 
 
+
 ## 清算批次状态
 
 1. 状态说明
@@ -494,7 +569,7 @@
    3. 已作废：「待上报」和「上报失败」状态的批次执行「作废」操作后的状态，已作废的批次不能再发起上报与清算。批次作废时对应的清算文件状态同步变更为「已作废」。
    4. 清算中：「待上报」状态的批次调用网商`创建批次接口<ant.mybank.bkcloudbatch.batch.create>`成功后网商处理清算批次中的状态，可通过是否拿到网商批次实例号`Batchlnstanceld`来判断。
    5. 清算成功：「清算中」状态的批次通过`批次完结通知`和`批次查询接口`获得的批次清算结果中的`SUCCESS`状态。
-   6. 部分成功：通过`批次完结通知`或`批次查询接口`获得的批次清算结果中的`PART_SUCCESS`状态。
+   6. 部分成功：通过`批次完结通知`或`批次查询接口`获得的批次清算结果中的`PART_SUCCESS`状态。（据网商开发反馈，现阶段不会出现部分成功的状态，即只会全部成功或全部失败。）
    7. 清算失败：通过`批次完结通知`或`批次查询接口`获得的批次清算结果中的`FAIL`状态。
 2. 状态映射
 
@@ -512,6 +587,7 @@
    <whiteboard token="NM1Kw1ZT3h4lkabjg6ucJ7Kjnag"></whiteboard>
 
 <whiteboard token="RCUCwvrtNhomFxbsCB7cWqiundc"></whiteboard>
+
 
 
 ## 退款扣保
@@ -562,7 +638,10 @@
    1. 退保流水号和扣保单号一一对应。
 
 
-## 合约变更系统流水号
+
+## 合约
+
+### 合约变更系统流水号
 
 <callout emoji="🎈">
 1. 协议代扣和授权代付合约变更（签约，修改，解约，解约审核）时产生申请单，每个申请单有唯一的系统流水号。
@@ -583,10 +662,9 @@
 
    1. 系统流水号在系统中和申请单一一对应。
 
+### 协议代扣
 
-## 协议代扣
-
-### 协议代扣申请单类型
+#### 协议代扣申请单类型
 
 | 申请类型 | 记录来源 | 触发方 | 来源：网商接口 | 核心参数 |
 |-|-|-|-|-|
@@ -594,7 +672,7 @@
 | 解约 | 商户在网商云资金小程序发起解约，网商通过通知接口通知平台 | 商户 | `授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>` | MerchantId,   <br/>ArrangementStatus=INVALID_TO_BE_CONFIRM, `当前合约状态：解约中待平台确认`  <br/>ArrangementNo |
 | 解约审核 | 平台调用解约申请审核接口对商户解约申请进行审核 | 平台 | `解约申请审核<ant.mybank.merchantprod.merchant.arrangement.audit>` | MerchantId,   <br/>AuditResult(AGREE/REJECT), 审核意见  <br/>ArrangementNo |
 
-### 协议代扣申请单状态
+#### 协议代扣申请单状态
 
 1. 申请单状态来源：
 
@@ -602,12 +680,12 @@
    2. 解约审核单：解约申请审核接口（平台主动调用）`解约申请审核<ant.mybank.merchantprod.merchant.arrangement.audit>`，字段 `AuditResult`（平台传入）。
 2. 申请单状态
 
-   | 状态名称 | 状态值 | 状态类型 | 说明 |
+   | 前端  <br/>状态名称 | 状态值 | 状态类型 | 说明 |
    |-|-|-|-|
    | 已完成 | COMPLETED | 终态 | 申请单处理完成 |
    | 异常 | ERROR | 终态 | 预留状态  <br/>系统或服务异常导致处理失败，需人工介入 |
 
-### 协议代扣合约状态
+#### 协议代扣合约状态
 
 <callout emoji="❗">
 1. 协议代扣合约状态来源
@@ -621,7 +699,7 @@
    <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>查询方式</th><th>接口</th><th>状态字段</th><th>状态值</th><th>使用场景</th></tr></thead><tbody><tr><td>主动查询</td><td>1.3 协议代扣授权状态查询接口<br/><code>&lt;</code><code>ant.mybank.merchan tprod.merchant.arrangement.info</code><code>.query&gt;</code></td><td>合约状态<code>Status</code></td><td>1=NOT_EXIST（不存在）<br/>2=UN_VALID（已申请未生效）<br/>3=VALID（已生效）<br/>4=INVALID_TO_BE_CONFIRM（解约中待平台确认）</td><td><ol><li seq="1">按商户主动查询合约状态</li><li>收到网商通知后再次查询以确认合约状态</li></ol></td></tr><tr><td>主动触发</td><td>1.2解约申请审核确认接口<br/><code>&lt;ant.mybank.merchantprod.merchant.arrangement.audit&gt;</code></td><td>审核结果<code>AuditResult</code></td><td>AGREE -同意 → 1=NOT_EXIST（不存在）<br/>REJECT-拒绝→ 3=VALID（已生效）</td><td><ol><li seq="1">平台审核确认商户的解约申请</li></ol></td></tr><tr><td>被动通知</td><td>1.1授权/解约成功通知接口<code>&lt;</code><code>ant.mybank.merchantprod.merchant.arrangement.info</code><code>.notify&gt;</code></td><td>当前合约状态<code>ArrangementStatus</code></td><td>VALID（已生效）<br/>INVALID_TO_BE_CONFIRM（解约中待平台确认）</td><td><ol><li seq="1">商户签约后网商通知平台</li><li>商户申请解约时网商通知平台</li></ol></td></tr></tbody></table>
 2. 合约状态说明与接口字段映射
 
-   | 状态名称 | 1.3 协议代扣授权状态查询接口  <br/>状态值（`Status`） | 1.2解约申请审核确认接口  <br/>状态值（`AuditResult`） | 1.1 授权/解约成功通知接口  <br/>状态值（`ArrangementStatus`） | 状态类型 | 说明 |
+   | 前端  <br/>状态名称 | 1.3 协议代扣授权状态查询接口  <br/>状态值（`Status`） | 1.2解约申请审核确认接口  <br/>状态值（`AuditResult`） | 1.1 授权/解约成功通知接口  <br/>状态值（`ArrangementStatus`） | 状态类型 | 说明 |
    |-|-|-|-|-|-|
    | 不存在 | 1=NOT_EXIST（不存在） | AGREE -同意 |  | 终态 | 无该合约 |
    | 已申请未生效 | 2=UN_VALID（已申请未生效） |  |  | 中间态 | 商户已签约，待网商生效 |
@@ -631,12 +709,11 @@
 
 <whiteboard token="SrcSwv8VDhCrjNbloA7cgWZPnoI"></whiteboard>
 
-
-## 授权代付
+### 授权代付
 
 方案介绍：<cite doc-id="UE98d1x14oAjiNxrZSYcBLIgnRV" file-type="docx" title="加盟授权代付方案（子户→ 结算卡→ 外部银行卡/支付宝）" type="doc"></cite>
 
-### 授权代付业务子场景
+#### 授权代付业务子场景
 
 收款方支持银行卡和支付宝，五个场景最多可绑定200个授权方。
 
@@ -644,11 +721,11 @@
 |-|-|-|-|-|-|
 | **房租** | RENT | 2.5 万 | 25 万 | 5 | 首次签约：需门店法人签约授权  <br/>信息变更：需门店法人签约确认 |
 | **水电物业费** | FEE | 2 万 | 10 万 | 10 | 首次签约：需门店法人签约授权  <br/>信息变更：需门店法人签约确认 |
-| **合伙人分润** | PARTNER | 10 万 | 40 万 | 40 | 首次签约：需门店法人签约授权  <br/>信息变更：需门店法人签约确认，如法人未签约则 48h 后默认生效 |
-| **工资代发** | SALARY | 2 万 | 25 万 | 50 | 首次签约：需门店法人签约授权  <br/>后续变更：需门店法人签约确认，如法人未签约则 48h 后默认生效 |
+| **合伙人分润** | PARTNER | 10 万 | 40 万 | 40 | 首次签约：需门店法人签约授权  <br/>信息变更：需门店法人签约确认 |
+| **工资代发** | SALARY | 2 万 | 25 万 | 50 | 首次签约：需门店法人签约授权  <br/>后续变更：需门店法人签约确认 |
 | **报销代发** | CLAIM | 1 万 | 10 万 | 200 个（默认） | 首次签约：需门店法人签约授权  <br/>后续变更：需门店法人签约确认，如法人未签约则 48h 后默认生效 |
 
-### 授权代付申请单类型
+#### 授权代付合约申请单类型
 
 1. 授权代付申请单类型与来源
 
@@ -658,7 +735,7 @@
 | **修改** | 平台调用修改申请接口修改已有授权合约 | 平台 | 1.1签约申请/协议变更申请（同步）`<ant.mybank.bkcloudfunds.protocol.sign.apply>`  <br/>1.2签约申请/协议变更申请（异步）`<ant.mybank.bkcloudfunds.protocol.sign.async.apply>` | ApplyType=ADJUST, 申请类型：修改  <br/>AgreementNo（合约号，修改时必传） |
 | **解约** | 商户在小程序发起解约，网商通过授权合同变更通知接口通知平台 | 商户 | 1.7授权合同变更通知`<ant.mybank.bkcloudfunds.protocol.sign.notify>` | ApplyType=INVALID, 申请类型：失效  <br/>AgreementNo, 合约号  <br/>AgreementStatus=INVALID，合约状态 |
 
-### 授权代付申请单状态
+#### 授权代付合约申请单状态
 
 1. 申请单状态来源
 
@@ -676,7 +753,7 @@
    | 申请失败 | FAIL-签约申请失败 | FAIL：失败 | FAIL：失败 | 终态 | 签约申请失败（业务校验失败，签署/修改失败） |
    | 已关闭 |  | CLOSED：关闭/取消 | CLOSED：关闭 | 终态 | 申请单被关闭（已取消） |
 
-### 授权代付合约状态
+#### 授权代付合约状态
 
 1. 合约状态来源
 
@@ -692,28 +769,10 @@
 <whiteboard token="VsdfwraYUhBRlvbZFzLckkhOn5e"></whiteboard>
 
 
-## 银行卡号和手机号脱敏规则
 
-1. 银行卡：
+## 付款
 
-   1. 规则：前 4 位 + 星号占位 + 最后 4 位
-   2. 示例：`6222********1234`
-2. 支付宝账号
-
-   1. 手机号：
-   
-      1. 规则：前 4 位 + \*\*\* + 最后 4 位
-      2. 示例：`1337***1234`
-   2. 邮箱：
-   
-      1. 规则：前缀保留前 4 位 + `***` + @域名
-      2. 
-      3. `abcd***``@88.com`（前缀保留前 4 位，后面 \*\*\*，如果前缀部分≤4位则全部保留）
-
-
-## 对外付款
-
-### 业务流水号
+### 付款业务流水号
 
 #### 批量付款业务流水号
 
@@ -781,13 +840,13 @@
 
 1. 状态说明与接口字段映射
 
-| 状态名称 | 2.2协议授权代扣通知结果  <br/>状态值（Status） | 2.3协议授权代扣查询结果  <br/>状态值（Status） | 状态类型 | 说明 |
+| 前端  <br/>状态名称 | 2.2协议授权代扣通知结果  <br/>状态值（Status） | 2.3协议授权代扣查询结果  <br/>状态值（Status） | 状态类型 | 说明 |
 |-|-|-|-|-|
 | **处理中** | - | DEALING | 中间态 | 网商已受理代扣请求，正在处理中 |
 | **成功** | SUCCESS | SUCCESS | 终态 | 代扣执行成功，资金已划转 |
 | **失败** | FAIL | FAIL | 终态 | 代扣执行失败，资金未划转 |
 | **部分退款** | - | - | 终态 | 该笔协议代扣付款单的已退款金额≥0且≤付款金额 |
-| **全额退款** | - | - | 终态 | 该笔协议代扣付款单的已退款金额＝付款金额 |
+| **全额退款** |  | - | 终态 | 该笔协议代扣付款单的已退款金额＝付款金额 |
 
 #### 授权代付付款单状态
 
@@ -801,7 +860,7 @@
 
 1. 子场景状态说明与接口字段映射
 
-| 状态名称 | 2.2. 授权代付结果通知  <br/>状态值（Status） | 2.3.授权代付结果查询  <br/>状态值（Status） | 状态类型 | 说明 |
+| 前端  <br/>状态名称 | 2.2. 授权代付结果通知  <br/>状态值（Status） | 2.3.授权代付结果查询  <br/>状态值（Status） | 状态类型 | 说明 |
 |-|-|-|-|-|
 | **处理中** | DEALING | DEALING | 中间态 | 网商已受理代付请求，正在异步执行 |
 | **成功** | SUCCESS | SUCCESS | 终态 | 代付执行成功，资金已划转 |
@@ -829,7 +888,7 @@
 
 1. 状态说明与接口字段映射
 
-   | 状态名称 | 退款结果通知  <br/>状态值（Status） | 退款结果查询  <br/>状态值（Status） | 状态类型 | 说明 | 对「最大可退金额」的影响 |
+   | 前端  <br/>状态名称 | 退款结果通知  <br/>状态值（Status） | 退款结果查询  <br/>状态值（Status） | 状态类型 | 说明 | 对「最大可退金额」的影响 |
    |-|-|-|-|-|-|
    | **处理中** | - | DEALING | 中间态 | 网商已受理退款请求，正在处理中。  <br/>退款申请接口调用成功即视为「处理中」，不论网商是否已实时返回最终状态。 | 占用可退额度。退款申请提交后，在网商返回最终结果前，该笔退款金额会暂时占用可退额度，防止并发退款导致超退。 |
    | **成功** | SUCCESS | SUCCESS | 终态 | 退款执行成功，资金已退回 | 永久扣减可退额度。退款成功后，该笔退款金额从可退额度中永久扣除。 |
@@ -845,23 +904,51 @@
 
    <table><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>状态名称</th><th>状态值</th><th>状态类型</th><th>说明</th></tr></thead><tbody><tr><td>处理中</td><td>DEALING</td><td>中间态</td><td><ol><li seq="1">系统正在解析</li><li>系统解析成功，调用网商接口成功，网商正在处理付款请求，仍有未返回付款结果的付款单。</li></ol></td></tr><tr><td>成功</td><td>SUCCESS</td><td>终态</td><td><ol><li seq="1">该批次所有的付款单网商侧返回的结果全部为 SUCCESS</li></ol></td></tr><tr><td>失败</td><td>FAIL</td><td>终态</td><td><ol><li seq="1">全部解析失败</li><li>该批次所有的付款单网商侧返回的结果全部为 FAIL</li></ol></td></tr><tr><td>部分成功</td><td>PARTIAL_SUCCESS</td><td>终态</td><td><ol><li seq="1">部分解析失败，部分解析成功</li><li>解析成功的付款单，网商侧返回的付款结果部分为 SUCCESS，部分为 FAIL</li></ol></td></tr></tbody></table>
 
-### 平台从商户后收取手续费
+
+
+## 银行卡号和手机号脱敏规则
+
+1. 银行卡：
+
+   1. 规则：前 4 位 + 星号占位 + 最后 4 位
+   2. 示例：`6222********1234`
+2. 支付宝账号
+
+   1. 手机号：
+   
+      1. 规则：前 4 位 + \*\*\* + 最后 4 位
+      2. 示例：`1337***1234`
+   2. 邮箱：
+   
+      1. 规则：前缀保留前 4 位 + `***` + @域名
+      2. 
+      3. `abcd***``@88.com`（前缀保留前 4 位，后面 \*\*\*，如果前缀部分≤4位则全部保留）
+
+
+
+## 服务费扣缴（协议代扣至平台结算户）
 
 <callout emoji="🎈">
 ✅适用场景：
 
-1. 授权代付网商手续费
+1. 授权代付手续费
 🚫不适用场景：
 
 1. 商户提现网商手续费（发起商户提现时平台通过品牌提现手续费`PlatformFee`直接收取了提现手续费）。
 </callout>
 
-1. 平台收取手续费：平台根据网商提供的品牌方费用对账文件，通过「协议代扣」接口向商户收取手续费（即提现手续费由商户承担）
+1. 平台收取手续费：平台根据网商提供的品牌服务费对账文件，通过「协议代扣」接口向商户收取手续费（即提现手续费由商户承担）
 
    1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/hz4cxl
    2. 接口地址：`2.1 协议授权代扣接口<ant.mybank.bkcloudfunds.order.withhold.apply>`
    3. 核心入参：
-   4.    PayerId 付款方商户号：提现商户的网商商户号
+   4.    PayerId 付款方商户号：商户的网商商户号
    5.    PayerType 付款方类型：MERCHANT
    6.    PayeeId 收款方ID：平台888开头的保证金户（结算户）
    7.    PayeeType 收款方类型：PLATFORM
+
+
+
+## PC工作台
+
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NDU2NTNkNWRjYWIxOGVmMWEzYzgzOTI5YzE2ZTk2NzNfZGU4ZjllNGE2YTk4MzQ1MTY0YzkwZmE2MzliYmM3ZTdfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg0Nzk5Mjg0OjE3ODQ4MDI4ODRfVjM" mime="application/pdf" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MTQzZWYyMzYyYjAxNzU5Y2U1YWQ3YTMwM2VmYWZlZDVfNWEyM2VkMjAwZmFkNjk1ZTFmMTNjMWI5YmJkNzg0YTBfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg0Nzk5Mjg0OjE3ODQ4MDI4ODRfVjM" mime="application/pdf" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
