@@ -1,4 +1,4 @@
-# Basalt OS Guide
+# BasaltOS操作手册
 
 Basalt OS 清算分账系统的 AI Agent Skill（只读知识库）。
 
