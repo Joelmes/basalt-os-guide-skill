@@ -1,8 +1,8 @@
 {
-  "version": "1.7.7",
+  "version": "1.7.8",
   "name": "basalt-os-guide",
-  "updated": "2026-07-07",
+  "updated": "2026-07-23",
   "changes": [
-    "修复 clearing.md 缺失内容：PRD 重复 H2 标题导致三联+收钱吧+拉卡拉业务逻辑丢失"
+    "从飞书同步最新知识内容（PRD + 操作手册）"
   ]
 }
