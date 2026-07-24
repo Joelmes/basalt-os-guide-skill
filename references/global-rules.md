@@ -89,9 +89,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NzIwZDNiZjhiM2ZlOTM5M2RkOGY3ZTIzYWRlNTk1NmVfMzRhNThiZmVhOGY2ZmI0YjkzM2M1MmExMmUwZmEwN2RfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg0ODA0NTA2OjE3ODQ4MDgxMDZfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YTE3Y2EwZjM3OWZhOTA5ZjUyOGY0YWYwMDZhMDgzN2NfYjhhM2EyMjVlYTMyNWRjZDkzMzg3OGQ2OWI2YjQxMDNfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg0ODc0NDU4OjE3ODQ4NzgwNThfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OTgwYTFhZWQwZGNiZjhjMjA0ODM1Y2FlODAxMmQ0ZmFfMTkzZDJlOTIzMDU4ZjdjOWU0N2EzNWI3NGYyY2YwNWVfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg0ODA0NTA2OjE3ODQ4MDgxMDZfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NWQxZjUwYWFiNGY1ZjVkMjAyODcwZjAxZjBiNjdkODBfOTRhZjU0MmI3ZGQwYzY4NTkxNDhhNzczODViN2IxNmRfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg0ODc0NDU4OjE3ODQ4NzgwNThfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 1. 收钱吧关键字段说明：
 
@@ -295,7 +295,7 @@
    
       1. 文件示例
    
-      <figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NGVmNDU2ZWUzZjVhNTc1Y2U2MDNkODJjMzVmNWQzNjhfNzNlMjFiNDgzYjIyYzdlNDFmNjhlZjdjMGMzOGYzNjJfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg0ODA0NTA2OjE3ODQ4MDgxMDZfVjM" mime="text/plain" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+      <figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YTg4Zjc4ZDVmMWNlNGEyMzcyY2EwMzNlMzQwMDc3ODFfNGI5N2M1MjZhODA3NGY4NWE0MDViMDgxMjMzODM2M2NfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg0ODc0NDU4OjE3ODQ4NzgwNThfVjM" mime="text/plain" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
    
       1. 数据解析逻辑（按以下顺序依次解析数据）
       
@@ -445,7 +445,7 @@
    2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
 3. 品牌商费用对账文件明细
 
-   <figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZjU0OTM5OWQ1OWM3MGNjMjhlZTQ1NjcxMzhmNmYxMzhfZjYyMjk1YTk2YWRiMzc3NzBlZjFkY2E2NGU1NzgyOGJfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg0ODA0NTA2OjE3ODQ4MDgxMDZfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+   <figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NmQzNzFlMGQyYzgyYzg2OGM3ZGE5MzRkYjdjYTYwMWNfZWMyNzY3NzY3ZjkwY2U2MTgxYWQ4YzBkOGRlMzEyODVfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg0ODc0NDU4OjE3ODQ4NzgwNThfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
 
    | 字段 | 值 | 说明/映射 |
    |-|-|-|
@@ -951,4 +951,4 @@
 
 ## PC工作台
 
-<grid><column width-ratio="0.300000"><figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ODcxZDlmMDgzYTFkZWIzNDgyMTM4Y2Q4ZGI2MjQ3MTZfOWQ3ZTdkMjg5NzBjNTgyODQ4NTgzYmNiM2I0ZDJhMzNfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg0ODA0NTA2OjE3ODQ4MDgxMDZfVjM" mime="application/pdf" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MDNiYjYwZTE3Mjc1MTJkNjNkOTA4ZDExZTAxNzQ0MzdfNWFmMTY5N2EzNTRhYTEyMGFlZTZmZjdiMGFiY2QwZWVfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg0ODA0NTA2OjE3ODQ4MDgxMDZfVjM" mime="application/pdf" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NmY3ZTA3MmY2OWMzM2MwNzI3NWFkYzZiZjg4ZThhZDFfODkwZGUyYzYwODIzMGNmMGE1MDY2MDk4N2NhNjc1Y2NfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg0ODc0NDU4OjE3ODQ4NzgwNThfVjM" mime="application/pdf" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OWQzYWMzOWUzMTE4MzJmZTcxMGRlYjUyNGI4OTczNTFfODczMzc3ZTc5MThjMjYyNGM4ZDk0NzUxZjJkMDgwMDVfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg0ODc0NDU4OjE3ODQ4NzgwNThfVjM" mime="application/pdf" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
