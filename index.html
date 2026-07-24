@@ -426,12 +426,6 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 }
 .usage-card .q {
   font-size: 14px; font-weight: 600; margin-bottom: 10px;
-  padding-left: 16px; position: relative;
-}
-.usage-card .q::before {
-  content: 'Q'; position: absolute; left: 0;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
-  color: var(--fg-muted);
 }
 .usage-card .a {
   font-size: 13px; color: var(--fg-secondary); line-height: 1.6;
@@ -512,14 +506,14 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 <section class="hero">
   <div class="hero-badge">
     <div class="dot"></div>
-    v1.8.0 已发布
+    v1.9.1 已发布
     <span class="tag">SKILL</span>
   </div>
   <h1>
     <span class="accent">BasaltOS</span><br>操作手册
   </h1>
   <p>
-    一个只读 Agent Skill，让 AI 助手秒懂 Basalt OS 清算分账系统的全部业务逻辑。覆盖商户管理、清算流程、付款与签约、平台与规则等 4 个核心模块。
+    一个只读 Agent Skill，让 AI 助手秒懂 Basalt OS 清算分账系统的全部业务逻辑。覆盖商户管理、清算流程、付款与签约、平台与规则、操作手册、常见问题等 6 个知识模块。
   </p>
   <div class="hero-actions">
     <a href="#install" class="btn-primary">
@@ -536,11 +530,11 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 
   <div class="stats reveal">
     <div class="stat">
-      <div class="stat-num">4</div>
+      <div class="stat-num">6</div>
       <div class="stat-label">知识模块</div>
     </div>
     <div class="stat">
-      <div class="stat-num">130K+</div>
+      <div class="stat-num">270K+</div>
       <div class="stat-label">知识字符数</div>
     </div>
     <div class="stat">
@@ -595,14 +589,32 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
         </div>
       </div>
     </div>
+    <div class="feature-card wide reveal">
+      <div class="wide-inner">
+        <div>
+          <div class="feature-icon">&#128218;</div>
+          <span class="feature-tag">operations.md + faq.md</span>
+          <h3>操作手册 &amp; 常见问题</h3>
+          <p>6 篇操作 SOP + 34 个常见问题标准答案，覆盖登录、入驻、清算、分账、提现全流程。安装后直接复制问题即可提问。</p>
+        </div>
+        <div class="code-block">
+          <span class="cmt"># 操作手册覆盖</span><br>
+          <span class="kw">&gt;</span> <span class="str">"账号登录地址是什么？"</span><br>
+          <span class="kw">&gt;</span> <span class="str">"总部公司怎么入驻？"</span><br>
+          <span class="kw">&gt;</span> <span class="str">"清算文件怎么上传？"</span><br><br>
+          <span class="cmt"># 常见问题覆盖</span><br>
+          <span class="kw">&gt;</span> <span class="str">"协议代扣和授权代付有什么区别？"</span><br>
+          <span class="kw">&gt;</span> <span class="str">"清算批次一直卡在清算中怎么办？"</span><br>
+          <span class="kw">&gt;</span> <span class="str">"有哪些工作是我应该每天检查的？"</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- Usage -->
 <section id="usage" class="usage-section">
-  <div class="section-label reveal">HOW IT WORKS</div>
-  <h2 class="reveal">安装后直接问，Skill 自动路由</h2>
-  <p class="reveal">Skill 内置关键词路由引擎，根据你的问题自动加载对应知识模块，返回精准答案。</p>
+  <div class="section-label reveal">常见问题</div>
+  <h2 class="reveal">安装后直接问，34 个常见问题即问即答</h2>
+  <p class="reveal">内置 34 个常见问题标准答案。安装后直接提问，或从下面的热门问题中选择一个开始。</p>
 
   <div class="workflow-steps reveal">
     <div class="step">
@@ -632,20 +644,34 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 
   <div class="usage-grid reveal" style="margin-top: 64px;">
     <div class="usage-card">
-      <div class="q">协议代扣和授权代付有什么区别？</div>
-      <div class="a">协议代扣是体系内子户间划转（免费），授权代付是向体系外付款（0.05%）。自动路由至 payments.md 返回完整对比。</div>
+      <div class="q">Q1. 哪些类型的主体可以入驻？不同主体的基本信息怎么产生？</div>
     </div>
     <div class="usage-card">
-      <div class="q">清算文件命名规则是什么？</div>
-      <div class="a">CARE{日期}_{序号}，如 CARE20260509_01。每日上传限制 50 次。路由至 clearing.md 获取完整规则。</div>
+      <div class="q">Q2. 商户入驻需要哪些资料？有几种入驻方式，分别怎么操作？</div>
     </div>
     <div class="usage-card">
-      <div class="q">deposit.notify 类型 1 和类型 5 有什么区别？</div>
-      <div class="a">类型 1 是余额不足扣保通知（外部请求单号为空），类型 5 是退保结果通知（有外部请求单号）。路由至 clearing.md。</div>
+      <div class="q">Q3. 如何筛选未生成注册码的门店，批量生成注册码，并批量下载未入驻门店的注册码？</div>
     </div>
     <div class="usage-card">
-      <div class="q">提现手续费怎么收？商户看到的是全额吗？</div>
-      <div class="a">网商收万五，D+1 从 8888 户扣，D+2 通过协议代扣从商户追缴。商户看到全额到账。路由至 merchants.md + global-rules.md。</div>
+      <div class="q">Q10. 清算订单从哪里来？收钱吧和拉卡拉有什么区别？</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">Q14. 资金归集是系统自动的还是人工的？</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">Q18. 一个完整的清算流程是什么？要完成哪些工作？每一步需要注意什么？</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">Q22. 清算批次一直卡在"清算中"可能是什么原因？</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">Q23. 协议代扣和授权代付有什么区别？实际使用场景有哪些？</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">Q27. 钱是怎么回到门店的？（提现）</div>
+    </div>
+    <div class="usage-card">
+      <div class="q">Q34. 有哪些工作是我应该每天检查的？哪些需要特别注意？</div>
     </div>
   </div>
 </section>
@@ -654,7 +680,7 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 <section id="scope" class="scope-section">
   <div class="section-label reveal">COVERAGE</div>
   <h2 class="reveal">完整覆盖范围</h2>
-  <p class="reveal">4 个知识模块，覆盖 Basalt OS 清算分账系统的全部业务领域。</p>
+  <p class="reveal">6 个知识模块，覆盖 Basalt OS 清算分账系统的全部业务领域。</p>
 
   <table class="scope-table reveal">
     <thead>
@@ -684,6 +710,16 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
         <td class="mod-name">平台与规则</td>
         <td class="mod-file">global-rules.md</td>
         <td class="mod-kw">费率、角色、权限、编码规则、状态机、平台管理、管理员</td>
+      </tr>
+      <tr>
+        <td class="mod-name">操作手册</td>
+        <td class="mod-file">operations.md</td>
+        <td class="mod-kw">操作、手册、SOP、登录、入驻操作、注册码、POS绑定、清算步骤</td>
+      </tr>
+      <tr>
+        <td class="mod-name">常见问题</td>
+        <td class="mod-file">faq.md</td>
+        <td class="mod-kw">常见问题、FAQ、入驻资料、手续费、扣保退保、每日检查</td>
       </tr>
     </tbody>
   </table>
@@ -759,7 +795,7 @@ section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
 <!-- Footer -->
 <footer class="footer">
   <p>BasaltOS操作手册 &mdash; 只读知识库 Skill</p>
-  <span class="version">v1.8.0 &middot; 2026-07-23</span>
+  <span class="version">v1.9.1 &middot; 2026-07-24</span>
   <br>
   <a href="https://github.com/Joelmes/basalt-os-guide-skill" target="_blank" rel="noopener" class="footer-gh">
     <svg class="gh-icon" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
