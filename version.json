@@ -1,8 +1,10 @@
 {
-  "version": "1.8.0",
+  "version": "1.9.1",
   "name": "BasaltOS操作手册",
-  "updated": "2026-07-23",
+  "updated": "2026-07-24",
   "changes": [
-    "Skill 更名为 BasaltOS操作手册"
+    "落地页更新6模块+270K",
+    "README 20个FAQ",
+    "回答后来源标注+关联推荐"
   ]
 }
