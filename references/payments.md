@@ -336,7 +336,7 @@
 
 1. 查询区
 
-   1. 系统流水号：对应列表中的合约类型列，文本框输入，支持关键词筛选（非完全匹配）。
+   1. 系统流水号：对应列表中的系统流水号列，文本框输入，支持关键词筛选（非完全匹配）。
    2. 合约类型：对应列表中的合约类型列，下拉单选，选项包含协议代扣，和授权代付。
    3. 合约号：对应列表中的合约号列，文本框输入，支持关键词筛选（非完全匹配）。
    4. 授权方名称：对应列表中的授权方名称列的名称，文本框输入，支持关键词筛选（非完全匹配）。
@@ -519,8 +519,8 @@
    3. 解约审核：调用`解约申请审核<ant.mybank.merchantprod.merchant.arrangement.audit>`接口产生的审核单（在协议代扣场景中统一称为通知单或申请单）。
 4. 合约：展示{合约号}-{合约状态}
 
-   1. 签约、解约：商户签约授权完成后通过`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`合约号ArrangementNo`字段返回。合约状态按接口返回展示。
-   2. 解约审核：网商`解约申请审核<ant.mybank.merchantprod.merchant.arrangement.audit>`接口的`合约号ArrangementNo`字段值。合约状态按接口返回展示。
+   1. 签约、解约：商户签约授权完成后通过`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`合约号ArrangementNo`字段返回合约号，`合约状态ArrangementStatus`字段值返回合约状态。
+   2. 解约审核：网商`解约申请审核<ant.mybank.merchantprod.merchant.arrangement.audit>`接口中`合约号ArrangementNo`字段返回合约号，`合约状态ArrangementStatus`字段值返回合约状态。
 5. 合约类型：可直接通过商户签约授权完成后通过`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`合约类型ArrangementType`字段返回值判断，字段值为：`SUB_ACCOUNT_WITHHOLD`。也可以通过合约号来源判断，如合约号来自`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`合约号ArrangementNo`字段。前端展示为：协议代扣。
 6. 授权方：即该申请单发起方。
 
@@ -633,8 +633,6 @@
        
           1. 银行卡：银行卡且对公类型时必填。页面信息提交时做校验。
           2. 支付宝：N\A不存在，展示为「-」。
-
-
 
 ## 付款
 
@@ -1049,7 +1047,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 6. 提交：
 
    1. 点击后系统进行数据有效性校验，如付款方商户ID有效性，费用类型，收款方信息完整性。
-   2. 校验通过后调用网商`2.1授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>`接口发起支付申请。
+   2. 校验通过后调用网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口发起支付申请。
    3. 接口调用失败时直接展示错误信息。
    4. 接口调用成功时页面变更为提交成功页。
    
@@ -1093,7 +1091,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 5. 提交：
 
    1. 点击后系统进行数据有效性校验，如付款方商户ID有效性，费用类型，收款方信息完整性。
-   2. 校验通过后调用网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口发起支付申请。
+   2. 校验通过后调用网商`2.1授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>`接口发起支付申请。
    3. 接口调用失败时直接展示错误信息。
    4. 接口调用成功时页面变更为提交成功页。
    
@@ -1297,7 +1295,7 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
    6. 退款原因：对应网商退款申请接口中的`RefundReason`字段值。发起退款时用户填写。
    7. 备注：对应网商退款申请接口中的`Memo`字段值。发起退款时用户填写。
    8. 状态：退款单状态，详见[协议代扣退款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-E1LZd8dlaonD3AxmXpAcpcbenKg)。
-   9. 错误描述：退款单状态为「FAIL」时出现。对应退保结果查询接口`ErrorDesc`字段值。鼠标悬浮至提示符号时气泡展示完整错误描述。
+   9. 错误描述：退款单状态为「FAIL」时出现。对应退款结果查询接口`ErrorDesc`字段值。鼠标悬浮至提示符号时气泡展示完整错误描述。
    10. 完结时间：退款单网商侧完结时间，格式：yyyy-MM-dd HH:mm:ss。仅状态为「SUCCESS」的退款单出现，FAIL和DEALING状态的退款单完结时间显示为「-」。
    
        1. 对应网商退款结果通知接口和退款结果查询接口返回的`RefundFinishDate`字段值。
