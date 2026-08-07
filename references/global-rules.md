@@ -81,9 +81,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OGRkMjNlOGRiNDgzNGI2NTExNWEzMWRlYTcwMzc4ZGRfY2U4NzcwMDMzZjA3OTVkYWM3YTM4YzgyYmI0ZWNhZGNfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg2MDY4ODU1OjE3ODYwNzI0NTVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=M2M5Njk5ZjFiZjBhOTIwNDc2NGVlZTZjMDNmZDdkNGVfMmEzMGE5ZTQ5ZjM3YjExZjI5MGMwYWYwODQ3YWMyNmZfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=Y2RkOWRhYmFmMTQ2YTAxMzVjNWI4MmFmYjE3YzFlNGNfMjZiMTI3ZWE1ZGQwMWExMDg3NmY4M2Y5MDI2MTczNWJfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg2MDY4ODU1OjE3ODYwNzI0NTVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZTc3NDk4YjIzN2UyOWMxOWQ2NWQ3NjNiYzNjZDYxMTFfZDQxNmM5ZTUzMjc1ZmE2MTdkZWQ2MGQ2YzNmMDBlYTFfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 #### 收钱吧关键字段说明：
 
@@ -129,7 +129,7 @@
 11. `{计费日期}`：订单实际收银的日期，映射网商的`对账日recon_dt`。
 12. `{网点名称}`：POS机名称。
 
-## 公司编码、供应商编码和供应商编码生成规则
+## 公司编码、门店编码和供应商编码生成规则
 
 ### 总部公司编码
 
@@ -154,7 +154,7 @@
    4. {3位自增编号}：表示该区域内添加的第几个公司，顺序按公司主体在本系统中的创建顺序决定。
 4. 删改规则：区域公司编码一经生成不可删除，不可修改。
 
-### 供应商编码
+### 门店编码
 
 1. 格式：`{品牌名}{省份缩写}{YYYYMMDD}{3位自增数字编号}`
 2. 示例：CAREBJ20260415001
@@ -182,10 +182,10 @@
 ## 商户编码生成规则
 
 1. 格式：`{商户关联主体的编码}_{2位自增数字}`
-2. 示例：`CAREBJ20260415001_01`，表示编码为CAREBJ20260415001的供应商关联的第一个商户
+2. 示例：`CAREBJ20260415001_01`，表示编码为CAREBJ20260415001的门店关联的第一个商户
 3. 解释
 
-   1. `{商户关联主体的编码}`：如果是总部公司则为总部公司编码，区域公司为区域公司编码，供应商为供应商编码，供应商为供应商编码。
+   1. `{商户关联主体的编码}`：如果是总部公司则为总部公司编码，区域公司为区域公司编码，门店为门店编码，供应商为供应商编码。
    2. `-`：固定值，连接符号。
    3. `{2位自增编号}`：表示商户对应主体添加的第几个商户，自增，顺序按关联主体在本系统中新增商户入驻的时间顺序决定。
 4. 删改规则：商户编码一经生成不可删除，不可修改。
@@ -193,7 +193,7 @@
 ## 商户入驻状态
 
 <callout emoji="🎈">
-商户入驻包括总部公司，区域公司，供应商，供应商，等的商户入驻。
+商户入驻包括总部公司，区域公司，门店，供应商，等主体的商户入驻。
 </callout>
 
 1. 入驻状态包含网商以下接口返回值：
@@ -286,7 +286,7 @@
    
       1. 文件示例
    
-      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=Y2QxZGIxZjU4YTU2M2I0NzZmMmI5MTQzMDA5MjA4MmVfMGI1MThhY2U5Mzg1MmVkNDZlYTMzYmI1YmRkNjdkNWFfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg2MDY4ODU1OjE3ODYwNzI0NTVfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OWNiZjBmNTNmNDI5YTNlNTM4NmI5NGVjNDk4M2YzNDJfYTExMGE2ZmU3ZTI2MmZhZmNiOTRmMjhkYWE2ZTNlNWZfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
    
       1. 数据解析逻辑（按以下顺序依次解析数据）
       
@@ -432,7 +432,7 @@
    2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
 3. 品牌商费用对账文件明细
 
-   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NGFiZDFiNGI0N2RiYTBkYjM4ZDVhZWVmNzMyOTk3ODdfYjUwNzM1ZjdhMzM0ODg2NjEwMTdmMTkyMDUyM2JhZGFfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg2MDY4ODU1OjE3ODYwNzI0NTVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MzEzZjJiYTk5MjFlM2RkMTE0MjE3MGYzMzY0MTlkMmNfMDNmMWIxMmY3MWE4ZmU2ZGZkZWZmY2YzYmM5NDU2NjRfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
 
    | 字段 | 值 | 说明/映射 |
    |-|-|-|
@@ -694,7 +694,7 @@
 
 | 子场景 | 场景码 | 单笔限额 | 月度总限额 | 收方账户数上限 | 签约生效规则 |
 |-|-|-|-|-|-|
-| **房租** | RENT | 2.5 万 | 25 万 | 5 | 首次签约：需供应商法人签约授权  <br/>信息变更：需供应商法人签约确认 |
+| **租金（原房租）** | RENT | 2.5 万 | 25 万 | 5 | 首次签约：需供应商法人签约授权  <br/>信息变更：需供应商法人签约确认 |
 | **水电物业费** | FEE | 2 万 | 10 万 | 10 | 首次签约：需供应商法人签约授权  <br/>信息变更：需供应商法人签约确认 |
 | **合伙人分润** | PARTNER | 10 万 | 40 万 | 40 | 首次签约：需供应商法人签约授权  <br/>信息变更：需供应商法人签约确认 |
 | **工资代发** | SALARY | 2 万 | 25 万 | 50 | 首次签约：需供应商法人签约授权  <br/>后续变更：需供应商法人签约确认 |
@@ -918,4 +918,4 @@
 
 ## PC工作台
 
-<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ODM4ZmExYWY5N2NiN2EyZDY2NzgyZjgyOTBmNTAxMTNfMmY2MjY0YTg5OTcxNTU1MzA1MDM5MWY0NWUzNGQxOTdfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg2MDY4ODU1OjE3ODYwNzI0NTVfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=Y2FjY2I1MmYxMTk4NzI0NDRiZGUzOWMyNDBhMjUyMDZfZmNkOTFmNDhjZGRiNzY5NjA1Yzc2NWQyZWZkMzBiNWNfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg2MDY4ODU1OjE3ODYwNzI0NTVfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NzI1NmQ2MmY5YTQ1Y2NmYmNlZjA4NjA3OWUwYmUyZGZfNGE0M2Q4M2ZkODJmZDI1YTRjY2Y1MzI1OTM1NGIxZjBfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZWEyYzNkNmE0ZTdkMzRlYTZiOTJiNDViNjc4ZjhiZTZfNzllZjhiYTQwZDFiODcwZGUzNTdjYWExYWZlZmQ4NGJfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
