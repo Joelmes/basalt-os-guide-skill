@@ -1,10 +1,10 @@
 {
-  "version": "1.9.5",
+  "version": "1.9.6",
   "name": "BasaltOS操作手册",
   "updated": "2026-08-07",
   "changes": [
-    "PRD7处笔误修复",
-    "外部商户号统一改为商户编码",
-    "5篇wiki文档+SKILL.md+README.md同步更新"
+    "操作手册知识库内容更新(WorkBuddy)",
+    "operations.md增长12K",
+    "faq.md增长1.5K"
   ]
 }
