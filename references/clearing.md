@@ -1,6 +1,6 @@
 ## 清算订单
 
-<synced-source><callout emoji="🎈"><ol><li seq="1">完整清算操作流程：收钱吧/拉卡拉 POS 收款 → 资金落在华夏银行银行卡 → 资金归集（财务人员手动转账到9903开头的网商平台清算专户，详见<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-HWrjdN3TKo8AMQx8hv2cHOAInMg">资金归集&amp;平台清算专户</a>） <p text-indent="1">                                                                     → 订单同步至系统→ 系统侧完成清算订单上送→ 清算文件上传→ 清算批次上报。</p><p>                                                                                                                                                                                                                   → 网商按批次处理清算任务→ 返回清算结果（成功/失败）。</p><p></p></li></ol></callout></synced-source>
+<synced-source><callout emoji="🎈"><ol><li seq="1">完整清算操作流程：收钱吧/拉卡拉 POS 收款 → 资金落在华夏银行卡 → 资金归集（财务人员手动转账到9903开头的网商平台清算专户，详见<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-HWrjdN3TKo8AMQx8hv2cHOAInMg">资金归集&amp;平台清算专户</a>） <p text-indent="1">                                                                     → 订单同步至系统→ 系统侧完成清算订单上送→ 清算文件上传→ 清算批次上报。</p><p>                                                                                                                                                                                                                   → 网商按批次处理清算任务→ 返回清算结果（成功/失败）。</p><p></p></li></ol></callout></synced-source>
 
 <callout emoji="🎈">
 ### 拉卡拉账单的交易类型包含多种，暂无法完全枚举，
@@ -39,7 +39,7 @@
    2. 手动拉取
    
       1. 收钱吧：无
-      2. 拉卡拉：财务人员从拉卡拉系统后台后台下载对账单，然后在本系统中上传。
+      2. 拉卡拉：财务人员从拉卡拉系统后台下载对账单，然后在本系统中上传。
 </callout>
 
 1. 查询区
@@ -391,7 +391,7 @@
    3. 订单上送接口：`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>` 。
    </callout>
 
-   <table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th>#</th><th>网商字段名</th><th>参数描述</th><th>出现要求</th><th>示例/传参</th><th>传值-收钱吧</th><th>传值-拉卡拉</th></tr></thead><tbody><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>必填</td><td>202211000000000004381</td><td colspan="2">可柔：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>PayeeMerchantId</td><td>收款商户号</td><td>必填</td><td>网商商户号 {Merchantld}</td><td colspan="2">订单所属POS机绑定的商户的网商商户号<code>{Merchantld}</code></td></tr><tr><td>3</td><td>OutTradeNo</td><td>合作方系统生成的外部交易流水号</td><td>必填</td><td> 177754579139391165386</td><td>收钱吧<code>{商户订单号}</code></td><td>拉卡拉<code>{交易流水号}</code></td></tr><tr><td>4</td><td>TotalAmount</td><td>收款总金额（单位：分）<br/>不扣除手续费的总金额</td><td> 必填</td><td>150000<br/>单位分，不保留小数。</td><td>收钱吧[<code>收款金额</code><br/>金额一律传入正值</td><td>拉卡拉<code>交易金额</code><br/>金额一律传入正值</td></tr><tr><td>5</td><td>Currency</td><td>币种</td><td>必填</td><td> 人民币：CNY</td><td><code>币种/货币类型</code>：<code>CNY</code></td><td>固定值：<code>CNY</code></td></tr><tr><td>6</td><td>TradeType</td><td>交易类型</td><td>必填</td><td>根据交易类型：<br/>支付明细（收款）：SINGLE_PAY<br/>退款明细：REFUND</td><td>收钱吧<code>交易类型/交易模式</code>：<br/>付款→ SINGLE_PAY：支付明细<br/>退款→ REFUND：退款明细</td><td>拉卡拉：<code>交易类型</code><br/>*消费*→ SINGLE_PAY：支付明细<br/>*退款*→ REFUND：退款明细</td></tr><tr><td>7</td><td>ChannelType</td><td>渠道类型</td><td>必填</td><td></td><td>收钱吧：<code>Shouqianba_pay</code></td><td>拉卡拉：<code>Lakala_Pay</code></td></tr><tr><td>8</td><td>UserId</td><td>用户标识（用户ID）</td><td>非必填</td><td></td><td>收钱吧：<code>付款账户</code><br/>微信支付：ofDgL0ayyfvGnKCVANd-TuZilrnU<br/>支付宝：104***@qq.com<br/>云闪付：无</td><td>拉卡拉：<code>用户ID</code></td></tr><tr><td>9</td><td>Body</td><td>商品描述。格式要求：店名-销售商品类目</td><td>必填</td><td></td><td colspan="2">格式：<code>{</code><code>供应商</code><code>名称}-服饰</code><br/>举例：宿迁泗阳吾悦店JD-服饰<br/>释义：供应商名称用POS机绑定的商户对应的供应商名称，「服饰」为固定值</td></tr><tr><td>10</td><td>GoodsTag</td><td>商品标记。微信支付代金券或立减优惠功能的参数。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>11</td><td>GoodsDetail</td><td>商品详情列表。支付宝<a href="https://pay.weixin.qq.com/wiki/doc/api/micropay_sl_danpin.php?chapter=9_101&amp;index=1">单品优惠功能字段</a>，JSON格式。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>12</td><td>Memo</td><td>备注</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>13</td><td>ExtraInfo</td><td>扩展信息,Map的json序列化后Base64</td><td>O</td><td> </td><td>-</td><td>-</td></tr></tbody></table>
+   <table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th>#</th><th>网商字段名</th><th>参数描述</th><th>出现要求</th><th>示例/传参</th><th>传值-收钱吧</th><th>传值-拉卡拉</th></tr></thead><tbody><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>必填</td><td>202211000000000004381</td><td colspan="2">可柔：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>PayeeMerchantId</td><td>收款商户号</td><td>必填</td><td>网商商户号 {MerchantId}</td><td colspan="2">订单所属POS机绑定的商户的网商商户号<code>{MerchantId}</code></td></tr><tr><td>3</td><td>OutTradeNo</td><td>合作方系统生成的外部交易流水号</td><td>必填</td><td> 177754579139391165386</td><td>收钱吧<code>{商户订单号}</code></td><td>拉卡拉<code>{交易流水号}</code></td></tr><tr><td>4</td><td>TotalAmount</td><td>收款总金额（单位：分）<br/>不扣除手续费的总金额</td><td> 必填</td><td>150000<br/>单位分，不保留小数。</td><td>收钱吧[<code>收款金额</code><br/>金额一律传入正值</td><td>拉卡拉<code>交易金额</code><br/>金额一律传入正值</td></tr><tr><td>5</td><td>Currency</td><td>币种</td><td>必填</td><td> 人民币：CNY</td><td><code>币种/货币类型</code>：<code>CNY</code></td><td>固定值：<code>CNY</code></td></tr><tr><td>6</td><td>TradeType</td><td>交易类型</td><td>必填</td><td>根据交易类型：<br/>支付明细（收款）：SINGLE_PAY<br/>退款明细：REFUND</td><td>收钱吧<code>交易类型/交易模式</code>：<br/>付款→ SINGLE_PAY：支付明细<br/>退款→ REFUND：退款明细</td><td>拉卡拉：<code>交易类型</code><br/>*消费*→ SINGLE_PAY：支付明细<br/>*退款*→ REFUND：退款明细</td></tr><tr><td>7</td><td>ChannelType</td><td>渠道类型</td><td>必填</td><td></td><td>收钱吧：<code>Shouqianba_pay</code></td><td>拉卡拉：<code>Lakala_Pay</code></td></tr><tr><td>8</td><td>UserId</td><td>用户标识（用户ID）</td><td>非必填</td><td></td><td>收钱吧：<code>付款账户</code><br/>微信支付：ofDgL0ayyfvGnKCVANd-TuZilrnU<br/>支付宝：104***@qq.com<br/>云闪付：无</td><td>拉卡拉：<code>用户ID</code></td></tr><tr><td>9</td><td>Body</td><td>商品描述。格式要求：店名-销售商品类目</td><td>必填</td><td></td><td colspan="2">格式：<code>{</code><code>供应商</code><code>名称}-服饰</code><br/>举例：宿迁泗阳吾悦店JD-服饰<br/>释义：供应商名称用POS机绑定的商户对应的供应商名称，「服饰」为固定值</td></tr><tr><td>10</td><td>GoodsTag</td><td>商品标记。微信支付代金券或立减优惠功能的参数。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>11</td><td>GoodsDetail</td><td>商品详情列表。支付宝<a href="https://pay.weixin.qq.com/wiki/doc/api/micropay_sl_danpin.php?chapter=9_101&amp;index=1">单品优惠功能字段</a>，JSON格式。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>12</td><td>Memo</td><td>备注</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>13</td><td>ExtraInfo</td><td>扩展信息,Map的json序列化后Base64</td><td>O</td><td> </td><td>-</td><td>-</td></tr></tbody></table>
 
 #### POS设置
 
@@ -899,8 +899,8 @@
 </callout>
 
 1. 批次号：补单保证金扣除通知接口中的`BatchNo`字段值返回。可关联至清算批次。
-2. 商户：补单保证金扣除通知接口中的`MerchantId`字段值返回网商商户号，通过该商户号查询公司或供应商或供应商名称及商户简称。前端显示格式为：{供应商或公司或供应商名称}-{商户简称}。
-3. 扣保单号：补单保证金扣除通知接口中的`DepositPayld`字段值返回。
+2. 商户：补单保证金扣除通知接口中的`MerchantId`字段值返回网商商户号，通过该商户号查询公司或门店或供应商名称及商户简称。前端显示格式为：{公司或门店或供应商名称}-{商户简称}。
+3. 扣保单号：补单保证金扣除通知接口中的`DepositPayId`字段值返回。
 4. 金额：补单保证金扣除通知接口中的`Amount`字段值返回。
 5. 退保流水号：发起退保申请时结算单退保申请接口中的`OutTradeNo`字段值，退保成功后通过`补单保证金退回通知`接口的返回`RefundDepositOutTradeNo`字段值。
 6. 网商操作单号：结算单退保申请被受理后网商同步返回`OperateNo`字段值。
