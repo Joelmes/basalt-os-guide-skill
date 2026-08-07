@@ -387,10 +387,10 @@
             3. 解约审核：调用`解约申请审核<ant.mybank.merchantprod.merchant.arrangement.audit>`接口创建的申请单。
       5. 授权方名称：
       
-         1. 协议代扣：`1.1授权/解约成功通知接口<ant.mybank.merchantprod.merchant.arrangement.info.notify>`接口中`网商商户号Merchantld`字段值对应的公司或供应商名称。
+         1. 协议代扣：`1.1授权/解约成功通知接口<ant.mybank.merchantprod.merchant.arrangement.info.notify>`接口中`网商商户号MerchantId`字段值对应的公司或供应商名称。
       6. 授权方编码：
       
-         1. 协议代扣：`1.1授权/解约成功通知接口<ant.mybank.merchantprod.merchant.arrangement.info.notify>`接口中`网商商户号Merchantld`字段值对应的公司或供应商编码。
+         1. 协议代扣：`1.1授权/解约成功通知接口<ant.mybank.merchantprod.merchant.arrangement.info.notify>`接口中`网商商户号MerchantId`字段值对应的公司或供应商编码。
       7. 授权方商户简称：
       
          1. 协议代扣：商户签约授权完成后通过`1.1授权/解约成功通知接口<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`网商商户号MerchantId`字段值对应的商户简称。
