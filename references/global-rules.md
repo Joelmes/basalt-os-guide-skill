@@ -81,9 +81,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=M2M5Njk5ZjFiZjBhOTIwNDc2NGVlZTZjMDNmZDdkNGVfMmEzMGE5ZTQ5ZjM3YjExZjI5MGMwYWYwODQ3YWMyNmZfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OWJlYzFkYjY0NTllZGNkMzQxOWNkN2MwNGVkOWNjZGNfNTgzMTExYTdkMDEwN2VhOGUyYzA3YzQwMTEyODY5YjlfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg2MDgwNjE1OjE3ODYwODQyMTVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZTc3NDk4YjIzN2UyOWMxOWQ2NWQ3NjNiYzNjZDYxMTFfZDQxNmM5ZTUzMjc1ZmE2MTdkZWQ2MGQ2YzNmMDBlYTFfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NjAxNDMxNmViYzY2ZWNkNjU2N2NkMDQxMzJmZTI1MmZfZTAzNGNlNTM2ODhkYTEwMTllMjc3ZDFhMmRmODg0MzdfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg2MDgwNjE1OjE3ODYwODQyMTVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 #### 收钱吧关键字段说明：
 
@@ -286,7 +286,7 @@
    
       1. 文件示例
    
-      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OWNiZjBmNTNmNDI5YTNlNTM4NmI5NGVjNDk4M2YzNDJfYTExMGE2ZmU3ZTI2MmZhZmNiOTRmMjhkYWE2ZTNlNWZfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YWZmMDg3YjZhOWUwZTA2MTRjY2QwYzhjOGEyNjkzYzNfZTZmZDBmZWQxMjc3MzA2ZjU5NjYxZDk5YjJlNTFlMmRfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg2MDgwNjE1OjE3ODYwODQyMTVfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
    
       1. 数据解析逻辑（按以下顺序依次解析数据）
       
@@ -432,7 +432,7 @@
    2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
 3. 品牌商费用对账文件明细
 
-   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MzEzZjJiYTk5MjFlM2RkMTE0MjE3MGYzMzY0MTlkMmNfMDNmMWIxMmY3MWE4ZmU2ZGZkZWZmY2YzYmM5NDU2NjRfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MTliNTE3ZjUyZGM2NjI3NThlOGEyMDg3NmE1ODJkMThfYTY2ZDcyMDBhNzY5YTY0NzI2ODc5OWNhMzMyMjMxM2NfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg2MDgwNjE1OjE3ODYwODQyMTVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
 
    | 字段 | 值 | 说明/映射 |
    |-|-|-|
@@ -918,4 +918,4 @@
 
 ## PC工作台
 
-<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NzI1NmQ2MmY5YTQ1Y2NmYmNlZjA4NjA3OWUwYmUyZGZfNGE0M2Q4M2ZkODJmZDI1YTRjY2Y1MzI1OTM1NGIxZjBfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZWEyYzNkNmE0ZTdkMzRlYTZiOTJiNDViNjc4ZjhiZTZfNzllZjhiYTQwZDFiODcwZGUzNTdjYWExYWZlZmQ4NGJfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg2MDcyNTYyOjE3ODYwNzYxNjJfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MTc1OGM1ZmFkZDdiM2M3N2Q3ZjI2MTM3MjViNmM4MjNfZjQxOTUyMDIwMmU1Y2YyZWQyMjYwNzVkYzIwNWRmNmZfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg2MDgwNjE1OjE3ODYwODQyMTVfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YmUwZGIxNGVkZWU3ODVlOWJhYTMxYjE5NjBiYjY3ODFfMmJlOWM2NjFhOTNlZDQxMDkwMDgwMzljZDZhYjZjZDhfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg2MDgwNjE1OjE3ODYwODQyMTVfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
