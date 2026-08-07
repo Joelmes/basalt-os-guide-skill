@@ -1,10 +1,10 @@
 {
-  "version": "1.9.4",
+  "version": "1.9.5",
   "name": "BasaltOS操作手册",
   "updated": "2026-08-07",
   "changes": [
-    "PRD大幅更新305063字符+64K",
-    "merchants.md增长127K",
-    "新增商户编码生成规则H2"
+    "PRD7处笔误修复",
+    "外部商户号统一改为商户编码",
+    "5篇wiki文档+SKILL.md+README.md同步更新"
   ]
 }
