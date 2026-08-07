@@ -1,8 +1,8 @@
-## 供应商管理
+## 供应商档案管理
 
 ### 供应商列表
 
-<synced-source><callout emoji="🎈"><ol><li seq="1">供应商基础数据从三联系统获取。<ol><li seq="1">接口：供应商档案查询(open.supplier.query)</li><li>供应商信息唯一不变值：<code>供应商IDSupplierID</code></li></ol></li><li>三联系统中供应商创建时必填字段：供应商编号，供应商名称。其中供应商编号不可重复。</li><li>供应商编码生成规则见「<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">公司编码、</a><a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">供应商</a><a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">编码和供应商编码生成规则</a>」。</li><li>供应商数据获取与更新：<ol><li seq="1">如需修改供应商基础信息，用户须前往三联系统修改，然后在本系统中更新供应商信息。</li><li>定时更新：每日凌晨3:00，更新全部供应商（含新建供应商）信息。</li><li>手动更新：<ol><li seq="1">拉取新建供应商：如用户在三联系统中新建了供应商后需在本系统立即同步的，可点击操作区域的「拉取新供应商」按钮立即增量拉取新建供应商信息。</li><li>更新供应商信息：如用户在三联系统中修改了供应商信息后需在本系统立即同步的，可在供应商列表勾选需更新的供应商后点击工具区区域的「更新供应商信息」按钮立即更新供应商信息。</li></ol></li></ol></li></ol></callout></synced-source>
+<synced-source><callout emoji="🎈"><ol><li seq="1">供应商基础数据从三联系统获取。<ol><li seq="1">接口：供应商档案查询(open.supplier.query)</li><li>供应商信息唯一不变值：<code>供应商IDSupplierID</code></li></ol></li><li>三联系统中供应商创建时必填字段：供应商编号，供应商名称。其中供应商编号不可重复。</li><li>供应商编码生成规则见「<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">公司编码、门店编码和供应商编码</a><a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">生成规则</a>」。</li><li>供应商数据获取与更新：<ol><li seq="1">如需修改供应商基础信息，用户须前往三联系统修改，然后在本系统中更新供应商信息。</li><li>定时更新：每日凌晨3:00，更新全部供应商（含新建供应商）信息。</li><li>手动更新：<ol><li seq="1">拉取新建供应商：如用户在三联系统中新建了供应商后需在本系统立即同步的，可点击操作区域的「拉取新供应商」按钮立即增量拉取新建供应商信息。</li><li>更新供应商信息：如用户在三联系统中修改了供应商信息后需在本系统立即同步的，可在供应商列表勾选需更新的供应商后点击工具区区域的「更新供应商信息」按钮立即更新供应商信息。</li></ol></li></ol></li></ol></callout></synced-source>
 
 1. 查询区
 
@@ -33,7 +33,7 @@
    1. 供应商名称：
    
       1. 供应商名称：供应商名称，对应三联`{SupplierName}`字段值。
-      2. 供应商编码：系统生成的供应商唯一编码，生成规则见「[公司编码、](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[供应商](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[编码和供应商编码生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
+      2. 供应商编码：系统生成的供应商唯一编码，生成规则见「[公司编码、门店编码和供应商编码](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
    2. 营业主体：该供应商的企业主体的公司名称，主体公司通过「供应商」业务域模块管理。
    3. 片区：该供应商所属片区。对应三联`{SupplierAreaName}`字段值。
    4. 负责人：该供应商的负责人的名称。对应三联`{c_fuzr}`字段值。
@@ -51,7 +51,7 @@
 1. 基础信息
 
    1. 名称：三联系统中供应商名称，对应三联`{SupplierName}`字段值。
-   2. 编码：系统生成的供应商唯一编码，生成规则见「[公司编码、](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[供应商](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[编码和供应商编码生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
+   2. 编码：系统生成的供应商唯一编码，生成规则见「[公司编码、门店编码和供应商编码](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
    3. 片区：三联系统中供应商所属片区。对应三联`{SupplierAreaName}`字段值。
    4. ID：三联系统中供应商唯一ID。对应三联`{Supplier``ID``}`字段值。
    5. 编号：三联系统中供应商编号。对应三联`{SupplierCode}`字段值。
@@ -456,7 +456,7 @@ AppId：`2026042000004278`
    5. 商户
    
       1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 商户编码：对应列表中的商户商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 商户编码：对应列表中的商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
 2. 工具区
 
    1. 添加总部公司
@@ -487,7 +487,7 @@ AppId：`2026042000004278`
    </callout>
 
    1. 公司名称：公司名称，本系统产生数据。
-   2. 公司编码：公司创建成功后本系统按规则生成的唯一编码，生成规则见「[公司编码、](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[供应商](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[编码和供应商编码生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
+   2. 公司编码：公司创建成功后本系统按规则生成的唯一编码，生成规则见「[公司编码、门店编码和供应商编码](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
    3. 业务属性：公司业务属性。
    4. 商户：该公司关联的商户（关联指的是商户通过该公司信息创建）
    
@@ -595,7 +595,7 @@ AppId：`2026042000004278`
    5. 商户
    
       1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 商户编码：对应列表中的商户商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 商户编码：对应列表中的商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
    6. 网商商户号：对应列表中的网商商户号列，文本框输入，支持关键词筛选（非完全匹配）。
    7. 交易保证金户：对应商户的交易保证金户，列表中未展示，文本框输入，支持关键词筛选（非完全匹配）。
    8. 入驻方式：下拉单选，预入驻+激活，小程序入驻。
@@ -1498,7 +1498,7 @@ AppId：`2026042000004278`
       3. 商户可以签约新的协议代扣合约，新合约产生时，此处展示新的合约号和其对应状态。
       4. 库表数据关联。
       
-         1. 商户信息表中需存储该商户最新的协议代扣合约号，合约失效时不做删除。当商户产生新的协议代扣合约时，商户信息表中的合约号更新为新的合约的合约号。
+         1. 商户信息表中需存储该商户最新的协议代扣合约号，合约失效时不做删除。当商户产生新的协议代扣合约时，商户信息表中的合约号更新为新合约的合约号。
          2. 协议代扣合约表中需存储该合约所属商户的商户编号（或商户号），合约失效后该数据也不做删除，该数据会在后面的合约管理模块展示。
       5. 一个商户只能有一个生效中的授权代付合约，原合约失效后可签约新的合约。
       </callout>
@@ -1513,7 +1513,7 @@ AppId：`2026042000004278`
       3. 平台和商户可以签约新的授权代付合约，新合约产生后，此处展示新的合约号和其对应状态。
       4. 库表数据关联。
       
-         1. 商户信息表中需存储该商户最新的授权代付合约号，合约失效时不做删除。当商户产生新的授权代付合约时，商户信息表中的合约号更新为新的合约的合约号。
+         1. 商户信息表中需存储该商户最新的授权代付合约号，合约失效时不做删除。当商户产生新的授权代付合约时，商户信息表中的合约号更新为新合约的合约号。
          2. 授权代付合约表中需存储该合约所属商户的商户编号（或商户号），合约失效后该数据也不做删除，该数据会在后面的合约管理模块展示。
       5. 一个商户只能有一个生效中的授权代付合约，原合约失效后可签约新的合约。
       </callout>
@@ -1562,7 +1562,7 @@ AppId：`2026042000004278`
    5. 商户
    
       1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 商户编码：对应列表中的商户商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 商户编码：对应列表中的商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
    6. 关联商户：筛选内容为公司关联的商户入驻数量是否＞0，下拉单选。
    
       1. 有商户：该公司关联的商户入驻数量＞0。
@@ -1599,7 +1599,7 @@ AppId：`2026042000004278`
 3. 列表区
 
    1. 公司名称：公司名称。
-   2. 公司编码：系统生成的公司唯一编码，生成规则见「[公司编码、](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[供应商](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[编码和供应商编码生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
+   2. 公司编码：系统生成的公司唯一编码，生成规则见「[公司编码、门店编码和供应商编码](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
    3. 所属区域：公司所属区域。
    4. 业务属性：公司业务属性。
    5. 商户：该公司关联的商户（关联指的是商户通过该公司信息创建）
@@ -1710,7 +1710,7 @@ AppId：`2026042000004278`
    5. 商户
    
       1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 商户编码：对应列表中的商户商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 商户编码：对应列表中的商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
    6. 网商商户号：对应列表中的网商商户号列，文本框输入，支持关键词筛选（非完全匹配）。
    7. 交易保证金户：对应商户的交易保证金户，列表中未展示，文本框输入，支持关键词筛选（非完全匹配）。
    8. 入驻方式：下拉单选，预入驻+激活，小程序入驻。
@@ -2636,7 +2636,7 @@ AppId：`2026042000004278`
    
       1. 接口：店仓信息查询(open.store.query)
    2. 三联系统中供应商信息必填字段：供应商名称。
-   3. 供应商编码生成规则见「[公司编码、](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[供应商](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[编码和供应商编码生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
+   3. 供应商编码生成规则见「[公司编码、门店编码和供应商编码](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
 2. 供应商数据获取与更新：
 
    1. 如需修改供应商基础信息，用户须前往三联系统修改，然后在本系统中更新供应商信息。
@@ -2681,7 +2681,7 @@ AppId：`2026042000004278`
          4. 打包成「.zip」文件通过浏览器自动下载。
    2. 更新门店信息：用户需先勾选门店然后再点击按钮，点击后系统立即从三联系统获取对应门店的基础信息。
    3. 拉取新门店：点击后从三联系统拉取新建的门店及门店的信息。
-   4. 变更区域：用户需先勾选门店，点击后打开「变更门店所属区域」弹窗，
+   4. 变更区域：用户需先勾选门店，点击后打开「变更门店所属区域」弹窗。
    
       1. 所属区域：下拉单选，选项来自「平台管理-区域划分」中「已启用」状态的区域。
 3. 列表区
@@ -3710,7 +3710,7 @@ AppId：`2026042000004278`
    5. 商户
    
       1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 商户编码：对应列表中的商户商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 商户编码：对应列表中的商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
    6. 关联商户：筛选内容为公司关联的商户入驻数量是否＞0，下拉单选。
    
       1. 有商户：该公司关联的商户入驻数量＞0。
@@ -3740,7 +3740,7 @@ AppId：`2026042000004278`
 3. 列表区
 
    1. 供应商名称：供应商名称，对应三联`{SupplierName}`字段值。
-   2. 供应商编码：系统生成的供应商唯一编码，生成规则见「[公司编码、](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[供应商](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[编码和供应商编码生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
+   2. 供应商编码：系统生成的供应商唯一编码，生成规则见「[公司编码、门店编码和供应商编码](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)[生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf)」。
    3. 经营主体：该供应商的企业经营主体的公司名称，经营主体公司通过「[供应商](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-DGCLdR3Tgo4qRTxR1Qpc9C47nwh)」业务域模块管理。
    4. 片区：该供应商所属片区。对应三联`{SupplierAreaName}`字段值。
    5. 负责人：该供应商的负责人的名称。对应三联`{c_fuzr}`字段值。
@@ -3842,12 +3842,12 @@ AppId：`2026042000004278`
    3. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
    4. 商户
    
-      1. 商户编码：对应列表中的商户商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
+      1. 商户编码：对应列表中的商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
       2. 网商商户号：对应列表中的网商商户号列，文本框输入，支持关键词筛选（非完全匹配）。
    5. 交易保证金户：对应商户的交易保证金户，列表中未展示，文本框输入，支持关键词筛选（非完全匹配）。
    6. 入驻方式：下拉单选，预入驻+激活，小程序入驻。
    
-      1. 预入驻+激活：平台代填预入驻资料，提交网商审核通过后生成激活链接。。
+      1. 预入驻+激活：平台代填预入驻资料，提交网商审核通过后生成激活链接。
       2. 小程序入驻：商户通过注册码/注册链接自助在小程序完成入驻。
    7. 入驻状态：对应列表中的入驻状态列，下拉单选，选项列表及映射关系详见[商户入驻状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-WAdgdmZBUoIcHRxDntScEEr3nIc)。
    8. 签约状态：对应列表中的签约授权列，下拉单选，选项包含协议代扣和授权代付两种合约去重后的全部状态。详见[协议代扣合约状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-DQaMdqLulobsdFxuPvAccRlPnkc)和[授权代付合约状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-UGlNdJ8yWohGNrxtnlIcRWVSnub)。
@@ -4715,7 +4715,7 @@ AppId：`2026042000004278`
       3. 商户可以签约新的协议代扣合约，新合约产生时，此处展示新的合约号和其对应状态。
       4. 库表数据关联。
       
-         1. 商户信息表中需存储该商户最新的协议代扣合约号，合约失效时不做删除。当商户产生新的协议代扣合约时，商户信息表中的合约号更新为新的合约的合约号。
+         1. 商户信息表中需存储该商户最新的协议代扣合约号，合约失效时不做删除。当商户产生新的协议代扣合约时，商户信息表中的合约号更新为新合约的合约号。
          2. 协议代扣合约表中需存储该合约所属商户的商户编号（或商户号），合约失效后该数据也不做删除，该数据会在后面的合约管理模块展示。
       5. 一个商户只能有一个生效中的授权代付合约，原合约失效后可签约新的合约。
       </callout>
@@ -4730,7 +4730,7 @@ AppId：`2026042000004278`
       3. 平台和商户可以签约新的授权代付合约，新合约产生后，此处展示新的合约号和其对应状态。
       4. 库表数据关联。
       
-         1. 商户信息表中需存储该商户最新的授权代付合约号，合约失效时不做删除。当商户产生新的授权代付合约时，商户信息表中的合约号更新为新的合约的合约号。
+         1. 商户信息表中需存储该商户最新的授权代付合约号，合约失效时不做删除。当商户产生新的授权代付合约时，商户信息表中的合约号更新为新合约的合约号。
          2. 授权代付合约表中需存储该合约所属商户的商户编号（或商户号），合约失效后该数据也不做删除，该数据会在后面的合约管理模块展示。
       5. 一个商户只能有一个生效中的授权代付合约，原合约失效后可签约新的合约。
       </callout>
