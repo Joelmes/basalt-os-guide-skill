@@ -1,11 +1,10 @@
 {
-  "version": "1.9.7",
+  "version": "1.9.8",
   "name": "BasaltOS操作手册",
-  "updated": "2026-08-07",
+  "updated": "2026-08-14",
   "changes": [
-    "操作手册知识库内容更新(WorkBuddy)",
-    "术语统一：注册码→商户编码",
-    "新增激活链接/二维码集中获取方式",
-    "operations.md+949B、faq.md+111B"
+    "PRD更新313319字符+9K",
+    "merchants.md+17K、payments.md+2.4K",
+    "faq.md+1.7K、operations.md小幅更新"
   ]
 }
