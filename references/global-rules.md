@@ -27,6 +27,7 @@
          1. 区域名称：区域名称文字
          2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
 
+
 ## 业务属性
 
 1. 查询区
@@ -56,9 +57,11 @@
          1. 业务属性名称：业务属性名称文字
          2. 状态：启用，禁用。单选，默认带入原状态，选择时有对应的状态说明文字。
 
+
 ## 角色
 
 1. 超级管理员角色：拥有所有业务模块的所有管理权限。
+
 
 ## 账户
 
@@ -68,6 +71,7 @@
    2. 密码：care2026
 
 ---
+
 
 ## 资金归集
 
@@ -81,9 +85,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YzdjNTUzNmM0ZDNjNTFjZGJiNjFhMDlkMTNlOGNiMGFfMGNjMGZlZTEwMGU0MWFiYTIyZGY0OTE0MzRmM2JiMDJfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg2Njc5OTcxOjE3ODY2ODM1NzFfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YWNkMDhmMjUxMzRhZGExMjRhNGFmNGZjNTI1NGI1MDBfMGRiYWRlZTQ3NWUzNDNkM2Y3OWYwNTgwMGQ5YWVjYzJfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NjBmYjZiMTc2ZTc5MmIzODQ0NjYxNDU3N2UwMTJiMmFfNzgzMWIwNjkzMTQwODJhM2ExZjIzY2UwNmE1MmEyMDBfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg2Njc5OTcxOjE3ODY2ODM1NzFfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=Y2VlZTg5YTRhN2RlYzAyNDZhZmQzM2YyMmRmYzYwZDRfYThhMGM3YTNhNWFkNzZjYjU0ODUzYTNmY2FmNjA3NjZfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 #### 收钱吧关键字段说明：
 
@@ -128,6 +132,7 @@
 10. `{交易完成时间}`：支付时间。映射网商的`交易时间trade_time`。
 11. `{计费日期}`：订单实际收银的日期，映射网商的`对账日recon_dt`。
 12. `{网点名称}`：POS机名称。
+
 
 ## 公司编码、门店编码和供应商编码生成规则
 
@@ -179,6 +184,7 @@
    3. `{5位自增编号}`：供应商的添加顺序，初始化时按三联系统中的`{创建时间}`从前到后排序。
 4. 删改规则：供应商编码一经生成不可删除，不可修改。
 
+
 ## 商户编码生成规则
 
 1. 格式：`{商户关联主体的编码}_{2位自增数字}`
@@ -189,6 +195,7 @@
    2. `-`：固定值，连接符号。
    3. `{2位自增编号}`：表示商户对应主体添加的第几个商户，自增，顺序按关联主体在本系统中新增商户入驻的时间顺序决定。
 4. 删改规则：商户编码一经生成不可删除，不可修改。
+
 
 ## 商户入驻状态
 
@@ -247,6 +254,7 @@
 
    <whiteboard token="SdTywFBLmhs0HEblmjbcPlaqnSb"></whiteboard>
 
+
 ## 资金账单下载（余额明细，保证金明细）
 
 <callout emoji="🎈">
@@ -286,7 +294,7 @@
    
       1. 文件示例
    
-      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NDVlNzdjODk4OWY4YzkwNGZkMzkzNjRmNTNjMzBkMWNfNTk3ZDJmOWJkY2IyNDRkNjQ5ZTljMWFkMTNjZWYzYTBfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg2Njc5OTcxOjE3ODY2ODM1NzFfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NjQ4YmQzYTFjNzFkNzljNzhkYmI1ZTMxYzk5ZjA3YTRfODEwYTUyYWFkZWQxMDQyODhlNWE0ZTliYTBlOWJlMmNfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
    
       1. 数据解析逻辑（按以下顺序依次解析数据）
       
@@ -302,6 +310,7 @@
       2. 文件字段说明
    
       <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>英文字段名</th><th>参数描述（中文名）</th><th>字段值示例</th><th>参数说明</th><th>映射系统字段</th></tr></thead><tbody><tr><td>isv_org_id</td><td>合作方机构号</td><td>202211000000000004381</td><td>202211000000000004381</td><td></td></tr><tr><td>id</td><td>资金明细id</td><td>202607031453516530000000000191385483</td><td></td><td></td></tr><tr><td>card_nbr</td><td>业务账户编号</td><td>9900116208799402999</td><td>用这个字段区分商户/平台<br/>平台：9903开头的平台清算专户账号<br/>商户：2268开头的网商商户号</td><td></td></tr><tr><td>card_type</td><td>业务账户类型</td><td><ol><li seq="1">PLATFORM_CUSTODY</li><li>BALANCE</li><li>TRADE_DEPOSIT</li></ol></td><td><ol><li seq="1">BALANCE：商户交易资金（余额收支明细）</li><li>TRADE_DEPOSIT：商户充值资金（交易保证金收支明细）</li><li>PLATFORM_CUSTODY：平台清算专户子户</li></ol></td><td></td></tr><tr><td>gmt_acnt</td><td>记账时间</td><td>2026-07-03 14:53:51.653000</td><td>yyyy-mm-dd HHmiss</td><td></td></tr><tr><td>amt</td><td>交易金额</td><td>12240</td><td>单位：分</td><td></td></tr><tr><td>ccy</td><td>币种（默认156，人民币）</td><td>156</td><td>人民币</td><td></td></tr><tr><td>balance</td><td>交易后余额</td><td>158730</td><td>交易成功后账户剩余金额</td><td></td></tr><tr><td>in_out_flag</td><td>收支标记</td><td>1</td><td>0：收入<br/>1：支出</td><td></td></tr><tr><td>opst_card_name</td><td>对手方名称</td><td>宋雪梅</td><td>户名</td><td>付款：{收款方}户名</td></tr><tr><td>opst_card_no</td><td>对手方卡号</td><td>22680100002669999999</td><td>账号</td><td>付款：{收款方}账户</td></tr><tr><td>opst_org_name</td><td>对手方机构名称</td><td>中国工商银行总行清算中心</td><td>机构名称，不是开户行</td><td></td></tr><tr><td>remark</td><td>备注</td><td>（其它）创建D0订单并支付<br/>云资金余额提现代付|报销代发</td><td></td><td>付款：{备注}</td></tr><tr><td>order_no</td><td>网商订单号</td><td>202509911703595364</td><td></td><td></td></tr><tr><td>trade_no</td><td>网商操作流水号</td><td>2026070310152061886188610011426773</td><td></td><td>付款：{网商交易号}</td></tr><tr><td>out_trade_no</td><td>平台订单号</td><td>5a11753c74ce4f9ca5eeb83cdae7534d</td><td>外部系统业务流水号</td><td>付款：{业务流水号}</td></tr></tbody></table>
+
 
 ## 商户提现
 
@@ -371,6 +380,7 @@
          1. 如果有新增的订单，则通过`4 单笔提现查询接口（异步接口）<ant.mybank.bkcloudfunds.withdraw.query> `接口查询提现订单详情，获取提现商户，将该提现记录展示在对应的商户提现记录列表。
 </callout>
 
+
 ## 品牌服务费对账文件
 
 <callout emoji="🎈">
@@ -432,7 +442,7 @@
    2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
 3. 品牌商费用对账文件明细
 
-   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=M2VlZGM4ZjVlZWE3NzM0MWY1YmE2Y2Y0MTBhNTEzMDlfYmM2YTU5OGUwMTMxOWJkMjQ1ZDdiOTBkMTc1ODY0N2JfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg2Njc5OTcxOjE3ODY2ODM1NzFfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MTA2ZThiMThhZDgwZGFhMTk5ZTE0NzE2MGZkZGVlMDBfMjY2NDcxNjRjYTFkMTgzMWM4M2M4YTlkYWVhM2E2OTJfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
 
    | 字段 | 值 | 说明/映射 |
    |-|-|-|
@@ -458,6 +468,7 @@
    | 外部订单号 | 001_50120260703 | 对应[单笔付款业务流水号](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-O874dh5U5oeNfDx4XC7cZZDInCe) |
    | 是否收费/退费 | 是 |  |
    | 不收费/退费原因 | - |  |
+
 
 ## 清算订单
 
@@ -505,6 +516,7 @@
 
    <whiteboard token="B5HawgqOdhB2Ptb6ze2ciGFUnrd"></whiteboard>
 
+
 ## 清算批次号生成规则
 
 1. 格式：`{CARE}{YYYYMMDD}_{2位自增数字编号}`
@@ -519,6 +531,7 @@
 
    1. 清算批次号在清算文件和创建批次接口中一一对应使用。
    2. 清算文件在未使用（未清算）时可撤回或删除。重新生成清算文件和新建批次时清算批次号也按本规则生成新的批次号。
+
 
 ## 清算文件状态
 
@@ -538,6 +551,7 @@
 2. 状态流转
 
    <whiteboard token="CWeYwVia1hxlAWbWTYScvIQJnRc"></whiteboard>
+
 
 ## 清算批次状态
 
@@ -566,6 +580,7 @@
    <whiteboard token="NM1Kw1ZT3h4lkabjg6ucJ7Kjnag"></whiteboard>
 
 <whiteboard token="RCUCwvrtNhomFxbsCB7cWqiundc"></whiteboard>
+
 
 ## 退款扣保
 
@@ -613,6 +628,7 @@
 4. 删改规则：退保流水号一经生成不可删除，不可修改。
 
    1. 退保流水号和扣保单号一一对应。
+
 
 ## 合约
 
@@ -688,6 +704,15 @@
 
 方案介绍：<cite doc-id="UE98d1x14oAjiNxrZSYcBLIgnRV" file-type="docx" title="加盟授权代付方案（子户→ 结算卡→ 外部银行卡/支付宝）" type="doc"></cite>
 
+#### 开户行匹配联行号字典表
+
+<figure view-type="Card"><source name="人行联行号-20210603.csv" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MGQwMDRlNDI1Yjg4YTMyODNhMTk1YmNlN2NkMjk0YTFfOWY4ZDY0NmFhYWZlMjRlYTU4NjQ1OTI4Y2MyZDAwNjhfSUQ6NzY3MzgzMDk0NzQzNDk1Nzc3Nl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="text/csv" size="27149722" token="WWTsba6OSoWtKCxluHBcxTnNnof"/></figure>
+
+1. 匹配逻辑：
+
+   1. 开户行： G列，`银行名称`，`bankName`
+   2. 联行号：C列，`instOutCode`
+
 #### 授权代付业务子场景
 
 收款方支持银行卡和支付宝，五个场景最多可绑定200个授权方。
@@ -742,6 +767,7 @@
    | **已取消** | CANCELLED | 终态 | 合约已取消（正常不应该出现这个状态） |
 
 <whiteboard token="VsdfwraYUhBRlvbZFzLckkhOn5e"></whiteboard>
+
 
 ## 付款
 
@@ -877,6 +903,7 @@
 
    <table><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>状态名称</th><th>状态值</th><th>状态类型</th><th>说明</th></tr></thead><tbody><tr><td>处理中</td><td>DEALING</td><td>中间态</td><td><ol><li seq="1">系统正在解析</li><li>系统解析成功，调用网商接口成功，网商正在处理付款请求，仍有未返回付款结果的付款单。</li></ol></td></tr><tr><td>成功</td><td>SUCCESS</td><td>终态</td><td><ol><li seq="1">该批次所有的付款单网商侧返回的结果全部为 SUCCESS</li></ol></td></tr><tr><td>失败</td><td>FAIL</td><td>终态</td><td><ol><li seq="1">全部解析失败</li><li>该批次所有的付款单网商侧返回的结果全部为 FAIL</li></ol></td></tr><tr><td>部分成功</td><td>PARTIAL_SUCCESS</td><td>终态</td><td><ol><li seq="1">部分解析失败，部分解析成功</li><li>解析成功的付款单，网商侧返回的付款结果部分为 SUCCESS，部分为 FAIL</li></ol></td></tr></tbody></table>
 
+
 ## 银行卡号和手机号脱敏规则
 
 1. 银行卡：
@@ -894,6 +921,7 @@
       1. 规则：前缀保留前 4 位 + `***` + @域名
       2. 
       3. `abcd***``@88.com`（前缀保留前 4 位，后面 \*\*\*，如果前缀部分≤4位则全部保留）
+
 
 ## 服务费扣缴（协议代扣至平台结算户）
 
@@ -916,6 +944,7 @@
    6.    PayeeId 收款方ID：平台888开头的保证金户（结算户）
    7.    PayeeType 收款方类型：PLATFORM
 
+
 ## PC工作台
 
-<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YTQ4ZjI0Y2NhNWU5NjJjMWZmNzlhOWI2ZjY3MjIzNjlfY2ZjYjUxYzkwYjM1MDgwNzljZjk0MjU4N2I0MzBjOGFfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg2Njc5OTcxOjE3ODY2ODM1NzFfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MWQ1ZjU2YWE3NmYzMTcyMmQyZjZkMjg5MGZkNGZhM2NfMTRjMzc0OGY5N2JkZjMzN2I3NTBlYmM0YzhjYjljNjJfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg2Njc5OTcxOjE3ODY2ODM1NzFfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NjI3N2ZmODkxZWE1ODgwMzNjNDQ1ZjMxZDg4ZWE2NTdfNjYxNDY1ZTkxY2ViODA2OGZkMDZmNDhlN2E2YTNhMTFfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZjY2Njk1MGFkNTBiNmFjOTU3ZWJhNWNkMGNiYzFiYThfZjFkN2MzODk3ZmRjZDc5MmViZGQ3MGI0YzBlNDIwMzFfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
