@@ -1,10 +1,9 @@
 {
-  "version": "1.9.8",
+  "version": "1.9.9",
   "name": "BasaltOS操作手册",
   "updated": "2026-08-14",
   "changes": [
-    "PRD更新313319字符+9K",
-    "merchants.md+17K、payments.md+2.4K",
-    "faq.md+1.7K、operations.md小幅更新"
+    "从飞书同步最新知识内容",
+    "SKILL.md「检查更新」新增方案B：Release下载.skill覆盖安装"
   ]
 }
