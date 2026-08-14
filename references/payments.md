@@ -82,7 +82,7 @@
          
             1. 银行卡：银行卡可选择对公或对私。
             2. 支付宝：支付宝仅支持对私类型，不支持对公。页面信息提交时做校验。
-         4. 开户行：非必填，文本框输入，网商不接收该字段值，目的是为了匹配联行号。
+         4. 开户行：非必填，文本框输入，网商不接收该字段值，目的是为了匹配联行号。开户行匹配联行号字典表匹配规则详见[开户行匹配联行号字典表](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-JbavdnjESoB5lFx1IsmcZ7J9nde)。用户使用过程中如未能通过系统匹配到联行号的，可在如下网站使用银行卡号自主查询：https://www.cwjyz.com.cn/bank/index.html。
          
             1. 用户输入开户行文字，随着用户输入的关键字下拉展示匹配到的待选项。
             2. 用户输入完成（从下拉待选项选择或自行输入）后系统自动匹配展示对应的联行号，如没有匹配到则留空。
@@ -644,6 +644,7 @@
           1. 银行卡：银行卡且对公类型时必填。页面信息提交时做校验。
           2. 支付宝：N\A不存在，展示为「-」。
 
+
 ## 付款
 
 <callout emoji="🎈">
@@ -683,7 +684,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
       1. 使用小技巧：仅输入业务流水号 后8位（年月日），可筛选批量付款批次中所有的付款单。
    2. 网商交易号：对应列表中的网商交易号列，文本框输入，支持关键词筛选（非完全匹配）。
    3. 付款方式：对应付款方式（对内付款和对外付款），下拉单选，选项包含协议代扣和授权代付。
-   4. 费用场景：对应列表中的场景列，协议代扣的费用场景，下拉单选，从付款记录中的费用场景中去重后穷举。
+   4. 费用场景：对应列表中的场景列，协议代扣的费用场景，下拉单选，从付款记录中的费用场景+费用场景配置页的费用场景名称去重后穷举，按首字母排序。
    5. 业务子场景：对应列表中的场景列，授权代付的业务子场景，下拉单选，选项包含
    
       1. 租金：`RENT`
@@ -1380,4 +1381,3 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
 
     1. 表格字段含义及取值在[退款记录](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-JxlLd427lo70JVxcFO0cILUSngc)中有详细说明。
     2. 「详情」按钮交互逻辑与退款记录列表一致，点击后跳转至[退款记录详情](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-B30kdqv0KoDSvPxuagVc4PEbnEc)页。
-
