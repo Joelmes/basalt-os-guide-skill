@@ -1,7 +1,7 @@
 ---
 name: BasaltOS操作手册
 description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接、操作手册等全部业务领域。当用户询问 Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。当用户说"检查更新"、"check for updates"时从 GitHub 拉取最新版本更新本地 skill。仅做知识查询，不包含数据读写操作。
-version: 1.9.8
+version: 1.9.9
 ---
 
 # BasaltOS 操作手册
@@ -204,6 +204,10 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 
 **第三步：从 GitHub 下载最新文件**
 
+优先使用**方案 A**（GitHub API 逐文件下载）；当方案 A 连续失败或超时（大文件下载中断、API 限流、网络不稳定）时，自动切换**方案 B**（从 GitHub Release 下载 .skill 整体覆盖安装）。
+
+**方案 A（默认）：GitHub API 逐文件下载**
+
 从 `Joelmes/basalt-os-guide-skill` 仓库（main 分支）下载以下**全部**文件，覆盖本地 skill 目录：
 
 | 文件 | 说明 |
@@ -221,16 +225,31 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 
 下载方式：通过 GitHub API 获取文件内容（base64 解码后写入本地），或使用 `npx skills add https://github.com/Joelmes/basalt-os-guide-skill` 重新安装。
 
+**方案 B（兜底）：从 GitHub Release 下载 .skill 覆盖安装**
+
+当方案 A 反复失败（如 `IncompleteRead`、限流 403、连接超时）时，改用 Release 打包文件整体下载并**自动覆盖安装**：
+
+1. **获取最新 Release 信息**：`GET https://api.github.com/repos/Joelmes/basalt-os-guide-skill/releases/latest`，从返回的 `assets` 数组中找到扩展名为 `.skill` 的资产（记录其 `asset_id` 与 `browser_download_url`）。若 assets 为空（该版本未上传 .skill），回退方案 A
+2. **下载 .skill 文件**（优先 API asset 端点，可绕开 download 域名重定向）：
+   - 方式一：`GET https://api.github.com/repos/Joelmes/basalt-os-guide-skill/releases/assets/{asset_id}`，请求头加 `Accept: application/octet-stream`，响应体即为 zip 二进制
+   - 方式二：直接下载 `browser_download_url`
+3. **校验包完整性**：检查文件头是否为 zip 魔数 `PK`（`\x50\x4b\x03\x04`）；解压后必须包含 `SKILL.md`、`version.json`、`references/` 目录，否则判定下载不完整
+4. **解压并自动覆盖安装**：将解压出的全部文件直接覆盖到本地 skill 目录（保留目录结构，覆盖范围与方案 A 的文件清单一致），无需先删旧文件
+5. **校验版本一致**：确认解压后的 `SKILL.md` 的 `version` 字段 = GitHub `version.json` 的 `version`，一致则更新成功
+6. 清理临时文件，进入第四步汇报
+
 **第四步：汇报结果**
 
 - 更新前版本号 → 更新后版本号
+- 本次使用的方案（A / B）
 - 各文件更新状态（成功/失败）
 - 如有失败项，提示用户可手动执行 `npx skills add https://github.com/Joelmes/basalt-os-guide-skill` 完整重装
 
 ### 错误处理
 
 - GitHub 访问失败 → 告知用户网络问题，本地知识库仍可正常使用
-- 文件下载失败 → 保留本地文件不覆盖，提示失败原因
+- 方案 A 文件下载失败（超时/中断/限流）→ 自动切换方案 B 重试；方案 B 也失败 → 保留本地文件不覆盖，提示失败原因
+- .skill 包校验失败（魔数不符/关键文件缺失）→ 判定下载不完整，保留本地文件不覆盖，提示重试或改用方案 A
 
 ## 详细知识
 
