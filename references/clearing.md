@@ -11,7 +11,7 @@
 <callout emoji="🎈">
 1. POS收银的钱进入到POS绑定华夏银行卡中。
 2. 在正式发起清算时需要财务人员手动将资金转入到网商平台清算专户中，详见[平台清算专户信息](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-VEladFabmoaHdRxqnhEcB9K2nvh)，且需确保清算专户待清算余额大于清算批次对应文件中的实际金额。
-3. 收钱吧账单仅显示POS机名称，需要将账单绑定至供应商商户，该操作在[POS设置](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-In0Jd1UDRoLOo8xRWIicE2xinQb)中，POS绑定商户后，才可执行订单上送操作。
+3. 收钱吧账单仅显示POS机名称，需要将账单绑定至门店商户，该操作在[POS设置](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-In0Jd1UDRoLOo8xRWIicE2xinQb)中，POS绑定商户后，才可执行订单上送操作。
 </callout>
 
 #### 清算订单管理
@@ -34,7 +34,7 @@
 
    1. 自动拉取
    
-      1. 收钱吧：收钱吧每日12点之前推送前一天的全部账单，包含`所有``供应商``168`的收钱吧账单，本系统于下午14:00从FTP服务器中拉取表格并解析。
+      1. 收钱吧：收钱吧每日12点之前推送前一天的全部账单，包含`所有门店``168`的收钱吧账单，本系统于下午14:00从FTP服务器中拉取表格并解析。
       2. 拉卡拉：无
    2. 手动拉取
    
@@ -63,10 +63,10 @@
       
          1. \*消费\*：支付。
          2. \*退款\*：退款
-   8. 供应商：支持用供应商名称和供应商编码筛选。
+   8. 门店：支持用门店名称和门店编码筛选。
    
-      1. 供应商名称：对应列表中的供应商名称列，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 供应商编码：列表中未展示，匹配系统中供应商对应的供应商编码，文本框输入，支持关键词筛选（非完全匹配）。
+      1. 门店名称：对应列表中的门店名称列，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 门店编码：列表中未展示，匹配系统中门店对应的门店编码，文本框输入，支持关键词筛选（非完全匹配）。
    9. 商户：支持用商户简称和商户编码筛选。
    
       1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
@@ -122,7 +122,7 @@
                   
                      1. 查询其关联的支付单的网商订单号，将该支付单的网商订单号同步为该退款单的网商订单号，成功后退款单状态变更为「已上送」。
                      2. 如未查询到支付单的网商订单号（支付单不存在/支付单未上送成功），则退款单状态变更为「上送失败」。
-      3. 如勾选订单中所有订单均为「未上送、上送失败」状态，但有订单所属POS机未绑定商户（即查不到订单所属商户和供应商），：弹窗提醒。
+      3. 如勾选订单中所有订单均为「未上送、上送失败」状态，但有订单所属POS机未绑定商户（即查不到订单所属商户和门店），：弹窗提醒。
       
          1. 弹窗内容
          
@@ -312,61 +312,71 @@
    4. 网商：`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>`
    </callout>
 
-   1. 收钱吧订单
+   ##### 收钱吧订单
    
-      1. 订单编号：支付单仅展示支付订单号，退款单展示退款订单号。
-      
-         1. 支付单：仅展示支付单单号，对应收钱吧账单`{交易流水号}`。
-         2. 退款单：同时展示退款单和其关联的支付单单号。
-         
-            1. 退款单号：对应收钱吧账单`{交易流水号}`
-            2. 关联支付单号：对应收钱吧账单`{商户订单号}`
-      2. 收银机构：根据订单来源区分，分为`收钱吧`和`拉卡拉`。收钱吧订单显示为：「收钱吧」。
-      3. POS名称：订单所属的POS名称，对应收钱吧对账单`{``供应商``名称}`。
-      4. 实收金额（元）：对应收钱吧对账单`{结算金额}`。
-      5. 付款方式：对应收钱吧对账单`{收款通道/支付方式}`。
-      6. 渠道类型：本系统定义字段，0：供应商订单，1：微信小程序订单。当前收钱吧订单全部为供应商订单，为未来支持微信小程序订单预留。
-      7. 供应商名称：订单所属POS机关联商户所属供应商的供应商名称。
-      8. 供应商编码：系统生成的商户所关联的供应商的供应商编码。
-      9. 商户简称：订单所属POS机关联商户的商户简称。
-      10. 商户编码：商户的商户编码。
-      11. 支付时间：收钱吧对账单`{交易日期}+{时间}`。分两行显示。
-      12. 状态：本系统定义字段。全部状态见[订单清算状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-CHDAdn7HBo8stoxUoulcWIc0nQe)。
-      
-          1. 上送失败原因：上送失败时展示，包含网商侧的失败原因和本系统的失败原因。
-          2. 清算失败原因：清算失败时展示，包含网商侧的失败原因和本系统的失败原因。
-      13. 网商订单号：调用网商`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>`接口上送订单成功后网商返回字段`{OrderNo}`的值。有该值则代表订单上送成功，未上送订单无该值。
-      
-          1. 退款单不需要调用网商接口上送订单，但是需要填写网商订单号，退款单的网商订单号为其对应的支付单的网商订单号。上送退款时 的校验逻辑见订单上送模块。
-      14. 批次号：勾选订单并成功生成清算文件后系统产生，具体逻辑详见生成清算文件。
-   2. 拉卡拉订单
+   1. 订单编号：支付单仅展示支付订单号，退款单展示退款订单号。
    
-      1. 订单编号：支付单仅展示支付订单号，退款单展示退款订单号+其关联的支付单单号。
+      1. 支付单：仅展示支付单单号，对应收钱吧账单`{交易流水号}`。
+      2. 退款单：同时展示退款单和其关联的支付单单号。
       
-         1. 支付单：仅展示支付单订单单号。对应拉卡拉账单`{交易流水号}`
-         2. 退款单：同时展示退款单单号号和关联的支付单单号。
-         
-            1. 退款单号：对应拉卡拉账单`{交易流水号}`
-            2. 关联支付单号：对应拉卡拉账单`{原交易流水号}`
-      2. 收银机构：根据订单来源区分，分为`收钱吧`和`拉卡拉`。拉卡拉订单显示为：「拉卡拉」。
-      3. POS名称：订单所属的POS机名称，对应拉卡拉对账单`{网点名称}`。
-      4. 实收金额（元）：拉卡拉对账单`{结算金额}`。
-      5. 付款方式：对应拉卡拉对账单`{支付渠道}`。
-      6. 渠道类型：本系统定义字段，0：供应商订单，1：微信小程序订单。当前拉卡拉订单全部为供应商订单，为未来支持微信小程序订单预留。
-      7. 供应商名称：订单所属POS机关联商户所属供应商的供应商名称。
-      8. 供应商编码：系统生成的商户所关联的供应商的供应商编码。
-      9. 商户简称：订单所属POS机关联商户的商户简称。
-      10. 商户编码：商户的商户编码。
-      11. 支付时间：拉卡拉对账单`{交易完成时间}`。
-      12. 清算状态：本系统定义字段。全部状态见[订单清算状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-CHDAdn7HBo8stoxUoulcWIc0nQe)。
+         1. 退款单号：对应收钱吧账单`{交易流水号}`
+         2. 关联支付单号：对应收钱吧账单`{商户订单号}`
+   2. 收银机构：根据订单来源区分，分为`收钱吧`和`拉卡拉`。收钱吧订单显示为：「收钱吧」。
+   3. POS名称：订单所属的POS名称，对应收钱吧对账单`{门店``名称}`。
+   4. 实收金额（元）：对应收钱吧对账单`{结算金额}`。
+   5. 付款方式：对应收钱吧对账单`{收款通道/支付方式}`。
+   6. 渠道类型：本系统定义字段，0：门店订单，1：微信小程序订单。当前收钱吧订单全部为门店订单，为未来支持微信小程序订单预留。
+   7. 门店
+   
+      1. 门店名称：订单所属POS机关联商户所属门店的门店名称。无数据时展示为「-」。
+      2. 门店编码：系统生成的商户所关联的门店的门店编码。无数据时展示为「-」。
+   8. 商户
+   
+      1. 商户简称：订单所属POS机关联商户的商户简称。无数据时展示为「-」。
+      2. 商户编码：商户的商户编码。无数据时展示为「-」。
+   9. 支付时间：收钱吧对账单`{交易日期}+{时间}`。分两行显示。
+   10. 状态：本系统定义字段。全部状态见[订单清算状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-CHDAdn7HBo8stoxUoulcWIc0nQe)。
+   
+       1. 上送失败原因：上送失败时展示，包含网商侧的失败原因和本系统的失败原因。
+       2. 清算失败原因：清算失败时展示，包含网商侧的失败原因和本系统的失败原因。
+   11. 网商订单号：调用网商`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>`接口上送订单成功后网商返回字段`{OrderNo}`的值。有该值则代表订单上送成功，未上送订单无该值。
+   
+       1. 退款单不需要调用网商接口上送订单，但是需要填写网商订单号，退款单的网商订单号为其对应的支付单的网商订单号。上送退款时 的校验逻辑见订单上送模块。
+   12. 批次号：勾选订单并成功生成清算文件后系统产生，具体逻辑详见生成清算文件。
+
+   ##### 拉卡拉订单
+   
+   1. 订单编号：支付单仅展示支付订单号，退款单展示退款订单号+其关联的支付单单号。
+   
+      1. 支付单：仅展示支付单订单单号。对应拉卡拉账单`{交易流水号}`
+      2. 退款单：同时展示退款单单号号和关联的支付单单号。
       
-          1. 上送失败原因：上送失败时展示，包含网商侧的失败原因和本系统的失败原因。
-          2. 清算失败原因：清算失败时展示，包含网商侧的失败原因和本系统的失败原因。
-      13. 网商订单号：调用网商`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>`接口上送订单成功后网商返回字段`{OrderNo}`的值。有该值则代表订单上送成功，未上送订单无该值。
-      
-          1. 退款单不需要调用网商接口上送订单，但是在生成清算文件时需要填写网商订单号，退款单的网商订单号为其对应的支付单的网商订单号。上送退款时 的校验逻辑见订单上送模块。
-      14. 批次号：勾选订单并成功生成清算文件后系统产生，具体逻辑详见生成清算文件。
-   3. 操作：根据订单状态，不同状态的订单对应有不同的操作
+         1. 退款单号：对应拉卡拉账单`{交易流水号}`
+         2. 关联支付单号：对应拉卡拉账单`{原交易流水号}`
+   2. 收银机构：根据订单来源区分，分为`收钱吧`和`拉卡拉`。拉卡拉订单显示为：「拉卡拉」。
+   3. POS名称：订单所属的POS机名称，对应拉卡拉对账单`{网点名称}`。
+   4. 实收金额（元）：拉卡拉对账单`{结算金额}`。
+   5. 付款方式：对应拉卡拉对账单`{支付渠道}`。
+   6. 渠道类型：本系统定义字段，0：门店订单，1：微信小程序订单。当前拉卡拉订单全部为门店订单，为未来支持微信小程序订单预留。
+   7. 门店
+   
+      1. 门店名称：订单所属POS机关联商户所属门店的门店名称。无数据时展示为「-」。
+      2. 门店编码：系统生成的商户所关联的门店的门店编码。无数据时展示为「-」。
+   8. 商户
+   
+      1. 商户简称：订单所属POS机关联商户的商户简称。无数据时展示为「-」。
+      2. 商户编码：商户的商户编码。无数据时展示为「-」。
+   9. 支付时间：拉卡拉对账单`{交易完成时间}`。
+   10. 清算状态：本系统定义字段。全部状态见[订单清算状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-CHDAdn7HBo8stoxUoulcWIc0nQe)。
+   
+       1. 上送失败原因：上送失败时展示，包含网商侧的失败原因和本系统的失败原因。
+       2. 清算失败原因：清算失败时展示，包含网商侧的失败原因和本系统的失败原因。
+   11. 网商订单号：调用网商`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>`接口上送订单成功后网商返回字段`{OrderNo}`的值。有该值则代表订单上送成功，未上送订单无该值。
+   
+       1. 退款单不需要调用网商接口上送订单，但是在生成清算文件时需要填写网商订单号，退款单的网商订单号为其对应的支付单的网商订单号。上送退款时 的校验逻辑见订单上送模块。
+   12. 批次号：勾选订单并成功生成清算文件后系统产生，具体逻辑详见生成清算文件。
+
+   1. 操作：根据订单状态，不同状态的订单对应有不同的操作
    
       1. 未上送：上送，点击执行[订单上送](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-AQWUdlv8foRwDMxQ8W3cQ64inZf)操作。
       2. 上送失败：上送，点击执行[订单上送](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-AQWUdlv8foRwDMxQ8W3cQ64inZf)操作。
@@ -374,7 +384,7 @@
       4. 清算中：-
       5. 清算成功：-
       6. 清算失败：-（清算失败的订单可重新生成清算文件后发起清算。）
-   4. 操作说明
+   2. 操作说明
    
       1. 上送：系统先判断该订单所属POS是否已绑定商户。
       
@@ -391,7 +401,7 @@
    3. 订单上送接口：`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>` 。
    </callout>
 
-   <table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th>#</th><th>网商字段名</th><th>参数描述</th><th>出现要求</th><th>示例/传参</th><th>传值-收钱吧</th><th>传值-拉卡拉</th></tr></thead><tbody><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>必填</td><td>202211000000000004381</td><td colspan="2">可柔：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>PayeeMerchantId</td><td>收款商户号</td><td>必填</td><td>网商商户号 {MerchantId}</td><td colspan="2">订单所属POS机绑定的商户的网商商户号<code>{MerchantId}</code></td></tr><tr><td>3</td><td>OutTradeNo</td><td>合作方系统生成的外部交易流水号</td><td>必填</td><td> 177754579139391165386</td><td>收钱吧<code>{商户订单号}</code></td><td>拉卡拉<code>{交易流水号}</code></td></tr><tr><td>4</td><td>TotalAmount</td><td>收款总金额（单位：分）<br/>不扣除手续费的总金额</td><td> 必填</td><td>150000<br/>单位分，不保留小数。</td><td>收钱吧[<code>收款金额</code><br/>金额一律传入正值</td><td>拉卡拉<code>交易金额</code><br/>金额一律传入正值</td></tr><tr><td>5</td><td>Currency</td><td>币种</td><td>必填</td><td> 人民币：CNY</td><td><code>币种/货币类型</code>：<code>CNY</code></td><td>固定值：<code>CNY</code></td></tr><tr><td>6</td><td>TradeType</td><td>交易类型</td><td>必填</td><td>根据交易类型：<br/>支付明细（收款）：SINGLE_PAY<br/>退款明细：REFUND</td><td>收钱吧<code>交易类型/交易模式</code>：<br/>付款→ SINGLE_PAY：支付明细<br/>退款→ REFUND：退款明细</td><td>拉卡拉：<code>交易类型</code><br/>*消费*→ SINGLE_PAY：支付明细<br/>*退款*→ REFUND：退款明细</td></tr><tr><td>7</td><td>ChannelType</td><td>渠道类型</td><td>必填</td><td></td><td>收钱吧：<code>Shouqianba_pay</code></td><td>拉卡拉：<code>Lakala_Pay</code></td></tr><tr><td>8</td><td>UserId</td><td>用户标识（用户ID）</td><td>非必填</td><td></td><td>收钱吧：<code>付款账户</code><br/>微信支付：ofDgL0ayyfvGnKCVANd-TuZilrnU<br/>支付宝：104***@qq.com<br/>云闪付：无</td><td>拉卡拉：<code>用户ID</code></td></tr><tr><td>9</td><td>Body</td><td>商品描述。格式要求：店名-销售商品类目</td><td>必填</td><td></td><td colspan="2">格式：<code>{</code><code>供应商</code><code>名称}-服饰</code><br/>举例：宿迁泗阳吾悦店JD-服饰<br/>释义：供应商名称用POS机绑定的商户对应的供应商名称，「服饰」为固定值</td></tr><tr><td>10</td><td>GoodsTag</td><td>商品标记。微信支付代金券或立减优惠功能的参数。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>11</td><td>GoodsDetail</td><td>商品详情列表。支付宝<a href="https://pay.weixin.qq.com/wiki/doc/api/micropay_sl_danpin.php?chapter=9_101&amp;index=1">单品优惠功能字段</a>，JSON格式。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>12</td><td>Memo</td><td>备注</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>13</td><td>ExtraInfo</td><td>扩展信息,Map的json序列化后Base64</td><td>O</td><td> </td><td>-</td><td>-</td></tr></tbody></table>
+   <table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th>#</th><th>网商字段名</th><th>参数描述</th><th>出现要求</th><th>示例/传参</th><th>传值-收钱吧</th><th>传值-拉卡拉</th></tr></thead><tbody><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>必填</td><td>202211000000000004381</td><td colspan="2">可柔：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>PayeeMerchantId</td><td>收款商户号</td><td>必填</td><td>网商商户号 {MerchantId}</td><td colspan="2">订单所属POS机绑定的商户的网商商户号<code>{MerchantId}</code></td></tr><tr><td>3</td><td>OutTradeNo</td><td>合作方系统生成的外部交易流水号</td><td>必填</td><td> 177754579139391165386</td><td>收钱吧<code>{商户订单号}</code></td><td>拉卡拉<code>{交易流水号}</code></td></tr><tr><td>4</td><td>TotalAmount</td><td>收款总金额（单位：分）<br/>不扣除手续费的总金额</td><td> 必填</td><td>150000<br/>单位分，不保留小数。</td><td>收钱吧[<code>收款金额</code><br/>金额一律传入正值</td><td>拉卡拉<code>交易金额</code><br/>金额一律传入正值</td></tr><tr><td>5</td><td>Currency</td><td>币种</td><td>必填</td><td> 人民币：CNY</td><td><code>币种/货币类型</code>：<code>CNY</code></td><td>固定值：<code>CNY</code></td></tr><tr><td>6</td><td>TradeType</td><td>交易类型</td><td>必填</td><td>根据交易类型：<br/>支付明细（收款）：SINGLE_PAY<br/>退款明细：REFUND</td><td>收钱吧<code>交易类型/交易模式</code>：<br/>付款→ SINGLE_PAY：支付明细<br/>退款→ REFUND：退款明细</td><td>拉卡拉：<code>交易类型</code><br/>*消费*→ SINGLE_PAY：支付明细<br/>*退款*→ REFUND：退款明细</td></tr><tr><td>7</td><td>ChannelType</td><td>渠道类型</td><td>必填</td><td></td><td>收钱吧：<code>Shouqianba_pay</code></td><td>拉卡拉：<code>Lakala_Pay</code></td></tr><tr><td>8</td><td>UserId</td><td>用户标识（用户ID）</td><td>非必填</td><td></td><td>收钱吧：<code>付款账户</code><br/>微信支付：ofDgL0ayyfvGnKCVANd-TuZilrnU<br/>支付宝：104***@qq.com<br/>云闪付：无</td><td>拉卡拉：<code>用户ID</code></td></tr><tr><td>9</td><td>Body</td><td>商品描述。格式要求：店名-销售商品类目</td><td>必填</td><td></td><td colspan="2">格式：<code>{门店</code><code>名称}-服饰</code><br/>举例：宿迁泗阳吾悦店JD-服饰<br/>释义：门店名称用POS机绑定的商户对应的门店名称，「服饰」为固定值</td></tr><tr><td>10</td><td>GoodsTag</td><td>商品标记。微信支付代金券或立减优惠功能的参数。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>11</td><td>GoodsDetail</td><td>商品详情列表。支付宝<a href="https://pay.weixin.qq.com/wiki/doc/api/micropay_sl_danpin.php?chapter=9_101&amp;index=1">单品优惠功能字段</a>，JSON格式。</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>12</td><td>Memo</td><td>备注</td><td>非必填</td><td>传空</td><td>-</td><td>-</td></tr><tr><td>13</td><td>ExtraInfo</td><td>扩展信息,Map的json序列化后Base64</td><td>O</td><td> </td><td>-</td><td>-</td></tr></tbody></table>
 
 #### POS设置
 
@@ -412,11 +422,11 @@
    
       1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
       2. 商户编码：对应列表中的商户编码列，文本框输入，支持关键词筛选（非完全匹配）。
-   5. 供应商：支持用供应商简称和供应商编码筛选。
+   5. 门店：支持用门店简称和门店编码筛选。
    
-      1. 供应商名称：对应列表中的供应商名称列，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 供应商编码：对应列表中的供应商编码列，文本框输入，支持关键词筛选（非完全匹配）。
-   6. 所属区域：下拉按供应商所属区域筛选，单选。
+      1. 门店名称：对应列表中的门店名称列，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 门店编码：对应列表中的门店编码列，文本框输入，支持关键词筛选（非完全匹配）。
+   6. 所属区域：下拉按门店所属区域筛选，单选。
 2. 工具区
 
    1. 绑定商户：点击后打开导入「POS绑定商户」弹窗
@@ -430,17 +440,17 @@
             1. 填写须知：
             
                1. 请勿修改表格结构。
-               2. 供应商、商户和POS的绑定关系会影响清算资金的划转，请仔细核对。
+               2. 门店、商户和POS的绑定关系会影响清算资金的划转，请仔细核对。
                3. 一个POS机只能绑定到一个商户，一个商户可以被多个POS机绑定。
                4. 红色字段必填，黑色字段选填
                5. POS机名称: 必填，POS机名称需与收钱吧对账单保持严格一致。
                6. 商户简称：必填，商户简称从第二个「商户表」中查找。
-               7. 供应商名称：选填，填写时，需与三联系统保持严格一致。
+               7. 门店名称：选填，填写时，需与三联系统保持严格一致。
             2. 表头：
             
-               1. POS机名称：对应收钱吧对账单中的{供应商名称}列。
+               1. POS机名称：对应收钱吧对账单中的{门店名称}列。
                2. 商户简称：对应系统中的商户简称。
-               3. 供应商名称：对应三联系统中的供应商名称。
+               3. 门店名称：对应三联系统中的门店名称。
       2. 上传完善后的模板
       
          1. 文本提示：在下载的模板填写信息后，可直接将文件拖拽到  此处进行上传。支持格式：XLSX
@@ -486,12 +496,12 @@
 
    1. POS名称：
    
-      1. 收钱吧：收钱吧账单{供应商名称}。
+      1. 收钱吧：收钱吧账单{门店名称}。
       2. 拉卡拉：拉卡拉账单{网点名称}。
    2. 收银机构：根据订单来源，分别展示为收钱吧和拉卡拉。
    3. 商户：POS机绑定的商户简称和系统生成的商户编码。POS机未绑定商户时展示为「-」
-   4. 供应商：POS机绑定的商户所属供应商的供应商名称和供应商编码。POS机未绑定商户时展示为「-」
-   5. 所属区域：供应商所属区域
+   4. 门店：POS机绑定的商户所属门店的门店名称和门店编码。POS机未绑定商户时展示为「-」
+   5. 所属区域：门店所属区域
    6. 绑定状态：「绑定」指的是该POS机已经绑定了商户，[详见POS绑定状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-EzPGd1s27o6m2HxCxPyc83ldnog)。
    7. 操作
    
@@ -506,10 +516,10 @@
             2. ~~如果POS已经被绑定至其他店铺，请返回列表先解绑，然后再进行绑定操作。~~
          3. 查询区
          
-            1. 供应商：支持用供应商简称和供应商编码筛选。
+            1. 门店：支持用门店简称和门店编码筛选。
             
-               1. 供应商名称：对应列表中的供应商名称列，文本框输入，支持关键词筛选（非完全匹配）。
-               2. 供应商编码：列表中未展示，对应列表中的供应商的编码，文本框输入，支持关键词筛选（非完全匹配）。
+               1. 门店名称：对应列表中的门店名称列，文本框输入，支持关键词筛选（非完全匹配）。
+               2. 门店编码：列表中未展示，对应列表中的门店的编码，文本框输入，支持关键词筛选（非完全匹配）。
             2. 商户：支持用商户简称和商户编码筛选。
             
                1. 商户简称：对应列表中的商户简称列，文本框输入，支持关键词筛选（非完全匹配）。
@@ -521,10 +531,10 @@
                2. 未绑定POS：商户未绑定POS
          4. 列表
          
-            1. 供应商：商户所属供应商的供应商名称。
+            1. 门店：商户所属门店的门店名称。
             2. 商户：商户简称和系统生成的商户编码。
             3. POS名称：商户绑定的POS名称，多个POS用「、」拼接展示，直观体现一个商户绑定多台 POS规则。
-            4. 所属区域：供应商所属区域
+            4. 所属区域：门店所属区域
          5. 确定
          
             1. 操作成功：toast提示：绑定商户成功，请刷新列表查看。
@@ -546,7 +556,7 @@
 
    1. 清算文件的产生：清算文件通过「清算订单」功能中的「生成清算文件」按钮生成。文件名称本系统中显示为清算批次号。
    2. 清算文件在网商系统中也被称为「补单文件」，或「交易明细文件」。
-   3. 清算文件的作用：前述步骤已经完成了零售订单上送给网商，清算文件中补充了订单的商户（供应商）信息，后面按批次清算时则按照该文件中的商户进行清算。
+   3. 清算文件的作用：前述步骤已经完成了零售订单上送给网商，清算文件中补充了订单的商户（门店）信息，后面按批次清算时则按照该文件中的商户进行清算。
    4. 清算文件上传路径：/upload/\${isvOrgId}/\${acquireId}/\${batchNo}/merchant_trade_detail\_\${batchNo}.txt
    5. 清算文件上传至网商SFTP服务器的文件名：「merchant_trade_detail\_\${batchNo}.txt」，其中{batchNo}为清算批次号。
    6. 清算文件生成规范详见：「[清算文件（交易明细文件）生成规范](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-Twoqdh4TmosOnQxACVXcEJpEnCe)」。
@@ -641,12 +651,12 @@
    
       1. 支付时间：对应列表中的创单时间，通过下拉日期自定义时间段筛选。
       2. 订单编号：对应列表中的isv支付单号列，文本框输入，支持关键词筛选（非完全匹配）。
-      3. 供应商名称：对应列表中的供应商名称列，文本框输入，支持关键词筛选（非完全匹配）。
-      4. 供应商编码：列表中未展示，按订单跟供应商的归属关系，匹配系统生成的供应商编码，文本框输入，支持关键词筛选（非完全匹配）。
+      3. 门店名称：对应列表中的门店名称列，文本框输入，支持关键词筛选（非完全匹配）。
+      4. 门店编码：列表中未展示，按订单跟门店的归属关系，匹配系统生成的门店编码，文本框输入，支持关键词筛选（非完全匹配）。
 
 ### 清算文件（交易明细文件）生成规范
 
-<table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th>字段</th><th>名字</th><th>举例</th><th>备注</th><th>说明/固定值/规则</th><th>传值-收钱吧</th><th>传值-拉卡拉</th></tr></thead><tbody><tr><td>channel_type</td><td>渠道类型</td><td>WXPAY<br/>ALIPAY</td><td></td><td>收钱吧：<code>Shouqianba_pay</code><br/>拉卡拉：<code>Shouqianba_pay</code></td><td>传值 <code>Shouqianba_pay</code></td><td>传值：<code>Lakala_Pay</code></td></tr><tr><td>trade_type</td><td>交易类型</td><td>SINGLE_PAY 支付明细<br/>REFUND 退款明细</td><td>支付订单和退款订单通过该字段区分，后面的金额一律传入正值</td><td>付款：SINGLE_PAY<br/>退款：REFUND</td><td>收钱吧<code>{交易类型/交易模式}</code>：<br/>付款→ SINGLE_PAY：支付明细<br/>退款→ REFUND：退款明细</td><td>拉卡拉：<code>{交易类型}</code><br/>*消费*→ SINGLE_PAY：支付明细<br/>*退款*→ REFUND：退款明细</td></tr><tr><td>batch_no</td><td>批次号</td><td></td><td>标准支付渠道发生的交易对应批次由系统自动生成，批次号是YYYYMMDD日期格式； <br/>ISV自主创建的批次，批次号由ISV负责，保证不重复即可；</td><td>标记清算批次，与清算批次号严格对应</td><td colspan="2">生成清算文件时系统按规则生成，详见<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-FrbjdJkmWoZhGMxVhpHc8jSJnmj">清算批次号生成规则</a></td></tr><tr><td>recon_dt</td><td>对账日</td><td>20190501</td><td></td><td>订单实际收银日期</td><td>收钱吧<code>{交易日期}</code></td><td>拉卡拉<code>{计费日期}</code></td></tr><tr><td>mybank_order_no</td><td>网商订单号</td><td></td><td>标准支付渠道发生的交易，填写支付成功补单创单返回的网商订单号；</td><td>补单创单成功后由网商返回<br/>退款单填写其关联支付单的网商订单号</td><td colspan="2">网商<code>{OrderNo}</code> </td></tr><tr><td>out_trade_no</td><td>isv支付单号</td><td></td><td>标准支付渠道发生的交易，填写补单创单的isv预下单的外部单号；</td><td>ISV侧自有订单号</td><td>收钱吧<br/>交易类型/交易模式=付款→<code>{交易流水号}</code><br/>交易类型/交易模式=退款→ <code>{商户订单号}</code></td><td>拉卡拉<ul><li>交易类型=*消费*→ <code>{交易流水号}</code></li><li>交易类型=*退款*→ <code>{原交易流水号}</code></li></ul></td></tr><tr><td>channel_trade_no</td><td>渠道支付单号</td><td></td><td>标准支付渠道发生的交易，写三方支付返回的支付单号；</td><td>渠道侧交易单号</td><td colspan="2">-</td></tr><tr><td>out_refund_no</td><td>isv退款单号</td><td></td><td>【退款时填】<br/>标准支付渠道发生的交易，写isv退款的外部单号；</td><td>ISV侧自有退款单号</td><td>收钱吧<code>{交易流水号}</code></td><td>拉卡拉<code>{交易流水号}</code></td></tr><tr><td>channel_refund_no</td><td>渠道退款单号</td><td></td><td>【退款时填】<br/>标准支付渠道发生的交易，写三方支付返回的退款单号；</td><td>渠道侧退款单号</td><td colspan="2">-<br/>不传</td></tr><tr><td>trade_amount</td><td>交易总金额</td><td>1.52</td><td>单位（元）支付/退款总金额；<br/>【金额一律传入正值，通过trade_type区分支付和退款方向】</td><td>交易总金额 = 实际金额 + 渠道手续费</td><td>收钱吧<code>{收款金额}</code><br/>金额一律传入正值</td><td>拉卡拉<code>{交易金额}</code><br/>金额一律传入正值</td></tr><tr><td>actual_amount</td><td>实际金额</td><td>1.50</td><td>单位（元），精确到分<br/>实收/实退金额<br/>【金额一律传入正值，通过trade_type区分支付和退款方向】</td><td>订单实收金额</td><td>收钱吧<code>{结算金额}</code><br/>金额一律传入正值</td><td>拉卡拉<code>{结算金额}</code><br/>金额一律传入正值</td></tr><tr><td>channel_fee_amount</td><td>渠道手续费</td><td></td><td>支付为渠道收费，退款为渠道退费<br/>【金额一律传入正值，通过trade_type区分支付和退款方向】</td><td>收钱吧收取的服务费</td><td>收钱吧<code>{支付手续费}</code>+<code>{技术服务费}</code><br/>金额一律传入正值</td><td>拉卡拉<code>{结算手续费}</code><br/>金额一律传入正值</td></tr><tr><td>ccy</td><td>币种</td><td>156</td><td></td><td>币种标识字段</td><td colspan="2">固定值：<code>156</code></td></tr><tr><td>user_id</td><td>用户标识</td><td></td><td>填写渠道侧返回的用户标识</td><td>用户唯一标识</td><td>收钱吧<code>{付款账户</code>，没有时传空</td><td>拉卡拉<code>{用户ID}</code></td></tr><tr><td>merchant_id</td><td>商户号</td><td></td><td>商户号</td><td>网商商户号</td><td colspan="2">网商返回的商户<code>{MerchantId}</code></td></tr><tr><td>status</td><td>交易状态</td><td>SUCCESS</td><td></td><td>交易状态标识</td><td colspan="2">固定值：<code>SUCCESS</code></td></tr><tr><td>remark</td><td>备注</td><td></td><td></td><td>备注说明信息</td><td colspan="2"><code>{店铺名称} </code>- 订单</td></tr><tr><td>create_time</td><td>创单时间</td><td>20190501120101</td><td>支付时为支付创建时间，退款时为退款创建时间</td><td>三联系统中订单创建时间</td><td>收钱吧<code>{交易日期}+{时间}</code></td><td>拉卡拉<code>{交易创建时间}</code></td></tr><tr><td>trade_time</td><td>交易时间</td><td>20190501120101</td><td>支付时为支付时间，退款时为退款时间</td><td>三联系统中订单创建时间</td><td>收钱吧<code>{交易日期}+{时间}</code></td><td>拉卡拉：<code>{交易完成时间}</code></td></tr><tr><td>acquire_id</td><td>收单机构编号</td><td></td><td>供应商自主收银模式下，填写对应的渠道编号，对接时找技术同学确认；</td><td>固定传值 <code>DEFAULT</code></td><td colspan="2">固定值：<code>DEFAULT</code></td></tr></tbody></table>
+<table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th>字段</th><th>名字</th><th>举例</th><th>备注</th><th>说明/固定值/规则</th><th>传值-收钱吧</th><th>传值-拉卡拉</th></tr></thead><tbody><tr><td>channel_type</td><td>渠道类型</td><td>WXPAY<br/>ALIPAY</td><td></td><td>收钱吧：<code>Shouqianba_pay</code><br/>拉卡拉：<code>Shouqianba_pay</code></td><td>传值 <code>Shouqianba_pay</code></td><td>传值：<code>Lakala_Pay</code></td></tr><tr><td>trade_type</td><td>交易类型</td><td>SINGLE_PAY 支付明细<br/>REFUND 退款明细</td><td>支付订单和退款订单通过该字段区分，后面的金额一律传入正值</td><td>付款：SINGLE_PAY<br/>退款：REFUND</td><td>收钱吧<code>{交易类型/交易模式}</code>：<br/>付款→ SINGLE_PAY：支付明细<br/>退款→ REFUND：退款明细</td><td>拉卡拉：<code>{交易类型}</code><br/>*消费*→ SINGLE_PAY：支付明细<br/>*退款*→ REFUND：退款明细</td></tr><tr><td>batch_no</td><td>批次号</td><td></td><td>标准支付渠道发生的交易对应批次由系统自动生成，批次号是YYYYMMDD日期格式； <br/>ISV自主创建的批次，批次号由ISV负责，保证不重复即可；</td><td>标记清算批次，与清算批次号严格对应</td><td colspan="2">生成清算文件时系统按规则生成，详见<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-FrbjdJkmWoZhGMxVhpHc8jSJnmj">清算批次号生成规则</a></td></tr><tr><td>recon_dt</td><td>对账日</td><td>20190501</td><td></td><td>订单实际收银日期</td><td>收钱吧<code>{交易日期}</code></td><td>拉卡拉<code>{计费日期}</code></td></tr><tr><td>mybank_order_no</td><td>网商订单号</td><td></td><td>标准支付渠道发生的交易，填写支付成功补单创单返回的网商订单号；</td><td>补单创单成功后由网商返回<br/>退款单填写其关联支付单的网商订单号</td><td colspan="2">网商<code>{OrderNo}</code> </td></tr><tr><td>out_trade_no</td><td>isv支付单号</td><td></td><td>标准支付渠道发生的交易，填写补单创单的isv预下单的外部单号；</td><td>ISV侧自有订单号</td><td>收钱吧<br/>交易类型/交易模式=付款→<code>{交易流水号}</code><br/>交易类型/交易模式=退款→ <code>{商户订单号}</code></td><td>拉卡拉<ul><li>交易类型=*消费*→ <code>{交易流水号}</code></li><li>交易类型=*退款*→ <code>{原交易流水号}</code></li></ul></td></tr><tr><td>channel_trade_no</td><td>渠道支付单号</td><td></td><td>标准支付渠道发生的交易，写三方支付返回的支付单号；</td><td>渠道侧交易单号</td><td colspan="2">-</td></tr><tr><td>out_refund_no</td><td>isv退款单号</td><td></td><td>【退款时填】<br/>标准支付渠道发生的交易，写isv退款的外部单号；</td><td>ISV侧自有退款单号</td><td>收钱吧<code>{交易流水号}</code></td><td>拉卡拉<code>{交易流水号}</code></td></tr><tr><td>channel_refund_no</td><td>渠道退款单号</td><td></td><td>【退款时填】<br/>标准支付渠道发生的交易，写三方支付返回的退款单号；</td><td>渠道侧退款单号</td><td colspan="2">-<br/>不传</td></tr><tr><td>trade_amount</td><td>交易总金额</td><td>1.52</td><td>单位（元）支付/退款总金额；<br/>【金额一律传入正值，通过trade_type区分支付和退款方向】</td><td>交易总金额 = 实际金额 + 渠道手续费</td><td>收钱吧<code>{收款金额}</code><br/>金额一律传入正值</td><td>拉卡拉<code>{交易金额}</code><br/>金额一律传入正值</td></tr><tr><td>actual_amount</td><td>实际金额</td><td>1.50</td><td>单位（元），精确到分<br/>实收/实退金额<br/>【金额一律传入正值，通过trade_type区分支付和退款方向】</td><td>订单实收金额</td><td>收钱吧<code>{结算金额}</code><br/>金额一律传入正值</td><td>拉卡拉<code>{结算金额}</code><br/>金额一律传入正值</td></tr><tr><td>channel_fee_amount</td><td>渠道手续费</td><td></td><td>支付为渠道收费，退款为渠道退费<br/>【金额一律传入正值，通过trade_type区分支付和退款方向】</td><td>收钱吧收取的服务费</td><td>收钱吧<code>{支付手续费}</code>+<code>{技术服务费}</code><br/>金额一律传入正值</td><td>拉卡拉<code>{结算手续费}</code><br/>金额一律传入正值</td></tr><tr><td>ccy</td><td>币种</td><td>156</td><td></td><td>币种标识字段</td><td colspan="2">固定值：<code>156</code></td></tr><tr><td>user_id</td><td>用户标识</td><td></td><td>填写渠道侧返回的用户标识</td><td>用户唯一标识</td><td>收钱吧<code>{付款账户</code>，没有时传空</td><td>拉卡拉<code>{用户ID}</code></td></tr><tr><td>merchant_id</td><td>商户号</td><td></td><td>商户号</td><td>网商商户号</td><td colspan="2">网商返回的商户<code>{MerchantId}</code></td></tr><tr><td>status</td><td>交易状态</td><td>SUCCESS</td><td></td><td>交易状态标识</td><td colspan="2">固定值：<code>SUCCESS</code></td></tr><tr><td>remark</td><td>备注</td><td></td><td></td><td>备注说明信息</td><td colspan="2"><code>{店铺名称} </code>- 订单</td></tr><tr><td>create_time</td><td>创单时间</td><td>20190501120101</td><td>支付时为支付创建时间，退款时为退款创建时间</td><td>三联系统中订单创建时间</td><td>收钱吧<code>{交易日期}+{时间}</code></td><td>拉卡拉<code>{交易创建时间}</code></td></tr><tr><td>trade_time</td><td>交易时间</td><td>20190501120101</td><td>支付时为支付时间，退款时为退款时间</td><td>三联系统中订单创建时间</td><td>收钱吧<code>{交易日期}+{时间}</code></td><td>拉卡拉：<code>{交易完成时间}</code></td></tr><tr><td>acquire_id</td><td>收单机构编号</td><td></td><td>门店自主收银模式下，填写对应的渠道编号，对接时找技术同学确认；</td><td>固定传值 <code>DEFAULT</code></td><td colspan="2">固定值：<code>DEFAULT</code></td></tr></tbody></table>
 
 ## 清算批次
 
@@ -823,7 +833,7 @@
 1. 查询区
 
    1. 批次号：对应列表中的批次号列，文本框输入，支持关键词筛选（非完全匹配）。
-   2. 商户：对应列表中商户列，支持使用网商商户号对应的供应商/供应商名称，或商户简称筛选，文本框输入，支持关键词筛选（非完全匹配）。
+   2. 商户：对应列表中商户列，支持使用网商商户号对应的公司/门店/供应商名称，或商户简称筛选，文本框输入，支持关键词筛选（非完全匹配）。
    3. 扣保单号：对应列表中的扣保单号列，文本框输入，支持关键词筛选（非完全匹配）。
    4. 退保流水号：对应列表中的退保流水号列，文本框输入，支持关键词筛选（非完全匹配）。
    5. 退保状态：对应列表中的退保状态列，下拉单选，全部状态详见[退款扣保单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-KiPrdY7E5o28mXxvHfLcXfOznVc)。
@@ -899,7 +909,7 @@
 </callout>
 
 1. 批次号：补单保证金扣除通知接口中的`BatchNo`字段值返回。可关联至清算批次。
-2. 商户：补单保证金扣除通知接口中的`MerchantId`字段值返回网商商户号，通过该商户号查询公司或门店或供应商名称及商户简称。前端显示格式为：{公司或门店或供应商名称}-{商户简称}。
+2. 商户：补单保证金扣除通知接口中的`MerchantId`字段值返回网商商户号，通过该商户号查询公司/门店/供应商名称及商户简称。前端显示格式为：{公司/门店/供应商名称}-{商户简称}。
 3. 扣保单号：补单保证金扣除通知接口中的`DepositPayId`字段值返回。
 4. 金额：补单保证金扣除通知接口中的`Amount`字段值返回。
 5. 退保流水号：发起退保申请时结算单退保申请接口中的`OutTradeNo`字段值，退保成功后通过`补单保证金退回通知`接口的返回`RefundDepositOutTradeNo`字段值。
@@ -908,3 +918,4 @@
 
    1. 退保：发起退保按钮，状态为「待发起」的扣保单展示，点击后调用网商`结算单退保申请接口<ant.mybank.bkcloudbatch.stmt.deposit.return>`发起退保申请。
 8. 错误描述：状态为「退保失败」时可见，对应退保查询接口中`{Msg}`字段值。
+
