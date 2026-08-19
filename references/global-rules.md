@@ -79,15 +79,16 @@
 
 1. 门店POS收银资金先进入收钱吧（安徽）和拉卡拉（河南）监管户，D+1结算至品牌方银行卡。
 2. 现在联营和托管门店的POS机用的是6个营业执照办理的，POS机收银的钱会结算至营业执照（个体工商户）法人的银行卡，银行卡是华夏银行。
-3. 资金进入品牌方银行卡后，需要品牌方财务人员手动将资金转入网商为品牌方开具的[平台清算专户](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-AY8BdpSProdaQ8xkG3CcEOOTnQb)。
+3. 补充：上述 6 个个体工商户营业执照为安徽地区门店共开通了 100+ 个收银 POS，POS 与门店的对应关系不能凭执照自动映射，需要通过清算订单模块的「POS 绑定商户」功能人工建立绑定关系。
+4. 资金进入品牌方银行卡后，需要品牌方财务人员手动将资金转入网商为品牌方开具的[平台清算专户](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-AY8BdpSProdaQ8xkG3CcEOOTnQb)。
 
    <synced_reference src-block-id="FHFsd2aKFsleYqboJjSc1KlGnOg" src-token="P4eedyyrhoWE5HxC1AtcCPvtnWc"></synced_reference>
 
 ### 收钱吧和拉卡拉账单
 
-<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YWNkMDhmMjUxMzRhZGExMjRhNGFmNGZjNTI1NGI1MDBfMGRiYWRlZTQ3NWUzNDNkM2Y3OWYwNTgwMGQ5YWVjYzJfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OTVlODJmNGU2ZmQ3NzY1MjY5ZWRiNjk3OWY2YTI0OTNfNzlkMjNjMTNmZDBlNmY5YzUyMjA2MGRhODRhYzQzMmFfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=Y2VlZTg5YTRhN2RlYzAyNDZhZmQzM2YyMmRmYzYwZDRfYThhMGM3YTNhNWFkNzZjYjU0ODUzYTNmY2FmNjA3NjZfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZmQzMzZmNzg5NWEwY2VjZDMxNGQyZGY4MzcwNGI4MjBfNDBiOTA0NDkxYzVmNjM1OWQxYjZiZGJmNjg1MGE0NjZfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 #### 收钱吧关键字段说明：
 
@@ -294,7 +295,7 @@
    
       1. 文件示例
    
-      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NjQ4YmQzYTFjNzFkNzljNzhkYmI1ZTMxYzk5ZjA3YTRfODEwYTUyYWFkZWQxMDQyODhlNWE0ZTliYTBlOWJlMmNfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YmM0Y2Y5MzUxYWI2ZWRhMWIxOGQ5MTY1NzdiYTViNmZfMWUzNDUwZmY4NjA1Nzc5OGYxNDkzN2NmZjk5ZjJkZmNfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
    
       1. 数据解析逻辑（按以下顺序依次解析数据）
       
@@ -442,7 +443,7 @@
    2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
 3. 品牌商费用对账文件明细
 
-   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MTA2ZThiMThhZDgwZGFhMTk5ZTE0NzE2MGZkZGVlMDBfMjY2NDcxNjRjYTFkMTgzMWM4M2M4YTlkYWVhM2E2OTJfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDIwNmJkMjg5ZTAwMjBkMWI2MzQ3ZmQ5ZTFmODU1YzlfMjljNzY5MjdkNjEzNmU4MWY3ZDQwMjY2YThjZmFhNDFfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
 
    | 字段 | 值 | 说明/映射 |
    |-|-|-|
@@ -482,11 +483,11 @@
 
    1. 未上送：支付订单从三联系统/收钱吧拉取至本系统后的初始状态，表示订单在本系统中刚创建，尚未向网商银行发起订单上送。
    2. 上送失败：「未上送」订单调用网商`补单创单接口`失败（网络异常、参数校验驳回、网关报错等），未获取网商订单号。
-   3. 已上送：
+   3. 已上送：即上送成功。
    
       1. 支付单：「未上送」的支付订单调用网商银行`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>` 完成订单上送并拿到网商订单号 `{OrderNo}`后的状态。
       2. 退款单：「未上送」的退款单变更订单状态为「已上送」，不调用网商接口（网商是不需要退款单上送）。
-   4. 清算中：「已上送」状态的订单，关联的清算文件上传成功，关联的批次调用`创建批次接口<ant.mybank.bkcloudbatch.batch.create>`创建批次成功进入「清算中」状态，网商执行清算操作中的状态。
+   4. 清算中：订单式上送成功后，需要生成清算文件并上传，创建清算批次并上报，批次上报成功进入「清算中」状态时，该批次内的所有订单状态变更为「清算中」。
    5. 清算成功：「清算中」状态的订单，网商侧完成该订单所属批次的清算，批次清算结果中该笔订单为「清算成功」时的状态。
    6. 清算失败：「清算中」状态的订单，网商侧完成该订单所属批次的清算，批次清算结果中该笔订单为「清算失败」时的状态。批次清算结果为「部分成功」时需通过校验文件确认该批次中每个订单的清算结果。
 2. 状态变更
@@ -706,7 +707,7 @@
 
 #### 开户行匹配联行号字典表
 
-<figure view-type="Card"><source name="人行联行号-20210603.csv" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MGQwMDRlNDI1Yjg4YTMyODNhMTk1YmNlN2NkMjk0YTFfOWY4ZDY0NmFhYWZlMjRlYTU4NjQ1OTI4Y2MyZDAwNjhfSUQ6NzY3MzgzMDk0NzQzNDk1Nzc3Nl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="text/csv" size="27149722" token="WWTsba6OSoWtKCxluHBcxTnNnof"/></figure>
+<figure view-type="Card"><source name="人行联行号-20210603.csv" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDZhOTUwOWFlYWQxMjdjODg2YzZiNGJmZGU1YmQ0NjZfMDY1YTI4NDMzMjQwMTIzMWU4ZjA4MGRhNDRjNTMxMjJfSUQ6NzY3MzgzMDk0NzQzNDk1Nzc3Nl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="text/csv" size="27149722" token="WWTsba6OSoWtKCxluHBcxTnNnof"/></figure>
 
 1. 匹配逻辑：
 
@@ -947,4 +948,4 @@
 
 ## PC工作台
 
-<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NjI3N2ZmODkxZWE1ODgwMzNjNDQ1ZjMxZDg4ZWE2NTdfNjYxNDY1ZTkxY2ViODA2OGZkMDZmNDhlN2E2YTNhMTFfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZjY2Njk1MGFkNTBiNmFjOTU3ZWJhNWNkMGNiYzFiYThfZjFkN2MzODk3ZmRjZDc5MmViZGQ3MGI0YzBlNDIwMzFfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg2NzIxMjI1OjE3ODY3MjQ4MjVfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OWZhOGE5YThjNjBhNWYyZDc4NzllYTkyYjE4YTg3ZDVfOTNhODY4NTkyOGNlMDcxN2ExYzlmZjk4ZmU5ZjY0ZjFfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MjhlM2Q1ZDIzZmFkNGIyZWVkYTYzNmU3YTBhYmE0NjlfZjdiYWNkNTAzNDE5YzBkZGM3Y2MxMjlkZmE5NmIwNzRfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
