@@ -1,9 +1,6 @@
 {
-  "version": "1.9.9",
-  "name": "BasaltOS操作手册",
-  "updated": "2026-08-14",
-  "changes": [
-    "从飞书同步最新知识内容",
-    "SKILL.md「检查更新」新增方案B：Release下载.skill覆盖安装"
-  ]
+  "version": "1.10.0",
+  "name": "basalt-os-guide",
+  "updated": "2026-08-19",
+  "changes": ["从飞书同步最新知识内容（PRD+知识库10篇）", "新增Q17.5/Q35/Q12.5", "PRD补充三联/6执照100+/门店退出", "FAQ修正清算失败/手续费分层", "operations.md去待上线/三联订单"]
 }
