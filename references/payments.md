@@ -13,7 +13,7 @@
 4. 加盟授权代付合约：
 
    1. 由品牌方（平台）发起签约授权，商户授权完成后网商返回合约号。商户：合约：过桥户=1:1:1。
-   2. 每次收到授权代付合约的平台通知（授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>）时立即调`查询当前授权协议内容接口地址：<ant.mybank.bkcloudfunds.protocol.arr.query>`接口查一次合约最新内容。
+   2. 每次收到授权代付合约的平台通知（授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>）时立即调查询当前授权协议内容接口地址：<ant.mybank.bkcloudfunds.protocol.arr.query>查一次合约最新内容。
    3. 收到签约/修改通知（签约申请/协议变更申请（同步和异步））时`立即调查询申请单目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口查询申请单最新状态。
 </callout>
 
@@ -209,7 +209,7 @@
          1. 协议代扣：商户签约授权完成后通过`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`网商商户号MerchantId`字段返回。
       7. 动账短信：
       
-         1. 协议代扣：N\A不存在，展示为「-」。
+         1. 协议代扣：N/A不存在，展示为「-」。
       8. 合约状态：
       
          1. 展示协议代扣合约的状态，状态详见[协议代扣合约状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-DQaMdqLulobsdFxuPvAccRlPnkc)。
@@ -237,7 +237,7 @@
       
          1. 授权代付：
          
-            1. 商户签约授权完成后通过`授权合同变更通知接口<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口拿到合约号后，再通过`查询当前授权协议内容ant.mybank.bkcloudfunds.protocol.arr.query`接口查询申合约最新内容，接口返回的`是否禁止动账短信通知：SmsProhibitFlag`字段的值。
+            1. 商户签约授权完成后通过`授权合同变更通知接口<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口拿到合约号后，再通过`查询当前授权协议内容ant.mybank.bkcloudfunds.protocol.arr.query`接口查询合约最新内容，接口返回的`是否禁止动账短信通知：SmsProhibitFlag`字段的值。
             
                1. Y - 不通知
                2. N - 通知。
@@ -408,10 +408,10 @@
          1. 协议代扣：商户签约授权完成后通过`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`网商商户号MerchantId`字段返回。
       9. 备注
       
-         1. 协议代扣：N\A不存在，展示为「-」。
+         1. 协议代扣：N/A不存在，展示为「-」。
       10. 动账短信
       
-          1. 协议代扣：N\A不存在，展示为「-」。
+          1. 协议代扣：N/A不存在，展示为「-」。
       11. 状态：协议代扣申请单状态，详见[协议代扣申请单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-MtJ0dE40WohAm4xOi1FcH1Ghnxe)。
       12. 操作
       
@@ -500,7 +500,7 @@
          1. 撤销：待确认状态的授权代付申请单可撤销，点击后弹出二次确认弹窗。
          
             1. 弹窗内容：确定撤销吗？撤销后如需再次签约可再次发起签约授权。
-            2. 取消：弹窗管理，申请单状态不变。
+            2. 取消：弹窗关闭，申请单状态不变。
             3. 确定：调用网商`1.5. 取消申请<ant.mybank.bkcloudfunds.protocol.sign.apply.cancel>`接口取消授权代付申请单，成功后状态变更为closed。
          2. 详情：点击进入授权代付申请单详情页面。
 
@@ -530,7 +530,7 @@
 
    1. 签约、解约：商户签约授权完成后通过`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`合约号ArrangementNo`字段返回合约号，`合约状态ArrangementStatus`字段值返回合约状态。
    2. 解约审核：网商`解约申请审核<ant.mybank.merchantprod.merchant.arrangement.audit>`接口中`合约号ArrangementNo`字段返回合约号，`合约状态ArrangementStatus`字段值返回合约状态。
-5. 合约类型：可直接通过商户签约授权完成后通过`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`合约类型ArrangementType`字段返回值判断，字段值为：`SUB_ACCOUNT_WITHHOLD`。也可以通过合约号来源判断，如合约号来自`授权/解约通知<``ant.mybank.merchantprod.merchant.arrangement.info``.notify>`接口中`合约号ArrangementNo`字段。前端展示为：协议代扣。
+5. 合约类型：可直接商户签约授权完成后通过`授权/解约通知<ant.mybank.merchantprod.merchant.arrangement.info.notify>`接口中`合约类型ArrangementType`字段返回值判断，字段值为：`SUB_ACCOUNT_WITHHOLD`。也可以通过合约号来源判断，如合约号来自`授权/解约通知<ant.mybank.merchantprod.merchant.arrangement.info.notify>`接口中`合约号ArrangementNo`字段。前端展示为：协议代扣。
 6. 授权方：即该申请单发起方。
 
    1. 签约、解约：签约和解约申请单由公司/门店/供应商发起。{公司/门店/供应商名称}-{商户简称}-{网商商户号}。
@@ -587,14 +587,14 @@
     1. 授权方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
     2. 授权方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
     3. 授权方是网商：{网商银行}（如：网商银行）
-14. 被授权方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`被授权方AuthorizerInfo`字段的值。
+14. 被授权方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`被授权方AuthorizeeInfo`字段的值。
 
-    1. 授权方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
-    2. 授权方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
-    3. 授权方是网商：{网商银行}（如：网商银行）
+    1. 被授权方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
+    2. 被授权方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
+    3. 被授权方是网商：{网商银行}（如：网商银行）
 15. 发起方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`发起方InitiatorInfo`字段的值。
 
-    1. 发起方是公司/门店/供应商商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
+    1. 发起方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
     2. 发起方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
     3. 发起方是网商：{网商银行}（如：网商银行）
 16. 最终操作方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`最终操作方AdvancingInfo`字段的值。
@@ -642,13 +642,13 @@
        5. 联行号：对公银行卡联行号。`unitedBankCode`字段。
        
           1. 银行卡：银行卡且对公类型时必填。页面信息提交时做校验。
-          2. 支付宝：N\A不存在，展示为「-」。
+          2. 支付宝：N/A不存在，展示为「-」。
 
 
 ## 付款
 
 <callout emoji="🎈">
-协议代扣收款方加白
+协议代扣收款方为个体工商户时加白
 背景： 协议授权代扣默认支持平台结算户/企业商户收款，如果需要个体户收款需要申请加白（收款方需要加白,付款方不需要）
 操作路径：连锁通管理中心登录（原PC工作台）→业务变更申请→新增业务申请→业务限制变更类型→个体工商户支持协议代扣/
 PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2Fb.mybank.cn
@@ -659,8 +659,8 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 <callout emoji="🎈">
 1. 接口调用：
 
-   1. 协议代扣：分别由通知接口和查询接口，建议通过通知接口收到通知后再用查询接口查一次付款单数据。
-   2. 授权代付：分别由通知接口和查询接口，建议通过通知接口收到通知后再用查询接口查一次付款单数据。
+   1. 协议代扣：分别有通知接口和查询接口，建议通过通知接口收到通知后再用查询接口查一次付款单数据。
+   2. 授权代付：分别有通知接口和查询接口，建议通过通知接口收到通知后再用查询接口查一次付款单数据。
 2. 数据来源接口
 
    1. 协议代扣：2.2和2.3两个接口的参数字段一致。
@@ -698,8 +698,8 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
       2. 付款方商户简称：对应列表中的付款方列的付款方商户简称，文本框输入，支持关键词筛选（非完全匹配）。
    7. 收款方
    
-      1. 收款方名称：对应列表中的付款方列的收款方名称，文本框输入，支持关键词筛选（非完全匹配）。
-      2. 收款方商户简称：对应列表中的付款方列的收款方商户简称，文本框输入，支持关键词筛选（非完全匹配）。
+      1. 收款方名称：对应列表中的收款方列的收款方名称，文本框输入，支持关键词筛选（非完全匹配）。
+      2. 收款方商户简称：对应列表中的收款方列的收款方商户简称，文本框输入，支持关键词筛选（非完全匹配）。
    8. 状态：对应列表中的状态列，下拉单选，选项包含协议代扣和授权代付两种付款记录的所有状态。详见[协议代扣付款记录状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-E9jbd0vPvoxB6jx1k1ycghfWnmd)和[授权代付付款记录状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-RyJCdoCPloXO9bxXB7fceetenEf)。
 2. 工具区
 
@@ -729,7 +729,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
       2. 授权代付：对应网商接口中的`支付网商操作号OperateNo`字段值。
    3. 场景：分别对应协议代扣的费用场景和授权代付的业务子场景。
    
-      1. 协议代扣：协议代扣得费用场景有用户自行添加及维护。付款记录数据产生时将费用场景名称写入记录数据，避免因用户修改费用场景名称带来的数据不一致问题。
+      1. 协议代扣：协议代扣的费用场景由用户自行添加及维护。付款记录数据产生时将费用场景名称写入记录数据，避免因用户修改费用场景名称带来的数据不一致问题。
       2. 授权代付：网商定义的5个业务子场景。付款记录数据产生时将费用场景名称写入记录数据，避免因用户修改费用场景名称带来的数据不一致问题。
    4. 付款方：该付款单中的付款方主体和商户信息。
    
@@ -816,8 +816,8 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 
    1. 退款：点击后打开退款申请弹窗。按钮显示条件同退款列表。
 7. 币种：人民币，对应网商`Currency`字段值。
-8. 冻结部分出金：商户冻结子户出款金额，数字为2位小数，单位元，格式为`{x.xx}元`对应网商FreezeAmount字段值。
-9. 可用部分出金：商户可用子户出款金额，数字为2位小数，单位元，格式为`{x.xx}元`对应网商AvailableAmount字段值。
+8. 冻结部分出金：商户冻结子户出款金额，数字为2位小数，单位元，格式为`{x.xx}元`，对应网商FreezeAmount字段值。
+9. 可用部分出金：商户可用子户出款金额，数字为2位小数，单位元，格式为`{x.xx}元`，对应网商AvailableAmount字段值。
 10. 付款方：付款方主体信息和商户简称。对应网商`PayerId`字段值对应的商户信息。
 
     1. 付款方为公司/门店/供应商时：展示{公司/门店/供应商名称}-{付款商户简称}-{付款方网商商户号}。
@@ -852,7 +852,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 ##### 退款信息
 
 <callout emoji="🎈">
-付款单关联的退款单信息汇总，退库单详细信息详见[协议代扣退款](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-AmwEdM31PocOftxACZjcNgsznld)。
+付款单关联的退款单信息汇总，退款单详细信息详见[协议代扣退款](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-AmwEdM31PocOftxACZjcNgsznld)。
 </callout>
 
 1. 已退款金额：金额数字为2位小数，单位元，格式为`{x.xx}元`，该付款单关联的状态为「成功」的退款单的退款金额总和。
@@ -887,7 +887,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 8. 付款方：付款方主体信息和商户简称。对应网商`PayerParticipant`字段值对应的商户信息。
 
    1. 付款方为公司/门店/供应商时：展示{公司/门店/供应商名称}-{付款商户简称}-{付款方网商商户号}。
-9. 收款方：{户名}-{账号}。付款方主体信息和商户简称。对应网商`PayeeParticipant`字段值对应的商户信息。
+9. 收款方：{户名}-{账号}。收款方主体信息和商户简称。对应网商`PayeeParticipant`字段值对应的商户信息。
 
    <callout emoji="🎈">
    1. 列表中出现的银行卡账号和支付宝账号均需脱敏。脱敏规则详见[银行账号和支付宝账号脱敏规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-MeW6doV0AoFnY0xWXjFcFY1anve)。
@@ -895,7 +895,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 10. 支付金额：金额数字为2位小数，单位元，格式为`{x.xx}元`，对应网商`TotalAmount`字段值。
 11. 币种：人民币，对应网商`Currency`字段值。
 12. ~~付方资产信息，需要指定付方出资份额时必填（可用子户可用部分出资金额，可用子户冻结部分出金，交易保证金子户出资金额）~~
-13. 指定付方使用信息付款时出款账户的使用顺序，对应网商`PayerSpecifiedInfo`字段值。按字段值中的`priority`优先级数字从小到大依次排列。只展示出款账户，不展示具体金额。
+13. 指定付方使用信息：付款时：出款账户的使用顺序，对应网商`PayerSpecifiedInfo`字段值。按字段值中的`priority`优先级数字从小到大依次排列。只展示出款账户，不展示具体金额。
 
     1. 可用子户冻结余额
     2. 可用子户解冻余额
@@ -907,7 +907,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 
     1. 是：Y
     2. 否：N
-18. 状态：付款单状态，详见[权代付付款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QVKPdNdTHoysw9xNlV0cWFbingh)。
+18. 状态：付款单状态，详见[授权代付付款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QVKPdNdTHoysw9xNlV0cWFbingh)。
 19. 错误码，对应网商`ErrorCode`字段值。状态为「FAIL」时出现。
 20. 错误描述：对应网商`ErrorDesc`字段值，状态为「FAIL」时出现。
 
@@ -931,10 +931,10 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
          2. 请勿修改表格结构。
          3. 红色字段必填，黑色字段选填
          4. 付款方公司/门店/供应商名称、付款方商户简称：输入名称后自动从「商户信息表」中匹配，须确保公司/门店/供应商名称、商户简称和商户信息表中的对应关系一致。
-         5. 付款方商户号：选择好付款方商户简称后系统自动从「商户信息表」中匹配对应的付款方商户号，请勿手动修改。
+         5. 付款方商户号：选择好收款方商户简称后系统自动从「商户信息表」中匹配对应的付款方商户号，请勿手动修改。
          6. 付款金额：即转账金额，单位：元，保留小数点后2位。
          7. 收款方公司/门店/供应商名称、收款方商户简称：输入名称后自动从「商户信息表」中匹配，须确保公司/门店/供应商名称、商户简称和商户信息表中的对应关系一致。
-         8. 收款方商户号：选择好付款方商户简称后系统自动从「商户信息表」中匹配对应的付款方商户号，请勿手动修改。
+         8. 收款方商户号：选择好收款方商户简称后系统自动从「商户信息表」中匹配对应的付款方商户号，请勿手动修改。
          9. 备注可填写该批付款的备注内容。
          10. 填写完成后，请复制全部已填写单元格内容，再粘贴为「值」，付款方商户号和收款方商户号两列不要保留公式。
       2. 对外付款（授权代付）表格关键内容
@@ -943,9 +943,9 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
          2. 请勿修改表格结构。
          3. 红色字段必填，黑色字段选填
          4. 付款方公司/门店/供应商名称、付款方商户简称：输入名称后自动从「商户信息表」中匹配，须确保公司/门店/供应商名称、商户简称和商户信息表中的对应关系一致。
-         5. 付款方商户号：选择好付款方商户简称后系统自动从「商户信息表」中匹配对应的付款方商户号，请勿手动修改。
+         5. 付款方商户号：选择好收款方商户简称后系统自动从「商户信息表」中匹配对应的付款方商户号，请勿手动修改。
          6. 付款金额：即转账金额，单位：元，保留小数点后2位。
-         7. 6.收款方户名、账号：可填写银行卡或支付宝信息，银行卡填写银行卡号，支付宝填写支付宝登录账号。请确保收款方信息已在系统商户详情→ 外部商户页面的外部账户列表中。
+         7. 6.收款方户名、账号：可填写银行卡或支付宝信息，银行卡填写银行卡号，支付宝填写支付宝登录账号。请确保收款方信息已在系统商户详情→ 外部账户页面的外部账户列表中。
          8. 备注可填写该批付款的备注内容。
          9. 填写完成后，请复制全部已填写单元格内容，再粘贴为「值」，付款方商户号列不要保留公式。
    3. 上传完善后的模板
@@ -1167,7 +1167,7 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
 2. 接口：2.1授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>
 </callout>
 
-<table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><tbody><tr><td><b>参数名称</b></td><td><b>类型</b></td><td><b>长度</b></td><td><b>必填</b></td><td><b>参数描述</b></td><td><b>示例</b></td><td>传参</td></tr><tr><td colspan="6"><b>基本参数</b></td><td></td></tr><tr><td>IsvOrgId</td><td>String</td><td>32</td><td>M</td><td>合作方机构号（网商银行分配）</td><td> </td><td>固定值：202211000000000004381</td></tr><tr><td>OutTradeNo</td><td>String</td><td>64</td><td>M</td><td>外部订单请求流水号，外部请求的唯一标识。<br/><b>格式标准：</b>需要在尾部添加时间戳，格式为yyyyMMdd。<ul><li>外部需要保证重复请求不更换时间戳，否则会导致幂等击穿</li></ul></td><td>xxxxxx20230802</td><td>{业务流水号}</td></tr><tr><td>SceneCode</td><td>String</td><td>32</td><td>M</td><td>产品场景码。用于区分产品场景，映射平台操作配置。<ul><li>合伙模式联动场景：PARTNER_CASCADE_PAY</li></ul></td><td>PARTNER_CASCADE_PAY</td><td>固定值：<code>PARTNER_CASCADE_PAY</code></td></tr><tr><td>SubSceneCode</td><td>String</td><td>32</td><td>M</td><td>子场景码。用于区分细分各子场景，</td><td>SALARY</td><td><ul><li>合伙人：PARTNER</li><li>物业：RENT</li><li>水电煤：FEE</li><li>员工工资：SALARY</li><li>报销代发：CLAIM</li></ul></td></tr><tr><td>AgreementNo</td><td>String</td><td>64</td><td>M</td><td>协议支付合约号。签约接口返回的合约号。</td><td></td><td></td></tr><tr><td>PayerParticipant</td><td>String</td><td>2048</td><td>M</td><td>付款方（授权方）主体信息。具体参数见下文</td><td>Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>PayeeParticipant</td><td>String</td><td>2048</td><td>M</td><td>收款方主体信息。具体参数见下文</td><td>Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>TotalAmount</td><td>Number</td><td></td><td>M </td><td>支付金额（单位：分）</td><td>300</td><td></td></tr><tr><td>Currency</td><td>String</td><td>3</td><td>M</td><td>币种编码（如CNY）</td><td> </td><td></td></tr><tr><td>PayerFundInfo</td><td>String </td><td></td><td>O</td><td>付方资产信息，需要指定付方出资份额时必填</td><td>Jsontostring格式<br/>base64编码<ul><li>为空：<b>优先冻结部分出资，不足的由可用部分出资</b></li><li>不为空：<b>根据指定的出资金额出资</b></li></ul></td><td></td></tr><tr><td>PayerSpecifiedInfo</td><td>String</td><td>1024</td><td>O</td><td>指定付方使用信息<br/><b>场景为本次新增场景时，外部需要指定时该字段必填！！</b><br/><b>不填的话由网商内部根据isv来进行配置</b><br/><b>PayerFundInfo和PayerSpecifiedInfo不可同时存在</b></td><td>PayerSpecifiedInfo对象json结构进行base64encode </td><td></td></tr><tr><td>RequestTime</td><td>String</td><td>64</td><td>M</td><td>交易请求时间  yyyyMMddHHmmss</td><td></td><td></td></tr><tr><td>Memo</td><td>String</td><td>512</td><td>C</td><td>备注（可填写订单描述信息）</td><td></td><td></td></tr><tr><td>NotifyUrl</td><td>String</td><td>256</td><td>O</td><td>动态通知地址</td><td></td><td></td></tr><tr><td>MultiSaasScene</td><td>String</td><td>2</td><td>C</td><td>是否单品牌多SaaS场景：Y/N<br/>单品牌多SaaS场景必填</td><td>N </td><td></td></tr><tr><td>PassbackParams</td><td>String</td><td>1024</td><td>O</td><td>外部回传参数<br/>如果请求时传递了该参数，查询/回调时会回传该参数</td><td>map的Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>ExtInfo</td><td>String</td><td>1024</td><td>O</td><td>业务定制化扩展参数</td><td>map的Jsontostring格式<br/>base64编码</td><td></td></tr></tbody></table>
+<table><colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th><b>参数名称</b></th><th><b>类型</b></th><th><b>长度</b></th><th><b>必填</b></th><th><b>参数描述</b></th><th><b>示例</b></th><th>传参</th></tr></thead><tbody><tr><td colspan="6"><b>基本参数</b></td><td></td></tr><tr><td>IsvOrgId</td><td>String</td><td>32</td><td>M</td><td>合作方机构号（网商银行分配）</td><td> </td><td>固定值：202211000000000004381</td></tr><tr><td>OutTradeNo</td><td>String</td><td>64</td><td>M</td><td>外部订单请求流水号，外部请求的唯一标识。<br/><b>格式标准：</b>需要在尾部添加时间戳，格式为yyyyMMdd。<ul><li>外部需要保证重复请求不更换时间戳，否则会导致幂等击穿</li></ul></td><td>xxxxxx20230802</td><td>{业务流水号}</td></tr><tr><td>SceneCode</td><td>String</td><td>32</td><td>M</td><td>产品场景码。用于区分产品场景，映射平台操作配置。<ul><li>合伙模式联动场景：PARTNER_CASCADE_PAY</li></ul></td><td>PARTNER_CASCADE_PAY</td><td>固定值：<code>PARTNER_CASCADE_PAY</code></td></tr><tr><td>SubSceneCode</td><td>String</td><td>32</td><td>M</td><td>子场景码。用于区分细分各子场景。</td><td>SALARY</td><td><ul><li>合伙人：PARTNER</li><li>物业：RENT</li><li>水电煤：FEE</li><li>员工工资：SALARY</li><li>报销代发：CLAIM</li></ul></td></tr><tr><td>AgreementNo</td><td>String</td><td>64</td><td>M</td><td>协议支付合约号。签约接口返回的合约号。</td><td></td><td></td></tr><tr><td>PayerParticipant</td><td>String</td><td>2048</td><td>M</td><td>付款方（授权方）主体信息。具体参数见下文</td><td>Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>PayeeParticipant</td><td>String</td><td>2048</td><td>M</td><td>收款方主体信息。具体参数见下文</td><td>Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>TotalAmount</td><td>Number</td><td></td><td>M </td><td>支付金额（单位：分）</td><td>300</td><td></td></tr><tr><td>Currency</td><td>String</td><td>3</td><td>M</td><td>币种编码（如CNY）</td><td> </td><td></td></tr><tr><td>PayerFundInfo</td><td>String </td><td></td><td>O</td><td>付方资产信息，需要指定付方出资份额时必填</td><td>Jsontostring格式<br/>base64编码<ul><li>为空：<b>优先冻结部分出资，不足的由可用部分出资</b></li><li>不为空：<b>根据指定的出资金额出资</b></li></ul></td><td></td></tr><tr><td>PayerSpecifiedInfo</td><td>String</td><td>1024</td><td>O</td><td>指定付方使用信息<br/><b>场景为本次新增场景时，外部需要指定时该字段必填！！</b><br/><b>不填的话由网商内部根据isv来进行配置</b><br/><b>PayerFundInfo和PayerSpecifiedInfo不可同时存在</b></td><td>PayerSpecifiedInfo对象json结构进行base64encode </td><td></td></tr><tr><td>RequestTime</td><td>String</td><td>64</td><td>M</td><td>交易请求时间  yyyyMMddHHmmss</td><td></td><td></td></tr><tr><td>Memo</td><td>String</td><td>512</td><td>C</td><td>备注（可填写订单描述信息）</td><td></td><td></td></tr><tr><td>NotifyUrl</td><td>String</td><td>256</td><td>O</td><td>动态通知地址</td><td></td><td></td></tr><tr><td>MultiSaasScene</td><td>String</td><td>2</td><td>C</td><td>是否单品牌多SaaS场景：Y/N<br/>单品牌多SaaS场景必填</td><td>N </td><td></td></tr><tr><td>PassbackParams</td><td>String</td><td>1024</td><td>O</td><td>外部回传参数<br/>如果请求时传递了该参数，查询/回调时会回传该参数</td><td>map的Jsontostring格式<br/>base64编码</td><td></td></tr><tr><td>ExtInfo</td><td>String</td><td>1024</td><td>O</td><td>业务定制化扩展参数</td><td>map的Jsontostring格式<br/>base64编码</td><td></td></tr></tbody></table>
 
 ### 协议代扣退款
 
