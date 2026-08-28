@@ -86,9 +86,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OTVlODJmNGU2ZmQ3NzY1MjY5ZWRiNjk3OWY2YTI0OTNfNzlkMjNjMTNmZDBlNmY5YzUyMjA2MGRhODRhYzQzMmFfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NGE0MjVlZGRkNzYyZTUyZTA2MjQ2YTA2MGIwNWE5NzRfZmYzOGRiZWI4YjE0YmFlMDhhZTM2M2IwZGU0OWE2Y2ZfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZmQzMzZmNzg5NWEwY2VjZDMxNGQyZGY4MzcwNGI4MjBfNDBiOTA0NDkxYzVmNjM1OWQxYjZiZGJmNjg1MGE0NjZfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=Mjg3MjFkMTdkOTI5NGNjMDI1M2YxMTAzNGE0YjI2NzlfNzg3YTI4MjE0NGE2MDcyMTBiZmRlNDc3YjdmZmRkYTJfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 #### 收钱吧关键字段说明：
 
@@ -104,7 +104,7 @@
 7. `{收款通道/支付方式}`：收银渠道，支付宝/微信/云闪付/银行卡等。
 8. `{付款账户}`：用户付款账户的id。映射网商的`用户标识user_id`。
 
-   1. 微信：OpenID 或UnionID ，如：opwm3uDAoNhIpL1_viDkrV7M83GU。
+   1. 微信：OpenID 或UnionID，如：opwm3uDAoNhIpL1_viDkrV7M83GU。
    2. 支付宝：脱敏的登录账号（手机号或邮箱），如：198\*\*\*\*\*\*59。
    3. 云闪付用户：无。
 9. `{``门店``名称}`：POS机名称。
@@ -295,7 +295,7 @@
    
       1. 文件示例
    
-      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YmM0Y2Y5MzUxYWI2ZWRhMWIxOGQ5MTY1NzdiYTViNmZfMWUzNDUwZmY4NjA1Nzc5OGYxNDkzN2NmZjk5ZjJkZmNfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YjI4YTQ3NGM5MDgxNWM5M2Q0NjU1OTE2ZjY1ZjZlYzBfNDhkZjFiZDYzNzM4NWE2NGU0MTI4MmU2NmFlYzU0MDlfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
    
       1. 数据解析逻辑（按以下顺序依次解析数据）
       
@@ -344,7 +344,7 @@
 
 1. 提现申请单状态来源
 
-   <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>查询方式</th><th>接口</th><th>状态字段</th><th>状态值</th><th>使用场景</th></tr></thead><tbody><tr><td>被动通知</td><td>3 提现结果通知接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.notify&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>FAIL=失败</td><td><ol><li seq="1">商户发起提现申请后，网商处理提现请求，通知品牌方提现结果。</li></ol></td></tr><tr><td>主动触发</td><td>4 单笔提现查询接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.query&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>DEALING=处理中<br/>FAIL=失败</td><td><ol><li seq="1">平台收到体下你通知后提现通知后主动查询确认提现申请单终态。</li><li>通过品牌商费用对账文件拿到新的提现单，通过此接口查询提现单详情和状态。</li></ol></td></tr></tbody></table>
+   <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>查询方式</th><th>接口</th><th>状态字段</th><th>状态值</th><th>使用场景</th></tr></thead><tbody><tr><td>被动通知</td><td>3 提现结果通知接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.notify&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>FAIL=失败</td><td><ol><li seq="1">商户发起提现申请后，网商处理提现请求，通知品牌方提现结果。</li></ol></td></tr><tr><td>主动触发</td><td>4 单笔提现查询接口（异步接口）&lt;ant.mybank.bkcloudfunds.withdraw.query&gt;</td><td>状态<code>Status</code></td><td>SUCCESS=成功<br/>DEALING=处理中<br/>FAIL=失败</td><td><ol><li seq="1">平台收到提现通知后主动查询确认提现申请单终态。</li><li>通过品牌商费用对账文件拿到新的提现单，通过此接口查询提现单详情和状态。</li></ol></td></tr></tbody></table>
 2. 提现申请单状态与接口字段映射
 
    | 状态名称 | 3 提现结果通知接口（异步接口）  <br/>状态值（`Status`） | 4 单笔提现查询接口（异步接口）  <br/>状态值（`Status`） | 状态类型 | 说明 |
@@ -357,7 +357,7 @@
 
 <callout emoji="🎈">
 商户将其子户余额提现至银行卡时，会产生手续费，从系统角度来讲，手续费分为品牌手续费和网商手续费。
-1. 品牌手续费：商户提现申请发起时，品牌方会从商户申请提现金额中扣除一笔钱作为品牌手续费。商户提现实际到账金额
+1. 品牌手续费：商户提现申请发起时，品牌方会从商户申请提现金额中扣除一笔钱作为品牌手续费，品牌手续费进入[平台保证金户（网商结算户）](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-NylJd7ipcos5TDxJnHJcHxppnDe)。商户提现实际到账金额=`申请提现金额`-`品牌提现手续费`。
 2. 网商手续费：商户提现成功后，D+1网商从品牌方保证金户中扣除平台维度的手续费（已知包括提现手续费和授权代付手续费），D+2平台向网商申请对账文件，获取平台维度的手续费扣除明细。
 </callout>
 
@@ -443,13 +443,13 @@
    2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
 3. 品牌商费用对账文件明细
 
-   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDIwNmJkMjg5ZTAwMjBkMWI2MzQ3ZmQ5ZTFmODU1YzlfMjljNzY5MjdkNjEzNmU4MWY3ZDQwMjY2YThjZmFhNDFfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NmUwMzljNjA0ZmMzYWExYTRiZWEyNDQ2OWI2YjU5NmFfNzhhZjc4ZjQ2MzU5ZWY3MzZiNzk4MjMzYzgwOGVhYTFfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
 
    | 字段 | 值 | 说明/映射 |
    |-|-|-|
    | 机构编号 | 202211000000000004381 | Isvorgid |
    | 机构名称 | 浙江可柔品牌管理有限公司 |  |
-   | 合约号 | 2026042301100002054868969368 | 不是该商户的授权代付合约后 |
+   | 合约号 | 2026042301100002054868969368 | 该商户的授权代付合约号 |
    | 交易单号 | 2026070310152061886188610011426773 | {网商交易号`OperateNo`} |
    | 交易金额 | 122.40 | 付款金额 |
    | 交易方向 | 支付 |  |
@@ -486,8 +486,8 @@
    3. 已上送：即上送成功。
    
       1. 支付单：「未上送」的支付订单调用网商银行`补单创单接口< ant.mybank.bkcloudfunds.bill.pay>` 完成订单上送并拿到网商订单号 `{OrderNo}`后的状态。
-      2. 退款单：「未上送」的退款单变更订单状态为「已上送」，不调用网商接口（网商是不需要退款单上送）。
-   4. 清算中：订单式上送成功后，需要生成清算文件并上传，创建清算批次并上报，批次上报成功进入「清算中」状态时，该批次内的所有订单状态变更为「清算中」。
+      2. 退款单：「未上送」的退款单查询到其对应的支付单的网商订单号后将状态变更为「已上送」，不调用网商接口（网商是不需要退款单上送）。
+   4. 清算中：订单上送成功后，需要生成清算文件并上传，创建清算批次并上报，批次上报成功进入「清算中」状态时，该批次内的所有订单状态变更为「清算中」。
    5. 清算成功：「清算中」状态的订单，网商侧完成该订单所属批次的清算，批次清算结果中该笔订单为「清算成功」时的状态。
    6. 清算失败：「清算中」状态的订单，网商侧完成该订单所属批次的清算，批次清算结果中该笔订单为「清算失败」时的状态。批次清算结果为「部分成功」时需通过校验文件确认该批次中每个订单的清算结果。
 2. 状态变更
@@ -500,7 +500,7 @@
 
 1. 状态说明
 
-   <table><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>状态名称</th><th>状态值</th><th>状态类型</th><th>说明</th></tr></thead><tbody><tr><td>处理中</td><td>DEALING</td><td>中间态</td><td><ol><li seq="1">文件上传成功，系统正在解析文件，暂未全部处理完成。</li></ol></td></tr><tr><td>成功</td><td>SUCCESS</td><td>终态</td><td><ol><li seq="1">表格解析完成，且所有数据全部导入成功，该文件内所有的订单数据导入成功（无异常数据，如重复，数据缺失等）。</li></ol></td></tr><tr><td>失败</td><td>FAIL</td><td>终态</td><td><ol><li seq="1">文件异常：文件损坏/ 格式不对/ 缺少必填表头/列错乱，整份文件无法读取。</li><li>数据异常：数据全部导入失败。</li></ol></td></tr><tr><td>部分成功</td><td>PARTIAL_SUCCESS</td><td>终态</td><td><ol><li seq="1">文件上传成功，部分数据解析且导入成功，部分数据解析或导入失败（数据确实，订单重复等）。订单唯一性通过「交易流水号」字段识别。</li></ol></td></tr></tbody></table>
+   <table><colgroup><col/><col/><col/><col/></colgroup><thead><tr><th>状态名称</th><th>状态值</th><th>状态类型</th><th>说明</th></tr></thead><tbody><tr><td>处理中</td><td>DEALING</td><td>中间态</td><td><ol><li seq="1">文件上传成功，系统正在解析文件，暂未全部处理完成。</li></ol></td></tr><tr><td>成功</td><td>SUCCESS</td><td>终态</td><td><ol><li seq="1">表格解析完成，且所有数据全部导入成功，该文件内所有的订单数据导入成功（无异常数据，如重复，数据缺失等）。</li></ol></td></tr><tr><td>失败</td><td>FAIL</td><td>终态</td><td><ol><li seq="1">文件异常：文件损坏/ 格式不对/ 缺少必填表头/列错乱，整份文件无法读取。</li><li>数据异常：数据全部导入失败。</li></ol></td></tr><tr><td>部分成功</td><td>PARTIAL_SUCCESS</td><td>终态</td><td><ol><li seq="1">文件上传成功，部分数据解析且导入成功，部分数据解析或导入失败（数据缺失，订单重复等）。订单唯一性通过「交易流水号」字段识别。</li></ol></td></tr></tbody></table>
 
    1. 处理中
    2. 成功
@@ -559,7 +559,7 @@
 1. 状态说明
 
    1. 待上报：清算批次通过清算文件在本系统创建成功后的初始状态，此时本系统保存批次数据，未调用网商创建批次接口。
-   2. 上报失败：「待上报」状态的批次调用网商`创建批次接口`失败（网络异常、参数错误、接口返回业务拒绝）时的状态，可通过是否拿到到网商`批次实例号`来判断。
+   2. 上报失败：「待上报」状态的批次调用网商`创建批次接口`失败（网络异常、参数错误、接口返回业务拒绝）时的状态，可通过是否拿到网商`批次实例号`来判断。
    3. 已作废：「待上报」和「上报失败」状态的批次执行「作废」操作后的状态，已作废的批次不能再发起上报与清算。批次作废时对应的清算文件状态同步变更为「已作废」。
    4. 清算中：「待上报」状态的批次调用网商`创建批次接口<ant.mybank.bkcloudbatch.batch.create>`成功后网商处理清算批次中的状态，可通过是否拿到网商批次实例号`Batchlnstanceld`来判断。
    5. 清算成功：「清算中」状态的批次通过`批次完结通知`和`批次查询接口`获得的批次清算结果中的`SUCCESS`状态。
@@ -707,14 +707,14 @@
 
 #### 开户行匹配联行号字典表
 
-<figure view-type="Card"><source name="人行联行号-20210603.csv" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDZhOTUwOWFlYWQxMjdjODg2YzZiNGJmZGU1YmQ0NjZfMDY1YTI4NDMzMjQwMTIzMWU4ZjA4MGRhNDRjNTMxMjJfSUQ6NzY3MzgzMDk0NzQzNDk1Nzc3Nl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="text/csv" size="27149722" token="WWTsba6OSoWtKCxluHBcxTnNnof"/></figure>
+<figure view-type="Card"><source name="人行联行号-20210603.csv" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NzU5OTlkMmNiNzNkNTFjODkyMDYzY2QzZWM1ZjM5YmVfZThjZWZkZjBlZDhhMjY4ZmE4OTZkOWRjOTQ1ZDBhMmVfSUQ6NzY3MzgzMDk0NzQzNDk1Nzc3Nl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="text/csv" size="27149722" token="WWTsba6OSoWtKCxluHBcxTnNnof"/></figure>
 
 1. 匹配逻辑：
 
    1. 开户行： G列，`银行名称`，`bankName`
    2. 联行号：C列，`instOutCode`
 
-#### 授权代付业务子场景
+#### 授权代付业务子场景限额
 
 收款方支持银行卡和支付宝，五个场景最多可绑定200个授权方。
 
@@ -725,6 +725,12 @@
 | **合伙人分润** | PARTNER | 10 万 | 40 万 | 40 | 首次签约：需商户法人签约授权  <br/>信息变更：需商户法人签约确认 |
 | **工资代发** | SALARY | 2 万 | 25 万 | 50 | 首次签约：需商户法人签约授权  <br/>后续变更：需商户法人签约确认 |
 | **报销代发** | CLAIM | 1 万 | 10 万 | 200 个（默认） | 首次签约：需商户法人签约授权  <br/>后续变更：需商户法人签约确认，如法人未签约则 48h 后默认生效 |
+
+1. 特殊场景`「合伙人」`，与网商沟通后，该场景的在品牌层面做了调整，具体如下：
+
+   1. 收款账户数量：单次300+
+   2. 单笔支付最大金额：10万块。
+   3. 单商户月度限额：50万块。
 
 #### 授权代付合约申请单类型
 
@@ -948,4 +954,4 @@
 
 ## PC工作台
 
-<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OWZhOGE5YThjNjBhNWYyZDc4NzllYTkyYjE4YTg3ZDVfOTNhODY4NTkyOGNlMDcxN2ExYzlmZjk4ZmU5ZjY0ZjFfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=MjhlM2Q1ZDIzZmFkNGIyZWVkYTYzNmU3YTBhYmE0NjlfZjdiYWNkNTAzNDE5YzBkZGM3Y2MxMjlkZmE5NmIwNzRfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg3MTQ1Nzc0OjE3ODcxNDkzNzRfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NTIyNTJjZTYxOTFkMzcxNTk0OWFkNjBjYjJmZTY3OTRfYzU2MGU2MjEwZmMzMTJjNjA3MjdlZjlhOTUzZTMyMDVfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDgwNWRiOGMwMTc1MDY0ZjFhMGZiYmY5NzgzODQ5ZDRfZTk0Y2U5YjIxMmYzM2E1N2RhZTAxOGY5MGZiMTNmNjZfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
