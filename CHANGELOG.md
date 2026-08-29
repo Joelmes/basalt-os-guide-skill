@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.9.11] — 2026-08-29
+
+### 更新内容
+- **新增 `references/glossary.md`**：承接 PRD 开头名词解释表（pre-H1 内容），此前拆分脚本按 H1 起切整块丢失，现补入。含 8 类账户完整定义（平台清算专户 9903 / 平台保证金户 8888 / 可用子户 BALANCE / 可用子户-解冻 BALANCE_AVAILABLE / 可用子户-冻结 BALANCE_FREEZE / 冻结子户 FREEZE 已废弃 / 商户交易保证金户 TRADE_DEPOSIT / 过桥西进户 TransitionDetail）+ 账号信息 + TRADE_DEPOSIT 两种激活方式（API 开通 / 静默开通）+ 过桥西进户完整线下流程（法人亲自申请、"一财"核验、多西进户规则）
+- SKILL.md「知识路由表」新增 glossary.md 首行、「文件清单」表新增 glossary.md 条目
+- 从飞书同步最新 PRD（rev 52580，326,906 字符，与 rev 52153 相比无实质变化，仅 1 处 H3 改名）
+- `clearing.md` H3 改名：`### 订单汇总` → `### 订单汇总（按POS/门店）`
+- `merchants.md` / `payments.md` / `global-rules.md` / `operations.md` / `faq.md` 与现网内容一致，本次不覆盖（避免 signed URL authcode 噪声扰动）
+- 知识库 9 篇文档 byte-for-byte 无变化
+
 ## [1.9.10] — 2026-08-28
 
 ### 更新内容
