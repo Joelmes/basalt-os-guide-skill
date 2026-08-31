@@ -1,11 +1,12 @@
 {
-  "version": "1.9.11",
+  "version": "2.0.0",
   "name": "BasaltOS操作手册",
-  "updated": "2026-08-29",
+  "updated": "2026-08-31",
   "changes": [
-    "新增 references/glossary.md：承接 PRD 开头名词解释表（8 类账户完整定义 + TRADE_DEPOSIT 两种激活方式 + 过桥西进户完整线下流程），修复拆分脚本按 H1 起切丢失 pre-H1 内容的结构性缺口",
-    "SKILL.md 路由表和文件清单同步登记 glossary.md",
-    "clearing.md H3 改名：「订单汇总」→「订单汇总（按POS/门店）」",
-    "同步最新 PRD（rev 52580，326,906 字符）；其他 references 与现网一致未覆盖"
+    "以 1.9.11 为基线合并 1.10.0 的三处关键修订，统一此前 1.9.x / 1.10.x 的版本分叉",
+    "operations.md：保证金户 5.2 恢复为「已上线」含表（API手动开通/静默开通两种方式），覆盖 01.1 总部区域、01.2 门店两份手册",
+    "operations.md：补回「安徽门店通过 6 个个体工商户营业执照统一办理、共开通 100+ 个 POS」说明",
+    "operations.md：保留「三联 ERP 清算订单通道尚未上线」正确口径",
+    "知识补充：含 1.9.11 新增 glossary.md（8 类账户完整定义）、clearing.md「订单汇总（按POS/门店）」、merchants.md 四份「商户余额导出」章节及全局笔误修正"
   ]
 }
