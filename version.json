@@ -1,8 +1,12 @@
 {
-  "version": "2.1.0",
+  "version": "2.2.0",
   "name": "BasaltOS操作手册",
-  "updated": "2026-09-07",
+  "updated": "2026-09-09",
   "changes": [
-    "global-rules.md 合约变更系统流水号纠错：协议代扣（N开头）网商无对应流水号字段（系统自产）；授权代付（W开头）对应 OutBizNo 而非 OutTradeNo"
+    "术语同步：品牌清算专户余额 / 清算中金额 指标改名",
+    "接口名笔误修正：withhold / apply.query / BatchInstanceId",
+    "退款扣保账户表述纠错：8888 平台保证金户",
+    "多处文字笔误与多余空格清理",
+    "FAQ 新增 Q22.1 品牌清算专户余额与清算中金额关系"
   ]
 }
