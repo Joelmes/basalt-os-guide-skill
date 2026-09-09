@@ -17,7 +17,7 @@
    3. 收到签约/修改通知（签约申请/协议变更申请（同步和异步））时`立即调查询申请单目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口查询申请单最新状态。
 </callout>
 
-### 新增/修改授权代付合约-授权代付合约产生
+### 新增/修改`授权代付`合约-授权代付合约产生
 
 <callout emoji="🎈">
 1. 协议代扣的授权只能由商户在支付宝云资金小程序主动发起。
@@ -455,37 +455,37 @@
       
          1. 授权代付：
          
-            1. 签约、修改：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`授权方AuthorizerInfo`字段值中商户号对应的公司/门店/供应商名称。
+            1. 签约、修改：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`授权方AuthorizerInfo`字段值中商户号对应的公司/门店/供应商名称。
             2. 解约：`1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口中`授权方AuthorizerInfo`字段值中商户号对应的公司或公司/门店/供应商名称。
       6. 授权方编码：
       
          1. 授权代付：
          
-            1. 签约、修改：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`授权方AuthorizerInfo`字段值中商户号对应的公司/门店/供应商编码。
+            1. 签约、修改：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`授权方AuthorizerInfo`字段值中商户号对应的公司/门店/供应商编码。
             2. 解约：`1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口中`授权方AuthorizerInfo`字段值中商户号对应的公司/门店/供应商编码。
       7. 授权方商户简称：
       
          1. 授权代付：
          
-            1. 签约、修改：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`授权方AuthorizerInfo`字段值中商户号对应的商户简称。
+            1. 签约、修改：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`授权方AuthorizerInfo`字段值中商户号对应的商户简称。
             2. 解约：`1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口中`授权方AuthorizerInfo`字段值中商户号对应的商户简称。
       8. 授权方网商商户号：
       
          1. 授权代付：
          
-            1. 签约、修改：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`授权方AuthorizerInfo`字段值中的网商商户号。
+            1. 签约、修改：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`授权方AuthorizerInfo`字段值中的网商商户号。
             2. 解约：`1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口中`授权方AuthorizerInfo`字段值中的网商商户号。
    3. 备注
    
       1. 授权代付：
       
-         1. 签约、修改：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口返回的`备注：Memo`字段值。
+         1. 签约、修改：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口返回的`备注：Memo`字段值。
          2. 解约：`1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口返回的`备注：Memo`字段值。
    4. 动账短信
    
       1. 授权代付：
       
-         1. 签约、修改：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口返回的`是否禁止动账短信通知：SmsProhibitFlag`字段的值
+         1. 签约、修改：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口返回的`是否禁止动账短信通知：SmsProhibitFlag`字段的值
          2. 解约：`1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口返回的`是否禁止动账短信通知：SmsProhibitFlag`字段的值
          
             1. Y - 不通知
@@ -546,7 +546,7 @@
 </callout>
 
 1. 系统流水号：平台调用`签约申请/协议变更申请`（同步或异步）接口发起授权代付申请时系统生成的`系统流水号OutBizNo`。发起授权代付申请详见[发起授权代付申请](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-MGZvd67hxodImTxWjutcS8ApnOc)。系统流水号生成规则详见[系统流水号生成规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-LjFjdzbGHoHARRx0I3xcRGpknsb)。
-2. 申请时间：每次产生新的申请单时，需同步调用`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口查询申请单最新状态时返回的`请求时间RequestTime`字段值。
+2. 申请时间：每次产生新的申请单时，需同步调用`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口查询申请单最新状态时返回的`请求时间RequestTime`字段值。
 3. 申请类型：
 
    1. 签约：对应调用`签约申请/协议变更申请`（同步或异步）接口发起授权代付申请时提交的`申请类型ApplyType`字段值的`CREATE`。
@@ -563,7 +563,7 @@
    2. 修改：
    
       1. 对应调用`签约申请/协议变更申请`（同步或异步）接口发起授权代付签约申请时提交的`合约号AgreementNo`字段的值。
-      2. 有新的修改申请单时，也可以调用`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口查询申请单最新状态时返回的`合约号AgreementNo`字段的值。
+      2. 有新的修改申请单时，也可以调用`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口查询申请单最新状态时返回的`合约号AgreementNo`字段的值。
    3. 解约：由商户发起，对应网商通过`1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>`接口中`合约号AgreementNo`字段的值。
 6. 合约类型：授权代付合约的合约类型为：`授权代付`。
 7. 申请单状态：详见[授权代付申请单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-EGfxdYbBUoAnzDxNLOcctkBonjh)。
@@ -573,7 +573,7 @@
 9. 错误描述：调用`签约申请/协议变更申请`异步接口时`1.3. 协议签约异步申请结果通知<ant.mybank.bkcloudfunds.protocol.sign.apply.notify>`接口返回的`错误描述信息ErrorDesc`字段的值。
 
    1. 申请单状态为「申请失败FAIL」时出现。
-10. 完结时间：格式：yyyy-MM-dd HH:mm:ss，`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口查询申请单最新状态时返回的`完结时间FinishTime`字段的值。
+10. 完结时间：格式：yyyy-MM-dd HH:mm:ss，`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口查询申请单最新状态时返回的`完结时间FinishTime`字段的值。
 
     1. 终态时返回，如果未返回，则显示为「-」。
 11. 合约：{合约号}-「合约状态」。如该申请单已经产生合约号，则显示，如果没有合约号，则显示为「-」。
@@ -581,29 +581,29 @@
     1. 签约：商户确认后通过`1.7.授权合同变更通知`接口返回合约号才有合约号。
     2. 修改：有合约号，合约号状态为「已生效」。
     3. 解约：有合约号。合约状态按接口返回展示。
-12. 业务场景：合伙模式。对应`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`业务场景SceneCode`字段值`PARTNER_CASCADE_PAY`。
-13. 授权方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`授权方AuthorizerInfo`字段的值。
+12. 业务场景：合伙模式。对应`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`业务场景SceneCode`字段值`PARTNER_CASCADE_PAY`。
+13. 授权方：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`授权方AuthorizerInfo`字段的值。
 
     1. 授权方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
     2. 授权方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
     3. 授权方是网商：{网商银行}（如：网商银行）
-14. 被授权方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`被授权方AuthorizeeInfo`字段的值。
+14. 被授权方：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`被授权方AuthorizeeInfo`字段的值。
 
     1. 被授权方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
     2. 被授权方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
     3. 被授权方是网商：{网商银行}（如：网商银行）
-15. 发起方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`发起方InitiatorInfo`字段的值。
+15. 发起方：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`发起方InitiatorInfo`字段的值。
 
     1. 发起方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
     2. 发起方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
     3. 发起方是网商：{网商银行}（如：网商银行）
-16. 最终操作方：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`最终操作方AdvancingInfo`字段的值。
+16. 最终操作方：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`最终操作方AdvancingInfo`字段的值。
 
     1. 最终操作方是公司/门店/供应商：{公司/门店/供应商名称}-{商户简称}-{网商商户号}
     2. 最终操作方是平台：{平台名称（品牌方）}-{IsvOrgId}（如：`浙江可柔品牌管理有限公司-202211000000000004381`）。
     3. 最终操作方是网商：{网商银行}（如：网商银行）
-17. 备注：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`备注Memo`字段的值。
-18. 动账短信：`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`是否禁止动账短信通知(Y/N)SmsProhibitFlag`字段的值。
+17. 备注：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`备注Memo`字段的值。
+18. 动账短信：`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`是否禁止动账短信通知(Y/N)SmsProhibitFlag`字段的值。
 
     1. Y - 不通知
     2. N - 通知。
@@ -611,7 +611,7 @@
 
     1. 户名：accountName
     2. 账号：accountNo
-20. 业务子场景和收款方：按场景聚类，分别填写每个场景的收款方信息。`1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.auerv>`接口中`授权事项AuthDetail`字段的值。
+20. 业务子场景和收款方：按场景聚类，分别填写每个场景的收款方信息。`1.4. ``查询申请单目前状态``<ant.mybank.bkcloudfunds.protocol.sign.apply.query>`接口中`授权事项AuthDetail`字段的值。
 
     <callout emoji="🎈">
     1. 列表中出现的银行卡账号和支付宝账号均需脱敏。脱敏规则详见[银行账号和支付宝账号脱敏规则](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-MeW6doV0AoFnY0xWXjFcFY1anve)。
@@ -654,7 +654,7 @@
 PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2Fb.mybank.cn
 </callout>
 
-### 付款记录
+### 付款记录（列表）
 
 <callout emoji="🎈">
 1. 接口调用：
@@ -666,9 +666,9 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
    1. 协议代扣：2.2和2.3两个接口的参数字段一致。
    
       1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/hz4cxl
-      2. 发起付款（创建付款单）：2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>
-      3. 付款结果通知：2.2协议授权代扣通知结果<ant.mybank.bkcloudfunds.protocol.witHHold.result.notify>
-      4. 查询付款结果：2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.witHHold.query>
+      2. 发起付款（创建付款单）：2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.withhold.apply>
+      3. 付款结果通知：2.2协议授权代扣通知结果<ant.mybank.bkcloudfunds.protocol.withhold.result.notify>
+      4. 查询付款结果：2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.withhold.query>
    2. 授权代付：2.2和2.3两个接口的参数字段一致。
    
       1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/kfcdymo1frk3es5p#OHpfT
@@ -707,7 +707,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
    2. 更新付款状态：点击后根据付款类型分别调用网商接口查询付款记录结果。
    
       <callout emoji="🎈">
-      协议代扣：`2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.witHHold.query>`。
+      协议代扣：`2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.``withhold``.query>`。
       授权代付：`2.3授权代付结果查询<ant.mybank.bkcloudfunds.trade.operate.result.query>`。
       </callout>
    
@@ -733,7 +733,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
       2. 授权代付：网商定义的5个业务子场景。付款记录数据产生时将费用场景名称写入记录数据，避免因用户修改费用场景名称带来的数据不一致问题。
    4. 付款方：该付款单中的付款方主体和商户信息。
    
-      1. 协议代扣：对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口中的`付款方商户号PayerId`字段值，通过该字段值查询到的付款方信息。
+      1. 协议代扣：对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.``withhold``.apply>`接口中的`付款方商户号PayerId`字段值，通过该字段值查询到的付款方信息。
       
          1. 2.2通知接口和2.3查询接口**不**会返回该字段。
       2. 授权代付：对应网商`2.1授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>`接口中的`付款方（授权方）主体信息PayerParticipant`字段值，通过该字段值查询到的付款方信息。
@@ -742,7 +742,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
       3. 付款方为公司/门店/供应商时：展示公司/门店/供应商名称和付款商户简称。
    5. 付款金额：单位元，到小数点后2位。
    
-      1. 协议代扣：对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口中的`交易金额（分）TotalAmount`字段值。
+      1. 协议代扣：对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.``withhold``.apply>`接口中的`交易金额（分）TotalAmount`字段值。
       
          1. 2.2通知接口和2.3查询接口也会返回该字段。
       2. 授权代付：对应网商`2.1授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>`接口中的`支付金额（单位：分）TotalAmount`字段值。
@@ -750,7 +750,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
          1. 2.2通知接口和2.3查询接口也会返回该字段。
    6. 收款方：
    
-      1. 协议代扣：该付款单中的收款方主体和商户简称。对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口中的`收款方ID PayeeId`字段值（`网商商户号`），通过该字段值查询到的收款方信息。
+      1. 协议代扣：该付款单中的收款方主体和商户简称。对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.``withhold``.apply>`接口中的`收款方ID PayeeId`字段值（`网商商户号`），通过该字段值查询到的收款方信息。
       
          1. 2.2通知接口和2.3查询接口**不**会直接返回该字段，在调用2.1接口时需做记录。
          2. 收款方为公司/门店/供应商时：展示公司/门店/供应商名称和付款商户简称。
@@ -767,7 +767,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
          1. 2.2通知接口和2.3查询接口**不**会返回该字段，在调用2.1接口时需做记录。
    7. 备注：用户创建付款单时填写的备注信息
    
-      1. 协议代扣：对应网商`协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口中的`备注Memo`字段值。
+      1. 协议代扣：对应网商`协议授权代扣接口<ant.mybank.bkcloudfunds.order.``withhold``.apply>`接口中的`备注Memo`字段值。
       
          1. 2.2通知接口和2.3查询接口也会返回该字段。
       2. 授权代付：对应网商`授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>`接口中的`备注Memo`字段值。
@@ -782,8 +782,8 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
    
       1. 协议代扣：对应网商
       
-         1. `2.2协议授权代扣通知结果<ant.mybank.bkcloudfunds.protocol.witHHold.result.notify>`接口返回的`交易完结时间FinishDate`字段值。
-         2. `2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.witHHold.query>`接口返回的`交易完结时间FinishDate`字段值。
+         1. `2.2协议授权代扣通知结果<ant.mybank.bkcloudfunds.protocol.``withhold``.result.notify>`接口返回的`交易完结时间FinishDate`字段值。
+         2. `2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.``withhold``.query>`接口返回的`交易完结时间FinishDate`字段值。
       2. 授权代付：对应网商
       
          1. `2.2授权代付结果通知<ant.mybank.bkcloudfunds.trade.operate.result.notify>`接口中的`交易完结时间FinishDate`字段值。
@@ -950,7 +950,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
          9. 填写完成后，请复制全部已填写单元格内容，再粘贴为「值」，付款方商户号列不要保留公式。
    3. 上传完善后的模板
    
-      1. 文本提示：在下载的模板填写信息后，可直接将文件拖拽到  此处进行上传。支持格式：XLSX
+      1. 文本提示：在下载的模板填写信息后，可直接将文件拖拽到此处进行上传。支持格式：XLSX
       2. 选择文件：点击后打开本地文件管理器，从本地选择Excel后上传。
       3. 拖拽上传：支持用户拖拽Excel文件至虚线框内上传表格。
       4. 校验表格内容并解析。
@@ -1005,7 +1005,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 <callout emoji="🎈">
 1. 根据费用场景（对内/对外），需调用网商不同的接口。
 
-   1. 对内：协议代扣。2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>
+   1. 对内：协议代扣。2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.withhold.apply>
    2. 对外：授权代付。2.1授权协议支付申请接口<ant.mybank.bkcloudfunds.protocol.pay.apply>
 </callout>
 
@@ -1071,7 +1071,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 6. 提交：
 
    1. 点击后系统进行数据有效性校验，如付款方商户ID有效性，费用类型，收款方信息完整性。
-   2. 校验通过后调用网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口发起支付申请。
+   2. 校验通过后调用网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.``withhold``.apply>`接口发起支付申请。
    3. 接口调用失败时直接展示错误信息。
    4. 接口调用成功时页面变更为提交成功页。
    
@@ -1132,7 +1132,7 @@ PC工作台地址：https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2
 
 <callout emoji="🎈">
 1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/hz4cxl#P0qNF
-2. 接口：2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>
+2. 接口：2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.withhold.apply>
 </callout>
 
 <table><colgroup><col/><col/><col/><col/><col/><col/><col/><col/></colgroup><thead><tr><th><b>序号</b></th><th><b>参数名</b></th><th><b>参数描述</b></th><th><b>数据类型</b></th><th><b>长度</b></th><th><b>出现要求</b></th><th><b>示例</b></th><th>传参</th></tr></thead><tbody><tr><td colspan="7"><b>基本参数</b></td><td></td></tr><tr><td>1</td><td>IsvOrgId</td><td>合作方机构号（网商银行分配）。</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：<code>202211000000000004381</code></td></tr><tr><td>2</td><td>OutTradeNo</td><td>代扣业务订单号</td><td>String</td><td>64</td><td>ME</td><td></td><td>{业务流水号}</td></tr><tr><td>3</td><td>Scene</td><td>业务场景：<br/>品牌协议代扣场景：PROTOCOL_WITHHOLD<br/>品牌协议代扣支持冻结场景：PROTOCOL_WITHHOLD_SUPPORT_FREEZE<br/>品牌协议代扣支持冻结和账号场景：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT</td><td>String</td><td>32</td><td>M</td><td></td><td>固定值：PROTOCOL_WITHHOLD_SUPPORT_COMPONENT<br/>（品牌协议代扣支持冻结和账号场景）</td></tr><tr><td>4</td><td>TotalAmount</td><td>交易金额（分）</td><td>Number</td><td></td><td>M</td><td></td><td>{付款金额}</td></tr><tr><td><del>5</del></td><td>FreezeAmount</td><td>冻结部分出金（分）</td><td>Number</td><td></td><td>C</td><td>非必传<br/>PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td><del>6</del></td><td>AvailableAmount</td><td>可用部分金额（分）</td><td>Number</td><td></td><td>C</td><td>非必传PROTOCOL_WITHHOLD_SUPPORT_FREEZE场景下出现</td><td>传空</td></tr><tr><td>7</td><td>Currency</td><td>币种</td><td>String</td><td>3</td><td>M</td><td>CNY</td><td>固定值：CNY</td></tr><tr><td>8</td><td>PayerId</td><td>付款方商户号</td><td>String</td><td>64</td><td>M</td><td></td><td>{付款方商户号}</td></tr><tr><td>9</td><td>PayerType</td><td>付款方类型：</td><td>String</td><td>16</td><td>M</td><td>MERCHANT</td><td>MERCHANT</td></tr><tr><td>10</td><td>PayeeId</td><td>收款方ID</td><td>String</td><td>64</td><td>M</td><td></td><td>{收款方商户号}</td></tr><tr><td>11</td><td>PayeeType</td><td>收款方类型</td><td>String</td><td>16</td><td>M</td><td>MERCHANT<br/>PLATFORM</td><td>MERCHANT</td></tr><tr><td>12</td><td>Memo</td><td>备注（可填写订单描述信息）</td><td>String</td><td>128</td><td>O</td><td></td><td>{备注}</td></tr><tr><td>13</td><td>PayerSpecifiedInfo</td><td>指定付方使用信息场景为本次新增场景时，外部需要指定时该字段必填！！不填的话由网商内部根据isv来进行配置</td><td>String</td><td>512</td><td><b>O</b></td><td>PayerSpecifiedInfo对象json结构进行base64encode </td><td>固定值：见下面的代码块</td></tr><tr><td>14</td><td>ExtInfo</td><td>扩展信息</td><td>String</td><td>512</td><td>O</td><td>map</td><td></td></tr></tbody></table>
@@ -1180,9 +1180,9 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
    3. 最大可退金额：最大可退金额=付款金额-已退款金额-退款在途金额。
 3. 接口：
 
-   1. 协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>
-   2. 协议代扣退款结果通知<ant.mybank.bkcloudfunds.protocol.witHHold.refund.result.notify>
-   3. 协议代扣退款结果查询接口<ant.mybank.bkcloudfunds.protocol.witHHold.refund.query>
+   1. 协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.withhold.refund.apply>
+   2. 协议代扣退款结果通知<ant.mybank.bkcloudfunds.protocol.withhold.refund.result.notify>
+   3. 协议代扣退款结果查询接口<ant.mybank.bkcloudfunds.protocol.withhold.refund.query>
 </callout>
 
 #### 发起退款
@@ -1214,7 +1214,7 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
             2. 最大可退金额=付款金额-已退款金额-退款在途金额。
    9. 退款原因：必填，文本域输入框，最多可输入128个字。
    10. 备注：非必填，文本域输入框，最多可输入128个字。
-   11. 提交：用户点击确认后系统调用网商`协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>`发起协议代扣退款申请。点击取消则关闭协议代扣退款申请弹窗。
+   11. 提交：用户点击确认后系统调用网商`协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.apply>`发起协议代扣退款申请。点击取消则关闭协议代扣退款申请弹窗。
    
        1. 前置校验：
        
@@ -1231,7 +1231,7 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
              1. 退款记录中新增一条退款记录数据，状态为「处理中」。
              2. 弹窗关闭，toast提示：「退款请求已提交，正在等待网商银行处理，稍后可刷新退款记录页面查看。」
           2. 接口调用失败，弹窗内toast提示失败原因，保留已填写内容以便用户修改后重试。
-       4. 接口调用：`协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>`
+       4. 接口调用：`协议代扣退款申请接口<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.apply>`
        
           | 序号 | 参数名 | 参数描述 | 类型 | 长度 | 必填 | 传值 |
           |-|-|-|-|-|-|-|
@@ -1254,9 +1254,9 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
 2. 退款记录状态变更分别有通知接口和查询接口，建议通过通知接口收到通知后再用查询接口查一次退款单数据。
 3. 数据来源接口
 
-   1. 发起退款（创建退款单）：1.协议代扣退款申请接口`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>`
-   2. 退款结果通知：2.协议代扣退款结果通知`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.result.notify>`
-   3. 查询退款结果：3.协议代扣退款结果查询接口`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.query>`
+   1. 发起退款（创建退款单）：1.协议代扣退款申请接口`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.apply>`
+   2. 退款结果通知：2.协议代扣退款结果通知`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.result.notify>`
+   3. 查询退款结果：3.协议代扣退款结果查询接口`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.query>`
 </callout>
 
 1. 查询区
@@ -1279,7 +1279,7 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
    1. 更新退款状态：点击后调用网商接口查询退款记录结果。
 
    <callout emoji="🎈">
-   `接口：3.协议代扣退款结果查询接口<ant.mybank.bkcloudfunds.protocol.witHHold.refund.query>`
+   `接口：3.协议代扣退款结果查询接口<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.query>`
    </callout>
 
    1. 如未勾选任何记录：查询全部「处理中」状态的退款记录的最新结果。
@@ -1296,14 +1296,14 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
    <callout emoji="🎈">
    1. 列表数据来源：
    
-      1. 发起退款（创建退款单）：1.协议代扣退款申请接口`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>`
-      2. 退款结果通知：2.协议代扣退款结果通知`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.result.notify>`
-      3. 查询退款结果：3.协议代扣退款结果查询接口`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.query>`
+      1. 发起退款（创建退款单）：1.协议代扣退款申请接口`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.apply>`
+      2. 退款结果通知：2.协议代扣退款结果通知`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.result.notify>`
+      3. 查询退款结果：3.协议代扣退款结果查询接口`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.query>`
    </callout>
 
    1. 退款流水号：系统生成，唯一。对应网商`OutRefundNo`字段，退款流水号生成规则详见[协议代扣退款流水号](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-XBandRYG3omv3mxSmQTc01arnwf)。
    2. 网商退款单号：退款申请接口调用成功后网商返回，对应退款申请接口回参的`RefundOrderNo`字段值。
-   3. 退款方：该退款单中的退款方主体和商户信息。退款方即原付款单中的收款方。对应网商退款申请接口`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.apply>`中的`ParticipantId`字段值（即原付款单的`PayeeId`），通过该字段值查询到的退款方信息。退款通知接口和退款查询接口也会返回该字段。
+   3. 退款方：该退款单中的退款方主体和商户信息。退款方即原付款单中的收款方。对应网商退款申请接口`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.apply>`中的`ParticipantId`字段值（即原付款单的`PayeeId`），通过该字段值查询到的退款方信息。退款通知接口和退款查询接口也会返回该字段。
    
       1. 退款方为公司/门店/供应商时：展示{公司/门店/供应商名称}-{商户简称}。
       2. 退款方为平台时：展示{平台保证金户户名}-{平台保证金户账号}。
@@ -1311,7 +1311,7 @@ PayerSpecifiedInfo → specifiedMerchantAmtComposition
          1. 平台保证金户户名：浙江可柔品牌管理有限公司。
          2. 平台保证金户账号：8888888815513823。
    4. 退款金额：该笔退款单的退款金额。单位元，到小数点后2位。对应网商退款申请接口，退款通知接口和退款查询接口中的`RefundAmount`字段值（单位为分，系统转换为元）。
-   5. 收款方：对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>`接口中的`付款方商户号PayerId`字段值，通过该字段值查询到的付款方信息。
+   5. 收款方：对应网商`2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.``withhold``.apply>`接口中的`付款方商户号PayerId`字段值，通过该字段值查询到的付款方信息。
    
       1. 收款方为公司/门店/供应商时：展示{公司/门店/供应商名称}-{商户简称}。
    6. 退款原因：对应网商退款申请接口中的`RefundReason`字段值。发起退款时用户填写。
