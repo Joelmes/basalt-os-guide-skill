@@ -2,7 +2,7 @@
 
 ### 供应商列表
 
-<synced-source><callout emoji="🎈"><ol><li seq="1">供应商基础数据从三联系统获取。<ol><li seq="1">接口：供应商档案查询(open.supplier.query)</li><li>供应商信息唯一不变值：<code>供应商IDSupplierID</code></li></ol></li><li>三联系统中供应商创建时必填字段：供应商编号，供应商名称。其中供应商编号不可重复。</li><li>供应商编码生成规则见「<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">公司编码、门店编码和供应商编码</a><a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">生成规则</a>」。</li><li>供应商数据获取与更新：<ol><li seq="1">如需修改供应商基础信息，用户须前往三联系统修改，然后在本系统中更新供应商信息。</li><li>定时更新：每日凌晨3:00，更新全部供应商（含新建供应商）信息。</li><li>手动更新：<ol><li seq="1">拉取新建供应商：如用户在三联系统中新建了供应商后需在本系统立即同步的，可点击操作区域的「拉取新供应商」按钮立即增量拉取新建供应商信息。</li><li>更新供应商信息：如用户在三联系统中修改了供应商信息后需在本系统立即同步的，可在供应商列表勾选需更新的供应商后点击工具区的「更新供应商信息」按钮立即更新供应商信息。</li></ol></li></ol></li></ol></callout></synced-source>
+<synced-source><callout emoji="🎈"><ol><li seq="1">供应商基础数据从三联系统获取。<ol><li seq="1">接口：供应商档案查询(open.supplier.query)</li><li>供应商信息唯一不变值：<code>供应商IDSupplierID</code></li></ol></li><li>三联系统中供应商创建时必填字段：供应商编号，供应商名称。其中供应商编号不可重复。</li><li>供应商编码生成规则见「<a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">公司编码、门店编码和供应商编码</a><a href="https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-QpVadEydToFnNzxR4Ancsue9nvf">生成规则</a>」。</li><li>供应商数据获取与更新：<ol><li seq="1">如需修改供应商基础信息，用户须前往三联系统修改，然后在本系统中更新供应商信息。</li><li>定时更新：每日凌晨3:00，更新全部供应商（含新建供应商）信息。</li><li>手动更新：<ol><li seq="1">拉取新建供应商：如用户在三联系统中新建了供应商后需在本系统立即同步的，可点击工具区的「拉取新供应商」按钮立即增量拉取新建供应商信息。</li><li>更新供应商信息：如用户在三联系统中修改了供应商信息后需在本系统立即同步的，可在供应商列表勾选需更新的供应商后点击工具区的「更新供应商信息」按钮立即更新供应商信息。</li></ol></li></ol></li></ol></callout></synced-source>
 
 1. 查询区
 
@@ -176,10 +176,10 @@ AppId：`2026042000004278`
       
          1. 用户点击更新时间后的「更新」按钮。
          2. 用户点击浏览器刷新按钮。
-2. 清算专户余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，平台清算专户中的全部待清算金额。
+2. 品牌清算专户余额：金额数字为2位小数，单位元，格式为`{x.xx}元`，平台清算专户中的全部待清算金额。
 
    <callout emoji="🎈">
-   1. 清算专户余额查询接口：`子户外标``余额查询``<ant.mybank.bkcloudfunds.account.balance.query>`
+   1. 品牌清算专户余额查询接口：```子户外标``余额查询``<ant.mybank.bkcloudfunds.account.balance.query>```
    
       1. 接口调用入参
       
@@ -194,7 +194,7 @@ AppId：`2026042000004278`
    </callout>
 
    1. 今日入账：金额数字为2位小数，单位元，格式为`{x.xx}元`。以来账时间为准，计算当日入账的来账金额总和。
-3. 清算在途：金额数字为2位小数，单位元，格式为`{x.xx}元`。表示已经发起清算申请，等待网商处理清算频次的金额。计算状态为「清算中」的清算批次的实际金额总和。
+3. 清算中金额：金额数字为2位小数，单位元，格式为`{x.xx}元`。表示已经发起清算申请，等待网商处理清算的金额。计算状态为「清算中」的清算批次的实际金额总和。
 
    1. 今日发起：以清算批次上报时间为准，通过计算当日发起上报的且清算状态为「清算中」的批次的实际金额总和得出。
 4. 已清算：金额数字为2位小数，单位元，格式为`{x.xx}元`。表示平台上累积已经完成清算的金额，通过计算清算状态为「清算成功」的批次的实际金额总和得出。
@@ -303,25 +303,29 @@ AppId：`2026042000004278`
 3. 列表区
 
    1. 交易时间：格式：`yyyy-MM-dd HH:mm:ss`，对应网商{交易时间}字段值。
-   2. 业务流水号：该笔账单费用产生的原账单的业务流水号，对应网商`{外部订单号}`字段值。
-   3. 计费项：用于区分费用项目，对应网商{计费项}字段值。
+   2. 付款方：
+   
+      1. {公司/门店/供应商名称}：业务流水号对应的的原付款单中的付款方主体名称。
+      2. {商户名称}：业务流水号对应的的原付款单中的付款方的商户名称。
+   3. 业务流水号：该笔账单费用产生的原账单的业务流水号，对应网商`{外部订单号}`字段值。
+   4. 计费项：用于区分费用项目，对应网商{计费项}字段值。
    
       <callout emoji="🎈">
       1. 以下内容分别为前端展示内容和原对账文件内容映射关系。
       2. 费用项类目非穷举，如对对账单文件解析时出现不在此列表中的计费项，则直接展示原文件中的计费项名称。
       </callout>
    
-      <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>#</th><th>前端展示</th><th>品牌商费用对账文件原值</th><th>计费码</th><th>备注说明</th></tr></thead><tbody><tr><td><ol><li seq="1"></li></ol></td><td>授权代付</td><td>授权代付-授权联动代付</td><td>to_bankcard_api_pay</td><td></td></tr><tr><td><ol><li seq="2"></li></ol></td><td>接口提现</td><td>提现（接口模式）</td><td></td><td></td></tr><tr><td><ol><li seq="3"></li></ol></td><td>小程序提现</td><td></td><td></td><td></td></tr><tr><td><ol><li seq="4"></li></ol></td><td>银行卡收银台支付</td><td>银行卡支付（收银台模式）</td><td></td><td></td></tr><tr><td><ol><li seq="5"></li></ol></td><td>补贴发放</td><td>补贴发放</td><td></td><td></td></tr><tr><td><ol><li seq="6"></li></ol></td><td>联动支付</td><td>授权代付-收银台联动支付</td><td></td><td></td></tr><tr><td><ol><li seq="7"></li></ol></td><td>API余额支付</td><td>API余额支付</td><td></td><td></td></tr><tr><td><ol><li seq="8"></li></ol></td><td>支付宝收银台余额支付</td><td>支付宝余额支付（收银台模式）</td><td></td><td></td></tr></tbody></table>
-   4. 交易金额：该笔账单费用产生的原账单的交易金额，对应网商`{交易金额}`字段值。
-   5. 费率：该计费项的费率，对应网商`{费率}`字段值，「%」放在表头，行内只放数字。
-   6. 账单金额：该笔账单的金额，对应网商`{账单金额}`字段值。
-   7. 未付金额：该笔账单网商未收取（从品牌方账户）的金额。对应网商`{未收金额}`字段值。
-   8. 已付金额：该笔账单网商已收取（从品牌方账户）的金额。对应网商`{已收金额}`字段值。
-   9. 扣缴状态：服务费扣缴调用的是协议代扣接口，扣缴状态复用[协议代扣付款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-OifcdTmVyoWO2uxkR2wc0ccenVf)，详见[服务费扣缴](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-VWCudGC6qoCHwExNv4Hcy7ywnKc)。
+      <table><colgroup><col/><col/><col/><col/><col/></colgroup><thead><tr><th>#</th><th>前端展示</th><th>品牌商费用对账文件原值</th><th>计费码</th><th>备注说明</th></tr></thead><tbody><tr><td><ol><li seq="1"></li></ol></td><td>授权代付</td><td>授权代付-授权联动代付</td><td>to_bankcard_api_pay</td><td></td></tr><tr><td><ol><li seq="2"></li></ol></td><td>接口提现</td><td>提现（接口模式）</td><td>api_balance_withdraw_pay</td><td></td></tr><tr><td><ol><li seq="3"></li></ol></td><td>小程序提现</td><td></td><td></td><td></td></tr><tr><td><ol><li seq="4"></li></ol></td><td>银行卡收银台支付</td><td>银行卡支付（收银台模式）</td><td></td><td></td></tr><tr><td><ol><li seq="5"></li></ol></td><td>补贴发放</td><td>补贴发放</td><td></td><td></td></tr><tr><td><ol><li seq="6"></li></ol></td><td>联动支付</td><td>授权代付-收银台联动支付</td><td></td><td></td></tr><tr><td><ol><li seq="7"></li></ol></td><td>协议代扣</td><td>API余额支付</td><td>api_balance_pay</td><td></td></tr><tr><td><ol><li seq="8"></li></ol></td><td>支付宝收银台余额支付</td><td>支付宝余额支付（收银台模式）</td><td></td><td></td></tr></tbody></table>
+   5. 交易金额：该笔账单费用产生的原账单的交易金额，对应网商`{交易金额}`字段值。
+   6. 费率：该计费项的费率，对应网商`{费率}`字段值，「%」放在表头，行内只放数字。
+   7. 账单金额：该笔账单的金额，对应网商`{账单金额}`字段值。
+   8. 未付金额：该笔账单网商未收取（从品牌方账户）的金额。对应网商`{未收金额}`字段值。
+   9. 已付金额：该笔账单网商已收取（从品牌方账户）的金额。对应网商`{已收金额}`字段值。
+   10. 扣缴状态：服务费扣缴调用的是协议代扣接口，扣缴状态复用[协议代扣付款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-OifcdTmVyoWO2uxkR2wc0ccenVf)，详见[服务费扣缴](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-VWCudGC6qoCHwExNv4Hcy7ywnKc)。
    
-      1. 初始状态为「未扣缴」。
-      2. 调用协议代扣接口发起扣缴成功后，扣缴状态按[协议代扣付款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-OifcdTmVyoWO2uxkR2wc0ccenVf)变更，接口调用失败时状态不变。
-   10. 操作
+       1. 初始状态为「未扣缴」。
+       2. 调用协议代扣接口发起扣缴成功后，扣缴状态按[协议代扣付款单状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-OifcdTmVyoWO2uxkR2wc0ccenVf)变更，接口调用失败时状态不变。
+   11. 操作
    
        1. 扣缴：服务费账单同时满足以下条件时该按钮出现，点击后展示服务费扣缴确认弹窗。
        
@@ -393,7 +397,7 @@ AppId：`2026042000004278`
    
       <callout emoji="🎈">
       1. 接口文档：https://loan-platform.yuque.com/vo42xq/dpd6q7/hz4cxl#P0qNF
-      2. 接口：2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.witHHold.apply>
+      2. 接口：2.1协议授权代扣接口<ant.mybank.bkcloudfunds.order.withhold.apply>
       </callout>
    
       1. 接口调用说明：PayerSpecifiedInfo → specifiedMerchantAmtComposition
