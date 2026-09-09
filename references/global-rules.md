@@ -86,9 +86,9 @@
 
 ### 收钱吧和拉卡拉账单
 
-<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NGE0MjVlZGRkNzYyZTUyZTA2MjQ2YTA2MGIwNWE5NzRfZmYzOGRiZWI4YjE0YmFlMDhhZTM2M2IwZGU0OWE2Y2ZfSUQ6NzY1OTYxNzY5OTk4Njg2OTIzMV8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
+<source name="1680007448067_品牌服饰3-2026-06-23-2026-06-24.xlsx" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="137436" token="Cxt3bx1BToQdv7xJXh0cmWElngd"/>
 
-<source name="拉卡拉-交易流水_20260629_001.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=Mjg3MjFkMTdkOTI5NGNjMDI1M2YxMTAzNGE0YjI2NzlfNzg3YTI4MjE0NGE2MDcyMTBiZmRlNDc3YjdmZmRkYTJfSUQ6NzY1OTYxODExODc0NjkzNDQ3Nl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
+<source name="拉卡拉-交易流水_20260629_001.xlsx" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="56602" token="AcBtbBSYgo4S7rxdrChcgCx5nzf"/>
 
 #### 收钱吧关键字段说明：
 
@@ -295,7 +295,7 @@
    
       1. 文件示例
    
-      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YjI4YTQ3NGM5MDgxNWM5M2Q0NjU1OTE2ZjY1ZjZlYzBfNDhkZjFiZDYzNzM4NWE2NGU0MTI4MmU2NmFlYzU0MDlfSUQ6NzY2MDA2NjIxMzA1MDkyODA3N18xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
+      <figure view-type="Card"><source name="商户账户资金账单-20260703.txt" mime="text/plain" size="463" token="IdONbysR0ofC19x0cAKcH8lDnLe"/></figure>
    
       1. 数据解析逻辑（按以下顺序依次解析数据）
       
@@ -374,7 +374,7 @@
    2. 网商收取手续费：网商次日（D+1）从品牌方8888结算户（保证金户）收取前一日品牌所有商户提现产生的手续费。
    
       1. 网商提现手续费=申请提现金额\*0.05%。
-   3. 品牌方获取网商提现手续费账单：品牌方第三日（D+2）凌晨3点从网商拉取品牌服务费对账文件，即前一日品牌方向网商已支付的的手续费账单。
+   3. 品牌方获取网商提现手续费账单：品牌方第三日（D+2）凌晨3点从网商拉取品牌服务费对账文件，即前一日品牌方向网商已支付的手续费账单。
    
       1. 筛选提现手续费账单：从账单表格中筛选提现手续费账单（提现（小程序模式）和提现（API模式）），用筛选出的所有手续费账单跟前面提现通知接口返回的提现订单比对：
       
@@ -443,7 +443,7 @@
    2. 示例：浙江可柔品牌管理有限公司_平台服务费付费明细_20260703
 3. 品牌商费用对账文件明细
 
-   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NmUwMzljNjA0ZmMzYWExYTRiZWEyNDQ2OWI2YjU5NmFfNzhhZjc4ZjQ2MzU5ZWY3MzZiNzk4MjMzYzgwOGVhYTFfSUQ6NzY2MDEwMDgzNTIxNzAwMTQyNl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
+   <figure view-type="Card"><source name="浙江可柔品牌管理有限公司_平台服务费付费明细_20260703.xlsx" mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" size="7393" token="VAfybt8svocOunxfZ3OceqIPn9e"/></figure>
 
    | 字段 | 值 | 说明/映射 |
    |-|-|-|
@@ -561,7 +561,7 @@
    1. 待上报：清算批次通过清算文件在本系统创建成功后的初始状态，此时本系统保存批次数据，未调用网商创建批次接口。
    2. 上报失败：「待上报」状态的批次调用网商`创建批次接口`失败（网络异常、参数错误、接口返回业务拒绝）时的状态，可通过是否拿到网商`批次实例号`来判断。
    3. 已作废：「待上报」和「上报失败」状态的批次执行「作废」操作后的状态，已作废的批次不能再发起上报与清算。批次作废时对应的清算文件状态同步变更为「已作废」。
-   4. 清算中：「待上报」状态的批次调用网商`创建批次接口<ant.mybank.bkcloudbatch.batch.create>`成功后网商处理清算批次中的状态，可通过是否拿到网商批次实例号`Batchlnstanceld`来判断。
+   4. 清算中：「待上报」状态的批次调用网商`创建批次接口<ant.mybank.bkcloudbatch.batch.create>`成功后网商处理清算批次中的状态，可通过是否拿到网商批次实例号`BatchInstanceId`来判断。
    5. 清算成功：「清算中」状态的批次通过`批次完结通知`和`批次查询接口`获得的批次清算结果中的`SUCCESS`状态。
    6. 部分成功：通过`批次完结通知`或`批次查询接口`获得的批次清算结果中的`PART_SUCCESS`状态。（据网商开发反馈，现阶段不会出现部分成功的状态，即只会全部成功或全部失败。）
    7. 清算失败：通过`批次完结通知`或`批次查询接口`获得的批次清算结果中的`FAIL`状态。
@@ -637,9 +637,8 @@
 
 <callout emoji="🎈">
 1. 协议代扣和授权代付合约变更（签约，修改，解约，解约审核）时产生申请单，每个申请单有唯一的系统流水号。
-2. 系统流水号与网商字段的对应关系：
-   1. 协议代扣（N开头）：网商无主动合约变更接口，仅通过通知接口（授权/解约通知、解约申请审核、授权状态查询）交互，双向报文均无流水号字段。系统收到通知后自行创建变更记录并生成系统流水号，该流水号仅作为本系统申请单的唯一标识，无对应网商字段。
-   2. 授权代付（W开头）：对应签约申请/协议变更申请接口（同步/异步）中的`OutBizNo`字段（外部流水号）。
+2. 协议代扣的合约在收到网商变更通知时自行编写业务流水号并做关联记录。
+3. 授权代付的合约变更在发起接口调用时系统生成系统流水号，对应网商合约变更相关接口中的`OutBizNo`字段。
 </callout>
 
 1. 格式：`{N/W}{YYYYMMDD}_{4位自增数字编号}`
@@ -657,6 +656,27 @@
    1. 系统流水号在系统中和申请单一一对应。
 
 ### 协议代扣
+
+#### 协议代扣限额与开白
+
+> 基于收款方视角的限额
+
+1. 收款方=企业商户：
+
+   1. 开白名单：不需要
+   2. 限额：无
+2. 收款方=个体工商户商户：
+
+   1. 开白名单：需要（在[连锁通管理中心（原 PC 工作台）操作](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-WUmOd6bwCoBYuOxp1klc1bwAnlc)）
+   2. 限额：无
+3. 收款方=自然人商户：
+
+   1. 开白名单：需要（**自然人商户（01）**：**不支持**直接作为协议代扣收款方，需通过**邮件申请开白**。收件邮箱：`MYBank-jhzf-yunyingzuoye@list.alibaba-inc.com`、`WB-shanghufuwu@service.alibaba.com`，抄送 `yinhong.yin@mybank.cn`。文档）
+   2. 限额：有（收款方维度）
+   
+      1. 日：5万元，
+      2. 月：50万元，
+      3. 年：500万元
 
 #### 协议代扣申请单类型
 
@@ -709,7 +729,7 @@
 
 #### 开户行匹配联行号字典表
 
-<figure view-type="Card"><source name="人行联行号-20210603.csv" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NzU5OTlkMmNiNzNkNTFjODkyMDYzY2QzZWM1ZjM5YmVfZThjZWZkZjBlZDhhMjY4ZmE4OTZkOWRjOTQ1ZDBhMmVfSUQ6NzY3MzgzMDk0NzQzNDk1Nzc3Nl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="text/csv" size="27149722" token="WWTsba6OSoWtKCxluHBcxTnNnof"/></figure>
+<figure view-type="Card"><source name="人行联行号-20210603.csv" mime="text/csv" size="27149722" token="WWTsba6OSoWtKCxluHBcxTnNnof"/></figure>
 
 1. 匹配逻辑：
 
@@ -740,7 +760,7 @@
 
 | 申请类型 | 记录来源 | 触发方 | 来源：网商接口 | 核心参数 |
 |-|-|-|-|-|
-| **签约** | 平台调用签约申请接口发起授权申请 | 平台 | 1.1签约申请/协议变更申请（同步）`<ant.mybank.bkcloudfunds.protocol.sign.apply>`  <br/>1.2签约申请/协议变更申请（异步）`<ant.mybank.bkcloudfunds.protocol.sign.async.apply>`  <br/>1.4查询申请单 目前状态`<ant.mybank.bkcloudfunds.protocol.sign.apply.query>` | OutBizNo,   <br/>ApplyType=CREATE, 申请类型：新增  <br/>AuthorizerInfo（授权方信息），AuthorizeeInfo（被授权方信息），AuthDetail（授权事项） |
+| **签约** | 平台调用签约申请接口发起授权申请 | 平台 | 1.1签约申请/协议变更申请（同步）`<ant.mybank.bkcloudfunds.protocol.sign.apply>`  <br/>1.2签约申请/协议变更申请（异步）`<ant.mybank.bkcloudfunds.protocol.sign.async.apply>`  <br/>1.4查询申请单目前状态`<ant.mybank.bkcloudfunds.protocol.sign.apply.query>` | OutBizNo,   <br/>ApplyType=CREATE, 申请类型：新增  <br/>AuthorizerInfo（授权方信息），AuthorizeeInfo（被授权方信息），AuthDetail（授权事项） |
 | **修改** | 平台调用修改申请接口修改已有授权合约 | 平台 | 1.1签约申请/协议变更申请（同步）`<ant.mybank.bkcloudfunds.protocol.sign.apply>`  <br/>1.2签约申请/协议变更申请（异步）`<ant.mybank.bkcloudfunds.protocol.sign.async.apply>` | ApplyType=ADJUST, 申请类型：修改  <br/>AgreementNo（合约号，修改时必传） |
 | **解约** | 商户在小程序发起解约，网商通过授权合同变更通知接口通知平台 | 商户 | 1.7授权合同变更通知`<ant.mybank.bkcloudfunds.protocol.sign.notify>` | ApplyType=INVALID, 申请类型：失效  <br/>AgreementNo, 合约号  <br/>AgreementStatus=INVALID，合约状态 |
 
@@ -749,7 +769,7 @@
 1. 申请单状态来源
 
    1. 1.3. 协议签约异步申请结果通知<ant.mybank.bkcloudfunds.protocol.sign.apply.notify>
-   2. 1.4. 查询申请单 目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.query>
+   2. 1.4. 查询申请单目前状态<ant.mybank.bkcloudfunds.protocol.sign.apply.query>
    3. 1.7.授权合同变更通知<ant.mybank.bkcloudfunds.protocol.sign.notify>
 2. 状态映射
 
@@ -797,7 +817,7 @@
 ##### 批量付款业务流水号
 
 <callout emoji="🎈">
-映射网商字段：
+映射网商协议代扣和授权代付付款接口字段：
 1. 协议代扣：代扣业务订单号，OutTradeNo
 2. 授权代付：外部订单请求流水号。OutTradeNo
 </callout>
@@ -842,8 +862,8 @@
 1. 包含协议代扣批量支付和单笔支付的业务订单。
 2. 状态来源接口：
 
-   1. 被动通知：2.2协议授权代扣通知结果<ant.mybank.bkcloudfunds.protocol.witHHold.result.notify>
-   2. 主动查询：2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.witHHold.query>
+   1. 被动通知：2.2协议授权代扣通知结果<ant.mybank.bkcloudfunds.protocol.withhold.result.notify>
+   2. 主动查询：2.3协议授权代扣查询结果<ant.mybank.bkcloudfunds.protocol.withhold.query>
 </callout>
 
 1. 状态说明与接口字段映射
@@ -890,8 +910,8 @@
 
 <callout emoji="🎈">
 状态来源接口：
-1. 被动通知：协议代扣退款结果通知`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.result.notify>`
-2. 主动查询：协议代扣退款结果查询`<ant.mybank.bkcloudfunds.protocol.witHHold.refund.query>`
+1. 被动通知：协议代扣退款结果通知`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.result.notify>`
+2. 主动查询：协议代扣退款结果查询`<ant.mybank.bkcloudfunds.protocol.``withhold``.refund.query>`
 </callout>
 
 1. 状态说明与接口字段映射
@@ -954,6 +974,14 @@
    7.    PayeeType 收款方类型：PLATFORM
 
 
-## PC工作台
+## **连锁通管理中心（原 PC 工作台）**
 
-<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=NTIyNTJjZTYxOTFkMzcxNTk0OWFkNjBjYjJmZTY3OTRfYzU2MGU2MjEwZmMzMTJjNjA3MjdlZjlhOTUzZTMyMDVfSUQ6NzY1OTc3NTY3OTAwMDgwODM4NF8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" href="https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDgwNWRiOGMwMTc1MDY0ZjFhMGZiYmY5NzgzODQ5ZDRfZTk0Y2U5YjIxMmYzM2E1N2RhZTAxOGY5MGZiMTNmNjZfSUQ6NzY1OTc3NTY2OTQ1NjQ1NjkwMl8xNzg3ODg1NTA3OjE3ODc4ODkxMDdfVjM" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+<grid><column width-ratio="0.300000"><figure view-type="Card"><source name="PC工作台-自助式信息变更操作指引.pdf" mime="application/pdf" size="836269" token="SvO0bNzgFoNQIfx1EUvcfqHPnDd"/></figure></column><column width-ratio="0.700000"><figure view-type="Card"><source name="PC工作台-对账开票操作指引.pdf" mime="application/pdf" size="2865754" token="NRFQb9qkVoGC1hxkuhIchIn4nvf"/></figure></column></grid>
+
+1. 协议代扣收款方=个体工商户时需要开白名单
+
+   1. 协议授权代扣默认只支持「平台结算户（8888 开头）」和「企业商户（03）」作为收款方，个体工商户（02）作为收款方必须先在网商侧加白，否则无法通过协议代扣收款。**只需要收款方开白，付款方不需要开白**。知识库文档
+   2. 操作路径（在**连锁通管理中心（原 PC 工作台）**：
+   
+      1. 连锁通管理中心登录 → **业务变更申请** → **新增业务申请** → **业务限制变更类型** → **个体工商户支持协议代扣**
+      2. PC 工作台地址：[https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2Fb.mybank.cn](https://b.mybank.cn/index.htm#/login?targetUrl=https%3A%2F%2Fb.mybank.cn)文档文档
