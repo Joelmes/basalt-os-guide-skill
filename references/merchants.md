@@ -2971,8 +2971,9 @@ AppId：`2026042000004278`
    8. 交易保证金户：对应商户的交易保证金户，列表中未展示，文本框输入，支持关键词筛选（非完全匹配）。
    9. 入驻方式：下拉单选，预入驻+激活，小程序入驻。
    
-      1. 预入驻+激活：后续产品增加该入驻方式。
-      2. 小程序入驻：本次商户入驻全部为小程序入驻。
+      1. 预入驻+激活：平台代填预入驻资料，提交网商审核通过后生成激活链接，商户在云资金小程序完成核身激活。
+      2. 小程序入驻：商户通过商户入驻/注册链接自助在小程序完成入驻。
+      3. 两种入驻方式均已上线，可按需选用。
    10. 入驻状态：对应列表中的入驻状态列，下拉单选，选项列表及映射关系详见[商户入驻状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-WAdgdmZBUoIcHRxDntScEEr3nIc)。
    11. 签约状态：对应列表中的签约授权列，下拉单选，选项包含协议代扣和授权代付两种合约去重后的全部状态。详见[协议代扣合约状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-DQaMdqLulobsdFxuPvAccRlPnkc)和[授权代付合约状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-UGlNdJ8yWohGNrxtnlIcRWVSnub)。
    
@@ -3049,7 +3050,7 @@ AppId：`2026042000004278`
    6. 网商商户号：网商返回的网商侧商户号。
    
       1. 商户未入驻时网商侧不会返回网商侧商户号，显示为「-」
-   7. 入驻方式：商户入驻方式，当前全部为小程序。
+   7. 入驻方式：商户入驻方式，分为预入驻+激活和小程序入驻两种，均已上线。
    8. 入驻状态：展示状态及映射关系详见[商户入驻状态](https://bcno92iwldd2.feishu.cn/docx/P4eedyyrhoWE5HxC1AtcCPvtnWc#share-WAdgdmZBUoIcHRxDntScEEr3nIc)。其中：
    
       1. 预入驻失败：预入驻失败时网商会返回失败原因，在状态文字后方展示提示符号，点击可打开预入驻失败原因弹窗，展示完整的失败原因。
