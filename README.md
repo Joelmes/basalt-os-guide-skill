@@ -34,10 +34,13 @@ Agent 会通过 URL 读取仓库中的 SKILL.md 和 references/ 内容，自动�
 
 | 模块 | 文件 | 覆盖内容 |
 |---|---|---|
-| 商户管理 | `references/merchants.md` | 5 类账户、品牌/总部/区域/门店商户、资金账户、提现 |
+| 术语与账户 | `references/glossary.md` | 8 类账户名词定义、PRD 元信息与版本迭代 |
+| 组织架构 | `references/org.md` | 总部公司、区域公司管理（列表/详情/添加/编辑） |
+| 商户管理 | `references/merchants.md` | 5 类账户、品牌/总部/区域/门店/供应商商户、资金账户、提现、生成注册码、批量入驻 |
+| 门店运营 | `references/storeops.md` | 全部门店列表与详情（三联门店档案）、更新/拉取门店 |
 | 清算流程 | `references/clearing.md` | 清算订单、清算文件、清算批次、退款扣保 |
 | 付款与签约 | `references/payments.md` | 签约授权、协议代扣/授权代付、付款记录、退款 |
-| 平台与规则 | `references/global-rules.md` | 平台管理、编码规则、状态机、费率、角色权限 |
+| 平台与规则 | `references/global-rules.md` | 平台管理、编码规则、状态机、费率、角色权限、批量入驻总规则 |
 
 ## 常见问题（即问即答）
 
