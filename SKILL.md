@@ -1,7 +1,7 @@
 ---
 name: BasaltOS操作手册
-description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接、操作手册等全部业务领域。当用户询问 Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。当用户说"检查更新"、"check for updates"时从 GitHub 拉取最新版本更新本地 skill。仅做知识查询，不包含数据读写操作。
-version: 2.2.3
+description: 回答 Basalt OS 清算分账系统的使用方法、操作技巧和业务规则问题。覆盖账户体系、商户入驻、清算流程、协议代扣、授权代付、退款退保、提现、对账、费率、角色权限、外部系统对接、操作手册等全部业务领域。当用户询问 BasaltOS操作手册、Basalt OS、清算分账、资金归集、商户管理、协议签约、批次提交、退保垫资、提现流程、对账操作等系统使用问题时触发。当用户说"检查更新"、"check for updates"时从 GitHub 拉取最新版本更新本地 skill。仅做知识查询，不包含数据读写操作。
+version: 3.0.0
 ---
 
 # BasaltOS 操作手册
@@ -111,7 +111,9 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 | 关键词 | 读取文件 | 覆盖内容 |
 |---|---|---|
 | 名词、术语、账户定义、账户类型、账户性质、余额支付、解冻、母户、对公二类户、平台清算专户、平台保证金户、可用子户、冻结子户、废弃、TRADE_DEPOSIT、BALANCE_AVAILABLE、BALANCE_FREEZE、FREEZE、TransitionDetail、静默开通、激活方式 | [glossary.md](references/glossary.md) | **PRD 名词解释表原文**：8 类账户完整定义、含"账户"列的账号信息、TRADE_DEPOSIT 两种激活方式（API/静默）、过桥西进户完整线下流程（法人亲自申请、"一财"核验、多西进户规则） |
-| 账户、开户、子户、保证金户、清算专户、结算户、2268、9903、8888、余额查询、品牌专户、总部公司、区域公司、门店、供应商、商户详情、资金账户、提现、银行卡 | [merchants.md](references/merchants.md) | 5类账户定义、品牌/总部/区域/门店商户管理、资金账户、提现 |
+| 组织架构、总部公司管理、区域公司管理、公司列表、公司详情、添加公司、编辑公司 | [org.md](references/org.md) | 总部公司与区域公司管理的列表/详情/添加/编辑（区别于清算分账下的商户视角） |
+| 门店运营、全部门店、门店档案、门店列表、门店详情、更新门店信息、拉取新门店 | [storeops.md](references/storeops.md) | 门店运营视角的门店列表（查询/工具/列表区）与门店详情（基础信息/经营主体/结算账户/外部账户），三联字段口径 |
+| 账户、开户、子户、保证金户、清算专户、结算户、2268、9903、8888、余额查询、品牌专户、总部公司、区域公司、门店、供应商、商户详情、资金账户、提现、银行卡、生成注册码、批量入驻、注册码、导入历史 | [merchants.md](references/merchants.md) | 5类账户定义、品牌/总部/区域/门店/供应商商户管理、资金账户、提现、生成注册码、批量入驻 |
 | 清算、批次、订单上传、补单、清算文件、SFTP、分账、资金归集、收钱吧、三联、POS | [clearing.md](references/clearing.md) | 清算订单、清算文件、清算批次、退款扣保 |
 | 代扣、代付、联动支付、余额划转、协议、签约、解约、合约、付款、退款、退保、扣保、批量付款、单笔付款 | [payments.md](references/payments.md) | 签约授权、协议代扣/授权代付、付款记录、退款 |
 | 入驻、商户注册、编码规则、角色、权限、管理员、费率、手续费、状态、规则 | [global-rules.md](references/global-rules.md) | 平台管理、全局规则、编码规则、状态机、费率、角色权限 |
@@ -217,11 +219,13 @@ npx skills add https://github.com/Joelmes/basalt-os-guide-skill
 | `SKILL.md` | 主入口文件 |
 | `CHANGELOG.md` | 更新日志 |
 | `references/glossary.md` | 术语与账户名词解释（PRD 开头名词表原文，8 类账户完整定义 + TRADE_DEPOSIT 激活方式 + 过桥西进户细则） |
+| `references/org.md` | 组织架构知识（总部公司、区域公司管理） |
+| `references/storeops.md` | 门店运营知识（全部门店、门店档案与详情） |
 | `references/merchants.md` | 商户管理知识 |
 | `references/clearing.md` | 清算知识 |
 | `references/payments.md` | 付款知识 |
 | `references/global-rules.md` | 全局规则知识 |
-| `references/operations.md` | 操作手册（登录、入驻、清算、分账、提现操作 SOP） |
+| `references/operations.md` | 操作手册（登录、入驻、清算、分账、提现、供应商档案、加盟授权代付授权审核操作 SOP） |
 | `references/faq.md` | 常见问题 FAQ |
 
 > 注意：必须下载以上全部文件，不可遗漏。
